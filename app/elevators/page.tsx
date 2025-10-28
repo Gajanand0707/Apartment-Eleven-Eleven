@@ -1,0 +1,272 @@
+"use client";
+import wall from '../../images/wall.png';
+import Image from 'next/image';
+import { useState } from 'react';
+import texture from '../../images/texture.png';
+import pathbg from '../../images/pathbg.png';
+export default function Elevators() {
+
+    const faqs = [
+    {
+      q: "Can International Startups Apply?",
+      a: "Lorem gayudvgau bc adhisabchik usadh aicui ahd uisanbcI gfbdsyuivbysudkvbahuk bdsuivabdhusivbyud bvuysdbnvnjskayudks abdysa bioa ycvds ai dsayuv as u an cjdsIhuiv danjkl",
+    },
+    {
+      q: "Can International Startups Apply?",
+      a: "This is a placeholder answer for the second item. Replace with your real copy.",
+    },
+    {
+      q: "Can International Startups Apply?",
+      a: "This is a placeholder answer for the third item. Replace with your real copy.",
+    },
+  ];
+
+  // which index is open. null means none.
+  // start with 0 open like your screenshot
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  function toggleFAQ(index: number) {
+    setOpenIndex(prev => (prev === index ? null : index));
+  }
+
+  return (
+    <div>
+    <section className="relative flex w-full h-[720px] bg-[#1C1C1C] overflow-hidden">
+      {/* LEFT SIDE - image */}
+      <div className="relative flex-1 h-full">
+        {/* black bg behind the image so gaps don't show */}
+        <div className="absolute inset-0 bg-[#1C1C1C]" />
+
+        <img
+          src={wall.src}
+          alt="colosseum"
+          className="absolute inset-0 w-full h-full object-cover object-left-bottom"
+        />
+
+        {/* optional: dark gradient fade on the right edge of the image to blend into text area */}
+        <div className="absolute right-0 top-0 h-full w-[200px] bg-gradient-to-l from-[#1C1C1C] to-transparent" />
+      </div>
+
+      {/* RIGHT SIDE - text */}
+      <div className="relative flex flex-col justify-center items-start text-right text-[#F5F5F5] pr-16 pl-12 w-[40%]">
+        {/* big GREAT */}
+        <h1 className="font-['Playfair_Display'] font-bold text-9xl leading-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white">
+          GREAT
+        </h1>
+
+        {/* IDEAS DESERVE */}
+        <h2 className="font-['Playfair_Display'] font-semibold text-5xl leading-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white ml-3">
+          IDEAS DESERVE
+        </h2>
+
+        {/* next GREAT */}
+        <h1 className="font-['Playfair_Display'] font-bold text-9xl leading-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white mt-10">
+          GREAT
+        </h1>
+
+        {/* PARTNERSHIPS */}
+        <h2 className="font-['Playfair_Display'] font-semibold text-5xl leading-tight  drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white ml-3">
+          PARTNERSHIPS
+        </h2>
+      </div>
+    </section>
+
+   <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-16 px-6">
+      {/* parchment background texture */}
+      <Image
+        src={pathbg}
+        alt="Section background texture"
+        fill
+        priority
+        className="object-cover object-center opacity-80"
+      />
+
+      {/* content wrapper to keep z-index above background */}
+      <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center text-center">
+        {/* Heading */}
+        <h2 className="font-['Playfair_Display'] font-bold text-black leading-tight text-[64px] md:text-[72px]">
+          Three Paths to Our Engagement
+        </h2>
+
+        {/* Subheading */}
+        <p className="font-['Playfair_Display'] font-semibold text-black leading-snug text-2xl md:text-[32px] max-w-[1000px] mt-6">
+          Choose the passage that best aligns with your vision, and let our shared journey commence.
+        </p>
+
+        {/* Cards row */}
+        <div className="mt-16 flex flex-col md:flex-row gap-10 md:gap-8">
+          {/* Card 1 */}
+          <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            {/* terracotta texture overlay */}
+            <Image
+              src={texture}
+              alt="Terracotta background"
+              fill
+              priority
+              className="object-cover object-center mix-blend-multiply opacity-90"
+            />
+
+            {/* card content above texture */}
+            <div className="relative z-10 flex flex-col items-center">
+              {/* icon */}
+              <div className="text-white mb-6">
+                {/* Lightbulb icon placeholder */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-14 h-14 stroke-white fill-none stroke-[3]"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 18h6M10 21h4M9 14a5 5 0 1 1 6 0c-.6.5-1 1.5-1 2.5V18h-4v-1.5c0-1-.4-2-1-2.5Z" />
+                </svg>
+              </div>
+
+              {/* title */}
+              <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                Align with Our Cadre
+              </h3>
+
+              {/* body copy */}
+              <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
+                Forge ties with our pioneering founders and captains of industry.
+                If you are acquainted with a team from our esteemed lineage,
+                they can vouch for your expedited inclusion amongst us.
+              </p>
+
+              {/* CTA pill */}
+              <button className="bg-[#0E4943] text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10">
+                CONVENE WITH US
+              </button>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            <Image
+              src={texture}
+              alt="Terracotta background"
+              fill
+              priority
+              className="object-cover object-center mix-blend-multiply opacity-90"
+            />
+
+            <div className="relative z-10 flex flex-col items-center">
+              {/* icon */}
+              <div className="text-white mb-6">
+                {/* People icon placeholder */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-14 h-14 fill-white"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6 0a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM3 20c0-2.2 2.7-4 6-4s6 1.8 6 4v1H3v-1Zm12 0c0-1.4-.7-2.6-2-3.3.6-.1 1.3-.2 2-.2 3.3 0 6 1.8 6 4v1h-6v-1Z" />
+                </svg>
+              </div>
+
+              <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                Unveil Your Vision
+              </h3>
+
+              <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
+                Possess a groundbreaking concept? You may consult with our guild of
+                visionary minds and patrons. Together, we shall sculpt your ideas
+                into enduring reality through collaborative mastery.
+              </p>
+
+              <button className="bg-[#0E4943] text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10 min-w-[260px]">
+                {/* leave empty in screenshot so just keep structure */}
+              </button>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            <Image
+              src={texture}
+              alt="Terracotta background"
+              fill
+              priority
+              className="object-cover object-center mix-blend-multiply opacity-90"
+            />
+
+            <div className="relative z-10 flex flex-col items-center">
+              {/* icon */}
+              <div className="text-white mb-6">
+                {/* Rocket icon placeholder */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-14 h-14 stroke-white fill-none stroke-[3]"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14 10c-1.5 1.5-3 4-3 4s2.5-1.5 4-3c1.2-1.2 1.8-2.4 2-3.5.2-1 .2-2.1.2-2.1s-1.1 0-2.1.2C16.4 6.2 15.2 6.8 14 8c-1.5 1.5-3 4-3 4s2.5-1.5 4-3ZM8 14l-2 2c-.5.5-.8 1.1-.9 1.8L5 20l2.2-.1c.7-.1 1.3-.4 1.8-.9l2-2" />
+                </svg>
+              </div>
+
+              <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                Offer Your Proposal
+              </h3>
+
+              <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
+                Deliver your application via our well-ordered method.
+                Each founder&apos;s submission is justly assessed, and
+                personalized insights are bestowed.
+              </p>
+
+              <button className="bg-[#0E4943] text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10 min-w-[260px]">
+                {/* empty pill */}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
+      <div className="w-full max-w-[960px] flex flex-col items-center text-center">
+        {/* Heading */}
+        <h2 className="font-['Playfair_Display'] font-bold text-[64px] leading-[1.1] text-black">
+          Common Inquiries
+        </h2>
+
+        {/* Subheading */}
+        <p className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug text-black max-w-[900px] mt-6">
+          All you need discern regarding alliance with us.
+        </p>
+
+        {/* FAQ list */}
+        <div className="w-full mt-12 flex flex-col gap-6">
+          {faqs.map((item, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div key={idx} className="w-full">
+                {/* Question pill */}
+                <button
+                  onClick={() => toggleFAQ(idx)}
+                  className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-['Playfair_Display'] text-left text-[28px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
+                >
+                  <span className="pr-4">
+                    {item.q}
+                  </span>
+
+                  {/* toggle icon */}
+                  <span className="text-[32px] leading-none select-none font-semibold text-black">
+                    {isOpen ? "✠" : "✠"}
+                  </span>
+                </button>
+
+                {/* Answer panel (only if open) */}
+                {isOpen && (
+                  <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 max-w-full">
+                    <p className="text-white text-left whitespace-pre-line">
+                      {item.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+    </div>
+  );
+}

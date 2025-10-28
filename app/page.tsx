@@ -16,41 +16,28 @@ import gif from "../images/gif.png";
 export default function Home() {
   return (
     <div>
-      <section className="relative flex items-center bg-[#0E4943] overflow-hidden h-[720px] md:h-[760px] lg:h-[780px]">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_center,_rgba(178,224,219,0.25)_0%,_rgba(14,73,67,1)_70%)] z-[1]" />
-
-        {/* Left text */}
-        <div className="relative z-[2] w-full lg:w-1/2 px-6 sm:px-10 lg:px-20 text-[#D8CCBA]">
-          <h2 className="font-serif font-semibold drop-shadow-lg text-3xl sm:text-4xl md:text-5xl lg:text-[64px] leading-tight mb-3">
+      <section className="relative flex justify-between items-center bg-[#0E4C45] text-[#F5EDE0] h-full  overflow-hidden">
+        {/* Left Text Section */}
+        <div className="flex flex-col gap-4 ml-10">
+          <h2 className="text-[86px] font-['Playfair_Display'] font-medium leading-tight">
             Welcome to
           </h2>
-          <h1
-            className="font-['Playfair_Display_SC'] font-bold drop-shadow-lg leading-[0.88] text-5xl sm:text-[80px] md:text-[110px] lg:text-[138px]"
-            style={{ color: "#D8CCBA" }}
-          >
-            APARTMENT
-            <br />
-            ELEVEN ELEVEN
+          <h1 className="text-[108px] leading-[1.05] font-['Playfair_Display'] font-bold">
+            APARTMENT<br />ELEVEN ELEVEN
           </h1>
         </div>
 
-        {/* Right image */}
-        <div className="absolute right-0 top-0 h-full w-[520px] lg:w-[560px] z-[2]">
-          <div className="relative h-full w-full">
-            <Image
-              src={statue1}
-              alt="Statue Illustration"
-              fill
-              priority
-              style={{
-                objectFit: "cover",
-                objectPosition: "right center",
-              }}
-            />
-          </div>
+        {/* Right Image Section */}
+        <div className="flex justify-end ">
+          <img
+            src={statue1.src}
+            alt="statue"
+            
+            className="w-[400px] h-auto object-cover ml-8 top-0 bottom-0 "
+          />
         </div>
       </section>
+
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black">
         {/* Background texture */}
@@ -334,54 +321,54 @@ export default function Home() {
           </div>
         </div>
       </section>
-    <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
-     
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
 
-      {/* content wrapper */}
-      <div className="relative z-[1] max-w-[1400px] mx-auto flex flex-col gap-12">
-        {/* Top heading */}
-        <h1 className="text-center font-['Playfair_Display'] font-bold text-4xl sm:text-5xl lg:text-6xl">
-          Our Residents
-        </h1>
 
-        {/* 2-column block */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-20">
-          {/* LEFT TEXT COLUMN */}
-          <div className="flex flex-col text-left max-w-[700px]">
-            <h2 className="font-['Playfair_Display'] font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black">
-              Resident Expertise
-              <br />
-              Derived Naturally
-            </h2>
+        {/* content wrapper */}
+        <div className="relative z-[1] max-w-[1400px] mx-auto flex flex-col gap-12">
+          {/* Top heading */}
+          <h1 className="text-center font-['Playfair_Display'] font-bold text-4xl sm:text-5xl lg:text-6xl">
+            Our Residents
+          </h1>
 
-            <p className="mt-6 text-lg sm:text-xl leading-relaxed font-['Inter'] text-black max-w-[680px]">
-              Apartment Eleven Eleven residents are thoughtfully selected
-              using diverse professional backgrounds sourced from various
-              industries and expertise areas.
-            </p>
+          {/* 2-column block */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-20">
+            {/* LEFT TEXT COLUMN */}
+            <div className="flex flex-col text-left max-w-[700px]">
+              <h2 className="font-['Playfair_Display'] font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black">
+                Resident Expertise
+                <br />
+                Derived Naturally
+              </h2>
 
-            <div className="mt-10">
-              <TextureButton className="text-lg px-8 py-3">
-                View all Residents
-              </TextureButton>
+              <p className="mt-6 text-lg sm:text-xl leading-relaxed font-['Inter'] text-black max-w-[680px]">
+                Apartment Eleven Eleven residents are thoughtfully selected
+                using diverse professional backgrounds sourced from various
+                industries and expertise areas.
+              </p>
+
+              <div className="mt-10">
+                <TextureButton className="text-lg px-8 py-3">
+                  View all Residents
+                </TextureButton>
+              </div>
             </div>
-          </div>
 
-          {/* RIGHT IMAGE COLUMN */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[520px] border-[3px] border-[#003E6B] bg-[#DCCCAF]">
-              
-              <Image
-                src={gif}
-                alt="Resident Expertise Graphic"
-                className="w-full h-auto object-cover"
-                priority
-              />
+            {/* RIGHT IMAGE COLUMN */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[520px] border-[3px] border-[#003E6B] bg-[#DCCCAF]">
+
+                <Image
+                  src={gif}
+                  alt="Resident Expertise Graphic"
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px]  text-center px-6">
         <h1 className="text-6xl font-['Playfair_Display']">Residents Testimonials</h1>

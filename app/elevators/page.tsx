@@ -1,9 +1,9 @@
 "use client";
-import wall from '../../images/wall.png';
+import wall from '../../public/wall.png';
 import Image from 'next/image';
 import { useState } from 'react';
-import texture from '../../images/texture.png';
-import pathbg from '../../images/pathbg.png';
+import texture from '../../public/texture.png';
+import pathbg from '../../public/pathbg.png';
 export default function Elevators() {
 
     const faqs = [

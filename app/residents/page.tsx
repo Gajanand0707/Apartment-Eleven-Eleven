@@ -1,6 +1,6 @@
 import Image from "next/image";
-import resident_bg from "../../images/resident_bg.png";
-import spacex from "../../images/spacex.png";
+import resident_bg from "../../public/resident_bg.png";
+import spacex from "../../public/spacex.png";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import HallwaysSection from "@/components/HallwaysSection";
 

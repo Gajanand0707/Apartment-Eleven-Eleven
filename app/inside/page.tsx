@@ -1,5 +1,5 @@
 import MeetTeamSection from "@/components/MeetTeamSection"
-import insdie from "../../images/inside.png"
+import insdie from "../../public/inside.png"
 export default function InsidePage() {
     return(
         <div>

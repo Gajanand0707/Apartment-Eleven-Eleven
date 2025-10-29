@@ -2,11 +2,11 @@ import Image from "next/image";
 import CaseStudyCard from "./CaseStudiesCard";
 
 // bg texture
-import pathbg from "../images/pathbg.png";
+import pathbg from "../public/pathbg.png";
 
 // card images (replace with your actual imports)
-import case1 from "../images/case1.png";
-import case2 from "../images/case2.png";
+import case1 from "../public/case1.png";
+import case2 from "../public/case2.png";
 
 export default function CaseStudiesSection() {
   const caseStudies = [

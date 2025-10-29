@@ -8,6 +8,7 @@ export default function InsidePage() {
             </div>
 
             <MeetTeamSection/>
+            <section></section>
         </div>
     )
 }

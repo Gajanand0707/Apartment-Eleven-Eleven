@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6";
-import logo from "../images/logo.png"; // or use /public/logo.png if stored in public/
+import logo from "../public/logo.png"; // or use /public/logo.png if stored in public/
 
 export function Footer() {
   return (

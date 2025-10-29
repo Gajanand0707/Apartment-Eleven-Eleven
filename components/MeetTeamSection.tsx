@@ -1,10 +1,10 @@
 import TeamCard, { TeamCardProps } from "./TeamCard";
-import sahiba from "../images/sahiba.png";
+import sahiba from "../public/sahiba.png";
 import Image from "next/image";
 
-// import your images
-import saahibaImg from "../images/saahiba.png";
-import saurabhImg from "../images/saurabh.png";
+// import your public
+import saahibaImg from "../public/saahiba.png";
+import saurabhImg from "../public/saurabh.png";
 
 export default function MeetTeamSection() {
   // data for each team member

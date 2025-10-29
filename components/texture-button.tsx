@@ -1,5 +1,5 @@
 import Image from "next/image";
-import texture from "../images/texture.png"; // <-- your pill texture image
+import texture from "../public/texture.png"; // <-- your pill texture image
 
 type TextureButtonProps = {
   children: React.ReactNode;

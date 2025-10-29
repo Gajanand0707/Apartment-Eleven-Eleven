@@ -1,17 +1,17 @@
 
 import Image from "next/image";
-import statue1 from "../images/statue1.png";
-import midsec from "../images/midsec.png";
-import ideas1 from "../images/ideas1.png";
-import ideas2 from "../images/ideas2.png";
-import ideas3 from "../images/ideas3.png";
-import texture from "../images/texture.png";
-import residency from "../images/residency.png";
+import statue1 from "../public/statue1.png";
+import midsec from "../public/midsec.png";
+import ideas1 from "../public/ideas1.png";
+import ideas2 from "../public/ideas2.png";
+import ideas3 from "../public/ideas3.png";
+import texture from "../public/texture.png";
+import residency from "../public/residency.png";
 import { TextureButton } from "@/components/texture-button";
-import meet from "../images/meet.png";
-import meet_logo from "../images/meet_logo.png";
-import media from "../images/media.png";
-import gif from "../images/gif.png";
+import meet from "../public/meet.png";
+import meet_logo from "../public/meet_logo.png";
+import media from "../public/media.png";
+import gif from "../public/gif.png";
 
 export default function Home() {
   return (

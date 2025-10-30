@@ -31,45 +31,39 @@ export default function Elevators() {
 
   return (
     <div>
-    <section className="relative flex w-full h-[720px] bg-[#1C1C1C] overflow-hidden">
-      {/* LEFT SIDE - image */}
-      <div className="relative flex-1 h-full">
-        {/* black bg behind the image so gaps don't show */}
-        <div className="absolute inset-0 bg-[#1C1C1C]" />
+    <section className="relative flex w-full items-stretch bg-[#1C1C1C] overflow-hidden min-h-[380px] sm:min-h-[460px] md:min-h-[560px] lg:min-h-[720px]">
+  {/* LEFT – image (always side-by-side) */}
+  <div className="relative basis-1/2 shrink-0">
+    <div className="absolute inset-0 bg-[#1C1C1C]" />
+    <img
+      src={wall.src}
+      alt="colosseum"
+      className="absolute inset-0 w-full h-full object-cover object-left-bottom"
+    />
+    <div className="pointer-events-none absolute right-0 top-0 h-full w-10 sm:w-14 md:w-24 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
+  </div>
 
-        <img
-          src={wall.src}
-          alt="colosseum"
-          className="absolute inset-0 w-full h-full object-cover object-left-bottom"
-        />
+  {/* RIGHT – text (always side-by-side) */}
+  <div className="relative basis-1/2 flex flex-col justify-center items-end text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-2 sm:gap-3 md:gap-4">
+    {/* Fluid type via clamp to fit on small screens */}
+    <h1 className="font-['Playfair_Display'] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-[clamp(2.25rem,8vw,6rem)]">
+      GREAT
+    </h1>
 
-        {/* optional: dark gradient fade on the right edge of the image to blend into text area */}
-        <div className="absolute right-0 top-0 h-full w-[200px] bg-gradient-to-l from-[#1C1C1C] to-transparent" />
-      </div>
+    <h2 className="font-['Playfair_Display'] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
+      IDEAS DESERVE
+    </h2>
 
-      {/* RIGHT SIDE - text */}
-      <div className="relative flex flex-col justify-center items-start text-right text-[#F5F5F5] pr-16 pl-12 w-[40%]">
-        {/* big GREAT */}
-        <h1 className="font-['Playfair_Display'] font-bold text-9xl leading-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white">
-          GREAT
-        </h1>
+    <h1 className="font-['Playfair_Display'] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-2 sm:mt-4 text-[clamp(2.25rem,8vw,6rem)]">
+      GREAT
+    </h1>
 
-        {/* IDEAS DESERVE */}
-        <h2 className="font-['Playfair_Display'] font-semibold text-5xl leading-tight drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white ml-3">
-          IDEAS DESERVE
-        </h2>
+    <h2 className="font-['Playfair_Display'] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
+      PARTNERSHIPS
+    </h2>
+  </div>
+</section>
 
-        {/* next GREAT */}
-        <h1 className="font-['Playfair_Display'] font-bold text-9xl leading-none drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white mt-10">
-          GREAT
-        </h1>
-
-        {/* PARTNERSHIPS */}
-        <h2 className="font-['Playfair_Display'] font-semibold text-5xl leading-tight  drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-white ml-3">
-          PARTNERSHIPS
-        </h2>
-      </div>
-    </section>
 
    <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-16 px-6">
       {/* parchment background texture */}

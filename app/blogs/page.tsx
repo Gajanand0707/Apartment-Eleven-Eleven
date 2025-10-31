@@ -1,92 +1,103 @@
-import BlogCard from "@/components/BlogCard";
+
+"use client"
 import ourblogs from "../../public/ourblogs.png";
+import { TabNavigation } from "@/components/Tab"
+import { BlogsList } from "@/components/BlogsList"
+import type { Tab } from "@/types/navigation"
+import type { Blog } from "@/types/blog"
 import blogcard from "../../public/blogcard.png";
 
-const blogData = [
+const TABS: Tab[] = [
+  { id: "latest", label: "Latest", href: "/library" },
+  { id: "blogs", label: "Our Blogs", href: "/blogs" },
+  { id: "playbooks", label: "Playbooks", href: "/playbooks" },
+  { id: "deepdives", label: "Deep Dives", href: "/deepdives" },
+]
+
+const SAMPLE_BLOGS: Blog[] = [
   {
     id: 1,
     title: "Building in Public for Indian Startups",
     description:
-      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-    image: blogcard.src,
-    link: "/blog1",
-    large: true,
+      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
+    imageUrl: ourblogs.src,
+    variant: "horizontal-left",
   },
   {
     id: 2,
     title: "Building in Public for Indian Startups",
-    description:
-      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-    image: blogcard.src,
-    link: "/blog2",
-    large: false,
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: ourblogs.src,
+    variant: "horizontal-right",
   },
   {
     id: 3,
     title: "Building in Public for Indian Startups",
-    description:
-      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-    image: blogcard.src,
-    link: "/blog3",
-    large: false,
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: ourblogs.src,
+    variant: "grid",
   },
   {
     id: 4,
     title: "Building in Public for Indian Startups",
-    description:
-      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-    image: blogcard.src,
-    link: "/blog4",
-    large: true,
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: ourblogs.src,
+    variant: "grid",
   },
   {
     id: 5,
     title: "Building in Public for Indian Startups",
     description:
-      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-    image: blogcard.src,
-    link: "/blog5",
-    large: true,
+      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
+    imageUrl:   ourblogs.src,
+    variant: "featured",
   },
-];
+  {
+    id: 6,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: ourblogs.src,
+    variant: "grid",
+  },
+  {
+    id: 7,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: ourblogs.src,
+    variant: "grid",
+  },
+  {
+    id: 8,
+    title: "Building in Public for Indian Startups",
+    description:
+      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
+    imageUrl: ourblogs.src,
+    variant: "horizontal-left",
+  },
+]
 
 export default function OurBlogs() {
   return (
-    <div className="bg-[#D5C7B3]">
-      {/* Hero */}
-      <div className="relative w-full h-[320px] md:h-[420px]">
-        <img
-          src={ourblogs.src}
-          alt="Our Blogs"
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
-            Our Blogs
-          </h1>
-        </div>
-      </div>
+    <div>
+      <main className="min-h-screen bg-[#D5C7B3]">
 
-      {/* Cards */}
-      <section className="mx-auto max-w-7xl px-6 md:px-8 py-10 md:py-14 space-y-8">
-        <div>
-          <BlogCard {...blogData[0]} />
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="space-y-8">
-            <BlogCard {...blogData[1]} />
-            <BlogCard {...blogData[2]} />
-          </div>
-          <div className="lg:col-span-2">
-            <BlogCard {...blogData[3]} />
+        <div className="relative w-full h-[320px] md:h-[420px]">
+          <img
+           src={ourblogs.src} alt="Our Blogs" className="w-full h-full object-cover "
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+              Our Blogs           </h1>
+            <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-28
+                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
           </div>
         </div>
-
-        <div>
-          <BlogCard {...blogData[4]} />
+        <TabNavigation tabs={TABS} />
+        <div className="max-w-6xl mx-auto px-6 py-12">
+          <BlogsList blogs={SAMPLE_BLOGS} />
         </div>
-      </section>
+      </main>
     </div>
-  );
+  )
 }

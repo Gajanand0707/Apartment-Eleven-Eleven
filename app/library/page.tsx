@@ -1,74 +1,142 @@
 "use client";
-import { useState } from "react";
-import OurBlogs from "../blogs/page";
-import Playbooks from "../playbooks/page";
-import DeepDives from "../deepdives/page";
+import library from "../../public/library.png";
+import { TabNavigation } from "@/components/Tab";
+import { LatestSection } from "@/components/LatestSection";
+import type { Blog } from "@/types/blog";
+import type { Tab } from "@/types/navigation";
+import blogCard from "../../public/blogcard.png";
 
-// Image URLs for each tab (use absolute paths for public folder assets)
-const tabImages = {
-  Blogs: "/ourblogs.png", // Assuming images are in the 'public' folder
-  Playbooks: "/playbook.png",
-  DeepDives: "/deepdives.png",
-};
+const TABS: Tab[] = [
+  { id: "latest", label: "Latest", href: "/library" },
+  { id: "blogs", label: "Our Blogs", href: "/blogs" },
+  { id: "playbooks", label: "Playbooks", href: "/playbooks" },
+  { id: "deepdives", label: "Deep Dives", href: "/deep-dives" },
+]
+
+
+const SAMPLE_BLOGS: Blog[] = [
+  {
+    id: 1,
+    title: "Building in Public for Indian Startups",
+    description:
+      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
+    imageUrl: blogCard.src,
+    variant: "horizontal-left",
+  },
+  {
+    id: 2,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: blogCard.src,
+    variant: "grid",
+  },
+  {
+    id: 3,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+  imageUrl: blogCard.src,
+    variant: "grid",
+  },
+  {
+    id: 4,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: blogCard.src,
+    variant: "grid",
+  },
+]
+
+const SAMPLE_PLAYBOOKS: Blog[] = [
+  {
+    id: 1,
+    title: "Building in Public for Indian Startups",
+    description:
+      "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
+    imageUrl: blogCard.src,
+    variant: "featured",
+  },
+  {
+    id: 2,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: blogCard.src,
+    variant: "horizontal-left",
+  },
+]
+
+const SAMPLE_DEEP_DIVES: Blog[] = [
+  {
+    id: 1,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+     imageUrl: blogCard.src,
+    variant: "grid",
+  },
+  {
+    id: 2,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+  imageUrl: blogCard.src,
+    variant: "grid",
+  },
+  {
+    id: 3,
+    title: "Building in Public for Indian Startups",
+    description: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
+    imageUrl: blogCard.src,
+    variant: "grid",
+  },
+]
 
 export default function Library() {
-  const [activeTab, setActiveTab] = useState<"Blogs" | "Playbooks" | "DeepDives">("Blogs");
-
-  // Function to switch between tabs
-  const handleTabSwitch = (tab: "Blogs" | "Playbooks" | "DeepDives") => {
-    setActiveTab(tab);
-  };
 
   return (
-    <div className="w-full">
-      {/* Tab Section with Navigation (fixed at the top) */}
-      <div className="sticky top-0 bg-[#f9f9f9] py-8 text-center z-10 shadow-md">
-        <h2 className="font-['Playfair_Display'] text-4xl md:text-5xl lg:text-6xl font-bold">
-          Library
-        </h2>
-        <div className="mt-6">
-          <button
-            className={`mr-6 px-6 py-3 rounded-full ${
-              activeTab === "Blogs" ? "bg-[#21F2B5] text-white" : "text-[#21F2B5]"
-            }`}
-            onClick={() => handleTabSwitch("Blogs")}
-          >
-            Our Blogs
-          </button>
-          <button
-            className={`mr-6 px-6 py-3 rounded-full ${
-              activeTab === "Playbooks" ? "bg-[#21F2B5] text-white" : "text-[#21F2B5]"
-            }`}
-            onClick={() => handleTabSwitch("Playbooks")}
-          >
-            Playbooks
-          </button>
-          <button
-            className={`px-6 py-3 rounded-full ${
-              activeTab === "DeepDives" ? "bg-[#21F2B5] text-white" : "text-[#21F2B5]"
-            }`}
-            onClick={() => handleTabSwitch("DeepDives")}
-          >
-            Deep Dives
-          </button>
-        </div>
-      </div>
-
-      {/* Tab Image */}
-      <div className="relative w-full h-[300px] bg-cover bg-center">
+    <div className=" bg-[#D5C7B3] ">
+      <div className="relative w-full h-5/12 md:h-[420px] overflow-hidden">
         <img
-          src={tabImages[activeTab]}
-          alt={`${activeTab} image`}
-          className="w-full h-full object-cover opacity-60"
+          src={library.src}
+          alt="Deepdives"
+          className="w-full h-full object-cover"
+        />
+
+        {/* Title */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+            Library
+          </h1>
+        </div>
+
+        {/* The feathered overlay ON TOP of the image */}
+
+        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-16
+                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
+
+      </div>
+      <TabNavigation tabs={TABS} />
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <LatestSection title="Our Blogs" items={SAMPLE_BLOGS} sectionType="blogs" layout="blogs" viewAllLink="/blogs" />
+
+        <LatestSection
+          title="Playbooks"
+          items={SAMPLE_PLAYBOOKS}
+          sectionType="playbooks"
+          layout="playbooks"
+          viewAllLink="/playbooks"
+        />
+
+        <LatestSection
+          title="Deep Dives"
+          items={SAMPLE_DEEP_DIVES}
+          sectionType="deepdives"
+          layout="deepdives"
+          viewAllLink="/deep-dives"
         />
       </div>
 
-      {/* Content for the Active Tab */}
-      <div className="py-12">
-        {activeTab === "Blogs" && <OurBlogs />}
-        {activeTab === "Playbooks" && <Playbooks />}
-        {activeTab === "DeepDives" && <DeepDives />}
-      </div>
     </div>
   );
 }
+
+
+
+

@@ -127,7 +127,7 @@ export default function Elevators() {
               </p>
 
               {/* CTA pill */}
-              <button className="bg-[#0E4943] text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10">
+              <button className="bg text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10">
                 CONVENE WITH US
               </button>
             </div>
@@ -168,6 +168,7 @@ export default function Elevators() {
 
               <button className="bg-[#0E4943] text-white font-['Playfair_Display'] text-[20px] font-semibold rounded-2xl px-6 py-4 mt-10 min-w-[260px]">
                 {/* leave empty in screenshot so just keep structure */}
+                
               </button>
             </div>
           </div>

@@ -22,7 +22,7 @@ const TABS: Tab[] = [
 export default function Playbooks() {
 
     return (
-        <div className="bg-[#D5C7B3]">
+        <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">
             <div className="relative w-full h-[320px] md:h-[420px]">
                 <img
                     src={playbook.src}

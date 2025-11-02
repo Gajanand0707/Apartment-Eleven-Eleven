@@ -126,7 +126,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                  className="block text-[32px] font-medium text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
+                  className="block text-[32px] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
                   >
                     {item.label}
                   </Link>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import HallwayCard, { HallwayCardProps } from "./HallwayCard";
 import hallwaysbg from "../public/hallwaysbg.png";
 
+
 export default function HallwaysSection() {
   const hallwayConversations: HallwayCardProps[] = [
     {

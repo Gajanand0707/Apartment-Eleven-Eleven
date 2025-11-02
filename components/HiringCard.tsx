@@ -1,9 +1,18 @@
 "use client"
-import blogcard from "../public/blogcard.png"
-import { useState, useEffect, useRef } from "react"
-import Image from "next/image"
 
-const dummyTechnologyData = [
+import Image from "next/image"
+import { useState, useEffect, useRef } from "react"
+import blogcard from "../public/blogcard.png"
+
+type CardItem = {
+  id: number
+  title: string
+  description: string
+  image: string
+  link: string
+}
+
+const dummyTechnologyData: CardItem[] = [
   { id: 1, title: "Blockchain Technology", description: "A framework for leveraging blockchain to enhance transparency and trust in transactions.", image: blogcard.src, link: "/blockchain" },
   { id: 2, title: "Artificial Intelligence", description: "A framework for utilizing AI to automate processes and improve decision-making.", image: blogcard.src, link: "/ai" },
   { id: 3, title: "Cloud Computing", description: "A framework for leveraging cloud services to improve scalability and flexibility.", image: blogcard.src, link: "/cloud" },
@@ -11,11 +20,12 @@ const dummyTechnologyData = [
   { id: 5, title: "5G Technology", description: "A framework for utilizing 5G networks to improve communication and connectivity.", image: blogcard.src, link: "/5g" },
 ]
 
-export default function HiringCard() {
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+export default function Technology() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
+  const [animateDirection, setAnimateDirection] = useState<"left" | "right" | null>(null)
 
   useEffect(() => {
     setCanScrollLeft(currentIndex > 0)
@@ -23,8 +33,15 @@ export default function HiringCard() {
   }, [currentIndex])
 
   const scroll = (direction: "left" | "right") => {
-    if (direction === "left" && currentIndex > 0) setCurrentIndex(currentIndex - 1)
-    else if (direction === "right" && currentIndex < dummyTechnologyData.length - 3) setCurrentIndex(currentIndex + 1)
+    if (direction === "left" && currentIndex > 0) {
+      setAnimateDirection("left")
+      setCurrentIndex((i) => i - 1)
+    } else if (direction === "right" && currentIndex < dummyTechnologyData.length - 3) {
+      setAnimateDirection("right")
+      setCurrentIndex((i) => i + 1)
+    }
+    // Reset the direction after the animation ends so next click retriggers
+    setTimeout(() => setAnimateDirection(null), 500)
   }
 
   const visibleCards = [
@@ -34,106 +51,119 @@ export default function HiringCard() {
   ]
 
   return (
-    <div className="bg-[#D5C7B3] py-16 px-4">
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="text-8xl font-bold font-[Payfair_Display] text-[#111] mb-4">Hiring</h2>
-        <div className="w-[547px] h-1 bg-[#111] mx-auto"></div>
-        <div className="w-[503px] h-1 bg-[#111] mx-auto mt-2"></div>
-      </div>
+    <>
+      {/* Direction-aware entry animations */}
+      <style jsx global>{`
+        @keyframes cardEnterFromRight {
+          0%   { opacity: 0; transform: translateX(32px) scale(0.98); }
+          100% { opacity: 1; transform: translateX(0)    scale(1); }
+        }
+        @keyframes cardEnterFromLeft {
+          0%   { opacity: 0; transform: translateX(-32px) scale(0.98); }
+          100% { opacity: 1; transform: translateX(0)     scale(1); }
+        }
+        .enter-right { animation: cardEnterFromRight 480ms cubic-bezier(.22,1,.36,1); }
+        .enter-left  { animation: cardEnterFromLeft  480ms cubic-bezier(.22,1,.36,1); }
+        @media (prefers-reduced-motion: reduce) {
+          .enter-right, .enter-left { animation: none !important; }
+        }
+      `}</style>
 
-      {/* Carousel */}
-      <div className="relative w-full flex items-center justify-center">
-        {canScrollLeft && (
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-4 rounded-full hover:bg-[#333] transition-colors"
-            aria-label="Scroll left"
-          >
-            ←
-          </button>
-        )}
-
-        <div className="w-full max-w-7xl px-6 md:px-12">
-          {/* Increased overall height */}
-          <div className="flex items-center justify-center relative h-[620px] md:h-[700px]">
-            {/* Left Card — Bigger */}
-            <div className="flex-shrink-0 w-80 md:w-96 lg:w-[26rem] h-[28rem] md:h-[30rem] lg:h-[32rem] scale-95 -mr-32 md:-mr-40 transition-all duration-300">
-              <div className="h-full border-2 border-[#111] rounded-3xl overflow-hidden bg-white shadow-xl">
-                <div className="relative w-full h-56 md:h-64 lg:h-72 overflow-hidden">
-                  <Image
-                    src={visibleCards[0].image || "/placeholder.svg"}
-                    alt={visibleCards[0].title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-5 flex flex-col h-[calc(100%-16rem)]">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-2">{visibleCards[0].title}</h3>
-                  <p className="text-[#333] text-sm md:text-base leading-relaxed flex-1 line-clamp-4">
-                    {visibleCards[0].description}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Center Card — Largest & on top */}
-            <div className="flex-shrink-0 z-10 w-[26rem] md:w-[30rem] lg:w-[34rem] h-[32rem] md:h-[36rem] lg:h-[40rem] transition-all duration-300">
-              <div className="h-full border-2 border-[#111] rounded-3xl overflow-hidden bg-white shadow-2xl">
-                <div className="relative w-full h-72 md:h-80 lg:h-96 overflow-hidden">
-                  <Image
-                    src={visibleCards[1].image || "/placeholder.svg"}
-                    alt={visibleCards[1].title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-7 flex flex-col h-[calc(100%-20rem)]">
-                  <h3 className="text-3xl md:text-4xl font-bold text-[#111] mb-3">{visibleCards[1].title}</h3>
-                  <p className="text-[#333] text-base md:text-lg leading-relaxed flex-1 line-clamp-5">
-                    {visibleCards[1].description}
-                  </p>
-                  <a
-                    href={visibleCards[1].link}
-                    className="inline-block text-[#111] font-semibold hover:underline mt-3 text-base md:text-lg"
-                  >
-                    Learn More →
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Card — Bigger */}
-            <div className="flex-shrink-0 w-80 md:w-96 lg:w-[26rem] h-[28rem] md:h-[30rem] lg:h-[32rem] scale-95 -ml-32 md:-ml-40 transition-all duration-300">
-              <div className="h-full border-2 border-[#111] rounded-3xl overflow-hidden bg-white shadow-xl">
-                <div className="relative w-full h-56 md:h-64 lg:h-72 overflow-hidden">
-                  <Image
-                    src={visibleCards[2].image || "/placeholder.svg"}
-                    alt={visibleCards[2].title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-5 flex flex-col h-[calc(100%-16rem)]">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-2">{visibleCards[2].title}</h3>
-                  <p className="text-[#333] text-sm md:text-base leading-relaxed flex-1 line-clamp-4">
-                    {visibleCards[2].description}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div ref={sectionRef} className="bg-[#D5C7B3] py-10 sm:py-14 md:py-16 px-4">
+        {/* Section Title */}
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-5xl lg:text-8xl font-bold font-[Playfair_Display] text-[#111] mb-3 sm:mb-4">
+            Hiring
+          </h2>
+          <div className="w-1/2 sm:w-[420px] h-[2px] bg-[#111] mx-auto" />
+          <div className="w-2/5 sm:w-[360px] h-[2px] bg-[#111] mx-auto mt-2" />
         </div>
 
-        {canScrollRight && (
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-4 rounded-full hover:bg-[#333] transition-colors"
-            aria-label="Scroll right"
-          >
-            →
-          </button>
-        )}
+        {/* Carousel */}
+        <div className="relative w-full flex items-center justify-center">
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95"
+              aria-label="Scroll left"
+            >
+              ←
+            </button>
+          )}
+
+          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12">
+            {/* Composition container */}
+            <div className="flex items-center justify-center relative py-2 sm:py-4 md:py-0 md:h-[700px]">
+              {/* Left Card */}
+              <Card
+                item={visibleCards[0]}
+                size="small"
+                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+              />
+              {/* Center Card */}
+              <Card
+                item={visibleCards[1]}
+                size="large"
+                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+              />
+              {/* Right Card */}
+              <Card
+                item={visibleCards[2]}
+                size="small"
+                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+              />
+            </div>
+          </div>
+
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95"
+              aria-label="Scroll right"
+            >
+              →
+            </button>
+          )}
+        </div>
+      </div>
+    </>
+  )
+}
+
+/** Card component with keyed inner content so animation always plays on item change */
+function Card({
+  item,
+  size,
+  animateClass,
+}: {
+  item: CardItem
+  size: "small" | "large"
+  animateClass?: string
+}) {
+  const sizeClass =
+    size === "large"
+      ? "z-10 w-[68vw] sm:w-[26rem] md:w-[30rem] lg:w-[34rem]"
+      : "w-[54vw] sm:w-80 md:w-96 lg:w-[26rem] scale-95"
+  const marginClass = size === "large" ? "" : "-mx-6 sm:-mx-12 md:-mx-40"
+
+  return (
+    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} aspect-[3/4] transition-all duration-300`}>
+      {/* The key is crucial so React re-mounts on change and the animation runs */}
+      <div key={item.id} className={`h-full w-full border-2 border-[#111] rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
+        <div className="relative w-full h-[50%] sm:h-[55%] overflow-hidden">
+          <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+        </div>
+        <div className="p-4 sm:p-5 flex flex-col h-[50%] sm:h-[45%]">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#111] mb-2 line-clamp-2">{item.title}</h3>
+          <p className="text-[#333] text-xs sm:text-sm md:text-base leading-relaxed flex-1 line-clamp-4">
+            {item.description}
+          </p>
+          {size === "large" && (
+            <a href={item.link} className="inline-block text-[#111] font-semibold hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
+              Learn More →
+            </a>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -1,8 +1,9 @@
 import Image from "next/image";
-import resident_bg from "../../public/resident_bg.png";
+import residentHero from "../../public/residentHero.png";
 import spacex from "../../public/spacex.png";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import HallwaysSection from "@/components/HallwaysSection";
+import GlassSpotlight from "@/components/GlassSpotLight";
 
 
 
@@ -12,7 +13,7 @@ export default function ResidentPage() {
             <section className="relative w-full min-h-[800px] flex flex-col items-center justify-center text-center overflow-hidden">
                 {/* Background */}
                 <Image
-                    src={resident_bg}
+                    src={residentHero}
                     alt="Residents background"
                     fill
                     priority
@@ -36,7 +37,7 @@ export default function ResidentPage() {
                     {/* Cards */}
                     <div className="mt-24 flex justify-center items-center gap-8">
 
-                        <div className="relative  rounded-[36px] w-[894px] h-[360px] flex flex-col items-center justify-center text-center  scale-110">
+                        {/* <div className="relative  rounded-[36px] w-[894px] h-[360px] flex flex-col items-center justify-center text-center  scale-110">
 
                             <Image
                                 src={spacex}
@@ -44,8 +45,8 @@ export default function ResidentPage() {
                                 className="object-contain w-full h-full"
                             />
 
-                        </div>
-
+                        </div> */}
+                        <GlassSpotlight/>
 
 
                     </div>

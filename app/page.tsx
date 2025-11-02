@@ -7,22 +7,37 @@ import ideas2 from "../public/ideas2.png";
 import ideas3 from "../public/ideas3.png";
 import texture from "../public/texture.png";
 import residency from "../public/residency.png";
+import resident_bg from "../public/resident_bg.png";
 import { TextureButton } from "@/components/texture-button";
 import meet from "../public/meet.png";
 import meet_logo from "../public/meet_logo.png";
 import media from "../public/media.png";
 import gif from "../public/gif.png";
-
+import { SpiralAnimation } from "@/components/SpiralAnimation";
+import sahiba from "../public/sahiba.png";
+import MediaMentions from "@/components/MediaMentions";
+const demoImages = [
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+  sahiba.src,
+]
 export default function Home() {
   return (
     <div>
-      <section className="relative flex justify-between items-center bg-[#0E4C45] text-[#F5EDE0] h-full  overflow-hidden">
+     <section className="relative flex justify-between items-center bg-[#0E4C45] text-[#F5EDE0] h-full  overflow-hidden">
         {/* Left Text Section */}
         <div className="flex flex-col gap-4 ml-10">
-          <h2 className="text-[86px] font-['Playfair_Display'] font-medium leading-tight">
+          <h2 className=" text-2xl  md:text-[86px] font-['Playfair_Display'] font-medium leading-tight">
             Welcome to
           </h2>
-          <h1 className="text-[108px] leading-[1.05] font-['Playfair_Display'] font-bold">
+          <h1 className="text-3xl md:text-[108px] leading-[1.05] font-['Playfair_Display'] font-bold">
             APARTMENT<br />ELEVEN ELEVEN
           </h1>
         </div>
@@ -310,14 +325,14 @@ export default function Home() {
           {/* divider line + ornament */}
           <div className="mt-10 flex flex-col items-center">
             {/* thin line */}
-            <div className="h-[2px] w-[320px] bg-black" />
+            {/* <div className="h-[2px] w-[320px] bg-black" /> */}
 
             {/* ornament graphic */}
-            <Image
+            {/* <Image
               src={meet_logo}
               alt="Decorative flourish"
               className="mt-2 h-auto w-[200px] object-contain"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -327,6 +342,18 @@ export default function Home() {
         {/* content wrapper */}
         <div className="relative z-[1] max-w-[1400px] mx-auto flex flex-col gap-12">
           {/* Top heading */}
+          {/* <Image
+          src={resident_bg}
+          alt="Section background texture"
+          fill
+          priority
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+          }}
+          className="opacity-70"
+        /> */}
+
           <h1 className="text-center font-['Playfair_Display'] font-bold text-4xl sm:text-5xl lg:text-6xl">
             Our Residents
           </h1>
@@ -356,14 +383,15 @@ export default function Home() {
 
             {/* RIGHT IMAGE COLUMN */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px] border-[3px] border-[#003E6B] bg-[#DCCCAF]">
+              <div className="relative w-full max-w-[520px] border bg-[#DCCCAF]">
 
-                <Image
+                {/* <Image
                   src={gif}
                   alt="Resident Expertise Graphic"
                   className="w-full h-auto object-cover"
                   priority
-                />
+                /> */}
+                <SpiralAnimation images={demoImages} duration={20} />
               </div>
             </div>
           </div>
@@ -373,8 +401,7 @@ export default function Home() {
       <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px]  text-center px-6">
         <h1 className="text-6xl font-['Playfair_Display']">Residents Testimonials</h1>
       </section>
-
-      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px]  text-center px-6 pb-10">
+      {/* <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px]  text-center px-6 pb-10">
         <h1 className="text-6xl font-['Playfair_Display'] text-black">Our Media Mentions </h1>
         <div>
           <Image
@@ -385,7 +412,9 @@ export default function Home() {
             className="object-cover object-center mt-5"
           />
         </div>
-      </section>
+      </section> */}
+
+      <MediaMentions />
 
     </div>
 

@@ -8,39 +8,40 @@ import logo from "../public/logo.png";
 export function Footer() {
   return (
     <footer className="bg-[#24211F] text-gray-300">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 py-10">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 py-10">
         {/* Top Links */}
         <nav
-          aria-label="Footer"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 text-center md:text-left"
-        >
-          <div className="space-y-3 md:space-y-4">
-            <Link href="/shelves" className="block text-xl md:text-2xl hover:text-white">
-              On Our Shelves
-            </Link>
-            <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
-              Our Residents
-            </Link>
-          </div>
+  aria-label="Footer"
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-5xl mx-auto text-center place-items-center"
+>
+  <div className="space-y-3 md:space-y-4">
+    <Link href="/shelves" className="block text-xl md:text-2xl hover:text-white">
+      On Our Shelves
+    </Link>
+    <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
+      Our Residents
+    </Link>
+  </div>
 
-          <div className="space-y-3 md:space-y-4">
-            <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
-              Inside Our Doors
-            </Link>
-            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
-              Elevator’s Waiting
-            </Link>
-          </div>
+  <div className="space-y-3 md:space-y-4">
+    <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
+      Inside Our Doors
+    </Link>
+    <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
+      Elevator’s Waiting
+    </Link>
+  </div>
 
-          <div className="space-y-3 md:space-y-4">
-            <Link href="/grants" className="block text-xl md:text-2xl hover:text-white">
-              Grant Program
-            </Link>
-            <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
-              Inside Our Doors
-            </Link>
-          </div>
-        </nav>
+  <div className="space-y-3 md:space-y-4">
+    <Link href="/grants" className="block text-xl md:text-2xl hover:text-white">
+      Grant Program
+    </Link>
+    <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
+      Inside Our Doors
+    </Link>
+  </div>
+</nav>
+
 
         {/* Social Icons */}
         <div className="flex justify-center items-center gap-5 my-8">
@@ -55,13 +56,31 @@ export function Footer() {
           </Link>
         </div>
 
-        <hr className="border-gray-700/70 my-6" />
+        <hr className="border-gray-400 my-6" />
 
         {/* Logo + Info */}
         <div className="flex flex-col items-center text-center space-y-3">
-          <Image src={logo} alt="Apartment Eleven Eleven logo" width={60} height={60} priority />
-          <h1 className="text-white text-lg font-bold leading-none">APARTMENT</h1>
-          <h2 className="text-white text-lg font-bold leading-none">ELEVEN ELEVEN</h2>
+          <div className="flex items-center gap-3">
+  {/* Logo Image */}
+  <Image
+    src={logo}
+    alt="Apartment Eleven Eleven logo"
+    width={60}
+    height={60}
+    priority
+    className="rounded-full"
+  />
+
+  {/* Text Section */}
+  <div className="flex flex-col leading-tight">
+    <h1 className="text-white font-bold text-2xl tracking-wide">
+      APARTMENT<span className="align-super text-xs">™</span>
+    </h1>
+    <h2 className="text-gray-300 text-sm font-semibold tracking-[0.3em]">
+      ELEVEN ELEVEN
+    </h2>
+  </div>
+</div>
 
           <p className="text-white mt-2 font-medium text-sm sm:text-base">
             What If Everything Turns Out Exactly The Way You Dreamt?

@@ -48,7 +48,7 @@ export function ParchmentButton({
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
       {/* Button Text */}
-      <span className="relative z-10 text-[22px] font-['Playfair_Display'] font-bold text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+      <span className="relative z-10 text-3xl font-['Playfair_Display'] font-bold text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
         {children}
       </span>
     </button>

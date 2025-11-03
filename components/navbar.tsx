@@ -35,6 +35,7 @@ export function Navbar() {
     { href: "/residents", label: "Our Residents" },
     { href: "/library", label: "Library" },
     { href: "/inside", label: "Inside Our Doors" },
+    { href: "/contactUs", label: "Contact Us" },
   ];
 
   return (

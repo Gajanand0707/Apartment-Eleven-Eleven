@@ -4,10 +4,16 @@ import Image from 'next/image';
 import { useState } from 'react';
 import texture from '../../public/texture.png';
 import pathbg from '../../public/pathbg.png';
+import toggle1 from "../../public/toggle1.png"
+import path1 from "../../public/path1.png"
+import path2 from "../../public/path2.png"
+import path3 from "../../public/path3.png"
 import { BiArrowFromBottom, BiArrowToBottom, BiArrowToTop, BiUpArrow } from 'react-icons/bi';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
 
-function ParchmentButton({
+
+
+export function ParchmentButton({
   children = "Convene with Us",
   className = "",
   onClick,
@@ -17,73 +23,40 @@ function ParchmentButton({
   onClick?: () => void;
 }) {
   return (
-   <button
-  onClick={onClick}
-  className={[
-    // layout
-    "relative inline-flex items-center justify-center",
-    "px-6 py-3 rounded-2xl min-w-[240px]",
-    // base surface (solid underlay so texture reads clearly)
-    "bg-transparent ",              // ← light parchment base
-    "border border-black/35",
-    "shadow-[0_2px_6px_rgba(0,0,0,0.25)]",
-    "transition-all duration-200",
-    "active:translate-y-[1px]",
-    "hover:shadow-[0_4px_14px_rgba(0,0,0,0.3)]",
-    "focus:outline-none focus:ring-2 focus:ring-black/20",
-    "overflow-hidden",
-    className,
-  ].join(" ")}
-  aria-label={typeof children === "string" ? children : "Convene with Us"}
->
-  {/* base soft white wash to lift the texture */}
-  <span className="absolute inset-0 -z-20 bg-white" />
+    <button
+      onClick={onClick}
+      className={[
+        "relative inline-flex items-center justify-center",
+        "px-6 py-2 rounded-md min-w-[180px]",
+        "border border-black/40",
+        "shadow-[0_2px_4px_rgba(0,0,0,0.25)]",
+        "transition-all duration-200",
+        "hover:brightness-105 hover:shadow-[0_3px_8px_rgba(0,0,0,0.35)]",
+        "active:translate-y-[1px]",
+        "focus:outline-none focus:ring-2 focus:ring-black/20",
+        "overflow-hidden bg-[#d9bca1]",
+        className,
+      ].join(" ")}
+    >
+      {/* texture background */}
+      <span className="absolute inset-0 -z-10">
+        <Image
+          src={texture}
+          alt="Parchment texture"
+          fill
+          className="object-cover object-center opacity-90"
+          priority
+        />
+      </span>
 
-  {/* p<button
-  onClick={onClick}
-  className={[
-    // layout
-    "relative inline-flex items-center justify-center",
-    "px-6 py-3 rounded-2xl min-w-[240px]",
-    // base (clean/whitish surface)
-    "bg-white",                        // ← whitish base
-    "border border-black/35",
-    "shadow-[0_2px_6px_rgba(0,0,0,0.25)]",
-    "transition-all duration-200",
-    "active:translate-y-[1px]",
-    "hover:shadow-[0_4px_14px_rgba(0,0,0,0.3)]",
-    "focus:outline-none focus:ring-2 focus:ring-black/20",
-    "overflow-hidden",
-    className,
-  ].join(" ")}
-  aria-label={typeof children === "string" ? children : "Convene with Us"}
->
-  {/* texture layer (sits ABOVE white base) */}
-  <span className="absolute inset-0 -z-10">
-    <Image
-      src={texture}
-      alt="texture"
-      fill
-      // keep texture visible but subtle; multiplied over white
-      className="object-cover object-center opacity-80  "
-      priority
-    />
-  </span>
+      {/* inner lighting and subtle shading */}
+      <span className="pointer-events-none absolute inset-0 rounded-md shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(0,0,0,0.15)]" />
 
-  {/* soft vignette + inner highlight for depth */}
-  <span className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.10)_100%)]" />
-  <span className="pointer-events-none absolute inset-0 -z-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.12)] rounded-2xl" />
-
-  {/* optional warm tint (VERY light) — comment out if you want pure white */}
-  {/* <span className="absolute inset-0 -z-10 bg-[#F5EDE0]/35" /> */}
-
-  {/* label */}
-  <span className="text-[18px] sm:text-[20px] font-semibold text-black tracking-wide drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]">
-    {children}
-  </span>
-</button>
-
-
+      {/* text */}
+      <span className="relative text-[20px] font-['Playfair_Display'] font-semibold text-black tracking-wide drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+        {children}
+      </span>
+    </button>
   );
 }
 
@@ -173,23 +146,27 @@ export default function Elevators() {
                 priority
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
+
               <div className="relative z-10 flex flex-col items-center">
-                <div className="text-white mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 stroke-white fill-none stroke-[3]" viewBox="0 0 24 24">
-                    <path d="M9 18h6M10 21h4M9 14a5 5 0 1 1 6 0c-.6.5-1 1.5-1 2.5V18h-4v-1.5c0-1-.4-2-1-2.5Z" />
-                  </svg>
+                {/* Image Container */}
+                <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
+                  <img
+                    src={path1.src}
+                    alt="path1"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
+
                 <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
-                  Align with Our Cadre
+            Align with Our Cadre
                 </h3>
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
-                  Forge ties with our pioneering founders and captains of industry.
-                  If you are acquainted with a team from our esteemed lineage,
-                  they can vouch for your expedited inclusion amongst us.
+
+                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
+               Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-10">
+                <div className="mt-5">
                   <ParchmentButton>Convene with Us</ParchmentButton>
                 </div>
               </div>
@@ -204,23 +181,29 @@ export default function Elevators() {
                 priority
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
+
               <div className="relative z-10 flex flex-col items-center">
-                <div className="text-white mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 fill-white" viewBox="0 0 24 24">
-                    <path d="M9 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Zm6 0a3 3 0 1 1 0-6 3 3 0 0 1 0 6ZM3 20c0-2.2 2.7-4 6-4s6 1.8 6 4v1H3v-1Zm12 0c0-1.4-.7-2.6-2-3.3.6-.1 1.3-.2 2-.2 3.3 0 6 1.8 6 4v1h-6v-1Z" />
-                  </svg>
+                {/* Image Container */}
+                <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
+                  <img
+                    src={path2.src}
+                    alt="path1"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
+
                 <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
                   Unveil Your Vision
                 </h3>
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
+
+                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-10">
+                <div className="mt-5">
                   <ParchmentButton>Convene with Us</ParchmentButton>
                 </div>
               </div>
@@ -235,23 +218,29 @@ export default function Elevators() {
                 priority
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
+
               <div className="relative z-10 flex flex-col items-center">
-                <div className="text-white mb-6">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-14 h-14 stroke-white fill-none stroke-[3]" viewBox="0 0 24 24">
-                    <path d="M14 10c-1.5 1.5-3 4-3 4s2.5-1.5 4-3c1.2-1.2 1.8-2.4 2-3.5.2-1 .2-2.1.2-2.1s-1.1 0-2.1.2C16.4 6.2 15.2 6.8 14 8c-1.5 1.5-3 4-3 4s2.5-1.5 4-3ZM8 14l-2 2c-.5.5-.8 1.1-.9 1.8L5 20l2.2-.1c.7-.1 1.3-.4 1.8-.9l2-2" />
-                  </svg>
+                {/* Image Container */}
+                <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
+                  <img
+                    src={path3.src}
+                    alt="path1"
+                    className="w-full h-full object-cover object-center"
+                  />
                 </div>
+
                 <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
-                  Offer Your Proposal
+                Offer Your Proposal
                 </h3>
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-6">
-                  Deliver your application via our well-ordered method.
-                  Each founder&apos;s submission is justly assessed, and
-                  personalized insights are bestowed.
+
+                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
+                  Possess a groundbreaking concept? You may consult with our guild of
+                  visionary minds and patrons. Together, we shall sculpt your ideas
+                  into enduring reality through collaborative mastery.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-10">
+                <div className="mt-5">
                   <ParchmentButton>Convene with Us</ParchmentButton>
                 </div>
               </div>
@@ -281,12 +270,12 @@ export default function Elevators() {
                   >
                     <span className="pr-4">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
-                      {isOpen ? <FaArrowUp/> : <FaArrowDown/>}
+                      {isOpen ? <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] rotate-180" /> : <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] " />}
                     </span>
                   </button>
 
                   {isOpen && (
-                    <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 max-w-full">
+                    <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 md:max-w-[900px] mx-auto">
                       <p className="text-white text-left whitespace-pre-line">{item.a}</p>
                     </div>
                   )}

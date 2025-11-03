@@ -2,12 +2,10 @@ import TeamCard, { TeamCardProps } from "./TeamCard";
 import sahiba from "../public/sahiba.png";
 import Image from "next/image";
 
-// import your public
 import saahibaImg from "../public/saahiba.png";
 import saurabhImg from "../public/saurabh.png";
 
 export default function MeetTeamSection() {
-  // data for each team member
   const teamMembers: TeamCardProps[] = [
     {
       image: sahiba,
@@ -27,7 +25,7 @@ export default function MeetTeamSection() {
       </h2>
 
       {/* Cards row */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24 max-w-[1400px] w-full">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20 max-w-[1400px] w-full">
         {teamMembers.map((member, idx) => (
           <TeamCard key={idx} image={member.image} name={member.name} />
         ))}

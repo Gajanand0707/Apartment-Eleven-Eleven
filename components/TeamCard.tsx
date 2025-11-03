@@ -7,21 +7,23 @@ export interface TeamCardProps {
 
 export default function TeamCard({ image, name }: TeamCardProps) {
   return (
-    <div className="flex flex-col items-center w-[280px] md:w-[350px] rounded-[24px] overflow-hidden shadow-sm">
-      {/* Image Container */}
-      <div className="relative w-full h-[350px] md:h-[420px] rounded-t-[24px] overflow-hidden">
+    <div className="relative bg-[#E7DFD2] rounded-[24px]  overflow-hidden flex flex-col text-center w-[380px] h-[400px] md:w-[440px] md:h-[320px] shadow-md">
+      {/* Image Section */}
+      <div className="relative w-full h-[80%] rounded-t-none overflow-hidden">
         <Image
           src={image}
           alt={name}
           fill
-          className="object-cover object-center"
-          sizes="(max-width:768px) 100vw, 350px"
+          className="object-cover object-top rounded-t-none"
+          priority
         />
       </div>
 
-      {/* Name Box */}
-      <div className="bg-[#EDEAE4] text-black text-xl md:text-2xl font-semibold font-['Playfair_Display'] text-center py-6 w-full rounded-b-[24px]">
-        {name}
+      {/* Text Section */}
+      <div className="relative z-10 bg-[#E7DFD2] py-4">
+        <h3 className="font-['Playfair_Display'] font-semibold text-[22px] leading-snug text-black">
+          {name}
+        </h3>
       </div>
     </div>
   );

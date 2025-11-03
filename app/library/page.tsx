@@ -10,7 +10,7 @@ const TABS: Tab[] = [
   { id: "latest", label: "Latest", href: "/library" },
   { id: "blogs", label: "Our Blogs", href: "/blogs" },
   { id: "playbooks", label: "Playbooks", href: "/playbooks" },
-  { id: "deepdives", label: "Deep Dives", href: "/deep-dives" },
+  { id: "deepdives", label: "Deep Dives", href: "/deepdives" },
 ]
 
 

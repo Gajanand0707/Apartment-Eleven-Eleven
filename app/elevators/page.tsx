@@ -24,7 +24,7 @@ function ParchmentButton({
     "relative inline-flex items-center justify-center",
     "px-6 py-3 rounded-2xl min-w-[240px]",
     // base surface (solid underlay so texture reads clearly)
-    "bg-[#D8CCBA]",              // ← light parchment base
+    "bg-transparent ",              // ← light parchment base
     "border border-black/35",
     "shadow-[0_2px_6px_rgba(0,0,0,0.25)]",
     "transition-all duration-200",
@@ -37,36 +37,52 @@ function ParchmentButton({
   aria-label={typeof children === "string" ? children : "Convene with Us"}
 >
   {/* base soft white wash to lift the texture */}
-  <span className="absolute inset-0 -z-20 bg-white/65" />
+  <span className="absolute inset-0 -z-20 bg-white" />
 
-  {/* parchment texture (now blends with the base) */}
+  {/* p<button
+  onClick={onClick}
+  className={[
+    // layout
+    "relative inline-flex items-center justify-center",
+    "px-6 py-3 rounded-2xl min-w-[240px]",
+    // base (clean/whitish surface)
+    "bg-white",                        // ← whitish base
+    "border border-black/35",
+    "shadow-[0_2px_6px_rgba(0,0,0,0.25)]",
+    "transition-all duration-200",
+    "active:translate-y-[1px]",
+    "hover:shadow-[0_4px_14px_rgba(0,0,0,0.3)]",
+    "focus:outline-none focus:ring-2 focus:ring-black/20",
+    "overflow-hidden",
+    className,
+  ].join(" ")}
+  aria-label={typeof children === "string" ? children : "Convene with Us"}
+>
+  {/* texture layer (sits ABOVE white base) */}
   <span className="absolute inset-0 -z-10">
     <Image
       src={texture}
-      alt=""
+      alt="texture"
       fill
-      className="object-cover object-center opacity-80 mix-blend-multiply"
+      // keep texture visible but subtle; multiplied over white
+      className="object-cover object-center opacity-80  "
       priority
     />
   </span>
 
-  {/* subtle vignette + inner highlight */}
-  <span className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.10)_100%)]" />
-  <span className="pointer-events-none absolute inset-0 -z-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.12)] rounded-2xl" />
+  {/* soft vignette + inner highlight for depth */}
+  <span className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.05)_0%,rgba(0,0,0,0.10)_100%)]" />
+  <span className="pointer-events-none absolute inset-0 -z-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.12)] rounded-2xl" />
+
+  {/* optional warm tint (VERY light) — comment out if you want pure white */}
+  {/* <span className="absolute inset-0 -z-10 bg-[#F5EDE0]/35" /> */}
 
   {/* label */}
-  <span
-    className={[
-      "text-[18px] sm:text-[20px] font-semibold",
-      "text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]",
-      "tracking-wide",
-      // force EB Garamond only if needed:
-      // "font-['EB_Garamond']",
-    ].join(" ")}
-  >
+  <span className="text-[18px] sm:text-[20px] font-semibold text-black tracking-wide drop-shadow-[0_1px_0_rgba(255,255,255,0.35)]">
     {children}
   </span>
 </button>
+
 
   );
 }

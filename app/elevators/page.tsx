@@ -268,11 +268,12 @@ export default function Elevators() {
                     </span>
                   </button>
 
-                  {isOpen && (
-                    <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 md:max-w-[900px] mx-auto">
-                      <p className="text-white text-left whitespace-pre-line">{item.a}</p>
-                    </div>
-                  )}
+                 {isOpen && (
+  <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto">
+    <p className="text-white text-left whitespace-pre-line">{item.a}</p>
+  </div>
+)}
+
                 </div>
               );
             })}

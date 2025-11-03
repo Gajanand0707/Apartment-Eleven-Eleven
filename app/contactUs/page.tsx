@@ -160,7 +160,7 @@ export default function ContactPage() {
               value={formData[item.name as keyof typeof formData]}
               onChange={handleChange}
               placeholder="Your Answer"
-              className=" w-[300px] md:w-[880px] mx-auto md:h-44 h-22 border-2 border-t-0 border-[#0E4C45] rounded-b-2xl bg-[#D9D9D9] p-5 text-lg outline-none resize-none placeholder-[#494949]"
+              className=" w-[90%]  mx-auto md:h-44 h-22 border-2 border-t-0 border-[#0E4C45] rounded-b-2xl bg-[#D9D9D9] p-5 text-lg outline-none resize-none placeholder-[#494949]"
             />
           </div>
         ))}

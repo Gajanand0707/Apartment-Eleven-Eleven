@@ -8,6 +8,7 @@ import toggle1 from "../../public/toggle1.png"
 import path1 from "../../public/path1.png"
 import path2 from "../../public/path2.png"
 import path3 from "../../public/path3.png"
+import buttonbg from "../../public/buttonbg.png"
 import { BiArrowFromBottom, BiArrowToBottom, BiArrowToTop, BiUpArrow } from 'react-icons/bi';
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
 
@@ -27,39 +28,32 @@ export function ParchmentButton({
       onClick={onClick}
       className={[
         "relative inline-flex items-center justify-center",
-        "px-6 py-2 rounded-md min-w-[180px]",
-        "border border-black/40",
-        "shadow-[0_2px_4px_rgba(0,0,0,0.25)]",
+        "px-8 py-3 min-w-[220px] rounded-md overflow-hidden",
         "transition-all duration-200",
-        "hover:brightness-105 hover:shadow-[0_3px_8px_rgba(0,0,0,0.35)]",
-        "active:translate-y-[1px]",
+        "hover:scale-[1.02] active:scale-[0.98]",
         "focus:outline-none focus:ring-2 focus:ring-black/20",
-        "overflow-hidden bg-[#d9bca1]",
         className,
       ].join(" ")}
     >
-      {/* texture background */}
-      <span className="absolute inset-0 -z-10">
-        <Image
-          src={texture}
-          alt="Parchment texture"
-          fill
-          className="object-cover object-center opacity-90"
-          priority
-        />
-      </span>
+      {/* Background image */}
+      <Image
+        src={buttonbg}
+        alt="Button background"
+        fill
+        priority
+        className="object-cover object-center absolute inset-0 -z-10"
+      />
 
-      {/* inner lighting and subtle shading */}
-      <span className="pointer-events-none absolute inset-0 rounded-md shadow-[inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(0,0,0,0.15)]" />
+      {/* Optional dark overlay for text visibility */}
+      <span className="absolute inset-0 bg-black/5 -z-0" />
 
-      {/* text */}
-      <span className="relative text-[20px] font-['Playfair_Display'] font-semibold text-black tracking-wide drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+      {/* Button Text */}
+      <span className="relative z-10 text-[22px] font-['Playfair_Display'] font-bold text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
         {children}
       </span>
     </button>
   );
 }
-
 export default function Elevators() {
   const faqs = [
     {

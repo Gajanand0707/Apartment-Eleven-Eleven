@@ -179,7 +179,7 @@ export default function ContactPage() {
         <div className="flex justify-center pt-4">
           <button
             type="submit"
-            className="bg-[#0E4C45] text-[#F5EDE0] px-10 py-4 mb-14 rounded-full text-lg font-semibold hover:bg-[#093B34] transition"
+            className="bg-[#0E4C45] text-white text-3xl px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
           >
             Apply for Residency
           </button>

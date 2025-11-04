@@ -17,6 +17,8 @@ import gif from "../public/gif.png";
 import { SpiralAnimation } from "@/components/SpiralAnimation";
 import sahiba from "../public/sahiba.png";
 import MediaMentions from "@/components/MediaMentions";
+import IdeasSection from "@/components/IdeasSection";
+import ScienceSection from "@/components/ScienceSection";
 
 const ebg = EB_Garamond({
   subsets: ["latin"],
@@ -63,156 +65,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black">
-        {/* Background texture */}
-        <Image
-          src={midsec}
-          alt="Section background texture"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          className="opacity-80"
-        />
+      <ScienceSection />
 
-        {/* Content */}
-        <div className="relative z-[1] max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
-          {/* Top heading */}
-          <h2 className="font-bold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-[#0E4943]">
-            Praxis For The New Renaissance
-          </h2>
-
-          {/* Divider line */}
-          <div className="mt-8 w-full flex justify-center">
-            <div className="h-[2px] w-full max-w-[900px] bg-black" />
-          </div>
-
-          {/* Second heading */}
-          <h3 className="mt-10 font-bold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black">
-            Ideas distilled to brilliance
-          </h3>
-
-          {/* Icon row */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-            {/* Card 1 */}
-            <div className="flex flex-col items-center text-center max-w-[380px] mx-auto">
-              <div className="w-[140px] h-[140px] relative">
-                <Image src={ideas1} alt="The Patrons of Progress" fill style={{ objectFit: "contain" }} />
-              </div>
-
-              <h4 className="font-semibold text-2xl mt-6 text-black">
-                The Patrons of Progress
-              </h4>
-
-              <p className="mt-4 text-base leading-relaxed text-black max-w-[320px]">
-                More than backers, we are enablers of the ‘new India,’ providing
-                the strategic architecture for its creation.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="flex flex-col items-center text-center max-w-[380px] mx-auto">
-              <div className="w-[140px] h-[140px] relative">
-                <Image src={ideas2} alt="Where Foresight Meets Fortitude" fill style={{ objectFit: "contain" }} />
-              </div>
-
-              <h4 className="font-semibold text-2xl mt-6 text-black">
-                Where Foresight Meets Fortitude
-              </h4>
-
-              <p className="mt-4 text-base leading-relaxed text-black max-w-[340px]">
-                With foresight, we identify defining opportunities early; with
-                fortitude and conviction, we build them alongside you.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="flex flex-col items-center text-center max-w-[380px] mx-auto">
-              <div className="w-[140px] h-[140px] relative">
-                <Image src={ideas3} alt="The Sculptor’s Gaze" fill style={{ objectFit: "contain" }} />
-              </div>
-
-              <h4 className="font-semibold text-2xl mt-6 text-black">
-                The Sculptor’s Gaze
-              </h4>
-
-              <p className="mt-4 text-base leading-relaxed text-black max-w-[340px]">
-                We see the potential others miss, guiding you to remove noise and
-                reveal your lasting value.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative bg-[#D8CCBA] py-20 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 text-center">
-          {/* Heading */}
-          <h2 className="font-bold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black mb-16">
-            In Science we Trust
-          </h2>
-
-          {/* 3 columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* CARD 1 */}
-            <div className="relative rounded-[24px] overflow-hidden text-white">
-              <Image src={texture} alt="Terracotta background" fill priority className="object-cover object-center" />
-
-              <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold text-xl sm:text-2xl mb-4">
-                  Sustainable Living: Green Building Standards and Energy Efficiency
-                </h3>
-                <p className="text-[16px] leading-relaxed max-w-[360px]">
-                  We bring authenticity and clarity to premium living with collaboration
-                  with the industry’s best professionals and experts. Learn more about
-                  our process and how we redefine modern residency with care, transparency,
-                  and excellence. Our residency panel is composed of highly accomplished
-                  architects, designers, and consultants who bring years of experience in
-                  creating spaces that merge modern aesthetics with functionality.
-                </p>
-              </div>
-            </div>
-
-            {/* CARD 2 */}
-            <div className="relative rounded-[24px] overflow-hidden text-white">
-              <Image src={texture} alt="Terracotta background" fill priority className="object-cover object-center" />
-
-              <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold text-xl sm:text-2xl mb-4">
-                  Sustainable Living: Green Building Standards and Energy Efficiency
-                </h3>
-                <p className="text-[16px] leading-relaxed max-w-[360px]">
-                  We bring authenticity and clarity to premium living with collaboration
-                  with the industry’s best professionals and experts. Learn more about
-                  our process and how we redefine modern residency with care, transparency,
-                  and excellence. Our residency panel is composed of highly accomplished
-                  architects, designers, and consultants who bring years of experience in
-                  creating spaces that merge modern aesthetics with functionality.
-                </p>
-              </div>
-            </div>
-
-            {/* CARD 3 */}
-            <div className="relative rounded-[24px] overflow-hidden text-white">
-              <Image src={texture} alt="Terracotta background" fill priority className="object-cover object-center" />
-
-              <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold text-xl sm:text-2xl mb-4">
-                  Sustainable Living: Green Building Standards and Energy Efficiency
-                </h3>
-                <p className="text-[16px] leading-relaxed max-w-[360px]">
-                  We bring authenticity and clarity to premium living with collaboration
-                  with the industry’s best professionals and experts. Learn more about
-                  our process and how we redefine modern residency with care, transparency,
-                  and excellence. Our residency panel is composed of highly accomplished
-                  architects, designers, and consultants who bring years of experience in
-                  creating spaces that merge modern aesthetics with functionality.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      
+   
       <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6">
         {/* Background texture */}
         <Image
@@ -327,34 +183,35 @@ export default function Home() {
         </div>
       </section>
 
-     <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6 py-16">
-  {/* Heading */}
-  <h1 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold mb-12">
-    Residents’ Testimonials
-  </h1>
+      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6 py-16">
+        {/* Heading */}
+        <h1 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold mb-12">
+          Residents’ Testimonials
+        </h1>
 
-  {/* Frame Row */}
-  <div className="flex justify-center items-center gap-8 md:gap-12 flex-wrap max-w-[960px] mx-auto">
-    <img
-      src={frame.src}
-      alt="frame"
-      className="w-[260px] h-auto object-contain"
-    />
-    <img
-      src={frame.src}
-      alt="frame"
-      className="w-[260px] h-auto object-contain"
-    />
-    <img
-      src={frame.src}
-      alt="frame"
-      className="w-[260px] h-auto object-contain"
-    />
-  </div>
-</section>
+        {/* Frame Row */}
+        <div className="flex justify-center items-center gap-8 md:gap-12 flex-wrap max-w-[960px] mx-auto">
+          <img
+            src={frame.src}
+            alt="frame"
+            className="w-[260px] h-auto object-contain"
+          />
+          <img
+            src={frame.src}
+            alt="frame"
+            className="w-[260px] h-auto object-contain"
+          />
+          <img
+            src={frame.src}
+            alt="frame"
+            className="w-[260px] h-auto object-contain"
+          />
+        </div>
+      </section>
 
 
       <MediaMentions />
     </div>
   );
 }
+

@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import HallwayCard, { HallwayCardProps } from "./HallwayCard";
 import hallwaysbg from "../public/hallwaysbg.png";
-
 
 export default function HallwaysSection() {
   const hallwayConversations: HallwayCardProps[] = [
@@ -15,109 +15,234 @@ export default function HallwaysSection() {
     },
     {
       quote:
-        "Met a nonprofit leader who showed us how our technology could provide clean water to millions.",
-      name: "Alex Kumar",
-      title: "Impact Officer",
-      company: "CleanTech",
+        "Casual hallway conversations led to partnerships that shaped our mission.",
+      name: "Priya Sharma",
+      title: "Program Manager",
+      company: "FutureBridge",
     },
     {
       quote:
-        "Met a nonprofit leader who showed us how our technology could provide clean water to millions.",
-      name: "Alex Kumar",
-      title: "Impact Officer",
-      company: "CleanTech",
+        "It’s in the hallways where innovation often starts — between ideas and execution.",
+      name: "Rahul Mehta",
+      title: "Product Strategist",
+      company: "Visionary Labs",
     },
     {
       quote:
-        "Met a nonprofit leader who showed us how our technology could provide clean water to millions.",
-      name: "Alex Kumar",
-      title: "Impact Officer",
-      company: "CleanTech",
+        "Met a designer here who changed the way we visualize our impact metrics.",
+      name: "Nina Patel",
+      title: "UX Lead",
+      company: "DesignImpact",
     },
     {
       quote:
-        "Met a nonprofit leader who showed us how our technology could provide clean water to millions.",
-      name: "Alex Kumar",
-      title: "Impact Officer",
-      company: "CleanTech",
+        "A simple conversation here inspired the next phase of our social tech movement.",
+      name: "David Lee",
+      title: "Innovation Director",
+      company: "TechForGood",
     },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animateDirection, setAnimateDirection] = useState<
+    "left" | "right" | null
+  >(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  useEffect(() => {
+    setCanScrollLeft(currentIndex > 0);
+    setCanScrollRight(currentIndex < hallwayConversations.length - 3);
+  }, [currentIndex]);
+
+  const scroll = (direction: "left" | "right") => {
+    if (direction === "left" && currentIndex > 0) {
+      setAnimateDirection("left");
+      setCurrentIndex((i) => i - 1);
+    } else if (direction === "right" && currentIndex < hallwayConversations.length - 3) {
+      setAnimateDirection("right");
+      setCurrentIndex((i) => i + 1);
+    }
+    setTimeout(() => setAnimateDirection(null), 500);
+  };
+
+  const visibleCards = [
+    hallwayConversations[currentIndex],
+    hallwayConversations[currentIndex + 1],
+    hallwayConversations[currentIndex + 2],
+  ];
+
   return (
-    <section className="relative w-full overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-24 px-6 md:px-8">
-      {/* BG image */}
-      <Image
-        src={hallwaysbg}
-        alt="Hallway background"
-        fill
-        priority
-        className="object-cover object-center"
-      />
+    <>
+      {/* Direction-aware entry animations */}
+      <style jsx global>{`
+        @keyframes cardEnterFromRight {
+          0% {
+            opacity: 0;
+            transform: translateX(32px) scale(0.98);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+          }
+        }
+        @keyframes cardEnterFromLeft {
+          0% {
+            opacity: 0;
+            transform: translateX(-32px) scale(0.98);
+          }
+          100% {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+          }
+        }
+        .enter-right {
+          animation: cardEnterFromRight 480ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .enter-left {
+          animation: cardEnterFromLeft 480ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+      `}</style>
 
-      {/* dark radial at top to help heading pop */}
-      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.45)_0.1%,rgba(0,0,0,0.55)_30%,rgba(0,0,0,0.6)_60%,rgba(0,0,0,0.65)_100%)] md:bg-[radial-gradient(circle_at_center,rgba(0,0,0,0)_0%,rgba(0,0,0,0.4)_15%,rgba(0,0,0,0.55)_40%,rgba(0,0,0,0.6)_65%,rgba(0,0,0,0.65)_100%)] pointer-events-none" /> */}
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black py-24 px-6 md:px-8">
+  {/* ✅ Background image */}
+  <div className="absolute inset-0 -z-10">
+    <Image
+      src={hallwaysbg}
+      alt="Hallway background"
+      fill
+      priority
+      className="object-cover object-center"
+    />
+    {/* ✅ Soft dark overlay for contrast */}
+    <div className="absolute inset-0  " />
+  </div>
 
-      {/* HEADER */}
-      <div className="relative z-[2] text-center max-w-5xl">
-        <h1 className="text-[2.5rem] leading-[1.15] md:text-[3.5rem] md:leading-[1.15] font-['Playfair_Display'] font-bold text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]">
-          Conversations in the Hallways
-        </h1>
 
-        <p className="mt-4 text-xl md:text-2xl font-['Playfair_Display'] font-semibold leading-snug text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)] max-w-4xl mx-auto">
-          Where serendipitous encounters spark innovation and change. The most
-          important innovations often happen in the spaces between meetings.
-        </p>
-      </div>
-
-      {/* SCROLLABLE CARD STRIP */}
-      <div className="relative z-[2] mt-16 w-full max-w-[1400px]">
-        <div
-          className={`
-            flex
-            flex-nowrap
-            items-start
-            gap-6 md:gap-8
-            px-4 md:px-8
-            overflow-x-auto
-            snap-x snap-mandatory
-            scroll-smooth
-            [-ms-overflow-style:none]         /* hide scrollbar IE/Edge */
-            [scrollbar-width:none]            /* hide scrollbar Firefox */
-          `}
-          style={{
-            WebkitOverflowScrolling: "touch",
-          }}
-        >
-          {/* hide scrollbar Chrome/Safari */}
-          <style jsx>{`
-            div::-webkit-scrollbar {
-              display: none;
-            }
-          `}</style>
-
-          {hallwayConversations.map((card, idx) => (
-            <div
-              key={idx}
-              className={`
-                snap-center
-                flex-shrink-0
-                ${idx === 1 ? "md:-translate-y-[20px]" : ""}
-                ${idx === 0 || idx === 2 ? "md:translate-y-[40px]" : ""}
-              `}
-            >
-              <HallwayCard {...card} highlight={idx === 1} />
-            </div>
-          ))}
+        {/* ✅ Heading */}
+        <div className="relative z-10 text-center max-w-5xl mb-16">
+          <h1 className="text-[2.5rem] md:text-[3.5rem] font-['Playfair_Display'] font-bold text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]">
+            Conversations in the Hallways
+          </h1>
+          <p className="mt-4 text-xl md:text-2xl font-['Playfair_Display'] font-semibold leading-snug text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)] max-w-4xl mx-auto">
+            Where serendipitous encounters spark innovation and change. The most
+            important innovations often happen in the spaces between meetings.
+          </p>
         </div>
 
-        {/* PROGRESS BAR (fake scroller UI from figma) */}
-        <div className="mt-12 flex flex-col items-center">
-          {/* white track */}
+        {/* ✅ Carousel */}
+        <div className="relative w-full flex items-center justify-center z-10">
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
+              aria-label="Scroll left"
+            >
+              ←
+            </button>
+          )}
+
+          <div className="w-full max-w-7xl px-4 md:px-12">
+            <div className="flex items-center justify-center relative py-8 md:h-[600px]">
+              {/* Left card */}
+              <CarouselCard
+                item={visibleCards[0]}
+                size="small"
+                animateClass={
+                  animateDirection === "right"
+                    ? "enter-right"
+                    : animateDirection === "left"
+                    ? "enter-left"
+                    : ""
+                }
+              />
+              {/* Center card */}
+              <CarouselCard
+                item={visibleCards[1]}
+                size="large"
+                animateClass={
+                  animateDirection === "right"
+                    ? "enter-right"
+                    : animateDirection === "left"
+                    ? "enter-left"
+                    : ""
+                }
+              />
+              {/* Right card */}
+              <CarouselCard
+                item={visibleCards[2]}
+                size="small"
+                animateClass={
+                  animateDirection === "right"
+                    ? "enter-right"
+                    : animateDirection === "left"
+                    ? "enter-left"
+                    : ""
+                }
+              />
+            </div>
+          </div>
+
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
+              aria-label="Scroll right"
+            >
+              →
+            </button>
+          )}
+        </div>
+
+        {/* ✅ Progress bar */}
+        <div className="mt-12 flex flex-col items-center z-10">
           <div className="h-[2px] w-[260px] bg-white rounded-full" />
-          {/* black thumb */}
           <div className="h-[2px] w-[90px] bg-black rounded-full -mt-[2px]" />
         </div>
-      </div>
-    </section>
+      </section>
+    </>
+  );
+}
+
+/* ✅ Internal Carousel Card */
+function CarouselCard({
+  item,
+  size,
+  animateClass,
+}: {
+  item: HallwayCardProps;
+  size: "small" | "large";
+  animateClass?: string;
+}) {
+  const sizeClass =
+  size === "large"
+    ? "z-10 w-[65vw] sm:w-[22rem] md:w-[28rem] lg:w-[30rem]"
+    : "w-[45vw] sm:w-64 md:w-[22rem] lg:w-[24rem] scale-90 opacity-90";
+
+  const marginClass = size === "large" ? "" : "-mx-10 sm:-mx-8 md:-mx-16";
+
+  return (
+    <div
+      className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300`}
+    >
+      <div
+  key={item.name}
+  className={`h-[380px] md:h-[460px] lg:h-[520px] w-full rounded-[2rem] 
+  bg-white/40 border border-white/50 shadow-2xl bg-blend-saturation
+
+  flex flex-col justify-center items-center text-center p-10 ${animateClass}`}
+>
+  <p className="font-['Playfair_Display'] text-lg md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black">
+    "{item.quote}"
+  </p>
+  <h3 className="mt-8 text-2xl md:text-3xl font-semibold font-['Playfair_Display'] text-black">
+    {item.name}
+  </h3>
+  <p className="text-md mt-2 text-gray-900">
+    ({item.title}) <br /> {item.company}
+  </p>
+</div>
+
+    </div>
   );
 }

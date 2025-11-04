@@ -12,6 +12,8 @@ type Props = {
   cardWidth?: number; // default 320
   gap?: number; // px between cards, default 32
   className?: string;
+  /** scroll direction: 'left' (left to right) or 'right' (right to left) */
+  direction?: "left" | "right"; // default "left"
 };
 
 export default function AutoScrollCarousel({
@@ -20,6 +22,7 @@ export default function AutoScrollCarousel({
   cardWidth = 320,
   gap = 32,
   className,
+  direction = "left",
 }: Props) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [duration, setDuration] = useState(30); // seconds
@@ -57,7 +60,9 @@ export default function AutoScrollCarousel({
         style={{
           gap: `${gap}px`,
           // move left by 50% of the track (one set), loop forever
-          animation: `marquee ${duration}s linear infinite`,
+          animation: direction === "left" 
+            ? `marquee-left ${duration}s linear infinite`
+            : `marquee-right ${duration}s linear infinite`,
           animationPlayState: paused ? "paused" : "running",
           // Improve perf on Safari/Chrome
           willChange: "transform",
@@ -86,12 +91,20 @@ export default function AutoScrollCarousel({
 
       {/* Keyframes local to this component */}
       <style jsx>{`
-        @keyframes marquee {
+        @keyframes marquee-left {
           0% {
             transform: translateX(0);
           }
           100% {
             transform: translateX(-50%);
+          }
+        }
+        @keyframes marquee-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
           }
         }
         @media (prefers-reduced-motion: reduce) {

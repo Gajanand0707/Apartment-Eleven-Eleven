@@ -109,8 +109,8 @@ export default function DeepDives() {
 
 
             <TabNavigation tabs={TABS} />
-            <DeepDiveScroll />
-            <DeepDiveScroll />
+            <DeepDiveScroll direction="right" />
+            <DeepDiveScroll direction="left" />
             <main className="min-h-screen bg-[#D5C7B3]">
                 <div className="py-12">
                     <ArticlesList articles={SAMPLE_ARTICLES} onLoadMore={handleLoadMore} />

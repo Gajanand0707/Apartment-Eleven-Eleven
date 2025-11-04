@@ -4,6 +4,7 @@ import spacex from "../../public/spacex.png";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
 import HallwaysSection from "@/components/HallwaysSection";
 import GlassSpotlight from "@/components/GlassSpotLight";
+import Technology from "@/components/TechnologyCard";
 
 
 
@@ -67,7 +68,8 @@ export default function ResidentPage() {
 
                 <h2 className="text-4xl text-black font-['Playfair_Display'] font-semibold"> Where serendipitous encounters spark innovation and change. The most important innovations often happen in the spaces between meetings.</h2>
             </section> */}
-            <HallwaysSection />
+            <HallwaysSection /> 
+            
         </div>
 
     );

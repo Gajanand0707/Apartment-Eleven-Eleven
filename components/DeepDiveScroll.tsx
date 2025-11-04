@@ -8,14 +8,18 @@ const items = [
   { id: 4, title: "Ops Playbooks", description: "Make processes visible.", image: blogcard.src },
 ];
 
-export default function Section() {
+type DeepDiveScrollProps = {
+  direction?: "left" | "right";
+};
+
+export default function Section({ direction = "left" }: DeepDiveScrollProps) {
   return (
     <AutoScrollCarousel
       items={items}
       speed={90}        // px/sec
       cardWidth={600}   // tweak to match your design
       gap={36}
-
+      direction={direction}
     />
   );
 }

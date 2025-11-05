@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import HallwayCard, { HallwayCardProps } from "./HallwayCard";
+import { HallwayCardProps } from "./HallwayCard";
 import hallwaysbg from "../public/hallwaysbg.png";
 
 export default function HallwaysSection() {
@@ -112,7 +112,9 @@ export default function HallwaysSection() {
       alt="Hallway background"
       fill
       priority
-      className="object-cover object-center"
+      quality={100}
+      sizes="100vw"
+      className="object-cover object-center blur-0"
     />
     {/* ✅ Soft dark overlay for contrast */}
     <div className="absolute inset-0  " />
@@ -196,8 +198,8 @@ export default function HallwaysSection() {
 
         {/* ✅ Progress bar */}
         <div className="mt-12 flex flex-col items-center z-10">
-          <div className="h-[2px] w-[260px] bg-white rounded-full" />
-          <div className="h-[2px] w-[90px] bg-black rounded-full -mt-[2px]" />
+          <div className="h-0.5 w-[260px] bg-white rounded-full" />
+          <div className="h-0.5 w-[90px] bg-black rounded-full -mt-0.5" />
         </div>
       </section>
     </>
@@ -223,12 +225,12 @@ function CarouselCard({
 
   return (
     <div
-      className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300`}
+      className={`shrink-0 ${sizeClass} ${marginClass} transition-all duration-300`}
     >
-      <div
+    <div
   key={item.name}
-  className={`h-[380px] md:h-[460px] lg:h-[520px] w-full rounded-[2rem] 
-  bg-white/40 border border-white/50 shadow-2xl bg-blend-saturation
+  className={`h-[380px] md:h-[460px] lg:h-[520px] w-full rounded-4xl 
+  bg-white/20 border border-white/30 shadow-2xl backdrop-blur-md
 
   flex flex-col justify-center items-center text-center p-10 ${animateClass}`}
 >

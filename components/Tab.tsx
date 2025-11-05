@@ -53,20 +53,25 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               key={tab.id}
               href={tab.href}
               className={[
-                "flex items-center justify-center h-full text-center leading-none",
-                "font-serif font-bold transition-all duration-300",
-                // Responsive text sizes
+                "flex items-center justify-center h-full text-center leading-none select-none",
+                "font-serif font-bold transition-all duration-300 ease-out",
                 "text-base sm:text-lg md:text-2xl lg:text-3xl",
-                // Background & active states
+                "px-1 sm:px-2 md:px-4",
+
+                // Active tab (persistent highlighted style)
                 isActive
-                  ? "bg-orange-300/90 text-gray-900 shadow-[inset_0_-2px_0_rgba(0,0,0,0.35)]"
-                  : "bg-white/55 hover:bg-white/70 text-gray-900",
-                // Rounded edges for first & last tab
+                  ? "bg-orange-400 text-gray-900 scale-[1.08] -translate-y-[4px] shadow-[0_8px_18px_rgba(0,0,0,0.35)] border-b-4 border-orange-600"
+                  : "bg-white/60 text-gray-800 hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)]",
+
+                // Rounded corners
                 i === 0 ? "rounded-l-xl sm:rounded-l-2xl" : "",
                 i === tabs.length - 1 ? "rounded-r-xl sm:rounded-r-2xl" : "",
+
+                // Focus visible
                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/40",
-                "px-1 sm:px-2 md:px-4", // balanced padding
-              ].join(" ")}
+              ]
+                .filter(Boolean)
+                .join(" ")}
             >
               {tab.label}
             </Link>

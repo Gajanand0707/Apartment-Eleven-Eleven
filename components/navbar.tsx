@@ -1,20 +1,12 @@
 
 "use client";
-import { EB_Garamond } from "next/font/google";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/logo.png";
 import headerLogo from "../public/headerLogo.png";
 import navLogo from "../public/navLogo.png";
-
-
-const ebg = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-  variable: "--font-ebg",
-});
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,11 +27,10 @@ export function Navbar() {
     { href: "/residents", label: "Our Residents" },
     { href: "/library", label: "Library" },
     { href: "/inside", label: "Inside Our Doors" },
-    { href: "/contactUs", label: "Contact Us" },
   ];
 
   return (
-    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-50 ">
+    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center">
           {/* Container with absolute positioning for mobile hamburger */}
@@ -100,9 +91,8 @@ export function Navbar() {
 
       {/* Mobile Menu (full-page slide from left) */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out md:hidden ${
-          open ? 'translate-x-0' : '-translate-x-full'
-        } z-50`}
+        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'
+          } z-50`}
       >
         {/* Header with close button and centered logo */}
         <div className="h-20 flex items-center justify-between px-4 border-b border-black/10">
@@ -126,16 +116,16 @@ export function Navbar() {
         </div>
 
         {/* Navigation Links - Centered */}
-         <div className="flex flex-col h-[calc(100%-80px)]">
-      
+        <div className="flex flex-col h-[calc(100%-80px)]">
+
           <nav className="flex items-start pt-20">
-              <ul className="flex flex-col items-center gap-6 w-full">
+            <ul className="flex flex-col items-center gap-6 w-full">
               {navItems.map((item) => (
                 <li key={item.href} className="w-full text-center">
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                  className="block text-[32px] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
+                    className="block text-[32px] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
                   >
                     {item.label}
                   </Link>
@@ -145,18 +135,7 @@ export function Navbar() {
           </nav>
 
           {/* NavLogo at bottom */}
-        <div className="flex justify-center mt-8">
-            <div className="relative w-[180px] h-[180px]">
-              <Image
-                src={navLogo}
-                alt="Nav Logo"
-                fill
-             sizes="180px"
-                priority
-                className="object-contain"
-              />
-            </div>
-          </div>
+          
         </div>
       </div>
     </header>

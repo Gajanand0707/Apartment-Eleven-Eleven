@@ -19,6 +19,7 @@ import sahiba from "../public/sahiba.png";
 import MediaMentions from "@/components/MediaMentions";
 import IdeasSection from "@/components/IdeasSection";
 import ScienceSection from "@/components/ScienceSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 const ebg = EB_Garamond({
   subsets: ["latin"],
@@ -240,32 +241,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6 py-16">
-        {/* Heading */}
-        <h1 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold mb-12">
-          Residents’ Testimonials
-        </h1>
-
-        {/* Frame Row */}
-        <div className="flex justify-center items-center gap-8 md:gap-12 flex-wrap max-w-[960px] mx-auto">
-          <img
-            src={frame.src}
-            alt="frame"
-            className="w-[260px] h-auto object-contain"
-          />
-          <img
-            src={frame.src}
-            alt="frame"
-            className="w-[260px] h-auto object-contain"
-          />
-          <img
-            src={frame.src}
-            alt="frame"
-            className="w-[260px] h-auto object-contain"
-          />
-        </div>
-      </section>
+      <TestimonialsSection/>
 
 
       <MediaMentions />

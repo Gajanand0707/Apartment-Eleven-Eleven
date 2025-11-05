@@ -16,7 +16,7 @@ export default function Section({ direction = "left" }: DeepDiveScrollProps) {
   return (
     <AutoScrollCarousel
       items={items}
-      speed={90}        // px/sec
+      speed={120}        // px/sec
       cardWidth={600}   // tweak to match your design
       gap={36}
       direction={direction}

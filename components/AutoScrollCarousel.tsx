@@ -18,7 +18,7 @@ type Props = {
 
 export default function AutoScrollCarousel({
   items,
-  speed = 80,
+  speed = 120,
   cardWidth = 320,
   gap = 32,
   className,
@@ -48,10 +48,10 @@ export default function AutoScrollCarousel({
   return (
     <div
       className={`relative w-full overflow-hidden bg-[#D5C7B3] py-10 select-none ${className ?? ""}`}
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
-      onTouchEnd={() => setPaused(false)}
+      // onMouseEnter={() => setPaused(true)}
+      // onMouseLeave={() => setPaused(false)}
+      // onTouchStart={() => setPaused(true)}
+      // onTouchEnd={() => setPaused(false)}
     >
       {/* The moving track */}
       <div

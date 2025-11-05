@@ -47,13 +47,13 @@ export default function MediaMentions({
       case "center":
         return "z-30 -translate-x-[140px] sm:-translate-x-[200px] rotate-0 scale-100 opacity-100"
       case "left1":
-        return "z-20 -translate-x-[240px] sm:-translate-x-[340px] md:-translate-x-[380px] lg:-translate-x-[420px] scale-[0.85] sm:scale-[0.9] md:scale-[0.95] -rotate-[2deg] sm:-rotate-[2.5deg] opacity-90"
+        return "z-20 -translate-x-[240px] sm:-translate-x-[340px] md:-translate-x-[380px] lg:-translate-x-[420px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
       case "right1":
-        return "z-20 -translate-x-[40px] sm:-translate-x-[60px] md:-translate-x-[20px] lg:translate-x-[20px] scale-[0.85] sm:scale-[0.9] md:scale-[0.95] rotate-[2deg] sm:rotate-[2.5deg] opacity-90"
+        return "z-20 -translate-x-[40px] sm:-translate-x-[60px] md:-translate-x-[20px] lg:translate-x-[20px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
       case "left2":
-        return "hidden sm:block z-10 -translate-x-[340px] sm:-translate-x-[480px] md:-translate-x-[560px] lg:-translate-x-[640px] scale-[0.7] sm:scale-[0.8] md:scale-[0.9] -rotate-[4deg] opacity-75"
+        return "hidden sm:block z-10 -translate-x-[340px] mx-10 md:-translate-x-[560px] lg:-translate-x-[640px] scale-[0.7] sm:scale-[0.8] md:scale-[0.6]  opacity-75"
       case "right2":
-        return "hidden sm:block z-10 translate-x-[60px] sm:translate-x-[80px] md:translate-x-[160px] lg:translate-x-[240px] scale-[0.7] sm:scale-[0.8] md:scale-[0.9] rotate-[4deg] opacity-75"
+        return "hidden sm:block z-10  -mx-10 lg:translate-x-[240px] scale-[0.7] sm:scale-[0.8] md:scale-[0.6]  opacity-75"
       default:
         return "opacity-0 pointer-events-none scale-75"
     }
@@ -139,11 +139,10 @@ function NewspaperCard({
       <div className="absolute left-2.5 right-2.5 bottom-16 h-0.5 bg-[#4a331d]/80" />
 
       <div className="relative z-10 h-full px-3 sm:px-4 md:px-5 pt-4 sm:pt-5 pb-3 sm:pb-4 flex flex-col">
-        <p className={`font-['Playfair_Display'] tracking-tight ${
-          emphasized 
-            ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl" 
+        <p className={`font-['Playfair_Display'] tracking-tight ${emphasized
+            ? "text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
             : "text-xl sm:text-2xl md:text-3xl lg:text-4xl"
-        } leading-tight mb-2`}>
+          } leading-tight mb-2`}>
           {mention.outlet}
         </p>
         <div className="text-center font-['Playfair_Display'] text-sm sm:text-base md:text-lg tracking-wide mb-2 sm:mb-3 text-[#2a1d12]">

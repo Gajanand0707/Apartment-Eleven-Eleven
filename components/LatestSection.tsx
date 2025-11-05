@@ -18,7 +18,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
   const renderBlogsLayout = () => (
     <div className="space-y-6">
       {items[0] && <BlogCardHorizontal blog={items[0]} />}
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 grid-col-2 gap-6">
         {items.slice(1, 4).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}
@@ -35,7 +35,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   const renderDeepDivesLayout = () => (
     <div>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
         {items.slice(0, 3).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}

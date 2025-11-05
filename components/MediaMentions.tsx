@@ -69,6 +69,7 @@ export default function MediaMentions({
       </div>
 
       {/* Stage - centered container */}
+      
       <div className="max-w-7xl mx-auto relative">
         <div className="relative h-[400px] sm:h-[460px] md:h-[520px] lg:h-[560px] flex items-center justify-center">
           {/* Cards */}

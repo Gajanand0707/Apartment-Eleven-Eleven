@@ -1,50 +1,182 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface SpiralAnimationProps {
   images: string[]
   duration?: number
+  lineImage?: string
+  lineImageSize?: number
+  turns?: number
+  radius?: number
+  center?: { x: number; y: number }
+  pathD?: string
+  pathViewBox?: string
+  showPath?: boolean
+  containerWidth?: number
+  containerHeight?: number
+  radiusX?: number
+  radiusY?: number
+  radialExponent?: number
+  angleOffsetDeg?: number
+  reverse?: boolean
+  lineImageFit?: "contain" | "cover"
+  lineImageOpacity?: number
+  guidelineColor?: string
+  guidelineWidth?: number
+  pathTransform?: {
+    scaleX?: number
+    scaleY?: number
+    translateX?: number
+    translateY?: number
+    rotateDeg?: number
+    pivotX?: number
+    pivotY?: number
+  }
 }
 
-export function SpiralAnimation({ images, duration = 25 }: SpiralAnimationProps) {
+export function SpiralAnimation({
+  images,
+  duration = 25,
+  lineImage,
+  lineImageSize = 600,
+  turns = 2,
+  radius = 250,
+  center,
+  pathD,
+  pathViewBox,
+  showPath = false,
+  containerWidth,
+  containerHeight,
+  radiusX,
+  radiusY,
+  radialExponent = 1,
+  angleOffsetDeg = 0,
+  reverse = false,
+  lineImageFit = "contain",
+  lineImageOpacity = 1,
+  guidelineColor = "rgba(59,130,246,0.2)",
+  guidelineWidth = 2,
+  pathTransform,
+}: SpiralAnimationProps) {
   const [mounted, setMounted] = useState(false)
+  const [keyframesCSS, setKeyframesCSS] = useState("")
+  const pathRef = useRef<SVGPathElement | null>(null)
+  const outerRef = useRef<HTMLDivElement | null>(null)
+  const [measuredWidth, setMeasuredWidth] = useState<number | null>(null)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  if (!mounted) return null
+  // Measure the parent width to fill the div; height defaults to width for a square
+  useEffect(() => {
+    if (!outerRef.current) return
+    const el = outerRef.current
+    const update = () => setMeasuredWidth(Math.max(0, Math.floor(el.getBoundingClientRect().width)))
+    update()
+    const ro = new ResizeObserver(update)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   const totalImages = Math.min(images.length, 12)
+  const cW = containerWidth ?? measuredWidth ?? lineImageSize
+  const cH = containerHeight ?? cW
+  const cx = center?.x ?? cW / 2
+  const cy = center?.y ?? cH / 2
+  const fallbackRadius = Math.max(0, Math.min(cW, cH) / 2 - 16)
+  const rx = (radiusX ?? radius ?? fallbackRadius)
+  const ry = (radiusY ?? radius ?? fallbackRadius)
+  const angleOffset = (angleOffsetDeg * Math.PI) / 180
 
-  // Generate keyframes for each image's spiral path
-  const generateKeyframes = () => {
-    let keyframesText = ""
+  // Generate keyframes (path-based if provided, else parametric spiral)
+  useEffect(() => {
+    if (!mounted) return
+    let css = ""
+    const steps = 100
 
-    for (let imageIndex = 0; imageIndex < totalImages; imageIndex++) {
-      keyframesText += `@keyframes spiralPath${imageIndex} {`
-
-      // Create path from center outward following spiral
-      for (let step = 0; step <= 100; step += 2) {
-        const progress = step / 100
-        // Anticlockwise spiral: angle decreases as radius increases
-        const angle = -progress * Math.PI * 4 + (imageIndex / totalImages) * Math.PI * 2
-        const radius = progress * 250
-        const x = 300 + radius * Math.cos(angle)
-        const y = 300 + radius * Math.sin(angle)
-
-        keyframesText += `${step}% { left: ${x}px; top: ${y}px; }`
+    if (pathD && pathRef.current) {
+      const path = pathRef.current
+      try {
+        const totalLen = path.getTotalLength()
+        for (let imageIndex = 0; imageIndex < totalImages; imageIndex++) {
+          css += `@keyframes spiralPath${imageIndex} {`
+          for (let step = 0; step <= steps; step++) {
+            const progress = step / steps
+            const d = progress * totalLen
+            const ptRaw = path.getPointAtLength(d)
+            const sx = pathTransform?.scaleX ?? 1
+            const sy = pathTransform?.scaleY ?? 1
+            const tx = pathTransform?.translateX ?? 0
+            const ty = pathTransform?.translateY ?? 0
+            const theta = ((pathTransform?.rotateDeg ?? 0) * Math.PI) / 180
+            const px = pathTransform?.pivotX ?? 0
+            const py = pathTransform?.pivotY ?? 0
+            const cosT = Math.cos(theta)
+            const sinT = Math.sin(theta)
+            let x1 = px + (ptRaw.x - px) * sx
+            let y1 = py + (ptRaw.y - py) * sy
+            const xr = px + (x1 - px) * cosT - (y1 - py) * sinT
+            const yr = py + (x1 - px) * sinT + (y1 - py) * cosT
+            const xf = xr + tx
+            const yf = yr + ty
+            css += `${step}% { left: ${xf}px; top: ${yf}px; }`
+          }
+          css += `}`
+        }
+      } catch {
+        // Fallback to parametric if path API fails
+        for (let imageIndex = 0; imageIndex < totalImages; imageIndex++) {
+          css += `@keyframes spiralPath${imageIndex} {`
+          for (let step = 0; step <= steps; step++) {
+            const progress = step / steps
+            const dir = reverse ? 1 : -1
+            const angle = dir * progress * Math.PI * (turns * 2) + (imageIndex / totalImages) * Math.PI * 2 + angleOffset
+            const rFactor = Math.pow(progress, radialExponent)
+            const x = cx + rx * rFactor * Math.cos(angle)
+            const y = cy + ry * rFactor * Math.sin(angle)
+            css += `${step}% { left: ${x}px; top: ${y}px; }`
+          }
+          css += `}`
+        }
       }
-
-      keyframesText += `}`
+    } else {
+      for (let imageIndex = 0; imageIndex < totalImages; imageIndex++) {
+        css += `@keyframes spiralPath${imageIndex} {`
+        for (let step = 0; step <= steps; step++) {
+          const progress = step / steps
+          const dir = reverse ? 1 : -1
+          const angle = dir * progress * Math.PI * (turns * 2) + (imageIndex / totalImages) * Math.PI * 2 + angleOffset
+          const rFactor = Math.pow(progress, radialExponent)
+          const x = cx + rx * rFactor * Math.cos(angle)
+          const y = cy + ry * rFactor * Math.sin(angle)
+          css += `${step}% { left: ${x}px; top: ${y}px; }`
+        }
+        css += `}`
+      }
     }
 
-    return keyframesText
+    setKeyframesCSS(css)
+  }, [mounted, pathD, totalImages, cx, cy, radius, turns, rx, ry, angleOffset, radialExponent, reverse, pathTransform])
+
+  if (!mounted) return null
+
+  // Fallback guide path matching parametric settings
+  const guideSteps = 200
+  let guidePathD = `M ${cx} ${cy - ry}`
+  for (let s = 0; s <= guideSteps; s++) {
+    const t = s / guideSteps
+    const dir = reverse ? 1 : -1
+    const angle = dir * t * Math.PI * (turns * 2) + angleOffset
+    const rFactor = Math.pow(t, radialExponent)
+    const x = cx + rx * rFactor * Math.cos(angle)
+    const y = cy + ry * rFactor * Math.sin(angle)
+    guidePathD += ` L ${x} ${y}`
   }
 
   return (
-    <div className="relative w-full h-[462px] overflow-hidden bg-[#D8CCBA] flex items-center justify-center">
+    <div className="relative w-full h-auto overflow-hidden bg-[#D8CCBA] flex items-center justify-center">
       <style>{`
         @keyframes imageAppear {
           0% { opacity: 0; }
@@ -55,8 +187,8 @@ export function SpiralAnimation({ images, duration = 25 }: SpiralAnimationProps)
 
         .spiral-container {
           position: relative;
-          width: 600px;
-          height: 600px;
+          width: ${cW}px;
+          height: ${cH}px;
         }
 
         .spiral-line {
@@ -93,188 +225,79 @@ export function SpiralAnimation({ images, duration = 25 }: SpiralAnimationProps)
           height: 100%;
         }
 
-        ${generateKeyframes()}
+        ${keyframesCSS}
       `}</style>
 
       {/* Spiral Container */}
-      <div className="spiral-container">
-        {/* SVG Spiral Line - Static */}
-        <svg className="spiral-line" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="spiralGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.5" />
-              <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.5" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M 300 50 A 250 250 0 0 1 300 550 A 200 200 0 0 1 300 100 A 150 150 0 0 1 300 500 A 100 100 0 0 1 300 150 A 50 50 0 0 1 300 450 A 25 25 0 0 1 300 300"
-            stroke="url(#spiralGradient)"
-            strokeWidth="2.5"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-
-        {images.map((image, index) => {
-          const delay = (index / totalImages) * duration
-          const isLarge = index < 3
-
-          return (
-            <div
-              key={index}
-              className={`spiral-image ${!isLarge ? "small" : ""}`}
-              style={{
-                animation: `spiralPath${index} ${duration}s linear infinite, imageAppear ${duration}s linear infinite`,
-                animationDelay: `${delay}s`,
-              }}
-            >
+      <div ref={outerRef} className="w-full">
+        <div className="spiral-container">
+          {lineImage ? (
+            <div className="spiral-line">
               <Image
-                src={image || "/placeholder.svg?height=100&width=100&query=profile"}
-                alt={`Spiral image ${index + 1}`}
+                src={lineImage}
+                alt="Spiral guide line"
                 fill
-                className="object-cover"
-                priority={index < 3}
+                className=""
+                style={{ objectFit: lineImageFit, opacity: lineImageOpacity }}
+                priority
               />
             </div>
-          )
-        })}
+          ) : (
+            <svg className="spiral-line" viewBox={`0 0 ${cW} ${cH}`} preserveAspectRatio="xMidYMid meet">
+              <path
+                d={guidePathD}
+                stroke={guidelineColor}
+                strokeWidth={guidelineWidth}
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+
+          {pathD && (
+            <svg
+              className="spiral-line"
+              viewBox={pathViewBox ?? `0 0 ${cW} ${cH}`}
+              preserveAspectRatio="none"
+            >
+              <path
+                ref={pathRef}
+                d={pathD}
+                fill="none"
+                stroke={showPath ? "rgba(59,130,246,0.4)" : "transparent"}
+                strokeWidth={showPath ? 2 : 0}
+              />
+            </svg>
+          )}
+
+          {images.slice(0, totalImages).map((image, index) => {
+            const delay = (index / totalImages) * duration
+            const isLarge = index < 3
+
+            return (
+              <div
+                key={index}
+                className={`spiral-image ${!isLarge ? "small" : ""}`}
+                style={{
+                  animation: `spiralPath${index} ${duration}s linear infinite, imageAppear ${duration}s linear infinite`,
+                  animationDelay: `${delay}s`,
+                }}
+              >
+                <Image
+                  src={image || "/placeholder.svg?height=100&width=100&query=profile"}
+                  alt={`Spiral image ${index + 1}`}
+                  fill
+                  className="object-cover"
+                  priority={index < 3}
+                />
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   )
 }
-// "use client";
 
-// import { useEffect, useRef } from "react";
-// import { motion, useAnimation } from "framer-motion";
-// import Image from "next/image";
-// import img1 from "../public/ideas1.png";
-// import img2 from "../public/ideas2.png";
-// import img3 from "../public/ideas3.png";
 
-// export default function AnimatedPathImages() {
-//   const controls = useAnimation();
-//   const pathRef = useRef<SVGPathElement | null>(null);
-
-//   // Animate along the path continuously
-//   useEffect(() => {
-//     const animate = async () => {
-//       while (true) {
-//         await controls.start({
-//           pathLength: [0, 1],
-//           transition: { duration: 10, ease: "easeInOut" },
-//         });
-//         await controls.start({
-//           pathLength: [1, 0],
-//           transition: { duration: 10, ease: "easeInOut" },
-//         });
-//       }
-//     };
-//     animate();
-//   }, [controls]);
-
-//   // Function to compute positions along the path
-//   const getPathPoint = (progress: number) => {
-//     if (!pathRef.current) return { x: 0, y: 0 };
-//     const path = pathRef.current;
-//     const length = path.getTotalLength();
-//     const point = path.getPointAtLength(progress * length);
-//     return { x: point.x, y: point.y };
-//   };
-
-//   return (
-//     <div className="relative w-full h-[500px] flex items-center justify-center bg-gray-900 overflow-hidden rounded-2xl">
-//       {/* SVG Path */}
-//       <svg
-//         viewBox="0 0 800 400"
-//         className="absolute w-full h-full"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           ref={pathRef}
-//           d="M 50 300 C 200 100, 600 100, 750 300"
-//           fill="transparent"
-//           stroke="rgba(255,255,255,0.2)"
-//           strokeWidth="3"
-//         />
-//       </svg>
-
-//       {/* Moving Images */}
-//       {[img1, img2, img3].map((img, index) => {
-//         const offset = index * 0.33; // stagger positions
-//         return (
-//           <motion.div
-//             key={index}
-//             className="absolute"
-//             animate={{
-//               x: [0, 1],
-//               transition: {
-//                 repeat: Infinity,
-//                 repeatType: "reverse",
-//                 duration: 10,
-//                 ease: "easeInOut",
-//               },
-//             }}
-//             style={{
-//               translateX: "-50%",
-//               translateY: "-50%",
-//             }}
-//           >
-//             <PathFollower
-//               pathRef={pathRef}
-//               duration={10}
-//               offset={offset}
-//               image={img}
-//             />
-//           </motion.div>
-//         );
-//       })}
-//     </div>
-//   );
-// }
-
-// function PathFollower({
-//   pathRef,
-//   duration,
-//   offset,
-//   image,
-// }: {
-//   pathRef: React.RefObject<SVGPathElement>;
-//   duration: number;
-//   offset: number;
-//   image: any;
-// }) {
-//   const divRef = useRef<HTMLDivElement | null>(null);
-
-//   useEffect(() => {
-//     let frameId: number;
-//     const startTime = performance.now();
-
-//     const animate = (time: number) => {
-//       if (!pathRef.current || !divRef.current) return;
-//       const path = pathRef.current;
-//       const totalLength = path.getTotalLength();
-
-//       const elapsed = ((time - startTime) / 1000) % duration;
-//       const progress = ((elapsed / duration) + offset) % 1;
-
-//       const point = path.getPointAtLength(progress * totalLength);
-//       divRef.current.style.transform = `translate(${point.x}px, ${point.y}px)`;
-
-//       frameId = requestAnimationFrame(animate);
-//     };
-
-//     frameId = requestAnimationFrame(animate);
-//     return () => cancelAnimationFrame(frameId);
-//   }, [pathRef, duration, offset]);
-
-//   return (
-//     <div ref={divRef} className="absolute w-16 h-16">
-//       <Image
-//         src={image}
-//         alt="moving"
-//         className="w-full h-full object-contain rounded-full shadow-lg"
-//       />
-//     </div>
-//   );
-// }

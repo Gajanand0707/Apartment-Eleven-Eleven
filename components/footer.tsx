@@ -8,13 +8,13 @@ import logo from "../public/logo.png";
 export function Footer() {
   return (
     <footer className="bg-[#24211F] text-gray-300">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 lg:px-12 py-4 sm:py-6">
         {/* Top Links */}
         <nav
   aria-label="Footer"
-  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-6 max-w-5xl mx-auto text-center place-items-center"
+  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4 max-w-5xl mx-auto text-center place-items-center"
 >
-  <div className="space-y-1 sm:space-y-2 md:space-y-3">
+  <div className="space-y-0.5 sm:space-y-1 md:space-y-2">
     <Link href="/shelves" className="block text-xl md:text-2xl hover:text-white">
       On Our Shelves
     </Link>
@@ -23,7 +23,7 @@ export function Footer() {
     </Link>
   </div>
 
-  <div className="space-y-1 sm:space-y-2 md:space-y-3">
+  <div className="space-y-0.5 sm:space-y-1 md:space-y-2">
     <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
       Inside Our Doors
     </Link>
@@ -32,7 +32,7 @@ export function Footer() {
     </Link>
   </div>
 
-  <div className="space-y-1 sm:space-y-2 md:space-y-3">
+  <div className="space-y-0.5 sm:space-y-1 md:space-y-2">
     <Link href="/grants" className="block text-xl md:text-2xl hover:text-white">
       Grant Program
     </Link>
@@ -44,7 +44,7 @@ export function Footer() {
 
 
         {/* Social Icons */}
-        <div className="flex justify-center items-center gap-3 my-4 sm:gap-4 sm:my-5">
+        <div className="flex justify-center items-center gap-2 my-2 sm:gap-3 sm:my-3">
           <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <FaLinkedinIn className="text-white hover:text-gray-400 text-xl md:text-2xl" />
           </Link>
@@ -56,11 +56,11 @@ export function Footer() {
           </Link>
         </div>
 
-        <hr className="border-gray-400 my-3 sm:my-4" />
+        <hr className="border-gray-400 my-2 sm:my-3" />
 
         {/* Logo + Info */}
-        <div className="flex flex-col items-center text-center space-y-1 sm:space-y-2">
-          <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex flex-col items-center text-center space-y-0.5 sm:space-y-1">
+          <div className="flex items-center gap-1">
   {/* Logo Image */}
   <Image
     src={logo}
@@ -97,10 +97,10 @@ export function Footer() {
             AltF Coworking Space, Success Tower, Sector - 65, Gurugram, Haryana 125849
           </address>
 
-          <p className="text-gray-500 text-xs mt-1 sm:mt-2">Made with intention and purpose</p>
+          <p className="text-gray-500 text-xs mt-0.5 sm:mt-1">Made with intention and purpose</p>
 
           {/* Policies */}
-          <div className="flex flex-wrap justify-center gap-x-2 sm:gap-x-3 gap-y-1 sm:gap-y-2 text-sm mt-1">
+          <div className="flex flex-wrap justify-center gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-sm mt-0.5">
             <Link href="/terms" className="hover:text-white">
               Terms &amp; Conditions
             </Link>
@@ -112,7 +112,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <p className="text-gray-500 text-xs mt-1 sm:mt-2">
+          <p className="text-gray-500 text-xs mt-0.5 sm:mt-1">
             © 2025 Apartment Eleven Eleven. All rights reserved.
           </p>
         </div>

@@ -48,11 +48,11 @@ export default function Home() {
       <section className="relative flex justify-between items-center bg-[#0E4C45] text-[#F5EDE0] h-full overflow-hidden">
         {/* Left Text Section */}
         <div className="flex flex-col gap-4 ml-10">
-          <h2 className="text-2xl md:text-[86px] font-medium leading-tight">
+          <h2 className="text-2xl md:text-[86px] font-medium leading-tight font-['Goudy_Catalogue_MT_Pro']">
             Welcome to
           </h2>
-          <h1 className="text-3xl md:text-[108px] leading-[1.05] font-bold">
-            APARTMENT<br />ELEVEN ELEVEN
+          <h1 className="text-3xl md:text-[108px] leading-[1.05] font-bold font-['Goudy_Catalogue_MT_Pro']">
+            Apartment<br />Eleven Eleven
           </h1>
         </div>
 
@@ -74,15 +74,15 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-        <div className="relative z-[1] max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
+  <div className="relative z-1 max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-3xl sm:text-6xl md:text-6xl lg:text-[56px] leading-[1.15] text-[#0E4943]"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-3xl sm:text-6xl md:text-6xl lg:text-[56px] leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
-            <div className="h-[2px] w-full max-w-[900px] bg-black" />
+            <div className="h-0.5 w-full max-w-[900px] bg-black" />
           </div>
           {/* Second heading */}
-          <h3 className="mt-10 font-bold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
+          <h3 className="mt-10 font-bold text-4xl sm:text-5xl lg:text-[56px] font-['Goudy_Catalogue_MT_Pro'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
           {/* Icon row */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Card 1 */}
@@ -95,8 +95,8 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 text-black"> The Patrons of Progress </h4>
-              <p className="mt-4 text-2xl leading-relaxed text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
+              <h4 className="font-semibold text-3xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> The Patrons of Progress </h4>
+              <p className="mt-4 text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
             </div>
             {/* Card 2 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
@@ -106,8 +106,8 @@ export default function Home() {
                   alt="Where Foresight Meets Fortitude"
                   fill style={{ objectFit: "contain" }} />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 text-black"> Where Foresight Meets Fortitude </h4>
-              <p className="mt-4 text-2xl leading-relaxed text-black max-w-[340px]"> With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you. </p>
+              <h4 className="font-semibold text-3xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> Where Foresight Meets Fortitude </h4>
+              <p className="mt-4 text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[340px]"> With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you. </p>
             </div>
             {/* Card 3 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
@@ -118,8 +118,8 @@ export default function Home() {
                   fill style={{ objectFit: "contain" }}
                 />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 text-black"> The Sculptor’s Gaze </h4>
-              <p className="mt-4 text-2xl leading-relaxed text-black max-w-[340px]"> We see the potential others miss, guiding you to remove noise and reveal your lasting value. </p>
+              <h4 className="font-semibold text-3xl mt-6 text-black font-['Goudy_Catalogue_MT_Pro']"> The Sculptor’s Gaze </h4>
+              <p className="mt-4 text-2xl leading-relaxed text-black max-w-[340px] font-['Goudy_Catalogue_MT_Pro']"> We see the potential others miss, guiding you to remove noise and reveal your lasting value. </p>
             </div>
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function Home() {
         />
 
         {/* Content */}
-        <div className="relative z-[1] max-w-[1200px] mx-auto flex flex-col items-center gap-8">
+  <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
           {/* Main heading */}
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold">
             The Residency
@@ -180,7 +180,7 @@ export default function Home() {
         />
 
         {/* content wrapper */}
-        <div className="relative z-[1] max-w-[1400px] mx-auto text-center">
+  <div className="relative z-1 max-w-[1400px] mx-auto text-center">
           {/* heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black">
             Meet our Residency Panel
@@ -204,7 +204,7 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
         {/* content wrapper */}
-        <div className="relative z-[1] max-w-[1400px] mx-auto flex flex-col gap-12">
+  <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
           <h1 className="text-center font-bold text-4xl sm:text-5xl lg:text-6xl">
             Our Residents
           </h1>
@@ -235,7 +235,16 @@ export default function Home() {
             {/* RIGHT IMAGE COLUMN */}
             <div className="flex justify-center lg:justify-end">
               <div className="relative w-full max-w-[520px] border bg-[#DCCCAF]">
-                <SpiralAnimation images={demoImages} duration={20} />
+                <SpiralAnimation
+                  images={demoImages}
+                  duration={20}
+                  turns={1}
+                  radiusX={250}
+                  radiusY={250}
+                  radialExponent={1.25}
+                  angleOffsetDeg={180}
+                  guidelineWidth={6}
+                />
               </div>
             </div>
           </div>

@@ -238,11 +238,11 @@ function CarouselCard({
           priority
           className="object-cover object-center"
         />
-        <div className="relative z-[1] p-6 sm:p-8 md:p-10 flex flex-col items-center text-center">
-          <h3 className="font-semibold text-lg sm:text-xl md:text-2xl mb-4">
+        <div className="relative z-[1] p-6 sm:p-8 md:p-10 flex flex-col items-center text-center w-full min-w-0">
+          <h3 className={`font-semibold text-lg sm:text-xl md:text-2xl ${size === "small" ? "mb-2 line-clamp-2" : "mb-4"} wrap-break-word`}>
             {card.title}
           </h3>
-          <p className="text-sm sm:text-[15px] md:text-[16px] leading-relaxed max-w-[90%]">
+          <p className={`text-sm sm:text-[15px] md:text-[16px] leading-relaxed max-w-[90%] wrap-break-word ${size === "small" ? "line-clamp-4" : ""}`}>
             {card.description}
           </p>
         </div>

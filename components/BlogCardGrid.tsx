@@ -15,19 +15,19 @@ interface BlogCardGridProps {
 
 export function BlogCardGrid({ blog }: BlogCardGridProps) {
   return (
-    <div className="rounded-2xl border-2 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow flex flex-col">
+  <div className="rounded-[56px] border-2 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow flex flex-col min-h-[520px]">
       {/* Image */}
-      <div className="relative w-full h-40">
+      <div className="relative w-full h-80">
         <Image src={blog.imageUrl || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
       </div>
 
       {/* Content */}
-      <div className="p-4 flex flex-col justify-between flex-grow">
+      <div className="p-10 flex flex-col justify-between grow">
         <div>
-          <h3 className="text-lg font-serif font-bold text-gray-900 mb-2">{blog.title}</h3>
-          <p className="text-gray-700 text-sm leading-relaxed line-clamp-2 mb-3">{blog.description}</p>
+          <h3 className="text-xl font-serif font-bold text-gray-900 mb-2">{blog.title}</h3>
+          <p className="text-gray-700 text-base leading-relaxed line-clamp-2 mb-3">{blog.description}</p>
         </div>
-        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-medium text-sm hover:underline">
+        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-medium text-base hover:underline">
           Read more...
         </Link>
       </div>

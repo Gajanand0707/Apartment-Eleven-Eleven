@@ -11,7 +11,7 @@ interface BlogsListProps {
 
 export function BlogsList({ blogs }: BlogsListProps) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-20">
       {blogs.map((blog, index) => {
         // Pattern based on index to match design
         if (index === 0) {
@@ -23,7 +23,7 @@ export function BlogsList({ blogs }: BlogsListProps) {
         } else if (index === 2) {
           // Third: 2x2 grid
           return (
-            <div key={`grid-${index}`} className="grid grid-cols-2 gap-6">
+            <div key={`grid-${index}`} className="grid grid-cols-2 gap-x-12 gap-y-16">
               {blogs.slice(2, 4).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}
@@ -35,7 +35,7 @@ export function BlogsList({ blogs }: BlogsListProps) {
         } else if (index === 5) {
           // Sixth: 2x2 grid again
           return (
-            <div key={`grid-${index}`} className="grid grid-cols-2 gap-6">
+            <div key={`grid-${index}`} className="grid grid-cols-2 gap-x-12 gap-y-16">
               {blogs.slice(5, 7).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}

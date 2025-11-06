@@ -82,7 +82,7 @@ export default function OurBlogs() {
       <main className="min-h-screen bg-[#D5C7B3]">
 
 
-        <div className="relative w-full h-[320px] md:h-[420px]">
+  <div className="relative w-full h-80 md:h-[420px]">
           <img
            src={ourblogs.src} alt="Our Blogs" className="w-full h-full object-cover "
           />
@@ -90,11 +90,11 @@ export default function OurBlogs() {
             <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
               Our Blogs           </h1>
             <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-28
-                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
+                        bg-linear-to-b from-transparent to-[#D5C7B3]" />
           </div>
         </div>
         <TabNavigation tabs={TABS} />
-        <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-8 py-12 mt-12 sm:mt-16">
           <BlogsList blogs={SAMPLE_BLOGS} />
         </div>
       </main>

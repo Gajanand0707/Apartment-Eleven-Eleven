@@ -234,17 +234,18 @@ export default function Home() {
 
             {/* RIGHT IMAGE COLUMN */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[520px] border bg-[#DCCCAF]">
-                <SpiralAnimation
-                  images={demoImages}
-                  duration={20}
-                  turns={1}
-                  radiusX={250}
-                  radiusY={250}
-                  radialExponent={1.25}
-                  angleOffsetDeg={180}
-                  guidelineWidth={6}
-                />
+              <div className="relative w-full max-w-[650px]  bg-[#DCCCAF] overflow-visible">
+                <SpiralAnimation {...({
+                  images: demoImages,
+                  duration: 12,
+                  radiusX: 325,
+                  radiusY: 200,
+                  radialExponent: 1.25,
+                  angleOffsetDeg: 180,
+                  containerWidth: 650,
+                  containerHeight: 400,
+                  guidelineWidth: 6,
+                } as any)} />
               </div>
             </div>
           </div>

@@ -9,6 +9,7 @@ interface ArticlesListProps {
   onLoadMore?: () => void
 }
 
+
 export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
   const [visibleCount, setVisibleCount] = useState(5)
 

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { EB_Garamond } from "next/font/google";
+// import {Sorts_Mill_Goudy_TT} from "next/font/google";
 import frame from "../public/frame.png"
 import statue1 from "../public/statue1.png";
 import midsec from "../public/midsec.png";
@@ -74,7 +75,7 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-  <div className="relative z-1 max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
+        <div className="relative z-1 max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
           {/* Top heading */}
           <h2 className="font-bold text-3xl sm:text-6xl md:text-6xl lg:text-[56px] leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
           {/* Divider line */}
@@ -140,29 +141,29 @@ export default function Home() {
         />
 
         {/* Content */}
-  <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
+        <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
           {/* Main heading */}
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold">
+          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold font-[Sorts_Mill_Goudy_TT]">
             The Residency
           </h1>
 
           {/* Quote */}
           <div className="max-w-[900px] mx-auto">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-snug">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold font-[Goudy_Bookletter_1911] leading-snug">
               Everything should be made as simple as possible, but no simpler
             </h2>
-            <p className="text-right text-xl mt-2">
+            <p className="text-right text-xl mt-2 font-[Goudy_Bookletter_1911]">
               ~ Albert Einstein
             </p>
           </div>
 
           {/* Button */}
-          <TextureButton className="text-lg px-8 py-3 mt-4">
+          <TextureButton className="text-lg px-8 py-3 mt-4 font-[Goudy_Bookletter_1911]">
             Elevator’s Waiting
           </TextureButton>
 
           {/* Tagline */}
-          <p className="text-lg sm:text-xl mt-6 text-center">
+          <p className="text-lg sm:text-xl mt-6 font-[Goudy_Bookletter_1911] text-center">
             ~ Bringing clarity and making the decision process easier for your residency goals. ~
           </p>
         </div>
@@ -180,14 +181,14 @@ export default function Home() {
         />
 
         {/* content wrapper */}
-  <div className="relative z-1 max-w-[1400px] mx-auto text-center">
+        <div className="relative z-1 max-w-[1400px] mx-auto text-center">
           {/* heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-black">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-[Sorts_Mill_Goudy_TT] text-black">
             Meet our Residency Panel
           </h1>
 
           {/* paragraph */}
-          <p className="mt-8 text-lg sm:text-xl leading-relaxed text-black max-w-[1400px] mx-auto">
+          <p className="mt-8 text-lg sm:text-xl leading-relaxed text-black max-w-[1400px] font-[Goudy_Bookletter_1911] mx-auto">
             We bring authenticity and clarity to premium living with collaboration with
             the industry’s best professionals and experts. Learn more about our process
             and how we redefine modern residency with care, transparency, and excellence.
@@ -204,37 +205,37 @@ export default function Home() {
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
         {/* content wrapper */}
-  <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
-          <h1 className="text-center font-bold text-4xl sm:text-5xl lg:text-6xl">
+        <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
+          <h1 className="text-center font-bold text-4xl sm:text-5xl lg:text-6xl font-[Sorts_Mill_Goudy_TT]">
             Our Residents
           </h1>
 
           {/* 2-column block */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
-            <div className="flex flex-col text-left max-w-[700px]">
-              <h2 className="font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black">
+            <div className="flex flex-col text-left max-w-[700px] order-2 lg:order-1">
+              <h2 className="font-semibold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] font-[Sorts_Mill_Goudy_TT] text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally
               </h2>
 
-              <p className="mt-6 text-lg sm:text-xl leading-relaxed text-black max-w-[680px]">
+              <p className="mt-6 text-lg sm:text-xl leading-relaxed font-[Goudy_Bookletter_1911] text-black max-w-[680px]">
                 Apartment Eleven Eleven residents are thoughtfully selected
                 using diverse professional backgrounds sourced from various
                 industries and expertise areas.
               </p>
 
               <div className="mt-10">
-                <TextureButton className="text-lg px-8 py-3">
+                <TextureButton className="text-lg px-8 py-3 font-[Goudy_Bookletter_1911]">
                   View all Residents
                 </TextureButton>
               </div>
             </div>
 
             {/* RIGHT IMAGE COLUMN */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[650px]  bg-[#DCCCAF] overflow-visible">
+            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+              <div className="relative w-full max-w-[650px] mb-8 lg:mb-0 bg-[#DCCCAF] overflow-visible">
                 <SpiralAnimation {...({
                   images: demoImages,
                   duration: 12,
@@ -251,7 +252,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <TestimonialsSection/>
+      <TestimonialsSection />
 
 
       <MediaMentions />

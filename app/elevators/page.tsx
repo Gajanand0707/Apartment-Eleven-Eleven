@@ -91,19 +91,19 @@ export default function Elevators() {
 
         {/* RIGHT – text */}
         <div className="relative basis-1/2 flex flex-col justify-center items-end text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-2 sm:gap-3 md:gap-4">
-          <h1 className="font-['Playfair_Display'] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-[clamp(2.25rem,8vw,6rem)]">
+          <h1 className="font-[Sorts_Mill_Goudy_TT] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-[clamp(2.25rem,8vw,6rem)]">
             GREAT
           </h1>
 
-          <h2 className="font-['Playfair_Display'] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
+          <h2 className="font-[Sorts_Mill_Goudy_TT] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
             IDEAS DESERVE
           </h2>
 
-          <h1 className="font-['Playfair_Display'] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-2 sm:mt-4 text-[clamp(2.25rem,8vw,6rem)]">
+          <h1 className="font-[Sorts_Mill_Goudy_TT] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-2 sm:mt-4 text-[clamp(2.25rem,8vw,6rem)]">
             GREAT
           </h1>
 
-          <h2 className="font-['Playfair_Display'] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
+          <h2 className="font-[Sorts_Mill_Goudy_TT] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
             PARTNERSHIPS
           </h2>
         </div>
@@ -121,11 +121,11 @@ export default function Elevators() {
 
         {/* content wrapper */}
         <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center text-center">
-          <h2 className="font-['Playfair_Display'] font-bold text-black leading-tight text-[64px] md:text-[72px]">
+          <h2 className="font-[Sorts_Mill_Goudy_TT] font-bold text-black leading-tight text-[64px] md:text-[72px]">
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-['Playfair_Display'] font-semibold text-black leading-snug text-2xl md:text-[32px] max-w-[1000px] mt-6">
+          <p className="font-[Sorts_Mill_Goudy_TT] font-semibold text-black leading-snug text-2xl md:text-[32px] max-w-[1000px] mt-6">
             Choose the passage that best aligns with your vision, and let our shared journey commence.
           </p>
 
@@ -151,12 +151,12 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
             Align with Our Cadre
                 </h3>
 
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
-               Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
+                <p className="font-[Goudy_Bookletter_1911] text-[20px] leading-relaxed mt-2">
+                  Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
                 </p>
 
                 {/* NEW button */}

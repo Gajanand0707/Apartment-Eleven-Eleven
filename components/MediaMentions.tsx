@@ -131,8 +131,13 @@ function NewspaperCard({
     <div
       className={[
         "relative h-full rounded-md border border-[#5b3f21] shadow-lg sm:shadow-xl md:shadow-2xl",
-        "bg-[radial-gradient(ellipse_at_center,#d0a876_0%,#c1915f_43%,#b37f4e_100%)]",
       ].join(" ")}
+      style={{
+        backgroundImage: `url('/mentions_bg.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       {/* Background texture overlays */}
       <div className="absolute inset-0 pointer-events-none rounded-md mix-blend-multiply [background:radial-gradient(transparent_40%,rgba(0,0,0,.15)),linear-gradient(to_bottom,rgba(0,0,0,.08),transparent_40%,rgba(0,0,0,.12))]" />
@@ -140,7 +145,7 @@ function NewspaperCard({
       <div className="absolute left-2.5 right-2.5 bottom-16 h-0.5 bg-[#4a331d]/80" />
 
       {/* Content */}
-      <div className="relative z-10 h-full px-3 sm:px-4 md:px-5 pt-6 sm:pt-7 pb-3 sm:pb-4 flex flex-col">
+  <div className="relative z-10 h-full px-3 sm:px-4 md:px-5 pt-6 sm:pt-7 pb-3 sm:pb-4 flex flex-col text-white">
         
         {/* Outlet Name */}
         <p
@@ -157,20 +162,20 @@ function NewspaperCard({
         <div className="w-full h-0.5 bg-[#4a331d]/80 mb-4"></div>
 
         {/* Subheading */}
-        <div className="text-center font-['Playfair_Display'] text-sm sm:text-base md:text-lg tracking-wide mb-2 sm:mb-3 text-[#2a1d12]">
+  <div className="text-center font-['Playfair_Display'] text-sm sm:text-base md:text-lg tracking-wide mb-2 sm:mb-3 text-white/90">
           APARTMENT ELEVEN ELEVEN
         </div>
 
         {/* Headline and Thumbnail */}
         <div className="mt-auto mb-2 sm:mb-3 grid grid-cols-[1fr_1fr] gap-2 sm:gap-3">
-          <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] leading-snug font-serif text-[#2a1d12]">
+          <p className="text-[10px] sm:text-[11px] md:text-[12px] lg:text-[13px] leading-snug font-serif text-white/85">
             {mention.headline}
           </p>
           <div className="aspect-4/3 bg-[#84502a]/20 border border-[#4a331d]/50 rounded-sm" />
         </div>
 
         {/* Footer Text */}
-        <p className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] leading-snug font-serif text-[#2a1d12]">
+  <p className="text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] leading-snug font-serif text-white/75">
           Revolutionizing luxury residential spaces with innovative community-driven approaches.
         </p>
       </div>

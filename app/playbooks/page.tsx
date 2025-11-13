@@ -1,5 +1,6 @@
 "use client"
-import Technology from "@/components/TechnologyCard"
+import { useEffect } from "react"
+// import { fetchFromAPI } from "@/app/utils/fetchFromAPI"
 import playbook from "../../public/playbook.png"
 import TechnologyCard from "@/components/TechnologyCard"
 import GrowthCard from "@/components/GrowthCard"
@@ -20,6 +21,7 @@ const TABS: Tab[] = [
 ]
 
 export default function Playbooks() {
+   
 
     return (
         <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">

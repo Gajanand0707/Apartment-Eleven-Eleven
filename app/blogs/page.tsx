@@ -6,6 +6,7 @@ import { BlogsList } from "@/components/BlogsList"
 import type { Tab } from "@/types/navigation"
 import type { Blog } from "@/types/blog"
 import blogcard from "../../public/blogcard.png";
+import { useEffect, useState } from "react";
 
 const TABS: Tab[] = [
   { id: "latest", label: "Latest", href: "/library" },
@@ -77,6 +78,25 @@ const SAMPLE_BLOGS: Blog[] = [
 ]
 
 export default function OurBlogs() {
+
+  const [blogs, setBlogs] = useState<any[]>([]);
+  
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await fetch("http://localhost:1337/api/articles?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*");
+        if (!res.ok) throw new Error('Failed to fetch blogs');
+        const data = await res.json();
+        console.log('Playbooks (client) - fetched:', JSON.stringify(data));
+
+        setBlogs(data.data); // Adjust based on actual data structure
+      } catch (error) {
+        console.error('Playbooks (client) - fetch error:', error);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
   return (
     <div>
       <main className="min-h-screen bg-[#D5C7B3]">
@@ -95,7 +115,7 @@ export default function OurBlogs() {
         </div>
         <TabNavigation tabs={TABS} />
         <div className="max-w-7xl mx-auto px-8 py-12 mt-12 sm:mt-16">
-          <BlogsList blogs={SAMPLE_BLOGS} />
+          <BlogsList blogs={blogs} />
         </div>
       </main>
     </div>

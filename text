@@ -1,0 +1,13 @@
+http://localhost:1337/api/articles?populate[article_heading][populate][subheading][populate]=*
+http://localhost:1337/api/articles?populate=*
+token = 2361854b9b35dfdbcaf3895fae6d19bbcf225c72b9fbe8f6e1c6e07898c299add0c98d20736bc33c8a0cbcfe54810b2a6a06f500f9aedde8ee8cf219f0b9ca41ab1d4a8bae1e48d121a7bf19674c690bec3356c9e67f76cebee3b0cea85b6aa09325389202cdb2f98d8f2c7e8dfb3f22b65e88f702a09ce0411071f7f836f3e9
+
+
+http://localhost:1337/api/articles?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*
+http://localhost:1337/api/deepdives?populate[thumbnail]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]=*
+
+http://localhost:1337/api/articles?populate[article_heading][populate]=article_subheading
+
+playbook
+deepdives
+our blog

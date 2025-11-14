@@ -45,11 +45,11 @@ export default function CaseStudiesSection() {
 
       {/* Heading + subheading */}
       <div className="relative z-10 text-center max-w-4xl">
-        <h1 className="text-6xl md:text-8xl font-['Playfair_Display'] font-bold mb-4 leading-[1.1]">
+        <h1 className="text-6xl md:text-8xl font-[Sorts_Mill_Goudy_TT] font-bold mb-4 leading-[1.1]">
           Case Studies
         </h1>
 
-        <p className="text-2xl md:text-3xl font-medium leading-snug">
+        <p className="text-2xl md:text-3xl" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
           Deep dives into transformative projects that showcase innovation,
           impact, and measurable results.
         </p>

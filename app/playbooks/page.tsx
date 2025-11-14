@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 // import { fetchFromAPI } from "@/app/utils/fetchFromAPI"
 import playbook from "../../public/playbook.png"
 import TechnologyCard from "@/components/TechnologyCard"
@@ -22,7 +22,22 @@ const TABS: Tab[] = [
 
 export default function Playbooks() {
    
+    const [blogs, setBlogs] = useState<any[]>([]);
 
+    useEffect(() =>{
+        const fetchBlogs = async () =>{
+            try {
+                const res = await fetch("http://localhost:1337/api/playbooks?populate=*");
+                if(!res.ok) throw new Error("Failed to fetch blogs");
+                const data = await res.json();
+                setBlogs(data.data);
+            } catch (error) {
+                console.error("Playbooks (client) - fetch error:", error);
+            }
+        }
+        fetchBlogs();
+    }, []);
+    
     return (
         <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">
             <div className="relative w-full h-[320px] md:h-[420px]">

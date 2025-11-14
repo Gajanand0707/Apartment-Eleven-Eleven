@@ -22,6 +22,7 @@ const dummyTechnologyData: CardItem[] = [
 
 export default function Technology() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [blogs, setBlogs] = useState<any>([]);
   const [currentIndex, setCurrentIndex] = useState(0)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -32,6 +33,21 @@ export default function Technology() {
     setCanScrollRight(currentIndex < dummyTechnologyData.length - 3)
   }, [currentIndex])
 
+  useEffect( () =>{
+    const fetchBlogs  = async () =>{
+      try {
+        const res = await fetch("http://localhost:1337/api/playbooks?populate=*");
+        if(!res.ok) throw new Error("Failed to fetch playbooks");
+        const data  = await res.json();
+        setBlogs(data.data);
+      } catch (error) {
+        
+      }
+    }
+    fetchBlogs();
+  }, [])
+
+  
   const scroll = (direction: "left" | "right") => {
     if (direction === "left" && currentIndex > 0) {
       setAnimateDirection("left")

@@ -186,11 +186,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
+                <p className="font-[Sorts_Mill_Goudy_TT] text-[20px] leading-relaxed mt-2">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
@@ -223,11 +223,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
                 Offer Your Proposal
                 </h3>
 
-                <p className="font-['Playfair_Display'] text-[20px] leading-relaxed mt-2">
+                <p className="font-[Sorts_Mill_Goudy_TT] text-[20px] leading-relaxed mt-2">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
@@ -245,11 +245,11 @@ export default function Elevators() {
 
       <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
         <div className="w-full max-w-[960px] flex flex-col items-center text-center">
-          <h2 className="font-['Playfair_Display'] font-bold text-[64px] leading-[1.1] text-black">
+          <h2 className="font-[Sorts_Mill_Goudy_TT] font-bold text-[64px] leading-[1.1] text-black">
             Common Inquiries
           </h2>
 
-          <p className="font-['Playfair_Display'] font-semibold text-[28px] leading-snug text-black max-w-[900px] mt-6">
+          <p className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug text-black max-w-[900px] mt-6">
             All you need discern regarding alliance with us.
           </p>
 
@@ -260,7 +260,7 @@ export default function Elevators() {
                 <div key={idx} className="w-full">
                   <button
                     onClick={() => toggleFAQ(idx)}
-                    className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-['Playfair_Display'] text-left text-[28px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
+                    className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Sorts_Mill_Goudy_TT] text-left text-[28px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
                   >
                     <span className="pr-4">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
@@ -269,7 +269,7 @@ export default function Elevators() {
                   </button>
 
                  {isOpen && (
-  <div className="bg-[#676767] text-white font-['Playfair_Display'] text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto">
+  <div className="bg-[#676767] text-white text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
     <p className="text-white text-left whitespace-pre-line">{item.a}</p>
   </div>
 )}

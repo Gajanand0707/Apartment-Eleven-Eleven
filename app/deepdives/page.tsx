@@ -85,45 +85,19 @@ export default function DeepDives() {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await fetch("http://localhost:1337/api/deepdives?populate=*");
+                const res = await fetch("https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives?populate=*");
                 if (!res.ok) throw new Error("Failed to fetch deepdives");
                 const json = await res.json();
 
-                // Map Strapi entries to the app Article shape and only pick fields that exist
+                // Map Strapi entries to the app Article shape
                 const mapped = (json.data || []).map((entry: any) => {
-                    // title
-                    const title = entry.title ?? ''
-
-                    // subtitle -> use introduction if present
-                    const subtitle = entry.introduction ?? ''
-
-                    // description -> try to use first heading -> first subheading description
-                    let description = ''
-                    const firstHeading = Array.isArray(entry.heading) && entry.heading[0]
-                    if (firstHeading && Array.isArray(firstHeading.deepdive_subheading) && firstHeading.deepdive_subheading[0]) {
-                        description = firstHeading.deepdive_subheading[0].description ?? ''
-                    }
-
-                    // imageUrl -> prefer thumbnail or title_image (first) if present
-                    let imageUrl = '/placeholder.svg'
-                    if (entry.thumbnail && entry.thumbnail.data && entry.thumbnail.data.attributes && entry.thumbnail.data.attributes.url) {
-                        const u = entry.thumbnail.data.attributes.url
-                        imageUrl = u.startsWith('http') ? u : `${process.env.NEXT_PUBLIC_STRAPI_BASE_URL?.replace(/\/$/, '') || 'http://localhost:1337'}${u}`
-                    } else if (entry.title_image && Array.isArray(entry.title_image.data) && entry.title_image.data[0] && entry.title_image.data[0].attributes && entry.title_image.data[0].attributes.url) {
-                        const u = entry.title_image.data[0].attributes.url
-                        imageUrl = u.startsWith('http') ? u : `${process.env.NEXT_PUBLIC_STRAPI_BASE_URL?.replace(/\/$/, '') || 'http://localhost:1337'}${u}`
-                    }
-
-                    // readMoreUrl -> link to a deepdives detail route (adjust as needed)
-                    const readMoreUrl = `/deepdives/${entry.id}`
-
                     return {
                         id: entry.id,
-                        title,
-                        subtitle,
-                        description,
-                        imageUrl,
-                        readMoreUrl,
+                        title: entry.title ?? '',
+                        subtitle: entry.introduction ?? '',
+                        description: entry.summary ?? '',
+                        imageUrl: case1.src, // Placeholder until images are available in API
+                        readMoreUrl: `/deepdives/${entry.documentId}`,
                     }
                 })
 
@@ -168,7 +142,7 @@ export default function DeepDives() {
             <DeepDiveScroll direction="left" />
             <main className="min-h-screen bg-[#D5C7B3]">
                 <div className="py-12">
-                    <ArticlesList articles={SAMPLE_ARTICLES} onLoadMore={handleLoadMore} />
+                    <ArticlesList articles={blogs.length > 0 ? blogs : SAMPLE_ARTICLES} onLoadMore={handleLoadMore} />
                 </div>
             </main>
         </div>

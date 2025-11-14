@@ -20,39 +20,40 @@ const dummyTechnologyData: CardItem[] = [
   { id: 5, title: "5G Technology", description: "A framework for utilizing 5G networks to improve communication and connectivity.", image: blogcard.src, link: "/5g" },
 ]
 
-export default function Technology() {
+export default function Technology({ data }: { data?: any[] }) {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const [blogs, setBlogs] = useState<any>([]);
+  const [playbooks, setPlaybooks] = useState<CardItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
   const [animateDirection, setAnimateDirection] = useState<"left" | "right" | null>(null)
 
   useEffect(() => {
-    setCanScrollLeft(currentIndex > 0)
-    setCanScrollRight(currentIndex < dummyTechnologyData.length - 3)
-  }, [currentIndex])
-
-  useEffect( () =>{
-    const fetchBlogs  = async () =>{
-      try {
-        const res = await fetch("http://localhost:1337/api/playbooks?populate=*");
-        if(!res.ok) throw new Error("Failed to fetch playbooks");
-        const data  = await res.json();
-        setBlogs(data.data);
-      } catch (error) {
-        
-      }
+    if (data && data.length > 0) {
+      const mapped = data.map((item: any) => ({
+        id: item.id,
+        title: item.title || '',
+        description: item.introduction || '',
+        image: item.thumbnail?.url || blogcard.src,
+        link: `/playbooks/${item.documentId}`
+      }));
+      setPlaybooks(mapped);
+    } else {
+      setPlaybooks(dummyTechnologyData);
     }
-    fetchBlogs();
-  }, [])
+  }, [data]);
+
+  useEffect(() => {
+    setCanScrollLeft(currentIndex > 0)
+    setCanScrollRight(currentIndex < playbooks.length - 3)
+  }, [currentIndex, playbooks.length])
 
   
   const scroll = (direction: "left" | "right") => {
     if (direction === "left" && currentIndex > 0) {
       setAnimateDirection("left")
       setCurrentIndex((i) => i - 1)
-    } else if (direction === "right" && currentIndex < dummyTechnologyData.length - 3) {
+    } else if (direction === "right" && currentIndex < playbooks.length - 3) {
       setAnimateDirection("right")
       setCurrentIndex((i) => i + 1)
     }
@@ -60,10 +61,14 @@ export default function Technology() {
     setTimeout(() => setAnimateDirection(null), 500)
   }
 
+  if (playbooks.length < 3) {
+    return null; // Don't render if not enough items
+  }
+
   const visibleCards = [
-    dummyTechnologyData[currentIndex],
-    dummyTechnologyData[currentIndex + 1],
-    dummyTechnologyData[currentIndex + 2],
+    playbooks[currentIndex],
+    playbooks[currentIndex + 1],
+    playbooks[currentIndex + 2],
   ]
 
   return (

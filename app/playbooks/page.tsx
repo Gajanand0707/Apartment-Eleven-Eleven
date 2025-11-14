@@ -22,20 +22,30 @@ const TABS: Tab[] = [
 
 export default function Playbooks() {
    
-    const [blogs, setBlogs] = useState<any[]>([]);
+    const [playbooks, setPlaybooks] = useState<any[]>([]);
+    const [technologyData, setTechnologyData] = useState<any[]>([]);
+    const [growthData, setGrowthData] = useState<any[]>([]);
+    const [hiringData, setHiringData] = useState<any[]>([]);
 
     useEffect(() =>{
-        const fetchBlogs = async () =>{
+        const fetchPlaybooks = async () =>{
             try {
-                const res = await fetch("http://localhost:1337/api/playbooks?populate=*");
-                if(!res.ok) throw new Error("Failed to fetch blogs");
-                const data = await res.json();
-                setBlogs(data.data);
+                const res = await fetch("https://proper-friendship-29e4bdb47f.strapiapp.com/api/playbooks?populate=*");
+                if(!res.ok) throw new Error("Failed to fetch playbooks");
+                const json = await res.json();
+                const data = json.data || [];
+                
+                setPlaybooks(data);
+                
+                // Filter by type - data is already the array of playbooks
+                setTechnologyData(data.filter((item: any) => item.type === 'technology'));
+                setGrowthData(data.filter((item: any) => item.type === 'growth'));
+                setHiringData(data.filter((item: any) => item.type === 'hiring'));
             } catch (error) {
                 console.error("Playbooks (client) - fetch error:", error);
             }
         }
-        fetchBlogs();
+        fetchPlaybooks();
     }, []);
     
     return (
@@ -60,9 +70,9 @@ export default function Playbooks() {
             <TabNavigation tabs={TABS} />
 
 
-            <TechnologyCard />
-            <HiringCard />
-            <GrowthCard />
+            <TechnologyCard data={technologyData} />
+            <HiringCard data={hiringData} />
+            <GrowthCard data={growthData} />
         </div>
 
     )

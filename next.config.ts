@@ -1,7 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'proper-friendship-29e4bdb47f.media.strapiapp.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

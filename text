@@ -4,6 +4,7 @@ token = 2361854b9b35dfdbcaf3895fae6d19bbcf225c72b9fbe8f6e1c6e07898c299add0c98d20
 
 
 http://localhost:1337/api/articles?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*
+
 http://localhost:1337/api/deepdives?populate[thumbnail]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]=*
 
 http://localhost:1337/api/articles?populate[article_heading][populate]=article_subheading

@@ -79,19 +79,27 @@ const SAMPLE_BLOGS: Blog[] = [
 
 export default function OurBlogs() {
 
-  const [blogs, setBlogs] = useState<any[]>([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/articles?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*");
+        const res = await fetch("https://proper-friendship-29e4bdb47f.strapiapp.com/api/articles?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*");
         if (!res.ok) throw new Error('Failed to fetch blogs');
         const data = await res.json();
-        console.log('Playbooks (client) - fetched:', JSON.stringify(data));
 
-        setBlogs(data.data); // Adjust based on actual data structure
+        // Map API response to Blog interface
+        const mappedBlogs: Blog[] = data.data.map((article: any) => ({
+          id: article.id,
+          title: article.article_name || "Untitled Article",
+          description: article.title_introduction || article.summary || "No description available",
+          imageUrl: article.thumbnail?.url || blogcard.src,
+          readMoreUrl: `/blogs/${article.documentId}`,
+        }));
+
+        setBlogs(mappedBlogs);
       } catch (error) {
-        console.error('Playbooks (client) - fetch error:', error);
+        console.error('Blogs - fetch error:', error);
       }
     };
     fetchBlogs();

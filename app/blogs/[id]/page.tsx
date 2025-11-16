@@ -28,10 +28,18 @@ interface Article {
   thumbnail?: {
     url: string
     alternativeText: string | null
+    // optional formats and dimensions returned by Strapi
+    formats?: any
+    width?: number
+    height?: number
   }
   title_image?: {
     url: string
     alternativeText: string | null
+    // optional formats and dimensions returned by Strapi
+    formats?: any
+    width?: number
+    height?: number
   }
   article_heading?: Array<{
     id: number
@@ -44,6 +52,10 @@ interface Article {
       image?: {
         url: string
         alternativeText: string | null
+        // optional formats and dimensions returned by Strapi
+        formats?: any
+        width?: number
+        height?: number
       }
       video: any | null
       pdf: any | null

@@ -61,15 +61,16 @@ export default function Technology({ data }: { data?: any[] }) {
     setTimeout(() => setAnimateDirection(null), 500)
   }
 
-  if (playbooks.length < 3) {
-    return null; // Don't render if not enough items
+  if (playbooks.length === 0) {
+    return null; // Don't render if no items
   }
 
+  // Handle cases with fewer than 3 items by showing what we have
   const visibleCards = [
     playbooks[currentIndex],
-    playbooks[currentIndex + 1],
-    playbooks[currentIndex + 2],
-  ]
+    playbooks[currentIndex + 1] || null,
+    playbooks[currentIndex + 2] || null,
+  ].filter(Boolean)
 
   return (
     <>
@@ -115,24 +116,38 @@ export default function Technology({ data }: { data?: any[] }) {
           <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12">
             {/* Composition container */}
             <div className="flex items-center justify-center relative py-2 sm:py-4 md:py-0 md:h-[700px]">
-              {/* Left Card */}
-              <Card
-                item={visibleCards[0]}
-                size="small"
-                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
-              />
-              {/* Center Card */}
-              <Card
-                item={visibleCards[1]}
-                size="large"
-                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
-              />
-              {/* Right Card */}
-              <Card
-                item={visibleCards[2]}
-                size="small"
-                animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
-              />
+              {visibleCards.length >= 3 ? (
+                <>
+                  {/* Left Card */}
+                  <Card
+                    item={visibleCards[0]}
+                    size="small"
+                    animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+                  />
+                  {/* Center Card */}
+                  <Card
+                    item={visibleCards[1]}
+                    size="large"
+                    animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+                  />
+                  {/* Right Card */}
+                  <Card
+                    item={visibleCards[2]}
+                    size="small"
+                    animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+                  />
+                </>
+              ) : (
+                // For fewer than 3 items, show them centered
+                visibleCards.map((card, idx) => (
+                  <Card
+                    key={card.id}
+                    item={card}
+                    size={idx === 0 && visibleCards.length === 1 ? "large" : "small"}
+                    animateClass={animateDirection === "right" ? "enter-right" : animateDirection === "left" ? "enter-left" : ""}
+                  />
+                ))
+              )}
             </div>
           </div>
 

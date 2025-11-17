@@ -122,7 +122,7 @@ export default function BlogDetail() {
   </div>
 
   <div className="w-full md:w-auto text-center my-2 md:my-0">
-    <h1 className="text-white text-2xl md:text-3xl font-bold">
+    <h1 className="text-white text-2xl font-[Sorts_Mill_Goudy_TT] md:text-3xl font-bold">
       {article.article_name}
     </h1>
   </div>
@@ -167,13 +167,13 @@ export default function BlogDetail() {
 
             <div className="p-12">
               {/* Article Title */}
-              <h1 className="text-6xl md:text-7xl font-['Playfair_Display'] font-bold text-center  mb-6">
+              <h1 className="text-6xl md:text-7xl font-[Sorts_Mill_Goudy_TT] font-bold text-center  mb-6">
                 {article.article_name}
               </h1>
 
               {/* Introduction */}
               <div className="mb-8">
-                <p className="text-xl md:text-2xl leading-relaxed">
+                <p className="text-xl md:text-2xl font-[Goudy_Bookletter_1911] leading-relaxed">
                   {article.title_introduction}
                 </p>
               </div>
@@ -204,7 +204,7 @@ export default function BlogDetail() {
                         <div className="text-4xl md:text-5xl font-bold text-[#111] w-10 md:w-12 flex-shrink-0 text-right">
                           {idx + 1}.
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold mb-2">
+                        <h2 className="text-5xl md:text-6xl font-[Sorts_Mill_Goudy_TT] font-bold mb-2">
                           {heading.heading_title}
                         </h2>
                       </div>
@@ -214,7 +214,7 @@ export default function BlogDetail() {
                         <div className="space-y-8">
                           {heading.article_subheading.map((subheading) => (
                             <div key={subheading.id} className="space-y-4">
-                              <h3 className="text-3xl md:text-4xl font-semibold ">
+                              <h3 className="text-3xl md:text-4xl font-[Sorts_Mill_Goudy_TT] font-semibold ">
                                 {subheading.title}
                               </h3>
                               <p className="text-xl md:text-2xl leading-relaxed">
@@ -253,7 +253,7 @@ export default function BlogDetail() {
 
                       <div>
                         {heading.slogan && (
-                          <p className="text-5xl md:text-6xl text-center font-semibold mb-4">{heading.slogan}</p>
+                          <p className="text-5xl md:text-6xl text-center font-semibold font-[Sorts_Mill_Goudy_TT] mb-4">{heading.slogan}</p>
                         )}
                       </div>
                     </div>

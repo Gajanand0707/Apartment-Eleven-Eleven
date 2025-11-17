@@ -35,7 +35,7 @@ export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
                   ...article,
                   // Apply larger text size dynamically if your ArticleCard uses these props
                   title: article.title,
-                  description: article.introduction,
+                  description: article.description,
                 }}
                 imagePosition={index % 2 === 0 ? "left" : "right"}
               />

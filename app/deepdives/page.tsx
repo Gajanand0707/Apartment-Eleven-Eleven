@@ -52,10 +52,8 @@ export default function DeepDives() {
     }, []);
     const handleLoadMore = () => {
         console.log("Load more articles clicked")
-        // Add your API call here later
     }
     return (
-        // Make sure the next section background matches this color
         <div className="bg-[#D5C7B3]">
             <div className="relative w-full h-5/12 md:h-[420px] overflow-hidden">
                 <img

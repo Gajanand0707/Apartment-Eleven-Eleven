@@ -4,7 +4,6 @@ import { ArticlesList } from "@/components/Articles-list"
 import type { Article } from "@/types/article"
 import DeepDiveScroll from "@/components/DeepDiveScroll";
 import deepdive from "../../public/deepdive.png";
-import case1 from "../../public/case1.png";
 import { TabNavigation } from "@/components/Tab";
 import { useState, useEffect } from "react";
 
@@ -20,67 +19,10 @@ const TABS: Tab[] = [
     { id: "playbooks", label: "Playbooks", href: "/playbooks" },
     { id: "deepdives", label: "Deep Dives", href: "/deepdives" },
 ]
-const SAMPLE_ARTICLES: Article[] = [
-    {
-        id: 1,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/1",
-    },
-    {
-        id: 2,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/2",
-    },
-    {
-        id: 3,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/3",
-    },
-    {
-        id: 4,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/4",
-    },
-    {
-        id: 5,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/5",
-    },
-    {
-        id: 6,
-        title: "Building in Public for Indian Startups",
-        subtitle: "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum",
-        description:
-            "A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum. A Framework for Leveraging Twitter and LinkedIn to Build Early Momentum.",
-        imageUrl: case1.src,
-        readMoreUrl: "/article/6",
-    },
-]
-
 
 export default function DeepDives() {
 
-    const [blogs, setBlogs] = useState<any[]>([]);
+    const [blogs, setBlogs] = useState<Article[]>([]);
 
     useEffect(() => {
         const fetchBlogs = async () => {
@@ -96,7 +38,7 @@ export default function DeepDives() {
                         title: entry.title ?? '',
                         subtitle: entry.introduction ?? '',
                         description: entry.summary ?? '',
-                        imageUrl: case1.src, // Placeholder until images are available in API
+                        imageUrl: entry.thumbnail?.url || '',
                         readMoreUrl: `/deepdives/${entry.documentId}`,
                     }
                 })
@@ -142,7 +84,7 @@ export default function DeepDives() {
             <DeepDiveScroll direction="left" />
             <main className="min-h-screen bg-[#D5C7B3]">
                 <div className="py-12">
-                    <ArticlesList articles={blogs.length > 0 ? blogs : SAMPLE_ARTICLES} onLoadMore={handleLoadMore} />
+                    <ArticlesList articles={blogs} onLoadMore={handleLoadMore} />
                 </div>
             </main>
         </div>

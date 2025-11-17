@@ -369,7 +369,6 @@ export function SpiralAnimation({
           height: 90px;
           border-radius: 50%;
           overflow: hidden;
-          border: 3px solid rgba(59, 130, 246, 0.8);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -397,92 +396,6 @@ export function SpiralAnimation({
               stroke={showPath ? "rgba(59,130,246,0.4)" : "transparent"}
               strokeWidth={showPath ? 2 : 0}
             />
-            {showSquares && (
-              <g>
-                {/* Golden rectangle squares from the provided SVG, scaled to fit container */}
-                <rect 
-                  x={3902.5 * scale + offsetX} 
-                  y={2502.5 * scale + offsetY} 
-                  width={100 * scale} 
-                  height={100 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={3902.5 * scale + offsetX} 
-                  y={2402.5 * scale + offsetY} 
-                  width={100 * scale} 
-                  height={100 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={4002.5 * scale + offsetX} 
-                  y={2402.5 * scale + offsetY} 
-                  width={200 * scale} 
-                  height={200 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={3902.5 * scale + offsetX} 
-                  y={2102.5 * scale + offsetY} 
-                  width={300 * scale} 
-                  height={300 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={3402.5 * scale + offsetX} 
-                  y={2602.5 * scale + offsetY} 
-                  width={800 * scale} 
-                  height={800 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={4202.5 * scale + offsetX} 
-                  y={2102.5 * scale + offsetY} 
-                  width={1300 * scale} 
-                  height={1300 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={3402.5 * scale + offsetX} 
-                  y={2.5 * scale + offsetY} 
-                  width={2100 * scale} 
-                  height={2100 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={2.5 * scale + offsetX} 
-                  y={2.5 * scale + offsetY} 
-                  width={3400 * scale} 
-                  height={3400 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-                <rect 
-                  x={3402.5 * scale + offsetX} 
-                  y={2102.5 * scale + offsetY} 
-                  width={500 * scale} 
-                  height={500 * scale}
-                  fill="none"
-                  stroke={squaresStroke}
-                  strokeWidth={1}
-                />
-              </g>
-            )}
           </svg>
 
           {images.slice(0, totalImages).map((image, index) => {

@@ -51,8 +51,9 @@ export function SpiralAnimation({
     const update = () => {
       const rect = el.getBoundingClientRect()
       const rectWidth = rect.width
-      const isMobile = rectWidth < 500
-      const width = isMobile ? rectWidth * 0.8 : rectWidth
+      const isMobile = rectWidth < 768
+      const scale = isMobile ? 0.6 : 1
+      const width = rectWidth * scale
       setContainerSize({
         width,
         height: (width * 370) / 600,
@@ -171,7 +172,8 @@ export function SpiralAnimation({
 
         .spiral-container {
           position: relative;
-          width: ${containerSize.width}px;
+          width: 100%;
+          margin-left: 2rem;
           height: ${containerSize.height}px;
         }
 
@@ -195,6 +197,13 @@ export function SpiralAnimation({
           width: 100%;
           height: 100%;
         }
+
+        @media(max-width: 768px) {
+        .spiral-image {
+          width: 45px;
+          height: 45px;}
+
+          }
       `}</style>
 
       <div ref={outerRef} className="w-full max-w-[600px]">

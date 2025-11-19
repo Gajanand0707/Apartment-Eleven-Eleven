@@ -70,8 +70,8 @@ export default function Library() {
   }, []);
 
   return (
-    <div className=" bg-[#D5C7B3] ">
-      <div className="relative w-full h-5/12 md:h-[420px] overflow-hidden">
+    <div className="bg-[#D5C7B3]">
+      <div className="relative w-full h-[300px] md:h-[420px] overflow-hidden">
         <img
           src={library.src}
           alt="Deepdives"
@@ -79,22 +79,22 @@ export default function Library() {
         />
 
         {/* Title */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+        <div className="absolute inset-0 flex items-center justify-center px-4">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-['Playfair_Display'] font-bold text-center">
             Library
           </h1>
         </div>
 
         {/* The feathered overlay ON TOP of the image */}
 
-        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-16
+        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-12 md:h-16
                         bg-gradient-to-b from-transparent to-[#D5C7B3]" />
 
       </div>
       <TabNavigation tabs={TABS} />
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {loading ? (
-          <div className="text-center py-12">Loading...</div>
+          <div className="text-center py-8 md:py-12 text-base md:text-lg">Loading...</div>
         ) : (
           <>
             <LatestSection 

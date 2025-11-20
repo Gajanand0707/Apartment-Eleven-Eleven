@@ -4,6 +4,7 @@ import { EB_Garamond } from "next/font/google";
 import frame from "../public/frame.png"
 import statue1 from "../public/statue1.png";
 import midsec from "../public/midsec.png";
+import HeroSection from "@/components/HeroSection";
 import ideas1 from "../public/ideas1.png";
 import ideas2 from "../public/ideas2.png";
 import ideas3 from "../public/ideas3.png";
@@ -46,26 +47,7 @@ export default function Home() {
   return (
     // Apply EB Garamond to the whole page
     <div className={ebg.className}>
-      <section className="relative flex justify-between items-center bg-[#0E4C45] text-[#F5EDE0] h-full overflow-hidden">
-        {/* Left Text Section */}
-        <div className="flex flex-col gap-4 ml-10">
-          <h2 className="text-2xl md:text-[86px] font-medium leading-tight font-['Goudy_Catalogue_MT_Pro']">
-            Welcome to
-          </h2>
-          <h1 className="text-3xl md:text-[108px] leading-[1.05] font-bold font-['Goudy_Catalogue_MT_Pro']">
-            Apartment<br />Eleven Eleven
-          </h1>
-        </div>
-
-        {/* Right Image Section */}
-        <div className="flex justify-end ">
-          <img
-            src={statue1.src}
-            alt="statue"
-            className="w-[400px] h-auto object-cover ml-8 top-0 bottom-0 "
-          />
-        </div>
-      </section>
+      <HeroSection />
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black">
         {/* Background texture */}

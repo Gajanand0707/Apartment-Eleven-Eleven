@@ -51,8 +51,9 @@ export function SpiralAnimation({
     const update = () => {
       const rect = el.getBoundingClientRect()
       const rectWidth = rect.width
-      const isMobile = rectWidth < 500
-      const width = isMobile ? rectWidth * 0.8 : rectWidth
+      const isMobile = rectWidth < 768
+      const scale = isMobile ? 0.6 : 1
+      const width = rectWidth * scale
       setContainerSize({
         width,
         height: (width * 370) / 600,
@@ -171,7 +172,8 @@ export function SpiralAnimation({
 
         .spiral-container {
           position: relative;
-          width: ${containerSize.width}px;
+          width: 100%;
+          margin-left: 2rem;
           height: ${containerSize.height}px;
         }
 
@@ -195,6 +197,13 @@ export function SpiralAnimation({
           width: 100%;
           height: 100%;
         }
+
+        @media(max-width: 768px) {
+        .spiral-image {
+          width: 45px;
+          height: 45px;}
+
+          }
       `}</style>
 
       <div ref={outerRef} className="w-full max-w-[600px]">
@@ -204,6 +213,53 @@ export function SpiralAnimation({
             viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
             preserveAspectRatio="xMidYMid meet"
           >
+            {/* Background grid pattern - scaled to match container */}
+            <g transform={`translate(${offsetX},${offsetY}) scale(${scale})`} opacity="0.3">
+              <polyline 
+                points="3400,0 3400,3400 0,3400"
+                fill="none"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="3400" y1="2100" x2="5500" y2="2100"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="4200" y1="2100" x2="4200" y2="3400"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <polyline 
+                points="4200,2600 3900,2600 3400,2600"
+                fill="none"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="3900" y1="2600" x2="3900" y2="2100"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="3900" y1="2400" x2="4200" y2="2400"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="4000" y1="2400" x2="4000" y2="2600"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+              <line 
+                x1="4000" y1="2500" x2="3900" y2="2500"
+                stroke={squaresStroke}
+                strokeWidth={2 / scale}
+              />
+            </g>
+            
+            {/* Spiral path */}
             <path
               ref={pathRef}
               d={pathD}

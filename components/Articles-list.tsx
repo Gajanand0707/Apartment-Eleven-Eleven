@@ -27,7 +27,7 @@ export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
         {visibleArticles.map((article, index) => (
           <div
             key={article.id}
-            className="transform scale-125 md:scale-130 transition-transform duration-300"
+            className="transform scale-100 transition-transform duration-300"
           >
             <div className="p-8 md:p-12 rounded-2xl ">
               <ArticleCard

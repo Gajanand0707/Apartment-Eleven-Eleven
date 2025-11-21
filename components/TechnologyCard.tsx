@@ -12,20 +12,12 @@ type CardItem = {
   link: string
 }
 
-const dummyTechnologyData: CardItem[] = [
-  { id: 1, title: "Blockchain Technology", description: "A framework for leveraging blockchain to enhance transparency and trust in transactions.", image: blogcard.src, link: "/blockchain" },
-  { id: 2, title: "Artificial Intelligence", description: "A framework for utilizing AI to automate processes and improve decision-making.", image: blogcard.src, link: "/ai" },
-  { id: 3, title: "Cloud Computing", description: "A framework for leveraging cloud services to improve scalability and flexibility.", image: blogcard.src, link: "/cloud" },
-  { id: 4, title: "IoT (Internet of Things)", description: "A framework for connecting devices to create smart, automated environments.", image: blogcard.src, link: "/iot" },
-  { id: 5, title: "5G Technology", description: "A framework for utilizing 5G networks to improve communication and connectivity.", image: blogcard.src, link: "/5g" },
-]
-
 export default function Technology({ data }: { data?: any[] }) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const [playbooks, setPlaybooks] = useState<CardItem[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [canScrollRight, setCanScrollRight] = useState(false)
   const [animateDirection, setAnimateDirection] = useState<"left" | "right" | null>(null)
 
   useEffect(() => {
@@ -38,22 +30,26 @@ export default function Technology({ data }: { data?: any[] }) {
         link: `/playbooks/${item.documentId}`
       }));
       setPlaybooks(mapped);
-    } else {
-      setPlaybooks(dummyTechnologyData);
     }
   }, [data]);
 
   useEffect(() => {
-    setCanScrollLeft(currentIndex > 0)
-    setCanScrollRight(currentIndex < playbooks.length - 3)
+    if (playbooks.length > 0) {
+      setCanScrollLeft(currentIndex > 0)
+      setCanScrollRight(currentIndex < Math.max(0, playbooks.length - 3))
+    }
   }, [currentIndex, playbooks.length])
 
-  
+  useEffect(() => {
+    // Reset to first index when data changes
+    setCurrentIndex(0)
+  }, [playbooks])
+
   const scroll = (direction: "left" | "right") => {
     if (direction === "left" && currentIndex > 0) {
       setAnimateDirection("left")
       setCurrentIndex((i) => i - 1)
-    } else if (direction === "right" && currentIndex < playbooks.length - 3) {
+    } else if (direction === "right" && currentIndex < Math.max(0, playbooks.length - 3)) {
       setAnimateDirection("right")
       setCurrentIndex((i) => i + 1)
     }
@@ -179,7 +175,7 @@ function Card({
   const sizeClass =
     size === "large"
       ? "z-10 w-[68vw] sm:w-[26rem] md:w-[30rem] lg:w-[34rem]"
-      : "w-[54vw] sm:w-80 md:w-96 lg:w-[26rem] scale-95"
+      : "w-[54vw] sm:w-80 md:w-96 lg:w-[26rem] scale-90 md:scale-95"
   const marginClass = size === "large" ? "" : "-mx-6 sm:-mx-12 md:-mx-40"
 
   return (
@@ -194,11 +190,9 @@ function Card({
           <p className="text-[#333] text-xs sm:text-sm md:text-base leading-relaxed flex-1 line-clamp-4">
             {item.description}
           </p>
-          {size === "large" && (
-            <a href={item.link} className="inline-block text-[#111] font-semibold hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
-              Learn More →
-            </a>
-          )}
+          <a href={item.link} className="inline-block text-[#111] font-semibold hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
+            Learn More →
+          </a>
         </div>
       </div>
     </div>

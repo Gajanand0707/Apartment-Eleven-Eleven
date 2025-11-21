@@ -1,5 +1,5 @@
 import MeetTeamSection from "@/components/MeetTeamSection"
-import insdie from "../../public/inside.png"
+import InsideHero from "@/components/InsideHero"
 import inside1 from "../../public/inside1.png"
 import inside2 from "../../public/inside2.png"
 import inside3 from "../../public/inside3.png"
@@ -7,10 +7,7 @@ import inside3 from "../../public/inside3.png"
 export default function InsidePage() {
   return (
     <div>
-      {/* Hero */}
-      <div className="w-full">
-        <img src={insdie.src} alt="inside image" className="w-full h-auto" />
-      </div>
+      <InsideHero />
 
       <MeetTeamSection />
 

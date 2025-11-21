@@ -83,7 +83,7 @@ export default function InsideHero() {
         .hero-text h1 {
           font-size: clamp(2rem, 4vw, 4rem);
           line-height: 1.05;
-          text-shadow: 0px 0px 10px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9);
+          text-shadow: 0px 0px 10px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9);
           margin-bottom: 0.5rem;
         }
         .hero-text p {

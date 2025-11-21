@@ -27,7 +27,11 @@ export function ArticleCard({ article, imagePosition }: ArticleCardProps) {
       <div className={`flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center ${isImageLeft ? "md:order-2" : "md:order-1"}`}>
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-2">{article.title}</h2>
 
-        <h3 className="text-sm md:text-base font-semibold text-gray-700 mb-3 md:mb-4">{article.subtitle}</h3>
+        <h3 className="text-sm md:text-base font-semibold text-gray-700 mb-3 md:mb-4">
+          {article.subtitle && article.subtitle.length > 100 
+            ? article.subtitle.slice(0, 100) + '...' 
+            : article.subtitle}
+        </h3>
 
         <p className="text-sm md:text-base text-gray-600 mb-4 line-clamp-3 md:line-clamp-4">{article.description}</p>
 

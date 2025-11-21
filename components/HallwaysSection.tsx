@@ -5,7 +5,8 @@ import { HallwayCardProps } from "./HallwayCard";
 import hallwaysbg from "../public/hallwaysbg.png";
 
 export default function HallwaysSection() {
-  const hallwayConversations: HallwayCardProps[] = [
+  // initial fallback conversations (will be replaced by API data if fetch succeeds)
+  const initialConversations: HallwayCardProps[] = [
     {
       quote:
         "Met a nonprofit leader who showed us how our technology could provide clean water to millions.",
@@ -27,21 +28,13 @@ export default function HallwaysSection() {
       title: "Product Strategist",
       company: "Visionary Labs",
     },
-    {
-      quote:
-        "Met a designer here who changed the way we visualize our impact metrics.",
-      name: "Nina Patel",
-      title: "UX Lead",
-      company: "DesignImpact",
-    },
-    {
-      quote:
-        "A simple conversation here inspired the next phase of our social tech movement.",
-      name: "David Lee",
-      title: "Innovation Director",
-      company: "TechForGood",
-    },
   ];
+
+  const [hallwayConversations, setHallwayConversations] = useState<HallwayCardProps[]>(
+    initialConversations
+  );
+  const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animateDirection, setAnimateDirection] = useState<
@@ -52,8 +45,68 @@ export default function HallwaysSection() {
 
   useEffect(() => {
     setCanScrollLeft(currentIndex > 0);
-    setCanScrollRight(currentIndex < hallwayConversations.length - 3);
-  }, [currentIndex]);
+    setCanScrollRight(currentIndex < Math.max(0, hallwayConversations.length - 3));
+  }, [currentIndex, hallwayConversations.length]);
+
+  // fetch hallways cards from Strapi and map to HallwayCardProps
+  useEffect(() => {
+    let mounted = true;
+    const fetchData = async () => {
+      setLoading(true);
+      setFetchError(null);
+      try {
+        const res = await fetch(
+          "https://proper-friendship-29e4bdb47f.strapiapp.com/api/hallways-cards?populate=*"
+        );
+        if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+        const json = await res.json();
+        const items: any[] = json?.data ?? [];
+        const mapped: HallwayCardProps[] = items.map((it) => {
+          const quote = it.quote ?? "";
+          const name = it.name ?? "";
+          const designation = it.designation ?? "";
+          // parse designation like "(Program Manager) FutureBridge"
+          let title = "";
+          let company = "";
+          const m = String(designation).match(/^\s*\(([^)]+)\)\s*(.*)$/);
+          if (m) {
+            title = m[1].trim();
+            company = (m[2] ?? "").trim();
+          } else {
+            // fallback: try split by ') ' or use full designation as company
+            const parts = String(designation).split(")");
+            if (parts.length > 1) {
+              title = parts[0].replace("(", "").trim();
+              company = parts.slice(1).join(")").trim();
+            } else {
+              company = designation;
+            }
+          }
+
+          return {
+            quote,
+            name,
+            title,
+            company,
+          } as HallwayCardProps;
+        });
+        if (mounted && mapped.length > 0) {
+          setHallwayConversations(mapped);
+          setCurrentIndex(0);
+        }
+      } catch (err: any) {
+        console.error("Failed fetching hallways cards:", err);
+        if (mounted) setFetchError(err?.message ?? String(err));
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    };
+
+    fetchData();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const scroll = (direction: "left" | "right") => {
     if (direction === "left" && currentIndex > 0) {
@@ -66,11 +119,14 @@ export default function HallwaysSection() {
     setTimeout(() => setAnimateDirection(null), 500);
   };
 
-  const visibleCards = [
-    hallwayConversations[currentIndex],
-    hallwayConversations[currentIndex + 1],
-    hallwayConversations[currentIndex + 2],
-  ];
+  const visibleCards = hallwayConversations.slice(
+    currentIndex,
+    currentIndex + 3
+  );
+  // if less than 3, pad with last element so carousel layout remains stable
+  while (visibleCards.length < 3 && visibleCards.length > 0) {
+    visibleCards.push(visibleCards[visibleCards.length - 1]);
+  }
 
   return (
     <>
@@ -195,6 +251,14 @@ export default function HallwaysSection() {
             </button>
           )}
         </div>
+
+        {/* Loading / error indicator */}
+        {loading && (
+          <div className="mt-6 text-sm text-gray-700">Loading conversations…</div>
+        )}
+        {fetchError && (
+          <div className="mt-6 text-sm text-red-600">{fetchError}</div>
+        )}
 
         {/* ✅ Progress bar */}
         <div className="mt-12 flex flex-col items-center z-10">

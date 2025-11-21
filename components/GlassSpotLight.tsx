@@ -11,14 +11,10 @@ type Item = {
   avatarUrl?: string
 }
 
-const SAMPLE: Item[] = [
-  { id: 1, name: "Meta", sub: "Facebook" },
-  { id: 2, name: "SpaceX", sub: "Elon Musk" },
-  { id: 3, name: "X", sub: "Elon Musk" },
-]
+const SAMPLE: Item[] = []
 
 export default function GlassSpotlight({
-  items = SAMPLE,
+  items: initialItems,
   background = "/bg-placeholder.jpg",
   autoScrollInterval = 2000, // 2 seconds default interval
 }: {
@@ -26,9 +22,13 @@ export default function GlassSpotlight({
   background?: string
   autoScrollInterval?: number
 }) {
+  const [items, setItems] = useState<Item[]>(initialItems ?? SAMPLE)
+  const [loading, setLoading] = useState<boolean>(!initialItems || initialItems.length === 0)
+  const [error, setError] = useState<string | null>(null)
+
   const [active, setActive] = useState(1)
   const [isPaused, setIsPaused] = useState(false)
-  const n = items.length
+  const n = items.length || 1
   
   const next = () => setActive((i) => (i + 1) % n)
   const prev = () => setActive((i) => (i - 1 + n) % n)
@@ -43,6 +43,46 @@ export default function GlassSpotlight({
       return () => clearInterval(interval);
     }
   }, [isPaused, autoScrollInterval, n]);
+
+  // If no items were passed in, fetch resident cards from Strapi
+  useEffect(() => {
+    if (initialItems && initialItems.length > 0) return
+
+    let mounted = true
+    const fetchData = async () => {
+      setLoading(true)
+      setError(null)
+      try {
+        const res = await fetch(
+          "https://proper-friendship-29e4bdb47f.strapiapp.com/api/resident-cards?populate=*"
+        )
+        if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`)
+        const json = await res.json()
+        const data = Array.isArray(json?.data) ? json.data : []
+        const mapped: Item[] = data.map((d: any) => {
+          const image = d.image || d.attributes?.image || null
+          // prefer thumbnail/small when available
+          const url = image?.formats?.thumbnail?.url ?? image?.formats?.small?.url ?? image?.url ?? null
+          return {
+            id: d.id,
+            name: d.name ?? d.attributes?.name ?? "",
+            sub: d.short_intro ?? d.attributes?.short_intro ?? "",
+            avatarUrl: url,
+          }
+        })
+        if (mounted) setItems(mapped)
+      } catch (err: any) {
+        if (mounted) setError(err?.message ?? "Unknown error")
+      } finally {
+        if (mounted) setLoading(false)
+      }
+    }
+
+    fetchData()
+    return () => {
+      mounted = false
+    }
+  }, [initialItems])
 
   // Pause on hover
   const handleMouseEnter = () => setIsPaused(true);

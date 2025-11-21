@@ -1,7 +1,7 @@
 "use client";
 import wall from '../../public/wall.png';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import texture from '../../public/texture.png';
 import pathbg from '../../public/pathbg.png';
 import toggle1 from "../../public/toggle1.png"
@@ -55,20 +55,40 @@ export function ParchmentButton({
   );
 }
 export default function Elevators() {
-  const faqs = [
-    {
-      q: "Can International Startups Apply?",
-      a: "Lorem gayudvgau bc adhisabchik usadh aicui ahd uisanbcI gfbdsyuivbysudkvbahuk bdsuivabdhusivbyud bvuysdbnvnjskayudks abdysa bioa ycvds ai dsayuv as u an cjdsIhuiv danjkl",
-    },
-    {
-      q: "Can International Startups Apply?",
-      a: "This is a placeholder answer for the second item. Replace with your real copy.",
-    },
-    {
-      q: "Can International Startups Apply?",
-      a: "This is a placeholder answer for the third item. Replace with your real copy.",
-    },
-  ];
+  const [faqs, setFaqs] = useState<{ q: string; a: string }[]>([]);
+  const [loadingFaqs, setLoadingFaqs] = useState(true);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchFaqs = async () => {
+      try {
+        const res = await fetch(
+          'https://proper-friendship-29e4bdb47f.strapiapp.com/api/faqs?populate=*'
+        );
+        if (!res.ok) throw new Error('Failed to fetch faqs');
+        const json = await res.json();
+        const items = (json.data ?? []).map((it: any) => ({
+          q: it.faq_ques ?? '',
+          a: Array.isArray(it.faq_ans)
+            ? it.faq_ans.map((x: any) => x.faq_ans).join('\n')
+            : it.faq_ans?.faq_ans ?? '',
+        }));
+        if (mounted) setFaqs(items);
+      } catch (err) {
+        // keep behavior simple — console error and leave faqs empty
+        // optionally show UI feedback
+        // eslint-disable-next-line no-console
+        console.error('Error fetching faqs:', err);
+      } finally {
+        if (mounted) setLoadingFaqs(false);
+      }
+    };
+
+    fetchFaqs();
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   function toggleFAQ(index: number) {

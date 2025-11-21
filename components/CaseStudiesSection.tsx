@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import CaseStudyCard from "./CaseStudiesCard";
 
 // bg texture
@@ -8,8 +9,14 @@ import pathbg from "../public/pathbg.png";
 import case1 from "../public/case1.png";
 import case2 from "../public/case2.png";
 
-export default function CaseStudiesSection() {
-  const caseStudies = [
+type CaseStudy = {
+  image: any
+  title: string
+  buttonText: string
+}
+
+export default function CaseStudiesSection({ limit }: { limit?: number }) {
+  const caseStudies: CaseStudy[] = [
     {
       image: case1,
       title: "A.I Transformation in New Age",
@@ -57,7 +64,7 @@ export default function CaseStudiesSection() {
 
       {/* Cards grid */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 mt-20 max-w-6xl w-full">
-        {caseStudies.map((item, i) => (
+        {(typeof limit === "number" ? caseStudies.slice(0, limit) : caseStudies).map((item, i) => (
           <CaseStudyCard
             key={i}
             image={item.image}
@@ -67,10 +74,14 @@ export default function CaseStudiesSection() {
         ))}
       </div>
 
-      {/* Bottom CTA button */}
-      <button className="relative z-10 mt-16 bg-[#014A43] text-white text-lg font-semibold px-8 py-4 rounded-md hover:bg-[#016A60] transition-colors">
-        Access All Case Studies
-      </button>
+      {/* Bottom CTA button (only show when limited) */}
+      {typeof limit === "number" && (
+        <Link href="/caseStudy" className="relative z-10 mt-16 inline-block">
+          <span className="bg-[#014A43] text-white text-lg font-semibold px-8 py-4 rounded-md hover:bg-[#016A60] transition-colors">
+            Access All Case Studies
+          </span>
+        </Link>
+      )}
     </section>
   );
 }

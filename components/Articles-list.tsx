@@ -24,24 +24,29 @@ export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
   return (
     <div className="w-full max-w-6xl mx-auto px-8 py-16 bg-[#D5C7B3]">
       <div className="space-y-16">
-        {visibleArticles.map((article, index) => (
-          <div
-            key={article.id}
-            className="transform scale-100 transition-transform duration-300"
-          >
-            <div className="p-8 md:p-12 rounded-2xl ">
-              <ArticleCard
-                article={{
-                  ...article,
-                  // Apply larger text size dynamically if your ArticleCard uses these props
-                  title: article.title,
-                  description: article.description,
-                }}
-                imagePosition={index % 2 === 0 ? "left" : "right"}
-              />
+        {visibleArticles.map((article, index) => {
+          // Slice description to 200 characters
+          const slicedDescription = article.description?.length > 200 
+            ? article.description.slice(0, 200) + '...' 
+            : article.description;
+          
+          return (
+            <div
+              key={article.id}
+              className="transform scale-100 transition-transform duration-300"
+            >
+              <div className="p-8 md:p-12 rounded-2xl ">
+                <ArticleCard
+                  article={{
+                    ...article,
+                    description: slicedDescription,
+                  }}
+                  imagePosition={index % 2 === 0 ? "left" : "right"}
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {hasMore && (

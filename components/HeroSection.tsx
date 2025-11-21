@@ -16,7 +16,7 @@ export default function HeroSection() {
 
     gsap.set(".scene-2, .scene-3, .scene-4", { opacity: 0 });
 
-    const totalScroll = sceneHeights * 4 + hold * 3;
+    const totalScroll = sceneHeights * 4 + hold * 2;
 
     ScrollTrigger.create({
       trigger: ".hero",
@@ -224,7 +224,7 @@ export default function HeroSection() {
           justify-content: center;
           font-size: 5rem;
           color: #fff;
-          text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
+          text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
         }
 
         .hero .scene-1 .pill {

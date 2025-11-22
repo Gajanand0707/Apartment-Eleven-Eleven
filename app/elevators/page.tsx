@@ -110,21 +110,21 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative basis-1/2 flex flex-col justify-center items-end text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-2 sm:gap-3 md:gap-4">
-          <h1 className="font-[Sorts_Mill_Goudy_TT] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-[clamp(2.25rem,8vw,6rem)]">
-            GREAT
+        <div className="relative basis-1/2 flex flex-col justify-center items-end text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-0 sm:gap-0.5 md:gap-0 sm:items-center sm:text-center">
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-5xl sm:text-6xl md:text-[124px]">
+            Great
           </h1>
 
-          <h2 className="font-[Sorts_Mill_Goudy_TT] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
-            IDEAS DESERVE
+          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-2xl sm:text-3xl md:text-7xl">
+            Ideas Deserve
           </h2>
 
-          <h1 className="font-[Sorts_Mill_Goudy_TT] font-bold leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-2 sm:mt-4 text-[clamp(2.25rem,8vw,6rem)]">
-            GREAT
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-0 text-5xl sm:text-6xl md:text-[124px]">
+            Great
           </h1>
 
-          <h2 className="font-[Sorts_Mill_Goudy_TT] font-semibold leading-tight text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-[clamp(1.25rem,4.8vw,3.25rem)]">
-            PARTNERSHIPS
+          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-2xl sm:text-3xl md:text-7xl">
+            Partnerships
           </h2>
         </div>
       </section>
@@ -141,11 +141,11 @@ export default function Elevators() {
 
         {/* content wrapper */}
         <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center text-center">
-          <h2 className="font-[Sorts_Mill_Goudy_TT] font-bold text-black leading-tight text-[64px] md:text-[72px]">
+          <h2 className="font-[OPTIGoudy_Agency] font-bold text-black leading-tight text-4xl md:text-7xl">
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-[Sorts_Mill_Goudy_TT] font-semibold text-black leading-snug text-2xl md:text-[32px] max-w-[1000px] mt-6">
+          <p className="font-[Goudy_Old_Style] font-semibold text-black leading-snug text-2xl md:text-4xl max-w-[1000px] mt-6">
             Choose the passage that best aligns with your vision, and let our shared journey commence.
           </p>
 
@@ -171,11 +171,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
             Align with Our Cadre
                 </h3>
 
-                <p className="font-[Goudy_Bookletter_1911] text-[20px] leading-relaxed mt-2">
+                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
                   Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
                 </p>
 
@@ -206,11 +206,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-[Sorts_Mill_Goudy_TT] text-[20px] leading-relaxed mt-2">
+                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
@@ -243,11 +243,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
                 Offer Your Proposal
                 </h3>
 
-                <p className="font-[Sorts_Mill_Goudy_TT] text-[20px] leading-relaxed mt-2">
+                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
@@ -265,11 +265,11 @@ export default function Elevators() {
 
       <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
         <div className="w-full max-w-[960px] flex flex-col items-center text-center">
-          <h2 className="font-[Sorts_Mill_Goudy_TT] font-bold text-[64px] leading-[1.1] text-black">
+          <h2 className="font-[OPTIGoudy_Agency] font-bold text-4xl md:text-7xl leading-[1.1] text-black">
             Common Inquiries
           </h2>
 
-          <p className="font-[Sorts_Mill_Goudy_TT] font-semibold text-[28px] leading-snug text-black max-w-[900px] mt-6">
+          <p className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug text-black max-w-[900px] mt-6">
             All you need discern regarding alliance with us.
           </p>
 
@@ -279,8 +279,8 @@ export default function Elevators() {
               return (
                 <div key={idx} className="w-full">
                   <button
-                    onClick={() => toggleFAQ(idx)}
-                    className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Sorts_Mill_Goudy_TT] text-left text-[28px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
+                      onClick={() => toggleFAQ(idx)}
+                        className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Sorts_Mill_Goudy_TT] text-left text-[24px] sm:text-[36px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
                   >
                     <span className="pr-4">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
@@ -289,7 +289,7 @@ export default function Elevators() {
                   </button>
 
                  {isOpen && (
-  <div className="bg-[#676767] text-white text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
+  <div className="bg-[#676767] text-white text-[20px] sm:text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
     <p className="text-white text-left whitespace-pre-line">{item.a}</p>
   </div>
 )}

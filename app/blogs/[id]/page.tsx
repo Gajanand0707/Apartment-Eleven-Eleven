@@ -21,6 +21,12 @@ interface Article {
     conclusion_description?: string
     slogan?: string | null
   }>
+  // article_reference may be returned by Strapi as an array of references with id, url and label
+  article_reference?: Array<{
+    id: number
+    url?: string
+    label?: string
+  }> | null
   audio?: any
   createdAt: string
   updatedAt: string
@@ -73,11 +79,60 @@ export default function BlogDetail() {
     const fetchArticle = async () => {
       try {
         const res = await fetch(
-          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/articles/${params.id}?populate[thumbnail]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]&populate[conclusion]=*`
+          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/articles/${params.id}?populate[thumbnail]=true&populate[audio]=true&populate[title_image]=true&populate[article_heading][populate][article_subheading][populate]=*&populate[conclusion]=true&populate[article_reference]=*`
         )
         if (!res.ok) throw new Error("Failed to fetch article")
         const data = await res.json()
-        setArticle(data.data)
+        // Normalize Strapi shapes (attributes/data) similar to deepdives page
+        const normalize = (item: any) => {
+          if (!item) return item
+          if (item.attributes) {
+            const base = { id: item.id, ...item.attributes } as any
+
+            const unwrap = (val: any) => {
+              if (!val) return val
+              if (val.data === null) return null
+              const d = val.data
+              if (Array.isArray(d)) return d.map((x: any) => (x.attributes ? { id: x.id, ...x.attributes } : x))
+              return d.attributes ? { id: d.id, ...d.attributes } : d
+            }
+
+            base.article_reference = unwrap(base.article_reference) ?? base.article_reference
+            base.audio = unwrap(base.audio) ?? base.audio
+            base.thumbnail = unwrap(base.thumbnail) ?? base.thumbnail
+            base.title_image = unwrap(base.title_image) ?? base.title_image
+            base.article_heading = unwrap(base.article_heading) ?? base.article_heading
+            base.conclusion = unwrap(base.conclusion) ?? base.conclusion
+
+            // unwrap subheading media
+            if (Array.isArray(base.article_heading)) {
+              base.article_heading = base.article_heading.map((h: any) => {
+                if (h.article_subheading && h.article_subheading.data) {
+                  h.article_subheading = Array.isArray(h.article_subheading.data)
+                    ? h.article_subheading.data.map((s: any) => (s.attributes ? { id: s.id, ...s.attributes } : s))
+                    : (h.article_subheading.data.attributes ? { id: h.article_subheading.data.id, ...h.article_subheading.data.attributes } : h.article_subheading.data)
+                }
+
+                if (Array.isArray(h.article_subheading)) {
+                  h.article_subheading = h.article_subheading.map((s: any) => {
+                    if (s.image && s.image.data) s.image = s.image.data.attributes ? { id: s.image.data.id, ...s.image.data.attributes } : s.image.data
+                    if (s.video && s.video.data) s.video = s.video.data.attributes ? { id: s.video.data.id, ...s.video.data.attributes } : s.video.data
+                    if (s.pdf && s.pdf.data) s.pdf = s.pdf.data.attributes ? { id: s.pdf.data.id, ...s.pdf.data.attributes } : s.pdf.data
+                    return s
+                  })
+                }
+
+                return h
+              })
+            }
+
+            return base
+          }
+          return item
+        }
+
+        const normalized = normalize(data.data)
+        setArticle(normalized)
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred")
       } finally {
@@ -117,18 +172,18 @@ export default function BlogDetail() {
       <div className="flex justify-between bg-[#0E4943] w-full min-h-20 items-center px-4 flex-wrap">
 
   <div className="flex items-center gap-2">
-    <BiShareAlt size={28} color="white" className="" />
-    <h1 className="text-white text-xl font-semibold">Share</h1>
+    <BiShareAlt size={36} color="white" className="" />
+    <h1 className="text-white text-2xl md:text-4xl font-[Goudy_Old_Style] font-semibold">Share</h1>
   </div>
 
   <div className="w-full md:w-auto text-center my-2 md:my-0">
-    <h1 className="text-white text-2xl font-[Sorts_Mill_Goudy_TT] md:text-3xl font-bold">
+    <h1 className="text-white text-2xl font-[Goudy_Old_Style] md:text-4xl font-bold max-w-[630px]">
       {article.article_name}
     </h1>
   </div>
 
   <div className="flex justify-center">
-    <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 text-white rounded-full">
+    <button className="text-2xl md:text-3xl  bg-[#FFAE00] py-2 px-5 text-white rounded-full">
       Subscribe
     </button>
   </div>
@@ -146,7 +201,7 @@ export default function BlogDetail() {
           </Link>
 
           {/* Article Header */}
-          <article className="bg-[#D5C7B3]   border-gray-800 overflow-hidden shadow-lg">
+          <article className="bg-[#D5C7B3]   border-gray-800 overflow-hidden ">
             {/* Title Image */}
             {(() => {
               const srcCandidate = article.title_image ?? article.thumbnail
@@ -167,13 +222,18 @@ export default function BlogDetail() {
 
             <div className="p-12">
               {/* Article Title */}
-              <h1 className="text-6xl md:text-7xl font-[Sorts_Mill_Goudy_TT] font-bold text-center  mb-6">
+              <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center  mb-6">
                 {article.article_name}
               </h1>
 
+               <div className="mt-8  text-center mb-8 mx-auto">
+                <p className="text-xl md:text-2xl text-center mx-auto">
+                  {new Date(article.publishedAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
+                </p>
+              </div>
               {/* Introduction */}
               <div className="mb-8">
-                <p className="text-xl md:text-2xl font-[Goudy_Bookletter_1911] leading-relaxed">
+                <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                   {article.title_introduction}
                 </p>
               </div>
@@ -181,7 +241,9 @@ export default function BlogDetail() {
                     {/* Audio (placed after introduction) */}
                     {(() => {
                       const a: any = article.audio
-                      const audioUrl = a?.url ?? a?.data?.attributes?.url
+                      // audio may be an array or single object
+                      const first = Array.isArray(a) ? a[0] : a
+                      const audioUrl = first?.url ?? first?.data?.attributes?.url ?? first?.data?.url
                       if (!audioUrl) return null
                       return (
                         <div className="mb-6">
@@ -204,7 +266,7 @@ export default function BlogDetail() {
                         <div className="text-4xl md:text-5xl font-bold text-[#111] w-10 md:w-12 flex-shrink-0 text-right">
                           {idx + 1}.
                         </div>
-                        <h2 className="text-5xl md:text-6xl font-[Sorts_Mill_Goudy_TT] font-bold mb-2">
+                        <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold mb-2">
                           {heading.heading_title}
                         </h2>
                       </div>
@@ -214,10 +276,10 @@ export default function BlogDetail() {
                         <div className="space-y-8">
                           {heading.article_subheading.map((subheading) => (
                             <div key={subheading.id} className="space-y-4">
-                              <h3 className="text-3xl md:text-4xl font-[Sorts_Mill_Goudy_TT] font-semibold ">
+                              <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-semibold ">
                                 {subheading.title}
                               </h3>
-                              <p className="text-xl md:text-2xl leading-relaxed">
+                              <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                                 {subheading.description}
                               </p>
 
@@ -236,7 +298,7 @@ export default function BlogDetail() {
                               {/* Subheading Video (render in place if provided) */}
                               {(() => {
                                 const v: any = subheading.video
-                                const vUrl = v?.url ?? v?.data?.attributes?.url
+                                const vUrl = v?.url ?? v?.data?.attributes?.url ?? v?.data?.url
                                 if (!vUrl) return null
                                 return (
                                   <div className="w-full my-6 rounded-2xl overflow-hidden">
@@ -253,7 +315,7 @@ export default function BlogDetail() {
 
                       <div>
                         {heading.slogan && (
-                          <p className="text-5xl md:text-6xl text-center font-semibold font-[Sorts_Mill_Goudy_TT] mb-4">{heading.slogan}</p>
+                          <p className="text-2xl md:text-4xl text-center font-semibold font-['OPTIGoudy_Agency'] max-w-[670px] justify-center mx-auto mb-4">{heading.slogan}</p>
                         )}
                       </div>
                     </div>
@@ -290,7 +352,7 @@ export default function BlogDetail() {
                     return (
                       <div className={`flex flex-col md:items-center md:gap-6 ${rowClass}`}>
                         <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
-                          <p className="text-xl md:text-2xl leading-relaxed">{article.summary}</p>
+                          <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">{article.summary}</p>
                         </div>
 
                         <div className="mt-4 md:mt-0 md:w-1/3 md:shrink-0">
@@ -307,31 +369,52 @@ export default function BlogDetail() {
               {/* Conclusion (Strapi returns an array) */}
               {article.conclusion && article.conclusion.length > 0 && (
                 <div className="mt-12 pt-8  space-y-8">
-                  <h1 className="text-4xl md:text-5xl text-center font-bold">Conclusion</h1>
+                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">Conclusion</h1>
                   {article.conclusion.map((c) => (
                     <div key={c.id}>
                       {c.conclusion_heading && (
-                        <h2 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-gray-900 mb-2">
+                        <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold text-gray-900 mb-2">
                           {c.conclusion_heading}
                         </h2>
                       )}
                       {c.conclusion_description && (
-                        <p className="text-xl md:text-2xl  leading-relaxed">
+                        <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                           {c.conclusion_description}
                         </p>
                       )}
                       {c.slogan && (
-                        <p className="text-4xl md:text-5xl text-center font-semibold mt-2">{c.slogan}</p>
+                        <p className="text-2xl md:text-4xl text-center font-semibold font-['OPTIGoudy_Agency'] max-w-[670px] justify-center mx-auto mb-4">{c.slogan}</p>
                       )}
                     </div>
                   ))}
                 </div>
               )}
 
+              {/* References (article_reference) */}
+              {article.article_reference && article.article_reference.length > 0 && (
+                <div className="mt-12 pt-8">
+                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">References</h1>
+                  <ul className="mt-4 space-y-3 list-disc list-inside text-lg">
+                    {(article.article_reference as any[]).map((r) => {
+                      const urlRaw = (r?.url ?? "").trim();
+                      const label = r?.label?.trim();
+                      const ensureProtocol = (s: string) => (s.startsWith("http") ? s : `https://${s}`);
+                      return (
+                        <li key={r.id}>
+                          {label && <span className="font-medium">{label}</span>}
+                          <br />
+                          <a href={ensureProtocol(urlRaw)} target="_blank" rel="noopener noreferrer" className="text-[#0E4943] hover:underline">
+                            {urlRaw}
+                          </a>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              )}
+
               {/* Article Metadata */}
-              <div className="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500">
-                <p>Published: {new Date(article.publishedAt).toLocaleDateString()}</p>
-              </div>
+             
             </div>
           </article>
         </main>

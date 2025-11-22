@@ -24,6 +24,11 @@ interface DeepDive {
     conclusion_description?: string;
     slogan?: string | null;
   }>;
+  reference?: Array<{
+    id: number;
+    label?: string;
+    url?: string;
+  }>;
   audio?: any;
   createdAt: string;
   updatedAt: string;
@@ -94,7 +99,8 @@ export default function ArticlePage() {
     async function fetchArticle() {
       try {
         const res = await fetch(
-          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[thumbnail]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]&populate[conclusion]&populate[reference]=*`
+          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[audio]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]=*&populate[conclusion]=true&populate[reference]=*
+`
         );
 
        
@@ -116,8 +122,60 @@ export default function ArticlePage() {
           throw new Error('DeepDive not found')
         }
 
-        // Use the raw API object (it may already contain deepdive-style fields)
-        setArticle(raw as DeepDive);
+        // Normalize Strapi response shapes: some endpoints return { id, attributes }
+        const normalize = (item: any) => {
+          if (!item) return item;
+          // If Strapi v4 shape
+          if (item.attributes) {
+            const base = { id: item.id, ...item.attributes } as any;
+
+            // Helper to unwrap relation fields that come as { data: ... }
+            const unwrap = (val: any) => {
+              if (!val) return val;
+              if (val.data === null) return null;
+              const d = val.data;
+              if (Array.isArray(d)) return d.map((x: any) => (x.attributes ? { id: x.id, ...x.attributes } : x));
+              return d.attributes ? { id: d.id, ...d.attributes } : d;
+            };
+
+            // Unwrap common populated fields
+            base.reference = unwrap(base.reference) ?? base.reference;
+            base.audio = unwrap(base.audio) ?? base.audio;
+            base.thumbnail = unwrap(base.thumbnail) ?? base.thumbnail;
+            base.title_image = unwrap(base.title_image) ?? base.title_image;
+            base.heading = unwrap(base.heading) ?? base.heading;
+            base.conclusion = unwrap(base.conclusion) ?? base.conclusion;
+
+            // If heading items contain deepdive_subheading in nested data, normalize them too
+            if (Array.isArray(base.heading)) {
+              base.heading = base.heading.map((h: any) => {
+                if (h.deepdive_subheading && h.deepdive_subheading.data) {
+                  h.deepdive_subheading = Array.isArray(h.deepdive_subheading.data)
+                    ? h.deepdive_subheading.data.map((s: any) => (s.attributes ? { id: s.id, ...s.attributes } : s))
+                    : (h.deepdive_subheading.data.attributes ? { id: h.deepdive_subheading.data.id, ...h.deepdive_subheading.data.attributes } : h.deepdive_subheading.data);
+                }
+
+                // If subheadings exist, unwrap their media fields too
+                if (Array.isArray(h.deepdive_subheading)) {
+                  h.deepdive_subheading = h.deepdive_subheading.map((s: any) => {
+                    if (s.image && s.image.data) s.image = s.image.data.attributes ? { id: s.image.data.id, ...s.image.data.attributes } : s.image.data;
+                    if (s.video && s.video.data) s.video = s.video.data.attributes ? { id: s.video.data.id, ...s.video.data.attributes } : s.video.data;
+                    if (s.pdf && s.pdf.data) s.pdf = s.pdf.data.attributes ? { id: s.pdf.data.id, ...s.pdf.data.attributes } : s.pdf.data;
+                    return s;
+                  });
+                }
+
+                return h;
+              });
+            }
+
+            return base;
+          }
+          return item;
+        };
+
+        const normalized = normalize(raw);
+        setArticle(normalized as DeepDive);
       } catch (err) {
         setError(err instanceof Error ? err.message : "An error occurred");
       } finally {
@@ -178,7 +236,7 @@ export default function ArticlePage() {
           </Link>
 
           {/* Article Header */}
-          <article className="bg-[#D5C7B3] border-gray-800 overflow-hidden shadow-lg">
+          <article className="bg-[#D5C7B3] border-gray-800 overflow-hidden">
             {/* Title Image */}
             {(() => {
               const srcCandidate = article.title_image ?? article.thumbnail;
@@ -199,13 +257,13 @@ export default function ArticlePage() {
 
             <div className="p-12">
               {/* Article Title */}
-              <h1 className="text-6xl md:text-7xl font-['Playfair_Display'] font-bold text-center mb-6">
+              <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-6">
                 {article.title ?? article.article_name}
               </h1>
 
               {/* Introduction */}
               <div className="mb-8">
-                <p className="text-xl md:text-2xl leading-relaxed">
+                <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                   {article.introduction ?? article.title_introduction}
                 </p>
               </div>
@@ -213,7 +271,7 @@ export default function ArticlePage() {
               {/* Audio (placed after introduction) */}
               {(() => {
                 const a: any = article.audio;
-                const audioUrl = a?.url ?? a?.data?.attributes?.url;
+                const audioUrl = a?.url ?? a?.data?.attributes?.url ?? a?.data?.url;
                 if (!audioUrl) return null;
                 return (
                   <div className="mb-6">
@@ -238,7 +296,7 @@ export default function ArticlePage() {
                             <div className="text-4xl md:text-5xl font-bold text-[#111] w-10 md:w-12 shrink-0 text-right">
                               {idx + 1}.
                             </div>
-                            <h2 className="text-5xl md:text-6xl font-['Playfair_Display'] font-bold mb-2">
+                            <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold mb-2">
                               {heading.heading_title}
                             </h2>
                           </div>
@@ -248,10 +306,10 @@ export default function ArticlePage() {
                             <div className="space-y-8">
                               {subs.map((subheading: any) => (
                                 <div key={subheading.id} className="space-y-4">
-                                  <h3 className="text-3xl md:text-4xl font-semibold">
+                                  <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-semibold">
                                     {subheading.title}
                                   </h3>
-                                  <p className="text-xl md:text-2xl leading-relaxed">
+                                  <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                                     {subheading.description}
                                   </p>
 
@@ -270,7 +328,7 @@ export default function ArticlePage() {
                                   {/* Subheading Video */}
                                   {(() => {
                                     const v: any = subheading.video;
-                                    const vUrl = v?.url ?? v?.data?.attributes?.url;
+                                    const vUrl = v?.url ?? v?.data?.attributes?.url ?? v?.data?.url;
                                     if (!vUrl) return null;
                                     return (
                                       <div className="w-full my-6 rounded-2xl overflow-hidden">
@@ -306,7 +364,7 @@ export default function ArticlePage() {
 
                           <div>
                             {heading.slogan && (
-                              <p className="text-5xl md:text-6xl text-center font-semibold mb-4">{heading.slogan}</p>
+                              <p className="text-2xl md:text-4xl text-center font-semibold font-['OPTIGoudy_Agency'] max-w-[670px] justify-center mx-auto mb-4">{heading.slogan}</p>
                             )}
                           </div>
                         </div>
@@ -331,7 +389,7 @@ export default function ArticlePage() {
                     if (!hasImage) {
                       return (
                         <div className="flex items-center justify-center text-center py-6">
-                          <p className="text-lg leading-relaxed mx-auto">{article.summary}</p>
+                          <p className="text-[20px] md:text-2xl leading-relaxed mx-auto font-['Goudy_Bookletter_1911']">{article.summary}</p>
                         </div>
                       );
                     }
@@ -341,8 +399,8 @@ export default function ArticlePage() {
 
                     return (
                       <div className={`flex flex-col md:items-center md:gap-6 ${rowClass}`}>
-                        <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
-                          <p className="text-xl md:text-2xl leading-relaxed">{article.summary}</p>
+                          <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
+                          <p className="text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911']">{article.summary}</p>
                         </div>
                         <div className="mt-4 md:mt-0 md:w-1/3 md:shrink-0">
                           <div className="w-full rounded-3xl overflow-hidden">
@@ -358,30 +416,61 @@ export default function ArticlePage() {
               {/* Conclusion */}
               {article.conclusion && article.conclusion.length > 0 && (
                 <div className="mt-12 pt-8 space-y-8">
-                  <h1 className="text-4xl md:text-5xl text-center font-bold">Conclusion</h1>
+                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">Conclusion</h1>
                   {article.conclusion.map((c) => (
                     <div key={c.id}>
                       {c.conclusion_heading && (
-                        <h2 className="text-4xl md:text-5xl font-['Playfair_Display'] font-bold text-gray-900 mb-2">
+                        <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold text-gray-900 mb-2">
                           {c.conclusion_heading}
                         </h2>
                       )}
                       {c.conclusion_description && (
-                        <p className="text-xl md:text-2xl leading-relaxed">
+                        <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
                           {c.conclusion_description}
                         </p>
                       )}
                       {c.slogan && (
-                        <p className="text-4xl md:text-5xl text-center font-semibold mt-2">{c.slogan}</p>
+                        <p className="text-2xl md:text-4xl text-center font-semibold font-['OPTIGoudy_Agency'] max-w-[670px] justify-center mx-auto mb-4">{c.slogan}</p>
                       )}
                     </div>
                   ))}
                 </div>
               )}
 
+              {/* References */}
+              {article.reference && article.reference.length > 0 && (
+                <div className="mt-12 pt-8">
+                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">References</h1>
+                  <ul className="mt-4 space-y-3 list-disc list-inside text-lg">
+                    {article.reference.map((r) => {
+                      const urlRaw = (r.url ?? "").trim();
+                      const label = r.label?.trim();
+                      const ensureProtocol = (s: string) => (s.startsWith("http") ? s : `https://${s}`);
+
+                      return (
+                        <li key={r.id}>
+                          {label && <span className="font-medium">{label}</span>}
+                          <br />
+                          <a
+                            href={ensureProtocol(urlRaw)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#0E4943] hover:underline"
+                          >
+                            {urlRaw}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              )}
+
               {/* Article Metadata */}
-              <div className="mt-12 pt-8 border-t border-gray-200 text-sm text-gray-500">
-                <p>Published: {new Date(article.publishedAt).toLocaleDateString()}</p>
+              <div className="mt-12 pt-8 text-center mx-auto">
+                <p className="text-[16px] md:text-[18px] text-center mx-auto">
+                  {new Date(article.publishedAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
+                </p>
               </div>
             </div>
           </article>

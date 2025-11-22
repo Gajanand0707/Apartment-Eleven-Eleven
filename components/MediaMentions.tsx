@@ -63,7 +63,7 @@ export default function MediaMentions({
     <section className="relative bg-[#D5C7B3] py-4 sm:py-6 overflow-hidden">
       {/* Heading */}
       <div className="max-w-7xl mx-auto text-center mb-6 sm:mb-8 px-4">
-        <h2 className="font-[Sorts_Mill_Goudy_TT] text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-tight font-bold text-black drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] sm:drop-shadow-[0_3px_0_rgba(0,0,0,0.25)]">
+        <h2 className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl  leading-tight font-bold text-black ">
           {title}
         </h2>
       </div>

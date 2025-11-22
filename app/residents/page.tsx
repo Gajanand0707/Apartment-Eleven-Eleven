@@ -26,11 +26,11 @@ export default function ResidentPage() {
 
                 {/* Content */}
                 <div className="relative z-10 max-w-[1000px] mx-auto px-4">
-                    <h2 className="font-[Sorts_Mill_Goudy_TT] text-[72px] font-bold text-black drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+                    <h2 className="font-[OPTIGoudy_Agency] text-4xl md:text-7xl font-bold text-black drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
                         Meet Our Residents
                     </h2>
 
-                    <p className="font-[Sorts_Mill_Goudy_TT] text-[28px] leading-snug text-black mt-6">
+                    <p className="font-[Goudy_Old_Style] text-2xl md:text-4xl leading-snug text-black mt-6">
                         A diverse community of innovators, entrepreneurs, and industry leaders
                         driving change across various sectors.
                     </p>

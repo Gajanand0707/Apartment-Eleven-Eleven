@@ -46,13 +46,16 @@ export default function Technology({ data }: { data?: any[] }) {
   }, [playbooks])
 
   const scroll = (direction: "left" | "right") => {
-    if (direction === "left" && currentIndex > 0) {
-      setAnimateDirection("left")
-      setCurrentIndex((i) => i - 1)
-    } else if (direction === "right" && currentIndex < Math.max(0, playbooks.length - 3)) {
-      setAnimateDirection("right")
-      setCurrentIndex((i) => i + 1)
-    }
+    const n = playbooks.length
+    if (n === 0) return
+    setAnimateDirection(direction === "left" ? "left" : "right")
+    setCurrentIndex((i) => {
+      if (n >= 3) {
+        return direction === "left" ? (i - 1 + n) % n : (i + 1) % n
+      }
+      // For fewer than 3 items, just cycle within existing indexes
+      return direction === "left" ? (i - 1 + n) % n : (i + 1) % n
+    })
     // Reset the direction after the animation ends so next click retriggers
     setTimeout(() => setAnimateDirection(null), 500)
   }
@@ -61,12 +64,18 @@ export default function Technology({ data }: { data?: any[] }) {
     return null; // Don't render if no items
   }
 
-  // Handle cases with fewer than 3 items by showing what we have
-  const visibleCards = [
-    playbooks[currentIndex],
-    playbooks[currentIndex + 1] || null,
-    playbooks[currentIndex + 2] || null,
-  ].filter(Boolean)
+  // Visible cards: for n>=3 we show a sliding window of 3 using modulo indexing so carousel wraps
+  const n = playbooks.length
+  let visibleCards: CardItem[] = []
+  if (n >= 3) {
+    visibleCards = [
+      playbooks[currentIndex % n],
+      playbooks[(currentIndex + 1) % n],
+      playbooks[(currentIndex + 2) % n],
+    ]
+  } else {
+    visibleCards = [playbooks[0], playbooks[1]].filter(Boolean)
+  }
 
   return (
     <>
@@ -90,24 +99,22 @@ export default function Technology({ data }: { data?: any[] }) {
       <div ref={sectionRef} className="bg-[#D5C7B3] py-10 sm:py-14 md:py-16 px-4">
         {/* Section Title */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-5xl lg:text-8xl font-bold font-[Playfair_Display] text-[#111] mb-3 sm:mb-4">
+          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 sm:mb-4">
             Technology
           </h2>
-          <div className="w-1/2 sm:w-[420px] h-[2px] bg-[#111] mx-auto" />
-          <div className="w-2/5 sm:w-[360px] h-[2px] bg-[#111] mx-auto mt-2" />
+          <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" />
+          <div className="w-2/5 sm:w-[360px] h-0.5 bg-[#111] mx-auto mt-2" />
         </div>
 
         {/* Carousel */}
         <div className="relative w-full flex items-center justify-center">
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95"
-              aria-label="Scroll left"
-            >
-              ←
-            </button>
-          )}
+          <button
+            onClick={() => scroll("left")}
+            aria-label="Scroll left"
+            className={`absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
+          >
+            ←
+          </button>
 
           <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12">
             {/* Composition container */}
@@ -147,15 +154,13 @@ export default function Technology({ data }: { data?: any[] }) {
             </div>
           </div>
 
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95"
-              aria-label="Scroll right"
-            >
-              →
-            </button>
-          )}
+          <button
+            onClick={() => scroll("right")}
+            aria-label="Scroll right"
+            className={`absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
+          >
+            →
+          </button>
         </div>
       </div>
     </>
@@ -179,18 +184,18 @@ function Card({
   const marginClass = size === "large" ? "" : "-mx-6 sm:-mx-12 md:-mx-40"
 
   return (
-    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} aspect-[3/4] transition-all duration-300`}>
+    <div className={`shrink-0 ${sizeClass} ${marginClass} aspect-3/4 transition-all duration-300`}>
       {/* The key is crucial so React re-mounts on change and the animation runs */}
       <div key={item.id} className={`h-full w-full border-2 border-[#111] rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
         <div className="relative w-full h-[50%] sm:h-[55%] overflow-hidden">
           <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
         </div>
         <div className="p-4 sm:p-5 flex flex-col h-[50%] sm:h-[45%]">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#111] mb-2 line-clamp-2">{item.title}</h3>
-          <p className="text-[#333] text-xs sm:text-sm md:text-base leading-relaxed flex-1 line-clamp-4">
+          <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-semibold  mb-2 line-clamp-2">{item.title}</h3>
+          <p className="font-['Goudy_Bookletter_1911'] text-xl md:text-2xl  leading-relaxed flex-1 line-clamp-4">
             {item.description}
           </p>
-          <a href={item.link} className="inline-block text-[#111] font-semibold hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
+          <a href={item.link} className="inline-block text-[#111] font-semibold font-['Goudy_Bookletter_1911'] hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
             Learn More →
           </a>
         </div>

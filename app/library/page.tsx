@@ -80,7 +80,7 @@ export default function Library() {
 
         {/* Title */}
         <div className="absolute inset-0 flex items-center justify-center px-4">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-['Playfair_Display'] font-bold text-center">
+          <h1 className="text-white text-4xl  md:text-7xl  font-['OPTIGoudy_Agency'] font-bold text-center">
             Library
           </h1>
         </div>

@@ -94,7 +94,7 @@ export default function ArticlePage() {
     async function fetchArticle() {
       try {
         const res = await fetch(
-          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[thumbnail]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]&populate[conclusion]=*`
+          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[thumbnail]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]&populate[conclusion]&populate[reference]=*`
         );
 
        

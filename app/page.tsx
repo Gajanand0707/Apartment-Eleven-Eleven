@@ -57,15 +57,18 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-        <div className="relative z-1 max-w-[1400px] mx-auto px-6 py-16 lg:py-20 text-center">
+        <div className="relative z-1 max-w-[1063px] mx-auto px-6 py-16 lg:py-20 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-3xl sm:text-6xl md:text-6xl lg:text-[56px] leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-3xl sm:text-6xl md:text-7xl  leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
+
+          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['OPTIGoudy_Agency'] my-8 md:my-12"> It is not artists, engineers, or architects that can actualize dreams.
+            It is the person who can bring all the required resources together that can.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
             <div className="h-0.5 w-full max-w-[900px] bg-black" />
           </div>
           {/* Second heading */}
-          <h3 className="mt-10 font-bold text-4xl sm:text-5xl lg:text-[56px] font-['Goudy_Catalogue_MT_Pro'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
+          <h3 className="mt-10 font-bold text-4xl sm:text-5xl md:text-7xl  font-[''] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
           {/* Icon row */}
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Card 1 */}
@@ -78,8 +81,8 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> The Patrons of Progress </h4>
-              <p className="mt-4 text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
+              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> The Patrons of Progress </h4>
+              <p className="mt-4 text-2xl md:text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
             </div>
             {/* Card 2 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
@@ -89,7 +92,7 @@ export default function Home() {
                   alt="Where Foresight Meets Fortitude"
                   fill style={{ objectFit: "contain" }} />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> Where Foresight Meets Fortitude </h4>
+              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> Where Foresight Meets Fortitude </h4>
               <p className="mt-4 text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[340px]"> With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you. </p>
             </div>
             {/* Card 3 */}
@@ -101,7 +104,7 @@ export default function Home() {
                   fill style={{ objectFit: "contain" }}
                 />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 text-black font-['Goudy_Catalogue_MT_Pro']"> The Sculptor’s Gaze </h4>
+              <h4 className="font-semibold text-3xl md:text-4xl text-center mt-6 max-w-[265px] text-black font-['Goudy_Catalogue_MT_Pro']"> The Sculptor’s Gaze </h4>
               <p className="mt-4 text-2xl leading-relaxed text-black max-w-[340px] font-['Goudy_Catalogue_MT_Pro']"> We see the potential others miss, guiding you to remove noise and reveal your lasting value. </p>
             </div>
           </div>
@@ -125,7 +128,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
           {/* Main heading */}
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold font-[Sorts_Mill_Goudy_TT]">
+          <h1 className="text-6xl sm:text-7xl  font-bold font-[OPTIGoudy_Agency]">
             The Residency
           </h1>
 

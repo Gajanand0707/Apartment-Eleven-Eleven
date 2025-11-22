@@ -45,6 +45,7 @@ export default function InsideHero() {
           position: relative;
           width: 100%;
           height: 100vh;
+          min-height: 500px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -54,6 +55,7 @@ export default function InsideHero() {
         .indoor-bg {
           position: absolute;
           height: 100vh;
+          min-height: 500px;
           inset: 0;
           z-index: -1;
         }
@@ -70,32 +72,37 @@ export default function InsideHero() {
           top: 0;
           width: 90%;
           height: 100vh;
+          min-height: 500px;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           color: #fff;
-          gap: 2rem;
+          gap: 1rem;
           text-align: center;
           z-index: 1;
           padding: 0 1rem;
         }
         .hero-text h1 {
-          font-size: clamp(2rem, 4vw, 4rem);
-          line-height: 1.05;
-          text-shadow: 0px 0px 10px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9);
+          font-size: clamp(2rem, 8vw, 4rem);
+          line-height: 1.2;
+          text-shadow: 0px 0px 10px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9);
           margin-bottom: 0.5rem;
+          font-weight: 700;
         }
         .hero-text p {
-          font-size: clamp(1rem, 2.2vw, 1.5rem);
+          font-size: clamp(0.875rem, 3.5vw, 1.5rem);
           max-width: 900px;
+          line-height: 1.6;
           text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
+          padding: 0 0.5rem;
         }
 
         .door {
           position: absolute;
           top: 0;
           height: 100vh;
+          min-height: 500px;
           width: 50vw;
           overflow: hidden;
           z-index: 5;
@@ -110,6 +117,32 @@ export default function InsideHero() {
 
         .ldoor { left: 0; transform-origin: left center; }
         .rdoor { right: 0; left: auto; transform-origin: right center; }
+
+        @media (max-width: 768px) {
+          .hero-text {
+            width: 95%;
+            gap: 0.75rem;
+            padding: 0 0.75rem;
+          }
+          .hero-text h1 {
+            margin-bottom: 0.25rem;
+          }
+          .hero-text p {
+            padding: 0 0.25rem;
+          }
+          .indoor-bg img {
+            filter: blur(3px);
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero-text {
+            gap: 0.5rem;
+          }
+          .indoor-bg img {
+            filter: blur(2px);
+          }
+        }
       `}</style>
 
       <section className="indoor-hero" ref={heroRef}>

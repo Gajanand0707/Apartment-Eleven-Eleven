@@ -223,6 +223,7 @@ export default function HeroSection() {
           align-items: center;
           justify-content: center;
           font-size: 5rem;
+          margin-top: -20rem;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
         }

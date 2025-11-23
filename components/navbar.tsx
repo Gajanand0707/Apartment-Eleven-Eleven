@@ -31,6 +31,24 @@ export function Navbar() {
 
   return (
     <header className="w-full border-b border-black/10 bg-white sticky top-0 z-50">
+    <style jsx global>{`
+        header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          transform: translateY(-100%);
+          z-index: 50;
+        }
+        header.navbar-hidden {
+          transform: translateY(-100%);
+          transition: transform 0.3s ease-in-out;
+        }
+        header.navbar-visible {
+          transform: translateY(0);
+          transition: transform 0.3s ease-in-out;
+        }
+      `}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center">
           {/* Container with absolute positioning for mobile hamburger */}

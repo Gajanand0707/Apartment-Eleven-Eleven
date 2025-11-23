@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import MeetTeamSection from "@/components/MeetTeamSection"
 import InsideHero from "@/components/InsideHero"
 import inside1 from "../../public/inside1.png"
@@ -5,6 +8,36 @@ import inside2 from "../../public/inside2.png"
 import inside3 from "../../public/inside3.png"
 
 export default function InsidePage() {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar after scrolling past the hero section completely
+      const heroHeight = window.innerHeight;
+      setShowNavbar(window.scrollY > (heroHeight * 2));
+    };
+
+    // Set initial state to hide navbar
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Control navbar visibility via CSS class
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      if (showNavbar) {
+        navbar.classList.remove("navbar-hidden");
+        navbar.classList.add("navbar-visible");
+      } else {
+        navbar.classList.remove("navbar-visible");
+        navbar.classList.add("navbar-hidden");
+      }
+    }
+  }, [showNavbar]);
+
   return (
     <div>
       <InsideHero />

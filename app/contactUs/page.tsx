@@ -30,7 +30,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#d0c0a5] text-[#0E4C45] font-['Playfair_Display']">
       {/* Header */}
       <div className="bg-[#0E4C45] text-[#F5EDE0] py-8 text-center">
-        <h1 className="text-3xl md:text-4xl leading-snug text-white">
+        <h1 className="text-2xl md:text-4xl font-['Goudy_Old_Style'] leading-snug text-white">
           We Are Looking For The Sun, Not Stars, <br /> Stars Fade Away When The Sun Is Out !
         </h1>
       </div>
@@ -42,7 +42,7 @@ export default function ContactPage() {
       >
         {/* Describe your Idea */}
       <div className="w-full flex flex-col items-center">
-  <label className="text-2xl font-semibold block mb-4 border-b-2 border-[#0E4C45] w-fit self-start sm:self-center md:self-start">
+  <label className="text-2xl font-semibold font-['Goudy_Old_Style'] block mb-4 border-b-2 border-[#0E4C45] w-fit self-start sm:self-center md:self-start">
     Describe your Idea*
   </label>
 
@@ -179,7 +179,7 @@ export default function ContactPage() {
         <div className="flex justify-center pt-4">
           <button
             type="submit"
-            className="bg-[#0E4C45] text-white text-3xl px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
+            className="bg-[#0E4C45] text-white text-2xl md:text-4xl font-['Goudy_Old_Style'] px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
           >
             Apply for Residency
           </button>

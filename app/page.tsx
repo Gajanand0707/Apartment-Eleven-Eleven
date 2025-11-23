@@ -59,7 +59,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-1 max-w-[1063px] mx-auto px-6 py-16 lg:py-20 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-3xl sm:text-6xl md:text-7xl  leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-4xl md:text-7xl  leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
 
           <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-8 md:my-12"> It is not artists, engineers, or architects that can actualize dreams.
             It is the person who can bring all the required resources together that can.</p>

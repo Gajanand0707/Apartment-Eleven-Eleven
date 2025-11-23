@@ -298,7 +298,7 @@ function CarouselCard({
 
   flex flex-col justify-center items-center text-center p-10 ${animateClass}`}
 >
-  <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black">
+  <p className={`font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black ${size === 'small' ? 'max-h-20 overflow-auto md:max-h-none' : ''}`}>
     "{item.quote}"
   </p>
   <h3 className="mt-8 text-2xl md:text-4xl font-semibold font-['OPTIGoudy_Agency'] text-black">

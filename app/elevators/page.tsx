@@ -2,6 +2,7 @@
 import wall from '../../public/wall.png';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import texture from '../../public/texture.png';
 import pathbg from '../../public/pathbg.png';
 import toggle1 from "../../public/toggle1.png"
@@ -181,7 +182,9 @@ export default function Elevators() {
 
                 {/* NEW button */}
                 <div className="mt-5">
-                  <ParchmentButton>Convene with Us</ParchmentButton>
+                  <Link href="/contactUs" className="inline-block">
+                    <ParchmentButton>Convene with Us</ParchmentButton>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -218,7 +221,9 @@ export default function Elevators() {
 
                 {/* NEW button */}
                 <div className="mt-5">
-                  <ParchmentButton>Convene with Us</ParchmentButton>
+                  <Link href="/contactUs" className="inline-block">
+                    <ParchmentButton>Convene with Us</ParchmentButton>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -253,7 +258,9 @@ export default function Elevators() {
 
                 {/* NEW button */}
                 <div className="mt-5">
-                  <ParchmentButton>Convene with Us</ParchmentButton>
+                  <Link href="/contactUs" className="inline-block">
+                    <ParchmentButton>Convene with Us</ParchmentButton>
+                  </Link>
                 </div>
               </div>
             </div>

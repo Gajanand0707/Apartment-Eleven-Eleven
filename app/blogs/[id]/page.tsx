@@ -74,6 +74,7 @@ export default function BlogDetail() {
   const [article, setArticle] = useState<Article | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -169,26 +170,43 @@ export default function BlogDetail() {
   return (
 
     <div>
-      <div className="flex justify-between bg-[#0E4943] w-full min-h-20 items-center px-4 flex-wrap">
+      <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-4 md:py-0">
 
-  <div className="flex items-center gap-2">
-    <BiShareAlt size={36} color="white" className="" />
-    <h1 className="text-white text-2xl md:text-4xl font-[Goudy_Old_Style] font-semibold">Share</h1>
-  </div>
+        <button
+          onClick={async () => {
+            try {
+              await navigator.clipboard.writeText(window.location.href)
+            } catch (e) {
+              const ta = document.createElement('textarea')
+              ta.value = window.location.href
+              document.body.appendChild(ta)
+              ta.select()
+              document.execCommand('copy')
+              document.body.removeChild(ta)
+            }
+            setCopied(true)
+            setTimeout(() => setCopied(false), 2000)
+          }}
+          aria-label="Copy page URL"
+          className="flex items-center gap-2 justify-center md:justify-start w-full md:w-auto mb-2 md:mb-0 text-white"
+        >
+          <BiShareAlt size={28} color="white" className="" />
+          <span className="text-white text-lg md:text-2xl font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : 'Share'}</span>
+        </button>
 
-  <div className="w-full md:w-auto text-center my-2 md:my-0">
-    <h1 className="text-white text-2xl font-[Goudy_Old_Style] md:text-4xl font-bold max-w-[630px]">
-      {article.article_name}
-    </h1>
-  </div>
+        <div className="w-full md:w-auto text-center my-2 md:my-0 px-2">
+          <h1 className="text-white text-xl md:text-4xl font-[Goudy_Old_Style] font-bold max-w-[630px] mx-auto wrap-break-word">
+            {article.article_name}
+          </h1>
+        </div>
 
-  <div className="flex justify-center">
-    <button className="text-2xl md:text-3xl  bg-[#FFAE00] py-2 px-5 text-white rounded-full">
-      Subscribe
-    </button>
-  </div>
+        <div className="flex justify-center w-full md:w-auto mt-2 md:mt-0">
+          <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 text-white rounded-full">
+            Subscribe
+          </button>
+        </div>
 
-</div>
+      </div>
 
       <div className="min-h-screen bg-[#D5C7B3]">
         <main className="max-w-7xl mx-auto px-8 py-12 text-lg md:text-xl">
@@ -226,7 +244,7 @@ export default function BlogDetail() {
                 {article.article_name}
               </h1>
 
-               <div className="mt-8  text-center mb-8 mx-auto">
+              <div className="mt-8  text-center mb-8 mx-auto">
                 <p className="text-xl md:text-2xl text-center mx-auto">
                   {new Date(article.publishedAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
                 </p>
@@ -238,21 +256,21 @@ export default function BlogDetail() {
                 </p>
               </div>
 
-                    {/* Audio (placed after introduction) */}
-                    {(() => {
-                      const a: any = article.audio
-                      // audio may be an array or single object
-                      const first = Array.isArray(a) ? a[0] : a
-                      const audioUrl = first?.url ?? first?.data?.attributes?.url ?? first?.data?.url
-                      if (!audioUrl) return null
-                      return (
-                        <div className="mb-6">
-                          <audio controls src={audioUrl} className="w-full">
-                            Your browser does not support the audio element.
-                          </audio>
-                        </div>
-                      )
-                    })()}
+              {/* Audio (placed after introduction) */}
+              {(() => {
+                const a: any = article.audio
+                // audio may be an array or single object
+                const first = Array.isArray(a) ? a[0] : a
+                const audioUrl = first?.url ?? first?.data?.attributes?.url ?? first?.data?.url
+                if (!audioUrl) return null
+                return (
+                  <div className="mb-6">
+                    <audio controls src={audioUrl} className="w-full">
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                )
+              })()}
 
               {/* Summary */}
 
@@ -414,7 +432,7 @@ export default function BlogDetail() {
               )}
 
               {/* Article Metadata */}
-             
+
             </div>
           </article>
         </main>

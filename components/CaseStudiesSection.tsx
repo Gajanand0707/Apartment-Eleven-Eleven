@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import CaseStudyCard from "./CaseStudiesCard";
@@ -8,36 +9,51 @@ import pathbg from "../public/pathbg.png";
 // card images (replace with your actual imports)
 import case1 from "../public/case1.png";
 import case2 from "../public/case2.png";
+import { useEffect, useState } from "react";
 
-type CaseStudy = {
+type Article = {
   image: any
   title: string
   buttonText: string
+  description: string
+  readMoreUrl: string
+  date: string
 }
 
 export default function CaseStudiesSection({ limit }: { limit?: number }) {
-  const caseStudies: CaseStudy[] = [
-    {
-      image: case1,
-      title: "A.I Transformation in New Age",
-      buttonText: "Read full Case Study",
-    },
-    {
-      image: case1,
-      title: "A.I Transformation in New Age",
-      buttonText: "Read full Case Study",
-    },
-    {
-      image: case2,
-      title: "A.I Transformation in New Age",
-      buttonText: "Read full Case Study",
-    },
-    {
-      image: case2,
-      title: "A.I Transformation in New Age",
-      buttonText: "Read full Case Study",
-    },
-  ];
+  const [blogs, setBlogs] = useState<Article[]>([]);
+
+  // Note: image extraction is done inline in the fetch mapping below.
+
+  useEffect( () =>{
+    const fetchedBlogs = async () =>{
+      try {
+        const res = await fetch("https://proper-friendship-29e4bdb47f.strapiapp.com/api/case-studies/?populate=*");
+
+         if (!res.ok) throw new Error("Failed to fetch deepdives");
+                const json = await res.json();
+
+          const mapped  = (json.data || []).map((entry:any) =>{
+                // Use the same simple extraction as the Deepdives list: prefer direct thumbnail.url
+                const img = entry.thumbnail?.url || (Array.isArray(entry.thumbnail) && entry.thumbnail[0]?.url) || entry.summary_image?.url || entry.title_image?.url || ''
+
+                return {
+                  image: img,
+                  title: entry.title ?? '',
+                  buttonText: entry.button_text ?? 'Read Full Case Study',
+                  description: entry.introduction,
+                  readMoreUrl: `/caseStudy/${entry.documentId}`,
+                  date: entry.publishedAt || entry.createdAt,
+                }
+              })
+          setBlogs(mapped);
+      } catch (error) {
+        console.error("Error fetching case studies:", error);
+      }
+    }
+    fetchedBlogs();
+  }, []) 
+
 
   return (
     <section className="relative overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-24 px-8">
@@ -64,12 +80,13 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
 
       {/* Cards grid */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 mt-20 max-w-6xl w-full">
-        {(typeof limit === "number" ? caseStudies.slice(0, limit) : caseStudies).map((item, i) => (
+        {(typeof limit === "number" ? blogs.slice(0, limit) : blogs).map((item, i) => (
           <CaseStudyCard
             key={i}
             image={item.image}
             title={item.title}
             buttonText={item.buttonText}
+            readMoreUrl={item.readMoreUrl}
           />
         ))}
       </div>

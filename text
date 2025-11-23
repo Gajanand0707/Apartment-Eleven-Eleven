@@ -12,3 +12,5 @@ http://localhost:1337/api/articles?populate[article_heading][populate]=article_s
 playbook
 deepdives
 our blog
+
+https://proper-friendship-29e4bdb47f.strapiapp.com/api/case-studies/?populate[audio]=true&populate[title_image]=true&populate[heading][populate][subheading][populate]=*&populate[conclusion]=true&populate[reference]=*

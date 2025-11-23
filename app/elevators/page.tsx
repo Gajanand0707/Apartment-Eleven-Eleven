@@ -140,7 +140,7 @@ export default function Elevators() {
         />
 
         {/* content wrapper */}
-        <div className="relative z-10 max-w-[1280px] mx-auto flex flex-col items-center text-center">
+        <div className="relative z-10  mx-auto flex flex-col items-center text-center">
           <h2 className="font-[OPTIGoudy_Agency] font-bold text-black leading-tight text-4xl md:text-7xl">
             Three Paths to Our Engagement
           </h2>
@@ -152,7 +152,7 @@ export default function Elevators() {
           {/* Cards row */}
           <div className="mt-16 flex flex-col md:flex-row gap-10 md:gap-8">
             {/* Card 1 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -161,7 +161,7 @@ export default function Elevators() {
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
 
-              <div className="relative z-10 flex flex-col items-center">
+              <div className="relative z-10 flex flex-col items-center justify-between h-full">
                 {/* Image Container */}
                 <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
                   <img
@@ -171,11 +171,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
-            Align with Our Cadre
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
+              Align with Our Cadre
                 </h3>
 
-                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
                   Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
                 </p>
 
@@ -187,7 +187,7 @@ export default function Elevators() {
             </div>
 
             {/* Card 2 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -196,7 +196,7 @@ export default function Elevators() {
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
 
-              <div className="relative z-10 flex flex-col items-center">
+              <div className="relative z-10 flex flex-col items-center justify-between h-full">
                 {/* Image Container */}
                 <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
                   <img
@@ -206,11 +206,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
                   Possess a groundbreaking concept? You may consult with our guild of
                   visionary minds and patrons. Together, we shall sculpt your ideas
                   into enduring reality through collaborative mastery.
@@ -224,7 +224,7 @@ export default function Elevators() {
             </div>
 
             {/* Card 3 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden">
+            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -233,7 +233,7 @@ export default function Elevators() {
                 className="object-cover object-center mix-blend-multiply opacity-90"
               />
 
-              <div className="relative z-10 flex flex-col items-center">
+              <div className="relative z-10 flex flex-col items-center justify-between h-full">
                 {/* Image Container */}
                 <div className="text-white mb-6 w-[200px] h-[200px] flex justify-center items-center overflow-hidden rounded-[20px]">
                   <img
@@ -243,14 +243,12 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
                 Offer Your Proposal
                 </h3>
 
-                <p className="font-[Goudy_Bookletter_1911] text-[20px] md:text-2xl leading-relaxed mt-2">
-                  Possess a groundbreaking concept? You may consult with our guild of
-                  visionary minds and patrons. Together, we shall sculpt your ideas
-                  into enduring reality through collaborative mastery.
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
+                Deliver your application via our well-ordered method. Each founder's submission is justly assessed, and personalized insights are bestowed.
                 </p>
 
                 {/* NEW button */}

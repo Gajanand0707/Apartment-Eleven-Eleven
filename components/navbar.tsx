@@ -78,7 +78,7 @@ export function Navbar() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-black hover:text-gray-700 text-lg transition-colors"
+                    className="text-black hover:text-gray-700 text-xl md:text-2xl font-['Goudy_Bookletter_1911'] transition-colors"
                   >
                     {item.label}
                   </Link>

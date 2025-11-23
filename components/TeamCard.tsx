@@ -21,7 +21,7 @@ export default function TeamCard({ image, name }: TeamCardProps) {
 
       {/* Text Section */}
       <div className="relative z-10 bg-[#E7DFD2] py-4">
-        <h3 className="font-['Playfair_Display'] font-semibold text-[22px] leading-snug text-black">
+        <h3 className="font-['Goudy_Bookletter_1911'] font-semibold text-xl md:text-2xl leading-snug text-black">
           {name}
         </h3>
       </div>

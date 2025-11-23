@@ -31,7 +31,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
     >
       {/* Tabs */}
       <div
-        className="relative z-10 grid h-full divide-x "
+        className="relative z-10 grid h-full divide-x"
         style={{ gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))` }}
       >
         {tabs.map((tab, i) => {
@@ -48,8 +48,8 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
                 // Active tab (persistent highlighted style)
                 isActive
-                  ? "text-gray-900 scale-[1.08] -translate-y-1 border-2 border-black/60"
-                  : "text-gray-800 hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)]",
+                  ? "text-gray-900 scale-[1.06] -translate-y-1 border-2 border-black/60 shadow-[0_12px_30px_rgba(0,0,0,0.45)] z-20 will-change-transform"
+                  : "text-gray-800 hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners
                 i === 0 ? "rounded-l-xl sm:rounded-l-2xl" : "",
@@ -73,11 +73,8 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               </div>
               
               {/* Color overlay only for active tab */}
-              {isActive && (
-                <div className="absolute inset-0 z-1 bg-[#87050033]" />
-              )}
-              
-              <span className="relative z-2">{tab.label}</span>
+              {/* No additional side block; keep only the subtle shadow for the active tab */}
+              <span className="relative z-20">{tab.label}</span>
             </Link>
           );
         })}

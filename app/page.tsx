@@ -122,7 +122,7 @@ export default function Home() {
                   alt="Where Foresight Meets Fortitude"
                   fill style={{ objectFit: "contain" }} />
               </div>
-              <h4 className="font-semibold text-3xl mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> Where Foresight Meets Fortitude </h4>
+              <h4 className="font-semibold text-3xl   mt-6 font-['Goudy_Catalogue_MT_Pro'] text-black"> Where Foresight Meets Fortitude </h4>
               <p className="mt-4 text-2xl leading-relaxed font-['Goudy_Catalogue_MT_Pro'] text-black max-w-[340px]"> With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you. </p>
             </div>
             {/* Card 3 */}

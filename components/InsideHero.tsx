@@ -83,6 +83,14 @@ export default function InsideHero() {
           z-index: 1;
           padding: 0 1rem;
         }
+          .hero-text div{
+          height: fit-content;
+          position: relative;
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          }
         .hero-text h1 {
           font-size: clamp(2rem, 8vw, 4rem);
           line-height: 1.2;
@@ -103,7 +111,7 @@ export default function InsideHero() {
         width: 100%;
         border-radius: 50%;
         background: #000;
-        filter: blur(50px);
+        filter: blur(30px);
         opacity: 0.9;
         transform: scale(1.5);
         z-index: -1;
@@ -162,7 +170,7 @@ export default function InsideHero() {
         </div>
 
         <div className="hero-text">
-          <h1 ref={h1Ref}>Our Philosophy <span className="backdrop"></span></h1>
+          <div><h1 ref={h1Ref}>Our Philosophy</h1> <span className="backdrop"></span></div>
           <p ref={pRef}>
             At Eleven Eleven, we believe that exceptional living begins with understanding that a home is more than a space — it's a sanctuary where life unfolds, dreams take shape, and connections flourish in an atmosphere of refined elegance.
           </p>

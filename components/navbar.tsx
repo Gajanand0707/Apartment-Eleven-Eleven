@@ -76,14 +76,14 @@ export function Navbar() {
           </div>
 
           {/* Logo - Centered on mobile, left on desktop */}
-          <div className="flex-1 flex justify-center md:justify-start">
-            <Link href="/" className="flex items-center">
+          <div className="flex-1 flex justify-center md:justify-start bg-white">
+            <Link href="/" className="flex items-center bg-white">
               <Image
                 src={headerLogo}
                 alt="Logo"
                 width={250}
                 height={60}
-                className="object-contain w-[180px] md:w-[250px]"
+                className="object-contain w-[180px] md:w-[250px] bg-white"
                 priority
               />
             </Link>
@@ -113,7 +113,7 @@ export function Navbar() {
           } z-50`}
       >
         {/* Header with close button and centered logo */}
-        <div className="h-20 flex items-center justify-between px-4 border-b border-black/10">
+        <div className="h-20 flex items-center justify-between bg-[#D6CBBB] px-4 border-b border-black/10">
           <button
             onClick={() => setOpen(false)}
             className="p-2 rounded-md hover:bg-black/5"
@@ -134,16 +134,16 @@ export function Navbar() {
         </div>
 
         {/* Navigation Links - Centered */}
-        <div className="flex flex-col h-[calc(100%-80px)]">
+        <div className="flex flex-col h-full bg-[#D6CBBB]">
 
-          <nav className="flex items-start pt-20">
-            <ul className="flex flex-col items-center gap-6 w-full">
+          <nav className="flex items-start bg-[#D6CBBB] w-full h-[100%] justify-center">
+            <ul className="flex flex-col items-center gap-6 w-full h-[100vh] bg-[#D6CBBB]">
               {navItems.map((item) => (
-                <li key={item.href} className="w-full text-center">
+                <li key={item.href} className="w-full text-center bg-[#D6CBBB]">
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block text-[32px] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
+                    className="block text-[32px] bg-[#D6CBBB] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
                   >
                     {item.label}
                   </Link>

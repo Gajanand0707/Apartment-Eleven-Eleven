@@ -162,8 +162,8 @@ export default function InsideHero() {
         </div>
 
         <div className="hero-text">
-          <h1 ref={h1Ref}>Our Philosophy <span className="backdrop"></span></h1>
-          <p ref={pRef}>
+          <h1 className = "font-[OPTIGoudy_Agency] "ref={h1Ref}>Our Philosophy</h1>
+          <p  className="font-[Goudy_Old_Style]" ref={pRef}>
             At Eleven Eleven, we believe that exceptional living begins with understanding that a home is more than a space — it's a sanctuary where life unfolds, dreams take shape, and connections flourish in an atmosphere of refined elegance.
           </p>
         </div>

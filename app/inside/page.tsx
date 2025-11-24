@@ -6,6 +6,7 @@ import InsideHero from "@/components/InsideHero"
 import inside1 from "../../public/inside1.png"
 import inside2 from "../../public/inside2.png"
 import inside3 from "../../public/inside3.png"
+import colours from "../../public/colours.png"
 
 export default function InsidePage() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -58,14 +59,14 @@ export default function InsidePage() {
           >
             {/* Left text */}
             <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Playfair_Display'] font-bold leading-tight tracking-[-0.02em]
-                             text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
+                             text-2xl md:text-4xl ">
                 <span className="block">A Legacy</span>
                 <span className="block">of Creation</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-serif leading-relaxed
-                             text-sm sm:text-base md:text-xl lg:text-[1.3rem]">
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
+                             text-xl md:text-2xl ">
                 We partner with founders who don’t just build companies, but create legacies.
                 For us, every investment is a chapter in a story that will be remembered.
               </p>
@@ -74,7 +75,7 @@ export default function InsidePage() {
             {/* Right image */}
             <div className="basis-1/2 min-w-0 flex items-start justify-end">
               <img
-                src={inside1.src}
+                src={colours.src}
                 alt="Hands holding light"
                 className="h-auto object-contain
                            w-28 xs:w-32 sm:w-40 md:w-56 lg:w-64"
@@ -106,14 +107,14 @@ export default function InsidePage() {
 
             {/* Right text */}
             <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Playfair_Display'] font-bold leading-tight tracking-[-0.02em]
-                             text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-left">
+              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
+                             text-xl  md:text-4xl  text-left">
                 <span className="block">The Architecture</span>
                 <span className="block">of Belief</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-serif leading-relaxed
-                             text-sm sm:text-base md:text-xl lg:text-[1.3rem] text-left">
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
+                             text-xl md:text-2xl text-left">
                 Great ventures are built on conviction. We invest in founders whose ideas rest
                 on foundations as strong as their purpose.
               </p>
@@ -134,14 +135,14 @@ export default function InsidePage() {
           >
             {/* Left text */}
             <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Playfair_Display'] font-bold leading-tight tracking-[-0.02em]
-                             text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
+                             text-xl  md:text-4xl  ">
                 <span className="block">The Light</span>
                 <span className="block">Within</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-serif leading-relaxed
-                             text-sm sm:text-base md:text-xl lg:text-[1.3rem]">
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
+                             text-xl md:text-2xl ">
                 Progress begins with an inner spark — curiosity, courage, and the will to
                 shape something greater than oneself. We exist to nurture that light.
               </p>

@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
-type Card = { id: number; title: string; description: string; image: string };
+type Card = { id: number | string; title: string; description: string; image: string };
 
 type Props = {
   items: Card[];

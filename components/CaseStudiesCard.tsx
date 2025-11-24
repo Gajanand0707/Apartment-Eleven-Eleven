@@ -1,15 +1,18 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import Link from "next/link";
 
 export interface CaseStudyCardProps {
-  image: StaticImageData;
+  image: string | any;
   title: string;
   buttonText: string;
+  readMoreUrl?: string;
 }
 
 export default function CaseStudyCard({
   image,
   title,
   buttonText,
+  readMoreUrl,
 }: CaseStudyCardProps) {
   return (
     <div className="bg-[#E6E3DE] rounded-2xl overflow-hidden shadow-md flex flex-col">
@@ -30,9 +33,15 @@ export default function CaseStudyCard({
           {title}
         </h3>
 
-        <button className="bg-[#001B70] text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#0025A0] transition-colors">
-          {buttonText}
-        </button>
+        {readMoreUrl ? (
+          <Link href={readMoreUrl} className="bg-[#001B70] text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#0025A0] transition-colors">
+            {buttonText}
+          </Link>
+        ) : (
+          <button className="bg-[#001B70] text-white text-sm font-semibold px-6 py-3 rounded-md hover:bg-[#0025A0] transition-colors">
+            {buttonText}
+          </button>
+        )}
       </div>
     </div>
   );

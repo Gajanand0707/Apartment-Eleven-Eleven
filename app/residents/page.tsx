@@ -26,11 +26,11 @@ export default function ResidentPage() {
 
                 {/* Content */}
                 <div className="relative z-10 max-w-[1000px] mx-auto px-4">
-                    <h2 className="font-[Sorts_Mill_Goudy_TT] text-[72px] font-bold text-black drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
+                    <h2 className="font-[OPTIGoudy_Agency] text-4xl md:text-7xl font-bold text-black drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
                         Meet Our Residents
                     </h2>
 
-                    <p className="font-[Sorts_Mill_Goudy_TT] text-[28px] leading-snug text-black mt-6">
+                    <p className="font-[Goudy_Old_Style] text-2xl md:text-4xl leading-snug text-black mt-6">
                         A diverse community of innovators, entrepreneurs, and industry leaders
                         driving change across various sectors.
                     </p>
@@ -38,38 +38,19 @@ export default function ResidentPage() {
                     {/* Cards */}
                     <div className="mt-24 flex justify-center items-center gap-8">
 
-                        {/* <div className="relative  rounded-[36px] w-[894px] h-[360px] flex flex-col items-center justify-center text-center  scale-110">
 
-                            <Image
-                                src={spacex}
-                                alt="SpaceX"
-                                className="object-contain w-full h-full"
-                            />
-
-                        </div> */}
-                        <GlassSpotlight/>
+                        <GlassSpotlight />
 
 
                     </div>
                 </div>
             </section>
 
-          
-            <CaseStudiesSection />
-            {/* <section className="flex justify-center items-center  bg-[#D8CCBA]">
-                <Image
-                    src={hallwaysbg}
-                    alt="Section background texture"
-                    fill
-                    priority
-                    className="object-cover object-center opacity-80"
-                />
-                <h1 className="text-8xl text-black font-['Playfair_Display'] font-bold">Conversations in the Hallways</h1>
 
-                <h2 className="text-4xl text-black font-['Playfair_Display'] font-semibold"> Where serendipitous encounters spark innovation and change. The most important innovations often happen in the spaces between meetings.</h2>
-            </section> */}
-            <HallwaysSection /> 
-            
+            <CaseStudiesSection limit={4} />
+
+            <HallwaysSection />
+
         </div>
 
     );

@@ -63,7 +63,7 @@ export default function ScienceSection() {
     <section className="relative bg-[#D8CCBA] py-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="font-bold text-4xl sm:text-5xl lg:text-[56px] leading-[1.15] text-black mb-16">
+        <h2 className="font-bold text-4xl sm:text-5xl md:text-7xl  leading-[1.15] text-black mb-16">
           In Science we Trust
         </h2>
 

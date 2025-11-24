@@ -24,3 +24,20 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+/* Goudy font utility
+   - If you have the Goudy Old Style font files, place them in `public/fonts/` and add an @font-face here.
+   - For now this provides a named fallback that uses system serif fonts when Goudy isn't available.
+   Example @font-face (if you add files):
+   @font-face {
+     font-family: 'Goudy Old Style';
+     src: url('/fonts/GoudyOldStyle.woff2') format('woff2');
+     font-weight: 400;
+     font-style: normal;
+     font-display: swap;
+   }
+*/
+
+.font-goudy {
+  font-family: "Goudy Old Style", "Goudy Bookletter 1911", Georgia, serif;
+}

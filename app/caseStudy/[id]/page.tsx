@@ -250,7 +250,7 @@ export default function ArticlePage() {
         <main className="max-w-7xl mx-auto px-8 py-12 text-lg md:text-xl">
           {/* Back Button */}
           <Link
-            href="/deepdives"
+            href="/caseStudy"
             className="inline-block mb-8 hover:text-gray-600 font-medium"
           >
             ← Back to Case Studies

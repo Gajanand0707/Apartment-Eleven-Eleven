@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { EB_Garamond } from "next/font/google";
+import { useEffect, useState } from "react";
 // import {Sorts_Mill_Goudy_TT} from "next/font/google";
 import frame from "../public/frame.png"
 import statue1 from "../public/statue1.png";
@@ -44,6 +47,36 @@ const demoImages = [
 ];
 
 export default function Home() {
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show navbar after scrolling past the hero section completely
+      const heroHeight = window.innerHeight;
+      setShowNavbar(window.scrollY > (heroHeight * 5));
+    };
+
+    // Set initial state to hide navbar
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Control navbar visibility via CSS class
+    const navbar = document.querySelector("header");
+    if (navbar) {
+      if (showNavbar) {
+        navbar.classList.remove("navbar-hidden");
+        navbar.classList.add("navbar-visible");
+      } else {
+        navbar.classList.remove("navbar-visible");
+        navbar.classList.add("navbar-hidden");
+      }
+    }
+  }, [showNavbar]);
+
   return (
     // Apply EB Garamond to the whole page
     <div className={ebg.className}>

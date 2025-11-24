@@ -97,6 +97,17 @@ export default function InsideHero() {
           text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
           padding: 0 0.5rem;
         }
+          .backdrop {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background: #000;
+        filter: blur(50px);
+        opacity: 0.9;
+        transform: scale(1.5);
+        z-index: -1;
+        }
 
         .door {
           position: absolute;

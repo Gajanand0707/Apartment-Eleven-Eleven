@@ -146,6 +146,7 @@ export default function HeroSection() {
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
           <span>Apartment Eleven Eleven</span>
+          <span className="backdrop"></span>
         </div>
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
@@ -218,14 +219,26 @@ export default function HeroSection() {
         }
 
         .hero .scene-1 .hero-text {
+        position: relative;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           font-size: 5rem;
           margin-top: -20rem;
-          color: #fff;
-          text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
+          color: #fff; 
+        }
+
+        .hero .scene-1 .hero-text .backdrop {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background: #000;
+        filter: blur(50px);
+        opacity: 0.9;
+        transform: scale(1.5);
+        z-index: -1;
         }
 
         .hero .scene-1 .pill {

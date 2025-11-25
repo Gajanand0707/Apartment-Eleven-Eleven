@@ -30,7 +30,8 @@ export function Navbar() {
   ];
 
   return (
-    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-50">
+    <>
+    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-40">
     <style jsx global>{`
         header {
           position: fixed;
@@ -38,7 +39,7 @@ export function Navbar() {
           left: 0;
           right: 0;
           transform: translateY(-100%);
-          z-index: 50;
+          z-index: 40;
         }
         header.navbar-hidden {
           transform: translateY(-100%);
@@ -108,55 +109,57 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu (full-page slide from left) */}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'
-          } z-50`}
-      >
-        {/* Header with close button and centered logo */}
-        <div className="h-20 flex items-center justify-between px-4 border-b border-black/10">
-          <button
-            onClick={() => setOpen(false)}
-            className="p-2 rounded-md hover:bg-black/5"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <Image
-              src={headerLogo}
-              alt="Nav Logo"
-              width={250}
-              height={60}
-              className="object-contain w-[180px]"
-            />
-          </div>
-        </div>
+    </header>
 
-        {/* Navigation Links - Centered */}
-        <div className="flex flex-col h-[calc(100%-80px)]">
-
-          <nav className="flex items-start pt-20">
-            <ul className="flex flex-col items-center gap-6 w-full">
-              {navItems.map((item) => (
-                <li key={item.href} className="w-full text-center">
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block text-[32px] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          {/* NavLogo at bottom */}
-          
+    {/* Mobile Menu (full-page slide from left) - moved outside header to avoid stacking/context issues */}
+    <div
+      className={`fixed inset-0 bg-[#d9d1bf] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'} z-50`}
+    >
+      {/* Header with close button and centered logo */}
+      <div className="h-20 flex items-center justify-between px-4 border-b border-black/10">
+        <button
+          onClick={() => setOpen(false)}
+          className="p-2 rounded-md hover:bg-black/5"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Image
+            src={headerLogo}
+            alt="Nav Logo"
+            width={250}
+            height={60}
+            className="object-contain w-[180px]"
+          />
         </div>
       </div>
-    </header>
+
+      {/* Navigation Links - Centered */}
+      <div className="flex flex-col h-[calc(100%-80px)]">
+
+        <nav className="flex items-start pt-20">
+          <ul className="flex flex-col items-center gap-6 w-full">
+            {navItems.map((item) => (
+              <li key={item.href} className="w-full text-center">
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-[32px] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* NavLogo at bottom */}
+        
+      </div>
+    </div>
+    </>
   );
 }
 

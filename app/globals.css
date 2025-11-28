@@ -39,5 +39,124 @@ body {
 */
 
 .font-goudy {
-  font-family: "Goudy Old Style", "Goudy Bookletter 1911", Georgia, serif;
+  /* Prefer the regular Goudy Bookletter (or Georgia) for normal text */
+  font-family: 'Goudy Bookletter 1911', Georgia, serif;
 }
+
+/* When `.font-goudy` is explicitly made bold via Tailwind utilities, use the
+   OPTIGoudy bold family (only bold file is currently available). */
+.font-goudy.font-bold,
+.font-goudy.font-semibold,
+.font-goudy.font-extrabold {
+  font-family: 'OPTIGoudy Agency', 'Goudy Bookletter 1911', Georgia, serif;
+}
+
+/* Ensure default text renders at normal weight unless utilities request otherwise */
+body {
+  font-weight: 400;
+}
+
+/*
+  Prefer the regular Goudy Bookletter (or Georgia) for normal text, and only
+  apply the OPTIGoudy (bold) family when the element explicitly requests a
+  bold/semibold weight via Tailwind utilities (e.g. `font-bold`, `font-semibold`).
+  This prevents the browser from using the only-available OPTIGoudy 700 file
+  for elements that should be regular weight.
+*/
+
+/* Elements that explicitly use OPTIGoudy and also request a bold-ish weight */
+[class*="OPTIGoudy"][class*="font-bold"],
+[class*="OPTIGoudy"][class*="font-semibold"],
+[class*="OPTIGoudy"][class*="font-extrabold"] {
+  font-family: 'OPTIGoudy Agency', 'Goudy Bookletter 1911', Georgia, serif;
+}
+
+/* Generic OPTIGoudy class without an explicit bold weight -> use regular fallback */
+[class*="OPTIGoudy"],
+[class*="Goudy_Bookletter_1911"],
+[class*="Goudy_Old_Style"],
+[class*="Goudy_Bookletter"] {
+  font-family: 'Goudy Bookletter 1911', Georgia, serif;
+}
+
+/* Local @font-face rules for available fonts in public/fonts/ */
+
+@font-face {
+  font-family: 'Goudy Bookletter 1911';
+  src: url('/fonts/GoudyBookletter1911-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OPTIGoudy Agency';
+  src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alias family name used by several components (underscore variant) */
+@font-face {
+  font-family: 'OPTIGoudy_Agency';
+  src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Goudy Old Style';
+  src: url('/fonts/GOUDOS.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Goudy_Old_Style';
+  src: url('/fonts/GOUDOS.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Note: If you add OPTIGoudy regular (400) file, add a matching @font-face with weight:400 to complete the family. */
+
+/*
+  To use the exact OPTIGoudy_Agency font (recommended):
+
+  1) Place your font files in `public/fonts/`. Recommended names:
+       - public/fonts/OPTIGoudy_Agency-Regular.woff2
+       - public/fonts/OPTIGoudy_Agency-Bold.woff2
+
+  2) Uncomment the @font-face blocks below (or add them) to register the local fonts.
+
+  3) Update `.font-goudy` to prefer 'OPTIGoudy Agency' (example shown below).
+
+  Example (uncomment to enable):
+
+  @font-face {
+    font-family: 'OPTIGoudy Agency';
+    src: url('/fonts/OPTIGoudy_Agency-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'OPTIGoudy Agency';
+    src: url('/fonts/OPTIGoudy_Agency-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  then set (example):
+
+    .font-goudy { font-family: 'OPTIGoudy Agency', var(--font-goudy, 'Sorts Mill Goudy'), Georgia, serif; }
+
+  Note: after adding the files, you can alternatively use `next/font/local` in `app/layout.tsx` to expose the font as a CSS variable
+  and eliminate FOIT/CLS. If you want, I can add the `next/font/local` code once you upload the font files.
+*/

@@ -112,7 +112,7 @@ export default function InsideHero() {
         border-radius: 50%;
         background: #000;
         filter: blur(30px);
-        opacity: 0.9;
+        opacity: 0.5;
         transform: scale(1.5);
         z-index: -1;
         }
@@ -132,6 +132,26 @@ export default function InsideHero() {
           width: 100%;
           object-fit: cover;
           display: block;
+        }
+          .pill img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          }
+          .indoor-hero .pill {
+          top: 0;
+          position: absolute;
+          height: 120vh;
+        }
+
+        .indoor-hero .pillar-1 {
+          left: -3rem;
+          right: auto;
+        }
+
+        .indoor-hero .pillar-2 {
+          left: auto;
+          right: -3rem;
         }
 
         .ldoor { left: 0; transform-origin: left center; }
@@ -161,6 +181,19 @@ export default function InsideHero() {
           .indoor-bg img {
             filter: blur(2px);
           }
+
+
+          .indoor-hero .pill{
+				height: 100vh;
+			}
+			.indoor-hero .pillar-1{
+			left: -7rem;
+			right: auto;
+		}
+		.indoor-hero .pillar-2{
+			left: auto;
+			right: -7rem;
+		}
         }
       `}</style>
 
@@ -169,11 +202,21 @@ export default function InsideHero() {
           <img src="/indoor-bg.jpeg" alt="background" />
         </div>
 
+
+        <div className="pill pillar-1">
+          <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
+        </div>
+        
+
         <div className="hero-text">
           <div><h1 ref={h1Ref}>Our Philosophy</h1> <span className="backdrop"></span></div>
           <p ref={pRef}>
             At Eleven Eleven, we believe that exceptional living begins with understanding that a home is more than a space — it's a sanctuary where life unfolds, dreams take shape, and connections flourish in an atmosphere of refined elegance.
           </p>
+        </div>
+
+        <div className="pill pillar-2">
+          <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
 
         <div className="door ldoor" ref={ldoorRef}>

@@ -25,7 +25,7 @@ export default function ResidentPage() {
                 <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
 
                 {/* Content */}
-                <div className="relative z-10 max-w-[1000px] mx-auto px-4">
+                <div className="relative z-10 max-w-[1000px] mx-auto px-4 pt-24 md:pt-32">
                     <h2 className="font-[OPTIGoudy_Agency] text-4xl md:text-7xl font-bold text-black drop-shadow-[0_1px_1px_rgba(0,0,0,0.2)]">
                         Meet Our Residents
                     </h2>
@@ -36,7 +36,7 @@ export default function ResidentPage() {
                     </p>
 
                     {/* Cards */}
-                    <div className="mt-24 flex justify-center items-center gap-8">
+                    <div className=" flex justify-center items-center gap-8">
 
 
                         <GlassSpotlight />

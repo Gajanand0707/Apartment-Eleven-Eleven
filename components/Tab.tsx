@@ -42,14 +42,14 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               href={tab.href}
               className={[
                 "relative flex items-center justify-center h-full text-center leading-none select-none overflow-hidden",
-                "font-serif font-bold transition-all duration-300 ease-out",
-                "text-base sm:text-lg md:text-2xl lg:text-3xl",
+                "font-[Goudy_Old_Style] font-bold transition-all duration-300 ease-out",
+                "text-xl  md:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 
-                // Active tab (persistent highlighted style)
+                // Active tab (persistent highlighted style) — warmer tone
                 isActive
-                  ? "text-gray-900 scale-[1.06] -translate-y-1 border-2 border-black/60 shadow-[0_12px_30px_rgba(0,0,0,0.45)] z-20 will-change-transform"
-                  : "text-gray-800 hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
+                  ? "text-black scale-[1.06] -translate-y-1 border-2 border-black shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
+                  : "text-black hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners
                 i === 0 ? "rounded-l-xl sm:rounded-l-2xl" : "",
@@ -72,8 +72,10 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
                 />
               </div>
               
-              {/* Color overlay only for active tab */}
-              {/* No additional side block; keep only the subtle shadow for the active tab */}
+              {/* Warm tint overlay for active tab (subtle) */}
+              {isActive && (
+                <div className="absolute inset-0 z-10 pointer-events-none bg-[rgba(180,72,0,0.12)]" />
+              )}
               <span className="relative z-20">{tab.label}</span>
             </Link>
           );

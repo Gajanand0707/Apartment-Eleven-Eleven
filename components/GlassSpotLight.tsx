@@ -134,14 +134,14 @@ export default function GlassSpotlight({
         <div className="absolute inset-0" />
       </div>
 
-      <div className="mx-auto max-w-7xl overflow-hidden px-2 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16 lg:py-20">
+      <div className="mx-auto max-w-7xl  overflow-hidden px-2 sm:px-4 md:px-20 py-8 sm:py-12 md:py-16 lg:py-20 ">
         <div 
-          className="relative h-[320px] sm:h-[380px] md:h-[440px] lg:h-[500px] flex items-center justify-center"
+          className="relative h-[320px] md:h-[480px] flex items-center justify-center  md:mr-20"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}>
           {/* Cards — centered on mobile; slight left bias only from md+ */}
           <div
-            className="relative w-full h-full flex items-center justify-center"
+            className="relative w-full h-full flex items-center justify-center "
           >
             {items.map((m, i) => {
               const slot = slotOf(i)
@@ -151,8 +151,8 @@ export default function GlassSpotlight({
                   className={[
                     "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
                     // Card sizing tuned for all screens
-                    "w-[200px] sm:w-[280px] md:w-[300px] lg:w-[320px]",
-                    "h-[240px] sm:h-[320px] md:h-[360px] lg:h-[400px]",
+                    "w-[200px]  md:w-[446px] ",
+                    "h-[240px]  md:h-[480px] ",
                     "transition-all duration-500 ease-out will-change-transform",
                     slotClass(slot),
                   ].join(" ")}
@@ -195,7 +195,7 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
         )}
         <h3
           className={[
-            "font-['Playfair_Display'] text-center leading-none",
+            "font-['Goudy_Old_Style'] text-center leading-none",
             emphasis
               ? "text-[18px] sm:text-[30px] md:text-[40px]"
               : "text-[16px] sm:text-[28px] md:text-[36px]",
@@ -203,7 +203,7 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
         >
           {item.name}
         </h3>
-        <p className="mt-1 sm:mt-2 text-center font-['Playfair_Display'] text-[14px] sm:text-[18px] md:text-[22px] text-black/70">
+        <p className="mt-1 sm:mt-2 text-center font-['Goudy_Old_Style'] text-2xl sm:text-[18px] md:text-4xl text-black/70">
           {item.sub}
         </p>
       </div>

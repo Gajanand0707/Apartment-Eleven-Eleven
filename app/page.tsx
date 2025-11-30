@@ -90,11 +90,11 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-        <div className="relative z-1 max-w-[1063px] mx-auto px-6 py-16 lg:py-20 text-center">
+        <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-4xl md:text-7xl  leading-[1.15] text-[#0E4943] font-['OPTIGoudy_Agency']"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
-          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-8 md:my-12"> It is not artists, engineers, or architects that can actualize dreams.
+          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-8"> It is not artists, engineers, or architects that can actualize dreams.
             It is the person who can bring all the required resources together that can.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
@@ -106,7 +106,7 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Card 1 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas1}
                   alt="The Patrons of Progress"
@@ -114,12 +114,12 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Old_Style'] text-black"> The Patrons of Progress </h4>
+              <h4 className="font-semibold text-3xl md:text-4xl mt-2 font-['Goudy_Old_Style'] text-black"> The Patrons of Progress </h4>
               <p className="mt-4 text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
             </div>
             {/* Card 2 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas2}
                   alt="Where Foresight Meets Fortitude"
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
             {/* Card 3 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas3}
                   alt="The Sculptor’s Gaze"
@@ -147,7 +147,7 @@ export default function Home() {
 
 
 
-      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6">
+      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[435px] text-center px-6">
         {/* Background texture */}
         <Image
           src={residency}
@@ -181,7 +181,7 @@ export default function Home() {
           </TextureButton>
 
           {/* Tagline */}
-          <p className="text-lg sm:text-xl mt-6 font-[Goudy_Bookletter_1911] text-center">
+          <p className=" text-xl md:text-2xl mt-6 font-[Goudy_Bookletter_1911] text-center">
             ~ Bringing clarity and making the decision process easier for your residency goals. ~
           </p>
         </div>
@@ -206,7 +206,7 @@ export default function Home() {
           </h1>
 
           {/* paragraph */}
-          <p className="mt-8 text-[20px] sm:text-2xl leading-relaxed text-black max-w-[1400px] font-[Goudy_Bookletter_1911] mx-auto">
+          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black max-w-[1400px] font-[Goudy_Bookletter_1911] mx-auto">
             We bring authenticity and clarity to premium living with collaboration with
             the industry’s best professionals and experts. Learn more about our process
             and how we redefine modern residency with care, transparency, and excellence.
@@ -232,7 +232,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
             <div className="flex flex-col text-left max-w-[700px] order-2 lg:order-1">
-              <h2 className="font-semibold text-4xl  lg:text-7xl leading-[1.15] font-[OPTIGoudy_Agency] text-black">
+              <h2 className="font-semibold text-4xl  lg:text-7xl leading-[1.15] font-[Goudy_Old_Style] text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally

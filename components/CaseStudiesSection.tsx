@@ -56,7 +56,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
 
 
   return (
-    <section className="relative overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-24 px-8">
+    <section className="relative overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-10 px-8">
       {/* Background texture */}
       <Image
         src={pathbg}
@@ -79,22 +79,24 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
       </div>
 
       {/* Cards grid */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 mt-20 max-w-6xl w-full">
+      <div className="relative z-10 flex flex-col gap-8 mt-10 max-w-6xl w-full">
         {(typeof limit === "number" ? blogs.slice(0, limit) : blogs).map((item, i) => (
-          <CaseStudyCard
-            key={i}
-            image={item.image}
-            title={item.title}
-            buttonText={item.buttonText}
-            readMoreUrl={item.readMoreUrl}
-          />
+          <div key={i} className="w-full">
+            <CaseStudyCard
+              image={item.image}
+              title={item.title}
+              description={item.description}
+              buttonText={item.buttonText}
+              readMoreUrl={item.readMoreUrl}
+            />
+          </div>
         ))}
       </div>
 
       {/* Bottom CTA button (only show when limited) */}
       {typeof limit === "number" && (
         <Link href="/caseStudy" className="relative z-10 mt-16 inline-block">
-          <span className="bg-[#014A43] text-white text-lg font-semibold px-8 py-4 rounded-md hover:bg-[#016A60] transition-colors">
+          <span className="bg-[#014A43] text-white text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold px-8 py-4 rounded-md hover:bg-[#016A60] transition-colors">
             Access All Case Studies
           </span>
         </Link>

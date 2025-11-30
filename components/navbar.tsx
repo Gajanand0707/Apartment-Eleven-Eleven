@@ -30,7 +30,8 @@ export function Navbar() {
   ];
 
   return (
-    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-50">
+    <>
+    <header className="w-full border-b border-black/10 bg-white sticky top-0 z-40">
     <style jsx global>{`
         header {
           position: fixed;
@@ -38,7 +39,7 @@ export function Navbar() {
           left: 0;
           right: 0;
           transform: translateY(-100%);
-          z-index: 50;
+          z-index: 40;
         }
         header.navbar-hidden {
           transform: translateY(-100%);
@@ -132,6 +133,7 @@ export function Navbar() {
             />
           </div>
         </div>
+      </div>
 
         {/* Navigation Links - Centered */}
         <div className="flex flex-col h-full bg-[#D6CBBB]">
@@ -152,11 +154,11 @@ export function Navbar() {
             </ul>
           </nav>
 
-          {/* NavLogo at bottom */}
-          
-        </div>
+        {/* NavLogo at bottom */}
+        
       </div>
-    </header>
+    </div>
+    </>
   );
 }
 

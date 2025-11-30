@@ -90,11 +90,11 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-        <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-16 lg:py-20 text-center">
+        <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] whitespace-nowrap"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-[24px] md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
-          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-8 md:my-12"> It is not artists, engineers, or architects that can actualize dreams.
+          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-8"> It is not artists, engineers, or architects that can actualize dreams.
             It is the person who can bring all the required resources together that can.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
@@ -114,7 +114,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Old_Style'] text-black"> The Patrons of Progress </h4>
+              <h4 className="font-semibold text-3xl md:text-4xl mt-2 font-['Goudy_Old_Style'] text-black"> The Patrons of Progress </h4>
               <p className="mt-4 text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
             </div>
             {/* Card 2 */}
@@ -147,7 +147,7 @@ export default function Home() {
 
 
 
-      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6">
+      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[435px] text-center px-6">
         {/* Background texture */}
         <Image
           src={residency}

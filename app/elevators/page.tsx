@@ -130,7 +130,7 @@ export default function Elevators() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-16 px-6">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-10 px-6">
         {/* parchment background texture */}
         <Image
           src={pathbg}
@@ -151,7 +151,7 @@ export default function Elevators() {
           </p>
 
           {/* Cards row */}
-          <div className="mt-16 flex flex-col md:flex-row gap-10 md:gap-8">
+          <div className="mt-8 flex flex-col md:flex-row gap-10 md:gap-8">
             {/* Card 1 */}
             <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
               <Image
@@ -285,9 +285,9 @@ export default function Elevators() {
                 <div key={idx} className="w-full">
                   <button
                       onClick={() => toggleFAQ(idx)}
-                        className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Sorts_Mill_Goudy_TT] text-left text-[24px] sm:text-[36px] leading-snug rounded-[20px] px-6 py-5 border border-black/20"
+                        className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Goudy_Bookletter_1911] text-left text-2xl md:text-4xl leading-snug rounded-[20px] px-6 py-2 border border-black/20"
                   >
-                    <span className="pr-4">{item.q}</span>
+                    <span className="pr-4 ">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
                       {isOpen ? <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] rotate-180" /> : <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] " />}
                     </span>

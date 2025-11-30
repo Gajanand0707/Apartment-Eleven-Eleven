@@ -36,7 +36,7 @@ export default function ResidentPage() {
                     </p>
 
                     {/* Cards */}
-                    <div className="mt-24 flex justify-center items-center gap-8">
+                    <div className=" flex justify-center items-center gap-8">
 
 
                         <GlassSpotlight />

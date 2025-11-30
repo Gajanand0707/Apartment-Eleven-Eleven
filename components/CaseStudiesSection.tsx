@@ -56,7 +56,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
 
 
   return (
-    <section className="relative overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-24 px-8">
+    <section className="relative overflow-hidden bg-[#D8CCBA] text-black flex flex-col items-center py-10 px-8">
       {/* Background texture */}
       <Image
         src={pathbg}
@@ -79,7 +79,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
       </div>
 
       {/* Cards grid */}
-      <div className="relative z-10 flex flex-col gap-8 mt-20 max-w-6xl w-full">
+      <div className="relative z-10 flex flex-col gap-8 mt-10 max-w-6xl w-full">
         {(typeof limit === "number" ? blogs.slice(0, limit) : blogs).map((item, i) => (
           <div key={i} className="w-full">
             <CaseStudyCard

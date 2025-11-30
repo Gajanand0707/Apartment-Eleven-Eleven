@@ -43,11 +43,28 @@ export default function CaseStudyCard({
 
           <div className="mt-6 flex items-center justify-center gap-4">
             {readMoreUrl ? (
-              <Link href={readMoreUrl} className="bg-[#001B70] text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md hover:bg-[#0025A0] transition-colors">
+              <Link
+                href={readMoreUrl}
+                className="text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md transition-all"
+                style={{
+                  backgroundImage: "url('/texture.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
                 {buttonText}
               </Link>
             ) : (
-              <button className="bg-[#001B70] text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md hover:bg-[#0025A0] transition-colors">
+              <button
+                className="text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md transition-all"
+                style={{
+                  backgroundImage: "url('/texture.png')",
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
                 {buttonText}
               </button>
             )}

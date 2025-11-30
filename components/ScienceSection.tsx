@@ -60,7 +60,7 @@ export default function ScienceSection() {
   const visibleCards = getVisibleCards();
 
   return (
-    <section className="relative bg-[#D8CCBA] py-20 overflow-hidden">
+    <section className="relative bg-[#D8CCBA] py-2 overflow-hidden pb-10">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         {/* Heading */}
         <h2 className="font-['OPTIGoudy_Agency'] font-bold text-4xl sm:text-5xl md:text-7xl  leading-[1.15] text-black mb-16">
@@ -192,6 +192,7 @@ export default function ScienceSection() {
                 <h3 className="font-semibold font-['Goudy_Old_Style'] text-2xl md:text-4xl mb-4">
                   {card.title}
                 </h3>
+                <div className="border-b-white border-2 w-full my-2"></div>
                 <p className="text-xl md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] max-w-[360px]">
                   {card.description}
                 </p>

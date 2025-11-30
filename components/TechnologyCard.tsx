@@ -96,7 +96,7 @@ export default function Technology({ data }: { data?: any[] }) {
         }
       `}</style>
 
-      <div ref={sectionRef} className="bg-[#D5C7B3] py-10 sm:py-14 md:py-16 px-4">
+      <div ref={sectionRef} className="bg-[#D5C7B3] py-4  md:py-8 px-4">
         {/* Section Title */}
         <div className="text-center mb-10 sm:mb-12 md:mb-16">
           <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 sm:mb-4">

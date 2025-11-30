@@ -43,7 +43,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               className={[
                 "relative flex items-center justify-center h-full text-center leading-none select-none overflow-hidden",
                 "font-[Goudy_Old_Style] font-bold transition-all duration-300 ease-out",
-                "text-2xl  md:text-4xl ",
+                "text-xl  md:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 
                 // Active tab (persistent highlighted style) — warmer tone

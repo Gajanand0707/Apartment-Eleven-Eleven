@@ -289,7 +289,7 @@ export default function Elevators() {
                   >
                     <span className="pr-4 ">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
-                      {isOpen ? <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] rotate-180" /> : <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[60px] " />}
+                      {isOpen ? <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[45px] md:h-[60px] rotate-180" /> : <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[45px] md:h-[60px] " />}
                     </span>
                   </button>
 

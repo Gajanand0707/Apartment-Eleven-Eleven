@@ -92,7 +92,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
           {/* Top heading */}
-          <h2 className="font-bold text-[24px] md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] whitespace-nowrap"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
           <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-8"> It is not artists, engineers, or architects that can actualize dreams.
             It is the person who can bring all the required resources together that can.</p>
@@ -106,7 +106,7 @@ export default function Home() {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Card 1 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas1}
                   alt="The Patrons of Progress"
@@ -119,7 +119,7 @@ export default function Home() {
             </div>
             {/* Card 2 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas2}
                   alt="Where Foresight Meets Fortitude"
@@ -130,7 +130,7 @@ export default function Home() {
             </div>
             {/* Card 3 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[204px] h-[204px] relative">
+              <div className="w-[255px] h-[255px] relative">
                 <Image
                   src={ideas3}
                   alt="The Sculptor’s Gaze"

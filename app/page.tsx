@@ -81,7 +81,7 @@ export default function Home() {
     // Apply EB Garamond to the whole page
     <div className={ebg.className}>
       <HeroSection />
-
+      
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black">
         {/* Background texture */}
         <Image
@@ -91,6 +91,7 @@ export default function Home() {
           className="opacity-80" />
         {/* Content */}
         <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
+           
           {/* Top heading */}
           <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 

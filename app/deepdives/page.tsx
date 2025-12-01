@@ -79,23 +79,23 @@ export default function DeepDives() {
 
 
             <TabNavigation tabs={TABS} />
-            <DeepDiveScroll 
-                direction="right" 
+            <DeepDiveScroll
+                direction="right"
                 items={blogs.map(blog => ({
                     id: blog.id,
                     title: blog.title,
                     description: (blog.subtitle || blog.description).slice(0, 50) + '...',
                     image: blog.imageUrl,
-                }))} 
+                }))}
             />
-            <DeepDiveScroll 
-                direction="left" 
+            <DeepDiveScroll
+                direction="left"
                 items={blogs.map(blog => ({
                     id: blog.id,
                     title: blog.title,
                     description: (blog.subtitle || blog.description).slice(0, 50) + '...',
                     image: blog.imageUrl,
-                }))} 
+                }))}
             />
             <main className="min-h-screen bg-[#D5C7B3]">
                 <div className="max-w-7xl mx-auto">

@@ -133,7 +133,6 @@ export function Navbar() {
             />
           </div>
         </div>
-      </div>
 
         {/* Navigation Links - Centered */}
         <div className="flex flex-col h-full bg-[#D6CBBB]">

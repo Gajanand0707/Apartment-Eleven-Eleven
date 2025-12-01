@@ -30,7 +30,7 @@ export function Navbar() {
   ];
 
   return (
-    <>
+    <div>
     <header className="w-full border-b border-black/10 bg-white sticky top-0 z-40">
     <style jsx global>{`
         header {
@@ -157,7 +157,8 @@ export function Navbar() {
         
       </div>
     </div>
-    </>
+    </header>
+    </div>
   );
 }
 

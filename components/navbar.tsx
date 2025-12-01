@@ -77,14 +77,14 @@ export function Navbar() {
           </div>
 
           {/* Logo - Centered on mobile, left on desktop */}
-          <div className="flex-1 flex justify-center md:justify-start">
-            <Link href="/" className="flex items-center">
+          <div className="flex-1 flex justify-center md:justify-start bg-white">
+            <Link href="/" className="flex items-center bg-white">
               <Image
                 src={headerLogo}
                 alt="Logo"
                 width={250}
                 height={60}
-                className="object-contain w-[180px] md:w-[250px]"
+                className="object-contain w-[180px] md:w-[250px] bg-white"
                 priority
               />
             </Link>
@@ -109,51 +109,50 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu (full-page slide from left) */}
-    </header>
-
-    {/* Mobile Menu (full-page slide from left) - moved outside header to avoid stacking/context issues */}
-    <div
-      className={`fixed inset-0 bg-[#d9d1bf] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'} z-50`}
-    >
-      {/* Header with close button and centered logo */}
-      <div className="h-20 flex items-center justify-between px-4 border-b border-black/10">
-        <button
-          onClick={() => setOpen(false)}
-          className="p-2 rounded-md hover:bg-black/5"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <Image
-            src={headerLogo}
-            alt="Nav Logo"
-            width={250}
-            height={60}
-            className="object-contain w-[180px]"
-          />
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'
+          } z-50`}
+      >
+        {/* Header with close button and centered logo */}
+        <div className="h-20 flex items-center justify-between bg-[#D6CBBB] px-4 border-b border-black/10">
+          <button
+            onClick={() => setOpen(false)}
+            className="p-2 rounded-md hover:bg-black/5"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div className="absolute left-1/2 transform -translate-x-1/2">
+            <Image
+              src={headerLogo}
+              alt="Nav Logo"
+              width={250}
+              height={60}
+              className="object-contain w-[180px]"
+            />
+          </div>
         </div>
       </div>
 
-      {/* Navigation Links - Centered */}
-      <div className="flex flex-col h-[calc(100%-80px)]">
+        {/* Navigation Links - Centered */}
+        <div className="flex flex-col h-full bg-[#D6CBBB]">
 
-        <nav className="flex items-start pt-20">
-          <ul className="flex flex-col items-center gap-6 w-full">
-            {navItems.map((item) => (
-              <li key={item.href} className="w-full text-center">
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-2xl md:text-4xl text-black hover:text-gray-600 py-2 font-['Goudy_Bookletter_1911']"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+          <nav className="flex items-start bg-[#D6CBBB] w-full h-[100%] justify-center">
+            <ul className="flex flex-col items-center gap-6 w-full h-[100vh] bg-[#D6CBBB]">
+              {navItems.map((item) => (
+                <li key={item.href} className="w-full text-center bg-[#D6CBBB]">
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block text-[32px] bg-[#D6CBBB] font-['Playfair_Display'] text-black hover:text-gray-600 py-2 font-['Playfair_Display']"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
         {/* NavLogo at bottom */}
         

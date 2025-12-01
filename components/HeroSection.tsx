@@ -236,7 +236,7 @@ export default function HeroSection() {
         border-radius: 50%;
         background: #000;
         filter: blur(50px);
-        opacity: 0.9;
+        opacity: 0.4;
         transform: scale(1.5);
         z-index: -1;
         }
@@ -342,7 +342,7 @@ export default function HeroSection() {
           width: 100%;
           height: 100vh;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
           justify-content: center;
           overflow: hidden;
         }

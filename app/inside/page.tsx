@@ -15,7 +15,7 @@ export default function InsidePage() {
     const handleScroll = () => {
       // Show navbar after scrolling past the hero section completely
       const heroHeight = window.innerHeight;
-      setShowNavbar(window.scrollY > (heroHeight * 2));
+      setShowNavbar(window.scrollY > heroHeight);
     };
 
     // Set initial state to hide navbar

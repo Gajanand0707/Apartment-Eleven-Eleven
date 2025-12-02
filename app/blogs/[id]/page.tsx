@@ -213,7 +213,7 @@ export default function BlogDetail() {
           {/* Back Button */}
           <Link
             href="/blogs"
-            className="inline-block mb-8  hover:text-gray-600 font-medium"
+            className="inline-block mb-8  hover:text-gray-600 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
           >
             ← Back to Blogs
           </Link>
@@ -238,9 +238,9 @@ export default function BlogDetail() {
               )
             })()}
 
-            <div className="p-12">
+            <div className="p-2 text-justify md:text-left">
               {/* Article Title */}
-              <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center  mb-6">
+              <h1 className="text-2xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center  mb-6">
                 {article.article_name}
               </h1>
 

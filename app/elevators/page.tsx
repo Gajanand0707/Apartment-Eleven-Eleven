@@ -98,9 +98,19 @@ export default function Elevators() {
 
   return (
     <div>
-      <section className="relative flex w-full items-stretch bg-[#1C1C1C] overflow-hidden min-h-[380px] sm:min-h-[460px] md:min-h-[560px] lg:min-h-[720px]">
+      <section className="relative flex w-full items-stretch bg-[#1C1C1C] overflow-hidden h-[456px] sm:min-h-[460px] md:min-h-[560px] lg:min-h-[720px]">
+        {/* Mobile: full-bleed background image */}
+        <div className="absolute inset-0 block md:hidden z-0">
+          <img
+            src={wall.src}
+            alt="colosseum"
+            className="w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
+        </div>
         {/* LEFT – image */}
-        <div className="relative basis-1/2 shrink-0">
+        <div className="relative basis-1/2 shrink-0 hidden md:block">
           <div className="absolute inset-0 bg-[#1C1C1C]" />
           <img
             src={wall.src}
@@ -111,8 +121,8 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative basis-1/2 flex flex-col justify-center items-end text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-0 sm:gap-0.5 md:gap-0 sm:items-center sm:text-center">
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-5xl sm:text-6xl md:text-[124px]">
+        <div className="relative z-20 w-full md:basis-1/2 h-full flex flex-col justify-center items-center text-center md:items-end md:text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-0 sm:gap-0.5 md:gap-0">
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
@@ -120,7 +130,7 @@ export default function Elevators() {
             Ideas Deserve
           </h2>
 
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-0 text-5xl sm:text-6xl md:text-[124px]">
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-0 text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 

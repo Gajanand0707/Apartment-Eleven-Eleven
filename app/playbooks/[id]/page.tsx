@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { BiShareAlt } from "react-icons/bi";
 
@@ -98,7 +99,14 @@ export default function PlaybookPage() {
 
       <div className="min-h-screen bg-[#D5C7B3]">
         <main className="max-w-7xl mx-auto px-8 py-12 text-lg md:text-xl">
-          <div className="max-w-4xl mx-auto p-6 space-y-6">
+           <Link
+            href="/playbooks"
+            className="inline-block mb-8 hover:text-black font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
+          >
+            ← Back to Playbooks
+          </Link>
+
+          <div className="max-w-4xl mx-auto p-6 space-y-6 text-justify md:text-left">
       {/* Thumbnail */}
       {(() => {
         const thumb: any = playbook.thumbnail;

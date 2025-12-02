@@ -183,6 +183,7 @@ export default function ContactPage() {
           <button
             type="submit"
             className="bg-[#0E4C45] text-white text-2xl md:text-4xl font-['Goudy_Old_Style'] px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
+            onClick={() => window.location.href = "/afterSubmit"}
           >
             Apply for Residency
           </button>

@@ -78,7 +78,7 @@ export default function InsidePage() {
                 src={colours.src}
                 alt="Hands holding light"
                 className="h-auto object-contain
-                           w-36 sm:w-44 md:w-56 lg:w-64"
+                           w-56 sm:w-72 md:w-80 lg:w-96"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function InsidePage() {
                 src={inside2.src}
                 alt="Hand reaching upward"
                 className="h-auto object-contain
-                           w-40 sm:w-52 md:w-60 lg:w-64"
+                           w-56 sm:w-72 md:w-80 lg:w-96"
               />
             </div>
 
@@ -154,7 +154,7 @@ export default function InsidePage() {
                 src={inside3.src}
                 alt="Figure with glowing heart"
                 className="h-auto object-contain
-                           w-40 sm:w-52 md:w-60 lg:w-64"
+                           w-56 sm:w-72 md:w-80 lg:w-96"
               />
             </div>
           </div>

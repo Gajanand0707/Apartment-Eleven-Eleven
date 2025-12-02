@@ -68,7 +68,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
 
       {/* Heading + subheading */}
       <div className="relative z-10 text-center max-w-4xl">
-        <h1 className="text-4xl md:text-7xl font-[OPTIGoudy_Agency] font-bold mb-4 leading-[1.1]">
+        <h1 className="text-4xl md:text-7xl font-[OPTIGoudy_Agency] font-bold mb-4 leading-[1.1] mt-20">
           Case Studies
         </h1>
 

@@ -25,7 +25,7 @@ export function BlogCardFeatured({ blog }: BlogCardFeaturedProps) {
       <div className="p-14">
         <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold text-gray-900 mb-4">{blog.title}</h3>
         <p className=" text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed mb-4">{blog.description}</p>
-        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-medium hover:underline">
+        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl hover:underline">
           Read more...
         </Link>
       </div>

@@ -251,7 +251,7 @@ export default function ArticlePage() {
           {/* Back Button */}
           <Link
             href="/deepdives"
-            className="inline-block mb-8 hover:text-gray-600 font-medium"
+            className="inline-block mb-8 hover:text-gray-600 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
           >
             ← Back to Deep Dive
           </Link>
@@ -276,12 +276,11 @@ export default function ArticlePage() {
               );
             })()}
 
-            <div className="p-12">
+            <div className="p-2 text-justify md:text-left">
               {/* Article Title */}
               <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-6">
                 {article.title ?? article.article_name}
               </h1>
-
               {/* Introduction */}
               <div className="mb-8">
                 <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">

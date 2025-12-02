@@ -110,7 +110,7 @@ export default function OurBlogs() {
       <main className="min-h-screen bg-[#D5C7B3]">
 
 
-  <div className="relative w-full h-80 md:h-[420px]">
+  <div className="relative w-full h-[500px] md:h-[500px]">
           <img
            src={ourblogs.src} alt="Our Blogs" className="w-full h-full object-cover "
           />

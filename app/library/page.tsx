@@ -71,7 +71,7 @@ export default function Library() {
 
   return (
     <div className="bg-[#D5C7B3]">
-      <div className="relative w-full h-[300px] md:h-[420px] overflow-hidden">
+      <div className="relative w-full h-[500px] md:h-[500px] overflow-hidden">
         <img
           src={library.src}
           alt="Deepdives"

@@ -37,7 +37,7 @@ export function ArticleCard({ article, imagePosition }: ArticleCardProps) {
 
         <Link
           href={article.readMoreUrl || "#"}
-          className="text-blue-500 hover:text-blue-700 font-medium text-sm md:text-base transition-colors"
+          className="text-blue-500 hover:text-blue-700 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
         >
           Read more...
         </Link>

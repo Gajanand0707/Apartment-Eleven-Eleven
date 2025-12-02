@@ -106,13 +106,13 @@ export default function GlassSpotlight({
       case "left":
         return [
           "z-20 opacity-80",
-          "-translate-x-[220px] sm:-translate-x-[240px] md:-translate-x-[320px] lg:-translate-x-[400px]",
+          "-translate-x-[220px] mx-10 sm:-translate-x-[240px] md:-translate-x-[320px] lg:-translate-x-[400px] ",
           "scale-[0.8] sm:scale-[0.88] md:scale-[0.9] lg:scale-[0.92]",
         ].join(" ")
       case "right":
         return [
           "z-20 opacity-80",
-          "translate-x-[20px] sm:translate-x-[80px] md:translate-x-[80px] lg:translate-x-[80px]",
+          "translate-x-[10px] -mx-10 sm:translate-x-[80px] md:translate-x-[80px] lg:translate-x-[80px] ",
           "scale-[0.8] sm:scale-[0.88] md:scale-[0.9] lg:scale-[0.92]",
         ].join(" ")
       default:
@@ -126,10 +126,10 @@ export default function GlassSpotlight({
       <div className="absolute inset-0 -z-10">
         <Image
           src={background}
-          alt="Background"
+          alt=""
           fill
           priority
-          className="object-cover blur-sm scale-105"
+          className="object-cover  scale-105"
         />
         <div className="absolute inset-0" />
       </div>

@@ -50,7 +50,7 @@ export default function Playbooks() {
     
     return (
         <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">
-            <div className="relative w-full h-[320px] md:h-[420px]">
+            <div className="relative w-full h-[500px] md:h-[500px]">
                 <img
                     src={playbook.src}
                     alt="Playbooks"

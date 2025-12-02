@@ -32,18 +32,18 @@ export function ParchmentButton({
         "px-8 py-3 min-w-[220px] rounded-md overflow-hidden",
         "transition-all duration-200",
         "hover:scale-[1.02] active:scale-[0.98]",
-        "focus:outline-none focus:ring-2 focus:ring-black/20",
+        "focus:outline-none focus:ring-2 bg-white focus:ring-black/20",
         className,
       ].join(" ")}
     >
       {/* Background image */}
-      <Image
+      {/* <Image
         src={buttonbg}
         alt="Button background"
         fill
         priority
         className="object-cover object-center absolute inset-0 -z-10"
-      />
+      /> */}
 
       {/* Optional dark overlay for text visibility */}
       <span className="absolute inset-0 bg-black/5 -z-0" />

@@ -2,12 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import type { Tab } from "@/types/navigation";
-import tabbg from "../public/tabbg.jpg"
-import tabbg2 from "../public/tabbg2.png"
-
-import texture from "../public/texture.png";
 
 interface TabNavigationProps {
   tabs: Tab[];
@@ -21,17 +16,11 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
   return (
     <nav
-      className="
-        relative mx-auto w-[90%] sm:w-[95%] md:w-full 
-        max-w-5xl h-12 sm:h-14 md:h-16
-        rounded-xl sm:rounded-2xl overflow-hidden border border-black/40
-        bg-[#D5C7B3]
-        shadow-[0_6px_14px_rgba(0,0,0,0.25)]
-      "
+      className="relative mx-auto w-[90%] sm:w-[95%] md:w-full max-w-5xl h-12 sm:h-14 md:h-16 rounded-xl sm:rounded-2xl overflow-hidden border border-black/40 bg-white shadow-[0_6px_14px_rgba(0,0,0,0.25)]"
     >
       {/* Tabs */}
       <div
-        className="relative z-10 grid h-full divide-x"
+        className="relative z-10 grid h-full divide-x "
         style={{ gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))` }}
       >
         {tabs.map((tab, i) => {
@@ -46,9 +35,9 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
                 "text-xl  md:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 
-                // Active tab (persistent highlighted style) — warmer tone
+                // Active tab (persistent highlighted style)
                 isActive
-                  ? "text-black scale-[1.06] -translate-y-1 border-2 border-black shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
+                  ? "bg-[#1F857A] text-black scale-[1.06] -translate-y-1 border-2 border-black shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
                   : "text-black hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners
@@ -61,21 +50,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
                 .filter(Boolean)
                 .join(" ")}
             >
-              {/* Background image - tabbg for all tabs */}
-              <div className="absolute inset-0 z-0">
-                <Image
-                  src={tabbg}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  quality={100}
-                />
-              </div>
-              
-              {/* Warm tint overlay for active tab (subtle) */}
-              {isActive && (
-                <div className="absolute inset-0 z-10 pointer-events-none bg-[rgba(180,72,0,0.12)]" />
-              )}
+              {/* No background image: solid white nav, selected tab will get teal bg */}
               <span className="relative z-20">{tab.label}</span>
             </Link>
           );

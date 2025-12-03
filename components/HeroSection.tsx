@@ -115,7 +115,7 @@ export default function HeroSection() {
     .to(".scene-3 .pillar-1", { y: -300, opacity: 0 }, "<")
     .to(".scene-3 .pillar-2", { y: 300, opacity: 0 }, "<");
 
-    // Scene 4 animation
+    // Scene 4 animation (no fade: show instantly)
     gsap.timeline({
       scrollTrigger: {
         trigger: ".hero",
@@ -127,6 +127,14 @@ export default function HeroSection() {
     .set(".scene-4", { opacity: 1 })
     .to(".hero .hero-bg", { scale: 1, x: "0%", y: "0%" }, "<")
     .from(".scene-4 .hero-text", { opacity: 0, y: 60 });
+
+    // show fade-blur only during scene-4 (no animation on the blur itself)
+    ScrollTrigger.create({
+      trigger: ".hero",
+      start: () => start(3),
+      end: () => start(3) + sceneHeights * 2,
+      toggleClass: { targets: ".hero .fade-blur", className: "visible" }
+    });
 
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -188,6 +196,8 @@ export default function HeroSection() {
           <span>Apartment Eleven Eleven</span> 
         </div>
       </div>
+
+      <div className='fade-blur'></div>
 
       <style jsx>{`
         .hero :global(img) {
@@ -374,6 +384,18 @@ export default function HeroSection() {
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
         }
+        .hero .fade-blur{
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: 5rem;
+          background: linear-gradient(0deg,rgba(218, 207, 190, 1) 0%, rgba(218, 207, 190, 0) 100%);
+          bottom: -0.2rem;
+          pointer-events: none;
+          z-index: 50;
+        }
+
+        .hero .fade-blur.visible{ display: block; }
           @media(max-width: 500px){
 			.hero .scene-1 .hero-text,
 			.hero .scene-2 .hero-text,
@@ -383,6 +405,9 @@ export default function HeroSection() {
 				width: 50%;
 				text-align: center;
 			}
+        .hero .scene-1 .hero-text span:nth-child(2) {
+        margin-top: 0.5rem;   
+        font-size: 3rem;}
 
 			.hero .scene-1 .pill{
 				height: 100vh;

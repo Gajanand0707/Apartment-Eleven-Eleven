@@ -145,7 +145,7 @@ export default function HeroSection() {
         </div>
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
-          <span className='-mt-10'>Apartment Eleven Eleven</span>
+          <span className=''>Apartment Eleven Eleven</span>
           <span className="backdrop"></span>
         </div>
         <div className="pill pillar-2">
@@ -162,7 +162,7 @@ export default function HeroSection() {
         </div>
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Art Shaped by Structure and </span>
-          <span className='-mt-8'>A vision built with exacting Precision</span>
+          <span className=''>A vision built with exacting Precision</span>
         </div>
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
@@ -175,7 +175,7 @@ export default function HeroSection() {
         </div>
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Deliberate,</span>
-          <span className='-mt-8'>Purposeful Execution</span>
+          <span className=''>Purposeful Execution</span>
         </div>
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />

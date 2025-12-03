@@ -51,7 +51,10 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     })
 
     // ensure ScrollTrigger refresh uses Lenis measurements
-    ScrollTrigger.addEventListener("refresh", () => lenis.update())
+    // Lenis doesn't expose `update()` — call `raf` with current timestamp
+    ScrollTrigger.addEventListener("refresh", () => {
+      try { lenis.raf(performance.now()) } catch (e) { /* ignore */ }
+    })
 
     // connect Lenis RAF to GSAP ticker and update ScrollTrigger each frame
     const raf = (time: number) => {

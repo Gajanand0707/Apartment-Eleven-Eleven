@@ -184,7 +184,8 @@ export default function HeroSection() {
 
       <div className="scene-4">
         <div className="hero-text font-['OPTIGoudy_Agency']">
-          <span>Deliberate, Purposeful Execution</span>
+          <span>Welcome to</span>
+          <span>Apartment Eleven Eleven</span> 
         </div>
       </div>
 
@@ -193,6 +194,12 @@ export default function HeroSection() {
           height: 100%;
           width: 100%;
           object-fit: cover;
+          -webkit-object-fit: cover;
+          object-position: center;
+          -webkit-object-position: center;
+          display: block;
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
         }
 
         .hero {
@@ -200,12 +207,18 @@ export default function HeroSection() {
           width: 100%;
           height: 100vh;
         }
+          .hero-text{
+          line-height: 1;
+          }
 
         .hero .hero-bg {
           position: absolute;
           width: 100%;
           height: 100vh;
           z-index: -1;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform: translate3d(0,0,0);
         }
 
         .hero .scene-1 {
@@ -225,8 +238,8 @@ export default function HeroSection() {
           align-items: center;
           justify-content: center;
           font-size: 5rem;
-          margin-top: -20rem;
           color: #fff; 
+          z-index: 99;
         }
 
         .hero .scene-1 .hero-text .backdrop {
@@ -248,13 +261,15 @@ export default function HeroSection() {
         }
 
         .hero .scene-1 .pillar-1 {
-          left: -3rem;
+          left: 0rem;
           right: auto;
+          transform: translateX(-50%);
         }
 
         .hero .scene-1 .pillar-2 {
           left: auto;
-          right: -3rem;
+          right: 0rem;
+          transform: translateX(50%);
         }
 
         .hero .scene-2 {
@@ -362,7 +377,7 @@ export default function HeroSection() {
 			.hero .scene-2 .hero-text,
 			.hero .scene-3 .hero-text,
 			.hero .scene-4 .hero-text{
-				font-size: 3rem;
+				font-size: 2.5rem;
 				width: 50%;
 				text-align: center;
 			}
@@ -370,15 +385,18 @@ export default function HeroSection() {
 			.hero .scene-1 .pill{
 				height: 100vh;
 			}
-			.hero .scene-1 .pillar-1{
-			left: -10rem;
-			right: auto;
-		}
-		.hero .scene-1 .pillar-2{
-			left: auto;
-			right: -10rem;
-		}
 
+      .hero .scene-1 .pillar-1 {
+          left: 0rem;
+          right: auto;
+          transform: translateX(-70%);
+        }
+
+        .hero .scene-1 .pillar-2 {
+          left: auto;
+          right: 0rem;
+          transform: translateX(70%);
+        }
 		.hero .scene-2 .hero-text{
 			font-size: 2rem;
 			width: 90%;

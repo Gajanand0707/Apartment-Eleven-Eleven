@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -63,8 +64,15 @@ export default function InsideHero() {
           height: 100%;
           width: 100%;
           object-fit: cover;
+          -webkit-object-fit: cover;
+          object-position: center;
+          -webkit-object-position: center;
           filter: blur(5px);
           display: block;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform: translate3d(0,0,0);
+          -webkit-transform: translate3d(0,0,0);
         }
 
         .hero-text {
@@ -131,27 +139,42 @@ export default function InsideHero() {
           height: 100%;
           width: 100%;
           object-fit: cover;
+          -webkit-object-fit: cover;
+          object-position: center;
+          -webkit-object-position: center;
           display: block;
+          transform: translate3d(0,0,0);
+          -webkit-transform: translate3d(0,0,0);
         }
           .pill img{
           height: 100%;
           width: 100%;
           object-fit: cover;
+          -webkit-object-fit: cover;
+          object-position: center;
+          -webkit-object-position: center;
+          display: block;
+          transform: translate3d(0,0,0);
+          -webkit-transform: translate3d(0,0,0);
           }
           .indoor-hero .pill {
           top: 0;
           position: absolute;
-          height: 120vh;
+          height: 100vh;
+          width: 200px;
+          z-index: 999;
         }
 
         .indoor-hero .pillar-1 {
-          left: -3rem;
+          left: 0rem;
           right: auto;
+          transform:translateX(-50%);
         }
 
         .indoor-hero .pillar-2 {
           left: auto;
-          right: -3rem;
+          right: 0rem;
+          transform:translateX(50%);
         }
 
         .ldoor { left: 0; transform-origin: left center; }
@@ -184,27 +207,30 @@ export default function InsideHero() {
 
 
           .indoor-hero .pill{
-				height: 100vh;
-			}
-			.indoor-hero .pillar-1{
-			left: -7rem;
-			right: auto;
-		}
-		.indoor-hero .pillar-2{
-			left: auto;
-			right: -7rem;
-		}
+                height: 100vh;
+                width: 220px;
+            }
+			.indoor-hero .pillar-1 {
+          left: 0rem;
+          right: auto;
+          transform:translateX(-70%);
         }
+
+        .indoor-hero .pillar-2 {
+          left: auto;
+          right: 0rem;
+          transform:translateX(70%);
+      }}
       `}</style>
 
       <section className="indoor-hero" ref={heroRef}>
         <div className="indoor-bg">
-          <img src="/indoor-bg.jpeg" alt="background" />
+          <Image src="/indoor-bg.jpeg" alt="background" fill priority />
         </div>
 
 
         <div className="pill pillar-1">
-          <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
+          <Image src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" fill />
         </div>
         
 
@@ -216,14 +242,14 @@ export default function InsideHero() {
         </div>
 
         <div className="pill pillar-2">
-          <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
+          <Image src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" fill />
         </div>
 
         <div className="door ldoor" ref={ldoorRef}>
-          <img src="/ldoor.jpeg" alt="left door" />
+          <Image src="/ldoor.jpeg" alt="left door" fill />
         </div>
         <div className="door rdoor" ref={rdoorRef}>
-          <img src="/rdoor.jpeg" alt="right door" />
+          <Image src="/rdoor.jpeg" alt="right door" fill />
         </div>
       </section>
     </>

@@ -17,14 +17,12 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: "vertical",
-      gestureDirection: "vertical",
       smooth: true,
       mouseMultiplier: 1,
       smoothTouch: false,
       touchMultiplier: 2,
       infinite: false,
-    })
+    } as any)
 
     // keep refs so we can clean up
     lenisRef.current = lenis
@@ -72,8 +70,8 @@ export default function LenisProvider({ children }: { children: React.ReactNode 
     return () => {
       // cleanup
       if (lenisRef.current) {
-        lenisRef.current.off("scroll", scrollHandler)
-        lenisRef.current.destroy()
+        // remove and destroy the Lenis instance
+        try { lenisRef.current.destroy() } catch (e) { /* ignore */ }
         lenisRef.current = null
       }
       if (rafRef.current) {

@@ -55,7 +55,7 @@ export default function MeetTeamSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#D6CBBB] text-black flex flex-col items-center py-16 px-6 md:px-8 border-x border-black">
+    <section className="relative w-full bg-[#D6CBBB] text-black flex flex-col items-center py-16 px-6 md:px-8 border-x border-black overflow-hidden">
       {/* Heading */}
       <h2 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-12">
         Meet Our Team

@@ -81,7 +81,7 @@ export default function Home() {
     // Apply EB Garamond to the whole page
     <div className={ebg.className}>
       <HeroSection />
-      
+
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black">
         {/* Background texture */}
         <Image
@@ -91,55 +91,61 @@ export default function Home() {
           className="opacity-80" />
         {/* Content */}
         <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
-           
+
           {/* Top heading */}
           <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
-          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-8"> It is not artists, engineers, or architects that can actualize dreams.
-            It is the person who can bring all the required resources together that can.</p>
+          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-2"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
+We're helping build businesses with the ethos of the new India.</p>
           {/* Divider line */}
-          <div className="mt-8 w-full flex justify-center">
+          <div className="mt-6 w-full flex justify-center">
             <div className="h-0.5 w-full max-w-[900px] bg-black" />
           </div>
           {/* Second heading */}
-          <h3 className="mt-10 font-bold text-4xl sm:text-5xl md:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
+          <h3 className="mt-4 font-bold text-4xl sm:text-5xl md:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
           {/* Icon row */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {/* Card 1 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] relative">
+              <div className="w-[255px] h-[255px] flex items-center justify-center overflow-hidden">
                 <Image
                   src={ideas1}
                   alt="The Patrons of Progress"
-                  fill style={{ objectFit: "contain" }}
-                  className="object-cover"
+                  width={255}
+                  height={255}
+                  className="object-contain w-full h-full"
                 />
               </div>
-              <h4 className="font-semibold text-3xl md:text-4xl mt-2 font-['Goudy_Old_Style'] text-black"> The Patrons of Progress </h4>
-              <p className="mt-4 text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] text-black max-w-[320px]"> More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation. </p>
+              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] text-black">The Patrons of Progress</h4>
+              <p className="mt-3 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[340px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
             </div>
             {/* Card 2 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] relative">
+              <div className="w-[255px] h-[255px] flex items-center justify-center overflow-hidden">
                 <Image
                   src={ideas2}
                   alt="Where Foresight Meets Fortitude"
-                  fill style={{ objectFit: "contain" }} />
+                  width={255}
+                  height={255}
+                  className="object-contain w-full h-full"
+                />
               </div>
-              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Old_Style'] text-black"> Where Foresight Meets Fortitude </h4>
-              <p className="mt-4 text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] text-black max-w-[340px]"> With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you. </p>
+              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] text-black">Where Foresight Meets Fortitude</h4>
+              <p className="mt-3 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[340px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
             </div>
             {/* Card 3 */}
             <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] relative">
+              <div className="w-[255px] h-[255px] flex items-center  justify-center overflow-hidden">
                 <Image
                   src={ideas3}
                   alt="The Sculptor’s Gaze"
-                  fill style={{ objectFit: "contain" }}
+                  width={255}
+                  height={255}
+                  className="object-contain w-full h-full"
                 />
               </div>
-              <h4 className="font-semibold text-3xl md:text-4xl mt-6 font-['Goudy_Old_Style'] text-black max-w-[230px]"> The Sculptor’s Gaze </h4>
-              <p className="mt-4 text-[20px] md:text-2xl leading-relaxed text-black max-w-[340px] font-['Goudy_Bookletter_1911']"> We see the potential others miss, guiding you to remove noise and reveal your lasting value. </p>
+              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] max-w-[230px] text-black">The Sculptor’s Gaze</h4>
+              <p className="mt-3 text-xl md:text-2xl leading-tight text-black max-w-[340px] font-['Goudy_Bookletter_1911']">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
             </div>
           </div>
         </div>
@@ -177,12 +183,12 @@ export default function Home() {
           </div>
 
           {/* Button */}
-          <TextureButton className="text-lg px-8 py-3 mt-4 font-[Goudy_Bookletter_1911]">
+          <TextureButton className="text-2xl md:text-4xl px-8 py-3  font-[Goudy_Bookletter_1911]">
             Elevator’s Waiting
           </TextureButton>
 
           {/* Tagline */}
-          <p className=" text-xl md:text-2xl mt-6 font-[Goudy_Bookletter_1911] text-center">
+          <p className=" text-xl md:text-2xl  font-[Goudy_Bookletter_1911] text-center">
             ~ Bringing clarity and making the decision process easier for your residency goals. ~
           </p>
         </div>
@@ -207,7 +213,7 @@ export default function Home() {
           </h1>
 
           {/* paragraph */}
-          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black max-w-[1400px] font-[Goudy_Bookletter_1911] mx-auto">
+          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black text-center max-w-[1245px] font-[Goudy_Bookletter_1911] mx-auto justify-center">
             We bring authenticity and clarity to premium living with collaboration with
             the industry’s best professionals and experts. Learn more about our process
             and how we redefine modern residency with care, transparency, and excellence.
@@ -218,11 +224,11 @@ export default function Home() {
             with a lifestyle they can truly be proud of.
           </p>
 
-          <div className="mt-10 flex flex-col items-center">{/* divider/ornament optional */}</div>
+          <div className="flex flex-col items-center">{/* divider/ornament optional */}</div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-8">
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
           <h1 className="text-center font-bold text-4xl  md:text-7xl font-[OPTIGoudy_Agency]">

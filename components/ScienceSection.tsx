@@ -12,19 +12,22 @@ interface ScienceCard {
 export default function ScienceSection() {
   const cards: ScienceCard[] = [
     {
-      title: "Sustainable Living: Green Building Standards and Energy Efficiency",
+      title: "First Principal Thinking",
       description:
-        "We bring authenticity and clarity to premium living with collaboration with the industry's best professionals and experts. Learn more about our process and how we redefine modern residency with care, transparency, and excellence. Our residency panel is composed of highly accomplished architects, designers, and consultants who bring years of experience in creating spaces that merge modern aesthetics with functionality.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros. Integer dignissim metus ac convallis ultricies. Pellentesque vel ligula id mauris porttitor gravida. Donec nec justo at nisl sagittis aliquet.",
+
     },
     {
-      title: "Sustainable Living: Green Building Standards and Energy Efficiency",
+      title: "Root Cause Analysis",
       description:
-        "We bring authenticity and clarity to premium living with collaboration with the industry's best professionals and experts. Learn more about our process and how we redefine modern residency with care, transparency, and excellence. Our residency panel is composed of highly accomplished architects, designers, and consultants who bring years of experience in creating spaces that merge modern aesthetics with functionality.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros. Integer dignissim metus ac convallis ultricies. Pellentesque vel ligula id mauris porttitor gravida. Donec nec justo at nisl sagittis aliquet.  ",
+
     },
     {
-      title: "Sustainable Living: Green Building Standards and Energy Efficiency",
+      title: "User-Centric Ideation",
       description:
-        "We bring authenticity and clarity to premium living with collaboration with the industry's best professionals and experts. Learn more about our process and how we redefine modern residency with care, transparency, and excellence. Our residency panel is composed of highly accomplished architects, designers, and consultants who bring years of experience in creating spaces that merge modern aesthetics with functionality.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros. Integer dignissim metus ac convallis ultricies. Pellentesque vel ligula id mauris porttitor gravida. Donec nec justo at nisl sagittis aliquet.  ",
+
     },
   ];
 
@@ -208,7 +211,7 @@ export default function ScienceSection() {
                   {card.title}
                 </h3>
                 <div className="border-b-white border w-full my-2"></div>
-                <p className="text-xl md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] max-w-[360px]">
+                <p className="text-xl md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] max-w-[360px] text-center">
                   {card.description}
                 </p>
               </div>
@@ -248,7 +251,7 @@ function CarouselCard({
 
   // Use explicit heights: center card shows full content; side cards are fixed/shorter
   const heightClass = size === "large"
-    ? "min-h-[480px] sm:min-h-[520px] md:min-h-[560px]"
+    ? "min-h-[420px] sm:min-h-[520px] md:min-h-[560px]" // center card taller than side cards on mobile and up
     : "h-[280px] sm:h-[300px] md:h-[340px] overflow-hidden";
 
   const contentPadding =
@@ -257,7 +260,7 @@ function CarouselCard({
       : "p-4 sm:p-6 md:p-8";
 
   return (
-    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300 ${overlayClass}`}>
+    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300 ${overlayClass} rounded-[24px] overflow-hidden`}>
       <div
         ref={size === "large" ? centerRef : undefined}
         className={`relative rounded-[24px] overflow-hidden text-white ${heightClass} flex flex-col items-center justify-start ${animateClass || ""}`}
@@ -267,15 +270,15 @@ function CarouselCard({
           alt="Terracotta background"
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center rounded-[24px]"
         />
-          <div className={`relative z-[1] ${contentPadding} flex flex-col items-center text-center w-full min-w-0 h-full`}>
+          <div className={`relative z-[1] ${contentPadding} flex flex-col items-center text-center w-full min-w-0 ${size === 'large' ? 'h-auto md:h-full' : 'h-full'}`}>
             <h3 className={`font-semibold ${size === "small" ? "text-xs sm:text-sm mb-1 sm:mb-2 line-clamp-2 overflow-hidden" : "text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3"} break-words`}>
               {card.title}
             </h3>
             <div className="border-b-white border w-full my-1" />
-              <div className="w-full max-w-[95%] sm:max-w-[90%] flex-1 min-h-0 flex flex-col">
-                <p className={`${size === "small" ? "text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 overflow-hidden" : "text-lg sm:text-[16px] md:text-[18px] lg:text-[19px] flex-1 min-h-0 overflow-auto"} leading-relaxed break-words`}>
+              <div className="w-full max-w-[95%] sm:max-w-[90%] flex-1 min-h-0 flex flex-col justify-center">
+                <p className={`${size === "small" ? "text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 overflow-hidden text-center" : "text-lg sm:text-[16px] md:text-[18px] lg:text-[19px] flex-1 min-h-0 overflow-auto text-center"} leading-relaxed break-words`}>
               {card.description}
             </p>
               </div>

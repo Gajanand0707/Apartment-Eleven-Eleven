@@ -18,6 +18,19 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    const prevOverflow = typeof document !== 'undefined' ? document.body.style.overflow : '';
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = prevOverflow || '';
+    }
+    return () => {
+      if (typeof document !== 'undefined') document.body.style.overflow = prevOverflow || '';
+    };
+  }, [open]);
+
   // Close on route change (optional, if used in multiple pages with same layout)
   // You can wire this to next/navigation if needed.
 

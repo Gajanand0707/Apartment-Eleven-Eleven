@@ -240,7 +240,7 @@ export default function ArticlePage() {
         </div>
 
         <div className="flex justify-center w-full md:w-auto mt-2 md:mt-0">
-          <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 text-white rounded-full">
+          <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 font-['Goudy_Bookletter_1911'] text-white rounded-full">
             Subscribe
           </button>
         </div>
@@ -307,7 +307,7 @@ export default function ArticlePage() {
               );
             })()}
 
-            <div className="p-12">
+            <div className="p-2 text-justify md:text-left">
               {/* Article Title */}
               <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-6">
                 {article.title ?? article.article_name}

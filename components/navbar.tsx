@@ -38,7 +38,7 @@ export function Navbar() {
           top: 0;
           left: 0;
           right: 0;
-          transform: translateY(-100%);
+          transform: translateY(0);
           z-index: 40;
         }
         header.navbar-hidden {
@@ -48,6 +48,17 @@ export function Navbar() {
         header.navbar-visible {
           transform: translateY(0);
           transition: transform 0.3s ease-in-out;
+        }
+        /* spacer that pushes page content below the fixed header when visible */
+        header + #nav-spacer {
+          height: 5rem; /* matches header's .h-20 */
+          transition: height 0.3s ease-in-out;
+        }
+        header.navbar-hidden + #nav-spacer {
+          height: 0;
+        }
+        header.navbar-visible + #nav-spacer {
+          height: 5rem;
         }
       `}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -155,9 +166,14 @@ export function Navbar() {
 
         {/* NavLogo at bottom */}
         
+        </div>
       </div>
-    </div>
     </header>
+
+    {/* spacer: keeps page content from being hidden under the fixed header
+      its height follows header visibility (collapsed when header is hidden) */}
+    <div id="nav-spacer" aria-hidden="true" />
+
     </div>
   );
 }

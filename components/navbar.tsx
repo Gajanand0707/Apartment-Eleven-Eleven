@@ -62,17 +62,7 @@ export function Navbar() {
           transform: translateY(0);
           transition: transform 0.3s ease-in-out;
         }
-        /* spacer that pushes page content below the fixed header when visible */
-        header + #nav-spacer {
-          height: 5rem; /* matches header's .h-20 */
-          transition: height 0.3s ease-in-out;
-        }
-        header.navbar-hidden + #nav-spacer {
-          height: 0;
-        }
-        header.navbar-visible + #nav-spacer {
-          height: 5rem;
-        }
+        /* No spacer: header is fixed and overlays content */
       `}</style>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center">
@@ -183,9 +173,7 @@ export function Navbar() {
       </div>
     </header>
 
-    {/* spacer: keeps page content from being hidden under the fixed header
-      its height follows header visibility (collapsed when header is hidden) */}
-    <div id="nav-spacer" aria-hidden="true" />
+    {/* removed nav spacer - header now overlays content */}
 
     </div>
   );

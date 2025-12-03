@@ -24,8 +24,8 @@ export default function InsideHero() {
       scrollTrigger: {
         trigger: heroRef.current,
         start: "top top",
-        end: "+=150%",
-        scrub: 0.8,
+        end: "+=100%",
+        scrub: 1,
         pin: true,
       }
     })
@@ -43,10 +43,10 @@ export default function InsideHero() {
     <>
       <style jsx global>{`
         .indoor-hero {
+        top:0;
           position: relative;
           width: 100%;
           height: 100vh;
-          min-height: 500px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -129,20 +129,22 @@ export default function InsideHero() {
           position: absolute;
           top: 0;
           height: 100vh;
-          min-height: 500px;
-          width: 50vw;
+          width: 50%;
           overflow: hidden;
           z-index: 5;
           pointer-events: none;
-        }
+          }
         .door img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
           height: 100%;
           width: 100%;
           object-fit: cover;
           -webkit-object-fit: cover;
           object-position: center;
           -webkit-object-position: center;
-          display: block;
           transform: translate3d(0,0,0);
           -webkit-transform: translate3d(0,0,0);
         }

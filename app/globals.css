@@ -56,6 +56,19 @@ body {
   font-weight: 400;
 }
 
+/* Ensure the app root uses a solid background and full-height to avoid
+   brief white gaps during smooth scrolling/transform animations. */
+html, body, #__next {
+  height: 100%;
+  background: #303236; /* neutral dark canvas matching site edges */
+}
+
+/* Prevent rubber-band/overscroll bounce showing underlying background on mobile */
+html, body {
+  overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 /*
   Prefer the regular Goudy Bookletter (or Georgia) for normal text, and only
   apply the OPTIGoudy (bold) family when the element explicitly requests a

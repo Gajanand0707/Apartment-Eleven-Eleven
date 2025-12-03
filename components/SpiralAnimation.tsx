@@ -152,7 +152,7 @@ export function SpiralAnimation({
         @keyframes imageAppear {
           0% { opacity: 0; }
           2% { opacity: 1; }
-          98% { opacity: 1; }
+          95% { opacity: 1; }
           100% { opacity: 0; }
         }
 

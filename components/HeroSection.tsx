@@ -241,6 +241,8 @@ export default function HeroSection() {
           color: #fff; 
           z-index: 99;
         }
+          .hero .scene-1 .hero-text span:nth-child(2) {
+          font-size: 6rem;}
 
         .hero .scene-1 .hero-text .backdrop {
         position: absolute;

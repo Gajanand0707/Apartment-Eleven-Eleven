@@ -134,34 +134,20 @@ export function SpiralAnimation({
       tweensRef.current.forEach((t) => t.kill())
       tweensRef.current = []
     }
-  }, [mounted, containerSize, totalImages, duration, speed, direction])
+  }, [mounted, containerSize.width, totalImages, duration, speed, direction])
 
   if (!mounted) return null
 
-  // Use the provided golden spiral path scaled to fit container
-  const w = containerSize.width
-  const h = containerSize.height
-  
-  // Original path coordinates from viewBox approximately 0 0 6800 3400
+  // Use the original SVG viewBox (user coordinate system) and keep
+  // rendering responsive via CSS aspect-ratio (padding-top).
   const originalW = 6800
   const originalH = 3400
-  
-  // Scale factors to fit container
-  const scaleX = w / originalW
-  const scaleY = h / originalH
-  
-  // Use uniform scale to preserve spiral shape
-  const scale = Math.min(scaleX, scaleY)
-  
-  // Center the scaled path
-  const offsetX = (w - originalW * scale) / 2
-  const offsetY = (h - originalH * scale) / 2
 
-  // Golden spiral path from the provided SVG, scaled and positioned
-  const pathD = `M${1.03 * scale + offsetX},${3402.5 * scale + offsetY}c0,${-1864.37 * scale},${1492.96 * scale},${-3400 * scale},${3402.94 * scale},${-3400 * scale}c${1155.3 * scale},0,${2100 * scale},${927.52 * scale},${2100 * scale},${2100 * scale}c0,${737.13 * scale},${-600.75 * scale},${1300 * scale},${-1300 * scale},${1300 * scale}c${-472.93 * scale},0,${-800 * scale},${-400 * scale},${-800 * scale},${-800 * scale}c0,${-309.06 * scale},${252.94 * scale},${-500 * scale},${500 * scale},${-500 * scale}c${152.94 * scale},0,${295.59 * scale},${150.04 * scale},${300 * scale},${300 * scale}c${2.94 * scale},${100 * scale},${-100 * scale},${200 * scale},${-202.94 * scale},${200 * scale}c${-47.06 * scale},0,${-97.06 * scale},${-50 * scale},${-97.06 * scale},${-100 * scale}`
+  // Unscaled golden spiral path (original coordinates)
+  const pathD = `M1.03,3402.5c0,-1864.37,1492.96,-3400,3402.94,-3400c1155.3,0,2100,927.52,2100,2100c0,737.13,-600.75,1300,-1300,1300c-472.93,0,-800,-400,-800,-800c0,-309.06,252.94,-500,500,-500c152.94,0,295.59,150.04,300,300c2.94,100,-100,200,-202.94,200c-47.06,0,-97.06,-50,-97.06,-100`
 
   return (
-    <div className="relative w-full flex justify-center items-center bg-[#D8CCBA] py-10">
+    <div className="relative w-full flex justify-center items-center bg-[#D8CCBA] py-10 z-10">
       <style>{`
         @keyframes imageAppear {
           0% { opacity: 0; }
@@ -174,7 +160,8 @@ export function SpiralAnimation({
           position: relative;
           width: 100%;
           margin-left: 2rem;
-          height: ${containerSize.height}px;
+          height: 0;
+          padding-top: ${(originalH / originalW) * 100}%;
         }
 
         .spiral-image {
@@ -194,8 +181,14 @@ export function SpiralAnimation({
 
         .spiral-image img {
           object-fit: cover;
+          -webkit-object-fit: cover;
+          object-position: center;
+          -webkit-object-position: center;
           width: 100%;
           height: 100%;
+          display: block;
+          -webkit-transform: translate3d(0,0,0);
+          transform: translate3d(0,0,0);
         }
 
         @media(max-width: 768px) {
@@ -210,52 +203,52 @@ export function SpiralAnimation({
         <div className="spiral-container">
           <svg
             className="absolute top-0 left-0 w-full h-full"
-            viewBox={`0 0 ${containerSize.width} ${containerSize.height}`}
+            viewBox={`0 0 ${originalW} ${originalH}`}
             preserveAspectRatio="xMidYMid meet"
           >
             {/* Background grid pattern - scaled to match container */}
-            <g transform={`translate(${offsetX},${offsetY}) scale(${scale})`} opacity="0.3">
+            <g opacity="0.55">
               <polyline 
                 points="3400,0 3400,3400 0,3400"
                 fill="none"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="3400" y1="2100" x2="5500" y2="2100"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="4200" y1="2100" x2="4200" y2="3400"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <polyline 
                 points="4200,2600 3900,2600 3400,2600"
                 fill="none"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="3900" y1="2600" x2="3900" y2="2100"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="3900" y1="2400" x2="4200" y2="2400"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="4000" y1="2400" x2="4000" y2="2600"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
               <line 
                 x1="4000" y1="2500" x2="3900" y2="2500"
                 stroke={squaresStroke}
-                strokeWidth={2 / scale}
+                strokeWidth={"3px"}
               />
             </g>
             
@@ -264,9 +257,10 @@ export function SpiralAnimation({
               ref={pathRef}
               d={pathD}
               fill="none"
-              stroke={showPath ? "rgba(59,130,246,0.4)" : "transparent"}
-
-              strokeWidth={showPath ? 2 : 0}
+              stroke={showPath ? "rgba(59,130,246,1)" : "transparent"}
+              strokeWidth={showPath ? "4px" : 0}
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
 

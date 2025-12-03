@@ -254,7 +254,7 @@ export default function Home() {
 
             {/* RIGHT IMAGE COLUMN */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-              <div className="relative w-full max-w-[650px] mb-8 lg:mb-0 bg-[#DCCCAF] overflow-visible">
+              <div className="relative w-full max-w-[650px] -mt-4 sm:mt-0 mb-8 lg:mb-0 bg-[#DCCCAF] overflow-visible transform origin-center scale-[1.3] sm:scale-100 z-[-1] h-auto">
                 <SpiralAnimation {...({
                   images: demoImages,
                   duration: 12,
@@ -263,7 +263,6 @@ export default function Home() {
                   radialExponent: 1.25,
                   angleOffsetDeg: 180,
                   containerWidth: 650,
-                  containerHeight: 400,
                   guidelineWidth: 6,
                 } as any)} />
               </div>

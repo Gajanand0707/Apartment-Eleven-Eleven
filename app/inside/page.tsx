@@ -36,6 +36,7 @@ export default function InsidePage() {
         navbar.classList.remove("navbar-visible");
         navbar.classList.add("navbar-hidden");
       }
+      
     }
   }, [showNavbar]);
 

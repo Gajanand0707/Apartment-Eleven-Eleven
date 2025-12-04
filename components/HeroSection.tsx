@@ -16,6 +16,10 @@ export default function HeroSection() {
 
     gsap.set(".scene-2, .scene-3, .scene-4", { opacity: 0 });
 
+    gsap.set(".hero .pillar-1",{
+
+    });
+
     const totalScroll = sceneHeights * 4 + hold * 2;
 
     ScrollTrigger.create({
@@ -40,8 +44,8 @@ export default function HeroSection() {
       }
     })
     .to(".scene-1 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-1 .pillar-1", { x: -300, opacity: 0 }, "<")
-    .to(".scene-1 .pillar-2", { x: 300, opacity: 0 }, "<");
+    .to(".scene-1 .pillar-1", { x: "-200%", opacity: 0 }, "<")
+    .to(".scene-1 .pillar-2", { x: "200%", opacity: 0 }, "<");
 
     // Scene 2 animation
     gsap.timeline({
@@ -53,8 +57,8 @@ export default function HeroSection() {
       }
     })
     .set(".scene-2", { opacity: 1 })
-    .from(".scene-2 .pillar-1", { y: -300, opacity: 0 })
-    .from(".scene-2 .pillar-2", { y: 300, opacity: 0 }, "<")
+    .from(".scene-2 .pillar-1", { y: "-100%", opacity: 0 })
+    .from(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<")
     .from(".scene-2 .still-image", { opacity: 0 }, "<")
     .to(".hero .hero-bg", { scale: 2, x: "50%", y: "-50%" }, "<")
     .from(".scene-2 .hero-text", { opacity: 0, y: 50 }, "<");
@@ -76,9 +80,9 @@ export default function HeroSection() {
       }
     })
     .to(".scene-2 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-2 .pillar-1", { y: -300, opacity: 0 }, "<")
+    .to(".scene-2 .pillar-1", { y: "-100%", opacity: 0 }, "<")
     .to(".scene-2 .still-image", { opacity: 0 }, "<")
-    .to(".scene-2 .pillar-2", { y: 300, opacity: 0 }, "<");
+    .to(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<");
 
     // Scene 3 animation
     gsap.timeline({
@@ -90,8 +94,8 @@ export default function HeroSection() {
       }
     })
     .set(".scene-3", { opacity: 1 })
-    .from(".scene-3 .pillar-1", { y: -300, opacity: 0 })
-    .from(".scene-3 .pillar-2", { y: 300, opacity: 0 }, "<")
+    .from(".scene-3 .pillar-1", { y: "-100%", opacity: 0 })
+    .from(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<")
     .to(".hero .hero-bg", { scale: 2, x: "-50%", y: "50%" }, "<")
     .from(".scene-3 .hero-text", { opacity: 0, y: 50 }, "<");
 
@@ -112,8 +116,8 @@ export default function HeroSection() {
       }
     })
     .to(".scene-3 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-3 .pillar-1", { y: -300, opacity: 0 }, "<")
-    .to(".scene-3 .pillar-2", { y: 300, opacity: 0 }, "<");
+    .to(".scene-3 .pillar-1", { y: "-100%", opacity: 0 }, "<")
+    .to(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<");
 
     // Scene 4 animation (no fade: show instantly)
     gsap.timeline({
@@ -252,7 +256,9 @@ export default function HeroSection() {
           z-index: 99;
         }
           .hero .scene-1 .hero-text span:nth-child(2) {
-          font-size: 6rem;}
+          font-size: 5.5rem;
+          text-align: center;
+          }
 
         .hero .scene-1 .hero-text .backdrop {
         position: absolute;
@@ -267,21 +273,27 @@ export default function HeroSection() {
         }
 
         .hero .scene-1 .pill {
+        position: absolute;
           top: 0;
-          position: absolute;
           height: 120vh;
+          width : 50%;
+          display: flex;
+          align-items:center;
+          justify-content: center;
+          }
+
+        .hero .scene-1 .pill img,
+        .hero .scene-2 .pill img,
+        .hero .scene-3 .pill img {
+        object-fit: contain;
         }
 
         .hero .scene-1 .pillar-1 {
-          left: 0rem;
-          right: auto;
-          transform: translateX(-50%);
+          transform: translateX(-100%);
         }
 
         .hero .scene-1 .pillar-2 {
-          left: auto;
-          right: 0rem;
-          transform: translateX(50%);
+          transform: translateX(100%);
         }
 
         .hero .scene-2 {
@@ -306,18 +318,17 @@ export default function HeroSection() {
         }
 
         .hero .scene-2 .pill {
-          left: 10%;
           position: absolute;
           height: 150vh;
+          width : 20rem;
         }
 
         .hero .scene-2 .pillar-1 {
-          top: -120%;
+          transform: translate(10rem,-45rem);
         }
 
         .hero .scene-2 .pillar-2 {
-          bottom: -120%;
-          top: auto;
+          transform: translate(10rem,45rem);
         }
 
         .hero .scene-2 .still-image {
@@ -349,19 +360,18 @@ export default function HeroSection() {
         }
 
         .hero .scene-3 .pill {
-          right: 14%;
           left: auto;
           position: absolute;
           height: 150vh;
+          width : 20rem;
         }
 
         .hero .scene-3 .pillar-1 {
-          top: -120%;
+          transform: translate(-10rem,-45rem);
         }
 
         .hero .scene-3 .pillar-2 {
-          bottom: -120%;
-          top: auto;
+          transform: translate(-10rem,45rem);
         }
 
         .hero .scene-4 {
@@ -396,6 +406,9 @@ export default function HeroSection() {
         }
 
         .hero .fade-blur.visible{ display: block; }
+
+
+
           @media(max-width: 500px){
 			.hero .scene-1 .hero-text,
 			.hero .scene-2 .hero-text,
@@ -407,22 +420,19 @@ export default function HeroSection() {
 			}
         .hero .scene-1 .hero-text span:nth-child(2) {
         margin-top: 0.5rem;   
-        font-size: 3rem;}
-
-			.hero .scene-1 .pill{
-				height: 100vh;
-			}
+        font-size: 3rem;
+        }
 
       .hero .scene-1 .pillar-1 {
-          left: 0rem;
-          right: auto;
-          transform: translateX(-70%);
+          transform: translateX(-100%);
+          height: 100vh;
+          width: 16rem;
         }
 
         .hero .scene-1 .pillar-2 {
-          left: auto;
-          right: 0rem;
-          transform: translateX(70%);
+          transform: translateX(100%);
+          height: 100vh;
+          width: 16rem;
         }
 		.hero .scene-2 .hero-text{
 			font-size: 2rem;
@@ -432,17 +442,15 @@ export default function HeroSection() {
 			margin-top: 10rem;
 		}
 		.hero .scene-2 .pill{
-			left: 10%;
-			position: absolute;
 			height: 100vh;
 		}
-		.hero .scene-2 .pillar-1{
-			top:-70%;
-		}
-		.hero .scene-2 .pillar-2{
-			bottom:-70%;
-			top:auto;
-		}
+		.hero .scene-2 .pillar-1 {
+          transform: translate(0rem,-37rem);
+        }
+
+        .hero .scene-2 .pillar-2 {
+          transform: translate(0rem,37rem);
+        }
 		.hero .scene-2 .still-image{
 			top: 20%;
 			left: auto;
@@ -459,18 +467,15 @@ export default function HeroSection() {
 			text-align: right;
 		}
 		.hero .scene-3 .pill{
-			right: 5%;
-			left: auto;
-			position: absolute;
 			height: 100vh;
 		}
-		.hero .scene-3 .pillar-1{
-			top:-60%;
-		}
-		.hero .scene-3 .pillar-2{
-			bottom:-60%;
-			top:auto;
-		}
+      .hero .scene-3 .pillar-1 {
+          transform: translate(0rem,-33rem);
+        }
+
+        .hero .scene-3 .pillar-2 {
+          transform: translate(0rem,33rem);
+        }
 		}
 
       `}</style>

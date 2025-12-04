@@ -160,7 +160,7 @@ export default function HallwaysSection() {
         }
       `}</style>
 
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black py-24 px-6 md:px-8">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black md:py-4 px-6 md:px-8">
   {/* ✅ Background image */}
   <div className="absolute inset-0 -z-10">
     <Image
@@ -170,19 +170,19 @@ export default function HallwaysSection() {
       priority
       quality={100}
       sizes="100vw"
-      className="object-cover object-center blur-0"
+      className="object-cover object-center filter brightness-110 contrast-105"
     />
-    {/* ✅ Soft dark overlay for contrast */}
-    <div className="absolute inset-0  " />
+    {/* subtle lightening overlay to reduce blackish appearance */}
+    <div className="absolute inset-0 bg-white/20 pointer-events-none" />
   </div>
 
 
         {/* ✅ Heading */}
         <div className="relative z-10 text-center max-w-5xl mb-16">
-          <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.5)]">
+          <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold md:mt-4 text-black">
             Conversations in the Hallways
           </h1>
-          <p className="mt-4 text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold leading-snug text-black drop-shadow-[0_2px_4px_rgba(255,255,255,0.4)] max-w-4xl mx-auto">
+          <p className="mt-4 text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold leading-snug text-black max-w-4xl mx-auto">
             Where serendipitous encounters spark innovation and change. The most
             important innovations often happen in the spaces between meetings.
           </p>

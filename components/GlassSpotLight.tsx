@@ -134,7 +134,7 @@ export default function GlassSpotlight({
         <div className="absolute inset-0" />
       </div>
 
-      <div className="mx-auto max-w-7xl  overflow-hidden px-2 sm:px-4 md:px-20 py-8 sm:py-12 md:py-16 lg:py-20 ">
+      <div className="mx-auto max-w-7xl  overflow-hidden px-2 sm:px-4 md:px-20 py-8 sm:py-12 md:py-8  ">
         <div 
           className="relative h-[320px] md:h-[480px] flex items-center justify-center  md:mr-20"
           onMouseEnter={handleMouseEnter}
@@ -174,38 +174,41 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
   return (
     <div
       className={[
-        "h-full rounded-[24px] sm:rounded-[28px] md:rounded-[36px] border",
-        "bg-white/70 border-white/40 backdrop-blur-xl shadow-[0_12px_30px_rgba(0,0,0,0.25)]",
+        "h-full rounded-[24px] sm:rounded-[28px] md:rounded-[77px] border",
+        "bg-gray-500 border-white/40 backdrop-blur-xl shadow-[0_12px_30px_rgba(0,0,0,0.25)]",
         "bg-[linear-gradient(180deg,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.72)_60%,rgba(255,255,255,0.6)_100%)]",
       ].join(" ")}
     >
-      <div className="h-full flex flex-col items-center justify-center px-3 sm:px-5 md:px-6">
+      <div className="h-full flex flex-col items-center justify-between px-3 py-8 sm:px-5 md:px-6">
+       
         {item.avatarUrl ? (
-          <div className="mb-2 sm:mb-3 md:mb-6">
+          <div className="">
             <Image
               src={item.avatarUrl}
               alt={`${item.name} logo`}
               width={160}
               height={160}
-              className="rounded-full w-[60px] h-[60px] sm:w-[110px] sm:h-[110px] md:w-[140px] md:h-[140px] object-cover"
+              className="rounded-full w-[110px] h-[110px] sm:w-[110px] md:my-8 md:w-[200px] md:h-[200px] object-cover"
             />
           </div>
         ) : (
           <div className="mb-2 sm:mb-3 md:mb-6 w-[60px] h-[60px] sm:w-[110px] sm:h-[110px] md:w-[140px] md:h-[140px] rounded-full bg-black" />
         )}
+        <div>
         <h3
           className={[
-            "font-['Goudy_Old_Style'] text-center leading-none",
+            "font-['Goudy_Old_Style'] text-center font-bold leading-none",
             emphasis
-              ? "text-[18px] sm:text-[30px] md:text-[40px]"
-              : "text-[16px] sm:text-[28px] md:text-[36px]",
+              ? "text-2xl md:text-4xl"
+              : "text-2xl md:text-4xl",
           ].join(" ")}
         >
           {item.name}
         </h3>
-        <p className="mt-1 sm:mt-2 text-center font-['Goudy_Old_Style'] text-2xl sm:text-[18px] md:text-4xl text-black/70">
+        <p className="mt-1 sm:mt-2 text-center font-['Goudy_Old_Style'] text-xl   md:text-2xl text-black/70">
           {item.sub}
         </p>
+       </div>
       </div>
     </div>
   )

@@ -87,9 +87,27 @@ html, body {
 /* Generic OPTIGoudy class without an explicit bold weight -> use regular fallback */
 [class*="OPTIGoudy"],
 [class*="Goudy_Bookletter_1911"],
-[class*="Goudy_Old_Style"],
 [class*="Goudy_Bookletter"] {
   font-family: 'Goudy Bookletter 1911', Georgia, serif;
+}
+
+/* Goudy_Old_Style uses the GOUDOS.woff2 file */
+[class*="Goudy_Old_Style"] {
+  font-family: 'GoudyOldStyle', 'Goudy_Old_Style', 'Goudy Old Style', Georgia, serif;
+}
+
+/* Explicit rule for arbitrary font syntax */
+.font-\[Goudy_Old_Style\] {
+  font-family: 'GoudyOldStyle', 'Goudy_Old_Style', 'Goudy Old Style', Georgia, serif;
+}
+
+/* High specificity rule to ensure Goudy Old Style font loads correctly */
+.font-\[Goudy_Old_Style\] {
+  font-family: 'GoudyOldStyle' !important;
+}
+
+[class*="Goudy_Old_Style"] {
+  font-family: 'GoudyOldStyle' !important;
 }
 
 /* Local @font-face rules for available fonts in public/fonts/ */
@@ -120,11 +138,11 @@ html, body {
 }
 
 @font-face {
-  font-family: 'Goudy Old Style';
+  font-family: 'GoudyOldStyle';
   src: url('/fonts/GOUDOS.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -132,7 +150,15 @@ html, body {
   src: url('/fonts/GOUDOS.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'Goudy Old Style';
+  src: url('/fonts/GOUDOS.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
 }
 
 /* Note: If you add OPTIGoudy regular (400) file, add a matching @font-face with weight:400 to complete the family. */

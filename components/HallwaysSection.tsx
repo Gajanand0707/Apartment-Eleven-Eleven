@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { HallwayCardProps } from "./HallwayCard";
 import hallwaysbg from "../public/hallwaysbg.png";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 export default function HallwaysSection() {
   // initial fallback conversations (will be replaced by API data if fetch succeeds)
@@ -160,7 +161,7 @@ export default function HallwaysSection() {
         }
       `}</style>
 
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black md:py-4 px-6 md:px-8">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black md:py-4 md:pb-10 px-6 md:px-8">
   {/* ✅ Background image */}
   <div className="absolute inset-0 -z-10">
     <Image
@@ -178,27 +179,25 @@ export default function HallwaysSection() {
 
 
         {/* ✅ Heading */}
-        <div className="relative z-10 text-center max-w-5xl mb-16">
-          <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold md:mt-4 text-black">
+        <div className="relative z-10 text-center  mb-16">
+          <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold md:mt-16 text-black">
             Conversations in the Hallways
           </h1>
-          <p className="mt-4 text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold leading-snug text-black max-w-4xl mx-auto">
+          <p className="mt-4 text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold  text-black  mx-auto">
             Where serendipitous encounters spark innovation and change. The most
             important innovations often happen in the spaces between meetings.
           </p>
         </div>
 
         {/* ✅ Carousel */}
-        <div className="relative w-full flex items-center justify-center z-10">
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
-              aria-label="Scroll left"
-            >
-              ←
-            </button>
-          )}
+        <div className="relative w-full flex items-center justify-center z-10 md:-mt-10">
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-focus text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
+            aria-label="Scroll left"
+          >
+            <FaChevronLeft size={24} />
+          </button>
 
           <div className="w-full max-w-7xl px-4 md:px-12">
             <div className="flex items-center justify-center relative py-8 md:h-[600px]">
@@ -241,15 +240,13 @@ export default function HallwaysSection() {
             </div>
           </div>
 
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
-              aria-label="Scroll right"
-            >
-              →
-            </button>
-          )}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-focus text-white p-3 sm:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
+            aria-label="Scroll right"
+          >
+            <FaChevronRight size={24} />
+          </button>
         </div>
 
         {/* Loading / error indicator */}
@@ -261,9 +258,9 @@ export default function HallwaysSection() {
         )}
 
         {/* ✅ Progress bar */}
-        <div className="mt-12 flex flex-col items-center z-10">
-          <div className="h-0.5 w-[260px] bg-white rounded-full" />
-          <div className="h-0.5 w-[90px] bg-black rounded-full -mt-0.5" />
+        <div className=" flex flex-col items-center top-0 z-10">
+          <div className="h-1 w-[720px] bg-white rounded-full" />
+          <div className="h-1 w-[240px] bg-black rounded-full -mt-1" />
         </div>
       </section>
     </>
@@ -283,9 +280,9 @@ function CarouselCard({
   const sizeClass =
   size === "large"
     ? "z-10 w-[65vw] sm:w-[22rem] md:w-[28rem] lg:w-[30rem]"
-    : "w-[45vw] sm:w-64 md:w-[22rem] lg:w-[24rem] scale-90 opacity-90";
+    : "w-[45vw] sm:w-64 md:w-[22rem] lg:w-[24rem] scale-80 opacity-70";
 
-  const marginClass = size === "large" ? "" : "-mx-10 sm:-mx-8 md:-mx-16";
+  const marginClass = size === "large" ? "" : "-mx-10 sm:-mx-8 md:-mx-25";
 
   return (
     <div
@@ -293,8 +290,9 @@ function CarouselCard({
     >
     <div
   key={item.name}
-  className={`h-[380px] md:h-[460px] lg:h-[520px] w-full rounded-4xl 
-  bg-white/20 border border-white/30 shadow-2xl backdrop-blur-md
+  className={`h-full min-h-[380px] md:min-h-[460px] lg:min-h-[520px
+    ] w-full rounded-[78px] 
+  bg-gray-100 border border-white/30  backdrop-blur-md
 
   flex flex-col justify-center items-center text-center p-10 ${animateClass}`}
 >

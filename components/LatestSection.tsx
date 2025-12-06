@@ -16,9 +16,9 @@ interface LatestSectionProps {
 
 export function LatestSection({ title, items, sectionType, layout, viewAllLink }: LatestSectionProps) {
   const renderBlogsLayout = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-16">
       {items[0] && <BlogCardHorizontal blog={items[0]} />}
-      <div className="grid md:grid-cols-3 grid-col-2 gap-6">
+      <div className="grid md:grid-cols-3 grid-col-2 gap-14">
         {items.slice(1, 4).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}
@@ -27,7 +27,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
   )
 
   const renderPlaybooksLayout = () => (
-    <div className="space-y-6">
+    <div className="space-y-6 mt-16">
       {items[0] && <BlogCardFeatured blog={items[0]} />}
       {items[1] && <BlogCardHorizontal blog={items[1]} />}
     </div>
@@ -35,7 +35,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   const renderDeepDivesLayout = () => (
     <div>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-14">
         {items.slice(0, 3).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}
@@ -58,13 +58,13 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   return (
     <section className="mb-16">
-      <h2 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold mb-8">{title}</h2>
-        <div className="border border-b-2 w-[319px] mb-10 -mt-6"/>
+      <h2 className="text-4xl md:text-7xl underline  decoration-[3px] underline-offset-[6px] font-['OPTIGoudy_Agency'] font-bold mb-8">{title}</h2>
+        {/* <div className="border border-b-2 w-[319px] mb-10 -mt-6"/> */}
       {renderLayout()}
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-10 py-8 ">
         <Link
           href={viewAllLink}
-          className="px-8 py-2 border-2 bg- text-xl md:text-2xl border-gray-900 rounded-full font-['Goudy_Bookletter_1911'] font-semibold hover:bg-gray-900 bg-white hover:text-white transition-colors"
+          className="px-8 py-4  border-2  text-2xl md:text-4xl border-gray-900 rounded-3xl font-['Goudy_Bookletter_1911'] font-bold md:w-[355px] text-center md:h-[70px] hover:bg-gray-900 bg-white hover:text-white transition-colors flex items-center justify-center"
         >
           Load More
         </Link>

@@ -18,11 +18,11 @@ export default function ResidentPage() {
                     alt="Residents background"
                     fill
                     priority
-                    className="object-cover object-center brightness-95"
+                    className="object-cover object-center "
                 />
 
                 {/* Overlay (optional subtle blur / dim) */}
-                <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+                <div className="absolute inset-0  backdrop-blur-sm" />
 
                 {/* Content */}
                 <div className="relative z-10 max-w-[1000px] mx-auto px-4 pt-24 md:pt-32">
@@ -30,13 +30,13 @@ export default function ResidentPage() {
                         Meet Our Residents
                     </h2>
 
-                    <p className="font-[Goudy_Old_Style] text-2xl md:text-4xl leading-snug text-black mt-6">
+                    <p className="font-[Goudy_Old_Style] text-2xl md:text-4xl font-bold max-w-[894px] text-black my-4">
                         A diverse community of innovators, entrepreneurs, and industry leaders
                         driving change across various sectors.
                     </p>
 
                     {/* Cards */}
-                    <div className=" flex justify-center items-center gap-8">
+                    <div className=" flex justify-center items-center ">
 
 
                         <GlassSpotlight />

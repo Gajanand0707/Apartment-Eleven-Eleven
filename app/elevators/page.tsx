@@ -49,7 +49,7 @@ export function ParchmentButton({
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
       {/* Button Text */}
-      <span className="relative z-10 text-3xl font-['Playfair_Display'] font-bold text-black drop-shadow-[0_1px_0_rgba(255,255,255,0.6)]">
+      <span className="relative z-10 text-2xl md:text-4xl font-['OPTIGoudy_Agency'] text-nowrap font-extrabold text-black ">
         {children}
       </span>
     </button>
@@ -98,7 +98,7 @@ export default function Elevators() {
 
   return (
     <div>
-      <section className="relative flex w-full items-stretch bg-[#1C1C1C] overflow-hidden h-[456px] sm:min-h-[460px] md:min-h-[560px] lg:min-h-[720px]">
+      <section className="relative flex w-full justify-between items-stretch bg-[#1C1C1C] overflow-hidden h-[456px] sm:min-h-[460px] md:min-h-[1000px] ">
         {/* Mobile: full-bleed background image */}
         <div className="absolute inset-0 block md:hidden z-0">
           <img
@@ -110,31 +110,31 @@ export default function Elevators() {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
         </div>
         {/* LEFT – image */}
-        <div className="relative basis-1/2 shrink-0 hidden md:block">
+        <div className="relative basis-7/12 shrink-0 hidden md:block">
           <div className="absolute inset-0 bg-[#1C1C1C]" />
           <img
             src={wall.src}
             alt="colosseum"
-            className="absolute inset-0 w-full h-full object-cover object-left-bottom"
+            className="absolute inset-0 w-full h-full object-cover  "
           />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 sm:w-14 md:w-24 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 h-full w-10 sm:w-14 md:w-32 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative z-20 w-full md:basis-1/2 h-full flex flex-col justify-center items-center text-center md:items-end md:text-right text-[#F5F5F5] px-4 sm:px-6 md:px-10 lg:px-16 gap-0 sm:gap-0.5 md:gap-0">
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] text-4xl sm:text-6xl md:text-[124px]">
+        <div className="relative z-20 w-full md:basis-3/12 h-full flex flex-col justify-center items-center text-center md:items-end  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 mr-10 ">
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
-          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-2xl sm:text-3xl md:text-7xl">
+          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white mx-auto  pr-1 text-2xl sm:text-3xl text-nowrap md:text-7xl">
             Ideas Deserve
           </h2>
 
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] mt-0 text-4xl sm:text-6xl md:text-[124px]">
+          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto  mt-0 text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
-          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] pr-1 text-2xl sm:text-3xl md:text-7xl">
+          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none mx-auto text-white  pr-1 text-2xl sm:text-3xl md:text-7xl">
             Partnerships
           </h2>
         </div>
@@ -156,20 +156,20 @@ export default function Elevators() {
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-[Goudy_Old_Style] font-semibold text-black leading-snug text-2xl md:text-4xl max-w-[1000px] mt-6">
-            Choose the passage that best aligns with your vision, and let our shared journey commence.
+          <p className="font-['OPTIGoudy_Agency'] font-extrabold text-black  text-2xl md:text-4xl max-w-[850px] my-2">
+            Choose the Passage that aligns with your vision, and let our shared Journey Commence.
           </p>
 
           {/* Cards row */}
-          <div className="mt-8 flex flex-col md:flex-row gap-10 md:gap-8">
+          <div className="mt-8 flex flex-col md:flex-row gap-10 md:gap-6">
             {/* Card 1 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
+            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
                 fill
                 priority
-                className="object-cover object-center mix-blend-multiply opacity-90"
+                className="object-cover object-center "
               />
 
               <div className="relative z-10 flex flex-col items-center justify-between h-full">
@@ -178,16 +178,16 @@ export default function Elevators() {
                   <img
                     src={path1.src}
                     alt="path1"
-                    className="w-full h-full object-cover object-center"
+                    className="w-[130%] h-[130%] object-cover object-center"
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
-              Align with Our Cadre
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug tracking-wide">
+                  Align with Our Cadre
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
-                  Forge ties with our pioneering founders and captains of industry. If you are acquainted with a team from our esteemed lineage, they can vouch for your expedited inclusion amongst us.
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl mt-2 flex-1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
@@ -200,13 +200,13 @@ export default function Elevators() {
             </div>
 
             {/* Card 2 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
+            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
                 fill
                 priority
-                className="object-cover object-center mix-blend-multiply opacity-90"
+                className=" w-[130%] h-[130%] object-cover object-center "
               />
 
               <div className="relative z-10 flex flex-col items-center justify-between h-full">
@@ -215,18 +215,16 @@ export default function Elevators() {
                   <img
                     src={path2.src}
                     alt="path1"
-                    className="w-full h-full object-cover object-center"
+                    className="w-[110%] h-[110%] object-cover object-center"
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug tracking-wide ">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
-                  Possess a groundbreaking concept? You may consult with our guild of
-                  visionary minds and patrons. Together, we shall sculpt your ideas
-                  into enduring reality through collaborative mastery.
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl  mt-2 flex-1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
@@ -239,13 +237,13 @@ export default function Elevators() {
             </div>
 
             {/* Card 3 */}
-            <div className="relative w-full md:w-[380px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden min-h-[520px]">
+            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
                 fill
                 priority
-                className="object-cover object-center mix-blend-multiply opacity-90"
+                className="object-cover object-center "
               />
 
               <div className="relative z-10 flex flex-col items-center justify-between h-full">
@@ -254,16 +252,16 @@ export default function Elevators() {
                   <img
                     src={path3.src}
                     alt="path1"
-                    className="w-full h-full object-cover object-center"
+                    className=" w-[110%] h-[110%]  object-cover object-center"
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug truncate">
-                Offer Your Proposal
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl  leading-snug tracking-wide">
+                  Offer Your Proposal
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl leading-relaxed mt-2 flex-1">
-                Deliver your application via our well-ordered method. Each founder's submission is justly assessed, and personalized insights are bestowed.
+                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl  mt-2 flex-1">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
@@ -288,14 +286,14 @@ export default function Elevators() {
             All you need discern regarding alliance with us.
           </p>
 
-          <div className="w-full mt-12 flex flex-col gap-6">
+          <div className="w-full mt-12 flex flex-col gap-6 items-center">
             {faqs.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
-                <div key={idx} className="w-full">
+                <div key={idx} className="w-full md:min-w-[1080px]">
                   <button
-                      onClick={() => toggleFAQ(idx)}
-                        className="w-full flex justify-between items-start bg-[#EDE3CF] text-black font-[Goudy_Bookletter_1911] text-left text-2xl md:text-4xl leading-snug rounded-[20px] px-6 py-2 border border-black/20"
+                    onClick={() => toggleFAQ(idx)}
+                    className="w-full flex justify-between items-start bg-[#F1E0C9] text-black font-[Goudy_Old_Style] font-extrabold text-left text-2xl md:text-4xl leading-snug rounded-[20px] px-6 py-2 border border-black/20"
                   >
                     <span className="pr-4 ">{item.q}</span>
                     <span className="text-[32px] leading-none select-none font-semibold text-black">
@@ -303,11 +301,11 @@ export default function Elevators() {
                     </span>
                   </button>
 
-                 {isOpen && (
-  <div className="bg-[#676767] text-white text-[20px] sm:text-[24px] leading-relaxed px-6 py-8 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
-    <p className="text-white text-left whitespace-pre-line">{item.a}</p>
-  </div>
-)}
+                  {isOpen && (
+                    <div className="bg-[#F2F2F2] text-black text-[20px] sm:text-[24px] px-6 py-4 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
+                      <p className="text-black text-left whitespace-pre-line">{item.a}</p>
+                    </div>
+                  )}
 
                 </div>
               );

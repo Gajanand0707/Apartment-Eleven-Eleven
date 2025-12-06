@@ -20,32 +20,26 @@ export default function CaseStudyCard({
   const intro = description ? (description.length > maxIntro ? description.slice(0, maxIntro).trimEnd() + '...' : description) : '';
 
   return (
-    <div className="bg-[#E6E3DE] rounded-3xl overflow-hidden shadow-md w-full">
-      <div className="flex flex-col md:flex-row">
-        {/* Image on left for md+, top for mobile */}
-        <div className="relative w-full md:w-1/3 h-56 md:h-auto">
-          <Image src={image} alt={title} fill className="object-cover object-center" sizes="(max-width:768px) 100vw, 33vw" />
+    <div className="bg-[#EBEBEB] rounded-[56px] overflow-hidden shadow-md w-full md:max-w-[467px] mx-auto">
+      <div className="flex flex-col">
+        {/* Image on top */}
+        <div className="relative w-full h-[309px]">
+          <Image src={image} alt={title} fill className="object-cover object-center" sizes="100vw" />
         </div>
 
-        {/* Content on right */}
-        <div className="p-6 md:w-2/3 flex flex-col justify-between">
+        {/* Content below image */}
+        <div className="p-6 flex flex-col items-center justify-between">
           <div>
-            <h3 className="text-xl font-semibold text-black font-['Playfair_Display'] leading-snug">
+            <h3 className="text-2xl md:text-4xl font-extrabold text-center max-w-[321px] text-black font-[Goudy_Old_Style] ">
               {title}
             </h3>
-
-            {intro && (
-              <p className="mt-3 text-xl md:text-2xl  font-['Goudy_Bookletter_1911'] leading-relaxed">
-                {intro}
-              </p>
-            )}
           </div>
 
-          <div className="mt-6 flex items-center justify-center gap-4">
+          <div className="mt-14 flex items-center justify-center gap-4">
             {readMoreUrl ? (
               <Link
                 href={readMoreUrl}
-                className="text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md transition-all"
+                className="text-white text-2xl md:text-4xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-4xl transition-all"
                 style={{
                   backgroundImage: "url('/texture.png')",
                   backgroundRepeat: 'no-repeat',
@@ -57,7 +51,7 @@ export default function CaseStudyCard({
               </Link>
             ) : (
               <button
-                className="text-white text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-md transition-all"
+                className="text-white text-2xl md:text-4xl font-['Goudy_Bookletter_1911'] font-semibold px-6 py-3 rounded-4xl transition-all"
                 style={{
                   backgroundImage: "url('/texture.png')",
                   backgroundRepeat: 'no-repeat',

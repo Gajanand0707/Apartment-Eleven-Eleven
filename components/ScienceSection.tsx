@@ -78,10 +78,10 @@ export default function ScienceSection() {
   const visibleCards = getVisibleCards();
 
   return (
-    <section className="relative bg-[#D8CCBA] py-2 overflow-hidden pb-10">
+    <section className="relative bg-[#D8CCBA]  overflow-hidden pb-[78px]">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="font-['OPTIGoudy_Agency'] font-bold text-4xl sm:text-5xl md:text-7xl  leading-[1.15] text-black mb-16">
+        <h2 className="font-['OPTIGoudy_Agency'] font-bold text-4xl sm:text-5xl md:text-7xl mt-[61px] leading-[1.15] text-black mb-8">
           In Science we Trust
         </h2>
 
@@ -120,7 +120,7 @@ export default function ScienceSection() {
           <div className="relative w-full flex items-center justify-center z-10">
               <button
                 onClick={() => scroll("left")}
-                className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
+                className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
                 aria-label="Scroll left"
               >
                 ←
@@ -173,7 +173,7 @@ export default function ScienceSection() {
 
               <button
                 onClick={() => scroll("right")}
-                className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
+                className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
                 aria-label="Scroll right"
               >
                 →
@@ -197,7 +197,7 @@ export default function ScienceSection() {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="relative rounded-[24px] overflow-hidden text-white"
+              className="relative rounded-[32px] overflow-hidden text-white -mt-2"
             >
               <Image
                 src={texture}
@@ -207,11 +207,11 @@ export default function ScienceSection() {
                 className="object-cover object-center"
               />
               <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold font-['Goudy_Old_Style'] text-2xl md:text-4xl mb-4">
+                <h3 className="font-semibold font-['Goudy_Old_Style'] text-4xl mb-4 -my-4 max-w-[275px]">
                   {card.title}
                 </h3>
-                <div className="border-b-white border w-full my-2"></div>
-                <p className="text-xl md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] max-w-[360px] text-center">
+                <div className="border-b-white border w-screen -mx-8 sm:-mx-10 my-2"></div>
+                <p className="text-2xl leading-relaxed font-['Goudy_Bookletter_1911'] max-w-[360px] text-center">
                   {card.description}
                 </p>
               </div>
@@ -239,8 +239,8 @@ function CarouselCard({
 }) {
   const sizeClass =
     size === "large"
-      ? "z-10 w-[75vw] sm:w-[22rem] md:w-[28rem] lg:w-[30rem]"
-      : "w-[50vw] sm:w-56 md:w-[22rem] lg:w-[24rem] scale-85 sm:scale-90 opacity-60 sm:opacity-70 md:opacity-90";
+      ? "z-10 w-[80vw] sm:w-[24rem] md:w-[30rem] lg:w-[32rem]"
+      : "w-[55vw] sm:w-60 md:w-[24rem] lg:w-[26rem] scale-85 sm:scale-90 opacity-60 sm:opacity-70 md:opacity-90";
 
   const marginClass = size === "large" ? "" : "-mx-8 sm:-mx-12 md:-mx-24";
 
@@ -257,28 +257,28 @@ function CarouselCard({
   const contentPadding =
     size === "large"
       ? "pt-5 pb-2 sm:pt-6 sm:pb-3 md:pt-8 md:pb-4"
-      : "p-4 sm:p-6 md:p-8";
+      : "p-4 pb-2 sm:p-6 md:p-8";
 
   return (
-    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300 ${overlayClass} rounded-[24px] overflow-hidden`}>
+    <div className={`flex-shrink-0 ${sizeClass} ${marginClass} transition-all duration-300 ${overlayClass} rounded-[32px] overflow-hidden`}>
       <div
         ref={size === "large" ? centerRef : undefined}
-        className={`relative rounded-[24px] overflow-hidden text-white ${heightClass} flex flex-col items-center justify-start ${animateClass || ""}`}
+        className={`relative rounded-[32px] overflow-hidden text-white ${heightClass} flex flex-col items-center justify-start ${animateClass || ""}`}
       >
         <Image
           src={texture}
           alt="Terracotta background"
           fill
           priority
-          className="object-cover object-center rounded-[24px]"
+          className="object-cover object-center rounded-[32px]"
         />
-          <div className={`relative z-[1] ${contentPadding} flex flex-col items-center text-center w-full min-w-0 ${size === 'large' ? 'h-auto md:h-full' : 'h-full'}`}>
-            <h3 className={`font-semibold ${size === "small" ? "text-xs sm:text-sm mb-1 sm:mb-2 line-clamp-2 overflow-hidden" : "text-xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3"} break-words`}>
+              <div className={`relative z-[1] ${contentPadding} flex flex-col items-center text-center w-full min-w-0 ${size === 'large' ? 'h-auto md:h-full' : 'h-full'}`}>
+            <h3 className={`font-semibold ${size === "small" ? "text-2xl mb-1 sm:mb-2 line-clamp-2 overflow-hidden" : "text-2xl md:text-4xl mb-2 sm:mb-3"} break-words`}>
               {card.title}
             </h3>
-            <div className="border-b-white border w-full my-1" />
-              <div className="w-full max-w-[95%] sm:max-w-[90%] flex-1 min-h-0 flex flex-col justify-center">
-                <p className={`${size === "small" ? "text-xs sm:text-sm line-clamp-3 sm:line-clamp-4 overflow-hidden text-center" : "text-lg sm:text-[16px] md:text-[18px] lg:text-[19px] flex-1 min-h-0 overflow-auto text-center"} leading-relaxed break-words`}>
+            <div className={`border-b-white border w-screen my-1 ${size === 'large' ? '-mx-5 sm:-mx-6 md:-mx-8' : '-mx-4 sm:-mx-6 md:-mx-8'}`} />
+              <div className="w-full max-w-[95%] sm:max-w-[90%] flex-1 min-h-0 flex flex-col justify-center items-center mt-6">
+                <p className={`${size === "small" ? "text-xl line-clamp-3 sm:line-clamp-4 overflow-hidden text-center" : "text-xl md:text-2xl flex-1 min-h-0 overflow-auto text-center"} leading-relaxed break-words`}>
               {card.description}
             </p>
               </div>

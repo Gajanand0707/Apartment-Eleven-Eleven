@@ -90,62 +90,61 @@ export default function Home() {
           fill priority style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-80" />
         {/* Content */}
-        <div className="relative z-1 max-w-[1100px] mx-auto px-6 py-10 lg:py-10 text-center">
+        <div className="relative z-1 max-w-[1200px] mx-auto px-6 py-10 lg:py-10 text-center">
 
           {/* Top heading */}
-          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] max-w-[327px] md:max-w-[1200px] mx-auto font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
-          <p className="text-3xl md:text-4xl leading-[1.15] justify-center font-['Goudy_Bookletter_1911'] my-4 md:my-2"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
-We're helping build businesses with the ethos of the new India.</p>
+          <p className="text-3xl md:text-4xl leading-[1.15] text-justify md:text-center max-w-[1095px] font-['Goudy_Bookletter_1911']  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
+            We're helping build businesses with the ethos of the new India.</p>
           {/* Divider line */}
-          <div className="mt-6 w-full flex justify-center">
-            <div className="h-0.5 w-full max-w-[900px] bg-black" />
+          <div className="mt-8 w-full flex justify-center">
+            <div className="h-0.5 w-full max-w-[1080px] bg-black" />
           </div>
           {/* Second heading */}
-          <h3 className="mt-4 font-bold text-4xl sm:text-5xl md:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
+          <h3 className="mt-[14px] font-bold text-4xl sm:text-5xl md:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
           {/* Icon row */}
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+          <div className=" grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8 mt-6  mx-auto">
             {/* Card 1 */}
-            <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] flex items-center justify-center overflow-hidden">
-                <Image
-                  src={ideas1}
-                  alt="The Patrons of Progress"
-                  width={255}
-                  height={255}
-                  className="object-contain w-full h-full"
-                />
-              </div>
-              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] text-black">The Patrons of Progress</h4>
-              <p className="mt-3 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[340px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
-            </div>
-            {/* Card 2 */}
-            <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] flex items-center justify-center overflow-hidden">
+
+
+            <div className="flex flex-col items-center text-center  w-full mx-auto">
+              <div className="w-[255px] h-[255px] relative overflow-hidden">
                 <Image
                   src={ideas2}
                   alt="Where Foresight Meets Fortitude"
-                  width={255}
-                  height={255}
-                  className="object-contain w-full h-full"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] text-black">Where Foresight Meets Fortitude</h4>
-              <p className="mt-3 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[340px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
+              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[250px] md:max-w-[285px] text-black">Where Foresight Meets Fortitude</h4>
+              <p className="mt-2.5 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
+            </div>
+            {/* Card 2 */}
+            <div className="flex flex-col  items-center text-center w-full mx-auto">
+              <div className="w-[255px] h-[255px] relative overflow-hidden">
+                <Image
+                  src={ideas1}
+                  alt="The Patrons of Progress"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 justify-center  md:max-w-[250px] font-['OPTIGoudy_Agency'] text-black">The Patrons of Progress</h4>
+              <p className="mt-2.5 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
             </div>
             {/* Card 3 */}
-            <div className="flex flex-col items-center text-center w-full mx-auto">
-              <div className="w-[255px] h-[255px] flex items-center  justify-center overflow-hidden">
+            <div className="flex flex-col items-center text-center  w-full ml-auto">
+              <div className="w-[230px] h-[230px] relative overflow-hidden mb-4 mt-3">
                 <Image
                   src={ideas3}
-                  alt="The Sculptor’s Gaze"
-                  width={255}
-                  height={255}
-                  className="object-contain w-full h-full"
+                  alt="The Sculptor's Gaze"
+                  fill
+                  className="object-cover ml-5 "
                 />
               </div>
-              <h4 className="font-semibold text-2xl md:text-4xl mt-4 font-['Goudy_Old_Style'] max-w-[230px] text-black">The Sculptor’s Gaze</h4>
-              <p className="mt-3 text-xl md:text-2xl leading-tight text-black max-w-[340px] font-['Goudy_Bookletter_1911']">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
+              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[270px] md:max-w-[250px] text-black">The Sculptor’s Gaze</h4>
+              <p className="mt-2.5 text-xl md:text-2xl leading-tight text-black max-w-[299px] font-['Goudy_Bookletter_1911']">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
             </div>
           </div>
         </div>
@@ -168,7 +167,7 @@ We're helping build businesses with the ethos of the new India.</p>
         {/* Content */}
         <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
           {/* Main heading */}
-          <h1 className="text-4xl md:text-7xl  font-bold font-[OPTIGoudy_Agency]">
+          <h1 className="text-4xl md:text-7xl max-w-[667px] mt-7 font-bold font-[OPTIGoudy_Agency]">
             The Residency
           </h1>
 
@@ -194,16 +193,16 @@ We're helping build businesses with the ethos of the new India.</p>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-16">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-[51px]">
         {/* background texture */}
-        <Image
+        {/* <Image
           src={meet}
           alt="Section background texture"
           fill
           priority
           style={{ objectFit: "cover", objectPosition: "center" }}
           className="opacity-70"
-        />
+        /> */}
 
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto text-center">
@@ -213,9 +212,9 @@ We're helping build businesses with the ethos of the new India.</p>
           </h1>
 
           {/* paragraph */}
-          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black text-center max-w-[1245px] font-[Goudy_Bookletter_1911] mx-auto justify-center">
+          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black text-center text-justify sm:text-center max-w-[1245px] font-[Goudy_Bookletter_1911] mx-auto">
             We bring authenticity and clarity to premium living with collaboration with
-            the industry’s best professionals and experts. Learn more about our process
+            the industry's best professionals and experts. Learn more about our process
             and how we redefine modern residency with care, transparency, and excellence.
             Our residency panel is composed of highly accomplished architects, designers,
             and consultants who bring years of experience in creating spaces that merge
@@ -228,7 +227,7 @@ We're helping build businesses with the ethos of the new India.</p>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-8">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-1">
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
           <h1 className="text-center font-bold text-4xl  md:text-7xl font-[OPTIGoudy_Agency]">

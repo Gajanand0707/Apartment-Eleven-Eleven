@@ -18,7 +18,7 @@ export function BlogCardGrid({ blog }: BlogCardGridProps) {
   <div className="rounded-[56px] border-2 border-gray-800 overflow-hidden gap-x-8 bg-white hover:shadow-lg transition-shadow flex flex-col ">
       {/* Image */}
       <div className="relative w-full h-80 ">
-        <Image src={blog.imageUrl || "/placeholder.svg"} alt={blog.title} fill className=" object-cover " />
+        <Image src={blog.imageUrl || "/placeholder.svg"} alt={blog.title} fill className="object-cover " />
       </div>
 
       {/* Content */}

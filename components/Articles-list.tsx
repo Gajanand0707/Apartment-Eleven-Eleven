@@ -22,7 +22,7 @@ export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
   const hasMore = visibleCount < articles.length
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-8 py-16 bg-[#D5C7B3]">
+    <div className="w-full max-w-7xl mx-auto  py-4 bg-[#D5C7B3]">
       <div className="space-y-16">
         {visibleArticles.map((article, index) => {
           // Slice description to 200 characters

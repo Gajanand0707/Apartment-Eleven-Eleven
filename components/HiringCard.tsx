@@ -88,14 +88,14 @@ export default function Technology({ data }: { data?: any[] }) {
         }
       `}</style>
 
-      <div ref={sectionRef} className="bg-[#D5C7B3] py-4 sm:py-14 md:py-8 px-4">
+      <div ref={sectionRef} className="bg-[#D5C7B3]  px-4">
         {/* Section Title */}
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 sm:mb-4">
+        <div className="text-center ">
+          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 mt-8 underline decoration-3 underline-offset-8 sm:mb-4">
             Hiring
           </h2>
-          <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" />
-          <div className="w-2/5 sm:w-[360px] h-0.5 bg-[#111] mx-auto mt-2" />
+          {/* <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" /> */}
+          <div className="w-2/5 sm:w-[360px] h-1 bg-[#111] mx-auto -mt-2 " />
         </div>
 
         {/* Carousel */}
@@ -172,22 +172,25 @@ function Card({
   const sizeClass =
     size === "large"
       ? "z-10 w-[68vw] sm:w-[26rem] md:w-[30rem] lg:w-[34rem]"
-      : "w-[54vw] sm:w-80 md:w-96 lg:w-[26rem] scale-90 md:scale-95"
+      : "w-[54vw] sm:w-80 md:w-96 lg:w-[26rem]"
   const marginClass = size === "large" ? "" : "-mx-6 sm:-mx-12 md:-mx-40"
+  const imageHeight = size === "large" ? "h-64 sm:h-80" : "h-48 sm:h-60"
+  const scaleClass = size === "small" ? "scale-90 md:scale-95" : ""
+  const contentHeight = size === "large" ? "min-h-[200px]" : "min-h-[180px]"
 
   return (
-    <div className={`shrink-0 ${sizeClass} ${marginClass} aspect-3/4 transition-all duration-300`}>
+    <div className={`shrink-0 ${sizeClass} ${marginClass} ${scaleClass} transition-all duration-300`}>
       {/* The key is crucial so React re-mounts on change and the animation runs */}
-      <div key={item.id} className={`h-full w-full border-2 border-[#111] rounded-2xl sm:rounded-3xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
-        <div className="relative w-full h-[50%] sm:h-[55%] overflow-hidden">
+      <div key={item.id} className={`w-full border-2 border-[#111] rounded-4xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
+        <div className={`relative w-full ${imageHeight} overflow-hidden`}>
           <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
         </div>
-        <div className="p-4 sm:p-5 flex flex-col h-[50%] sm:h-[45%]">
-          <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-semibold mb-2 line-clamp-2">{item.title}</h3>
-          <p className="font-['Goudy_Bookletter_1911'] text-xl md:text-2xl leading-relaxed flex-1 line-clamp-4">
+        <div className={`p-4 sm:p-5 flex flex-col ${contentHeight}`}>
+          <h3 className="text-xl md:text-2xl font-['OPTIGoudy_Agency'] font-bold  mb-2 text-center line-clamp-2 min-h-[3.5rem]">{item.title}</h3>
+          <p className="font-['Goudy_Bookletter_1911'] text-[14px] md:text-xl text-center leading-relaxed line-clamp-4 mb-3 min-h-[5.6rem] md:min-h-[6.4rem]">
             {item.description}
           </p>
-          <a href={item.link} className="inline-block text-[#111] font-semibold font-['Goudy_Bookletter_1911'] hover:underline mt-2 sm:mt-3 text-sm sm:text-base md:text-lg">
+          <a href={item.link} className="inline-block text-[#111] font-semibold font-['Goudy_Bookletter_1911'] hover:underline text-sm sm:text-base md:text-lg">
             Learn More →
           </a>
         </div>

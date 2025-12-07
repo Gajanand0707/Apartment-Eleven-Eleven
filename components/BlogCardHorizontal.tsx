@@ -22,7 +22,7 @@ export function BlogCardHorizontal({ blog, imagePosition = "left" }: BlogCardHor
       className={`flex flex-col  rounded-[56px] border-2 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow min-h-[450px] md:flex-row md:gap-0 ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       {/* Image */}
-      <div className="w-full h-[200px] md:w-2/5 md:h-auto relative shrink-0">
+      <div className="w-full h-[200px] md:w-2/5 md:h-auto relative shrink-0 rounded-none">
         <Image src={blog.imageUrl || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
       </div>
 

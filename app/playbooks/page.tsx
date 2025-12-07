@@ -69,10 +69,11 @@ export default function Playbooks() {
 
             <TabNavigation tabs={TABS} />
 
-
-            <TechnologyCard data={technologyData} />
-            <HiringCard data={hiringData} />
-            <GrowthCard data={growthData} />
+            <div className="space-y-0">
+                <TechnologyCard data={technologyData} />
+                <HiringCard data={hiringData} />
+                <GrowthCard data={growthData} />
+            </div>
         </div>
 
     )

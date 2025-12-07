@@ -36,7 +36,7 @@ export default function InsidePage() {
         navbar.classList.remove("navbar-visible");
         navbar.classList.add("navbar-hidden");
       }
-      
+
     }
   }, [showNavbar]);
 
@@ -48,115 +48,114 @@ export default function InsidePage() {
 
       <section className="w-full">
         {/* Row 1 — text left, image right (side-by-side on ALL breakpoints) */}
-        <div className="w-full bg-[#E5E5E7] text-black">
-            <div
+        <div className="w-full bg-[#E5E5E7] text-black md:min-h-[460px] max-h-[460px] ">
+          <div
             className="
-              mx-auto max-w-7xl
-              flex flex-row items-center justify-between
-              gap-4 sm:gap-6 md:gap-12
-              px-4 sm:px-6 lg:px-12
-              py-8 sm:py-10 lg:py-16
+              mx-auto 
+              flex md:flex-row flex-col  md:justify-between
+             py-12 px-8 md:py-16 md:px-12
             "
           >
-            {/* Left text */}
-            <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
+
+            {/* Left image */}
+            <div className=" min-w-0 w-[200px] h-[200px] md:w-[360px] md:h-full items-center mx-auto">
+              <img
+                src={colours.src}
+                alt="Hands holding light"
+                className="h-auto object-contain
+                           "
+              />
+            </div>
+
+            {/* Right text */}
+            <div className=" max-w-full md:pr-10 md:text-right">
+              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold md:leading-16 md:text-right text-center
                              text-4xl md:text-7xl ">
                 <span className="block">A Legacy</span>
                 <span className="block">of Creation</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
-                             text-xl md:text-4xl ">
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+                             text-xl md:text-4xl md:max-w-[785px] md:text-right text-center ">
                 We partner with founders who don’t just build companies, but create legacies.
                 For us, every investment is a chapter in a story that will be remembered.
               </p>
             </div>
 
-            {/* Right image */}
-            <div className="basis-1/2 min-w-0 flex items-center justify-center">
-              <img
-                src={colours.src}
-                alt="Hands holding light"
-                className="h-auto object-contain
-                           w-56 sm:w-72 md:w-80 lg:w-96"
-              />
-            </div>
+
           </div>
         </div>
 
-        {/* Row 2 — image left, text right (side-by-side on ALL breakpoints) */}
-        <div className="w-full bg-[#d9d1bf] text-black">
+        {/* Row 2 — text left, image right (side-by-side on ALL breakpoints) */}
+        <div className="w-full bg-[#d9d1bf] text-black md:min-h-[460px] ">
           <div
             className="
-              mx-auto max-w-7xl
-              flex flex-row items-center justify-between
-              gap-4 sm:gap-6 md:gap-12
-              px-4 sm:px-6 lg:px-12
-              py-8 sm:py-10 lg:py-16
+              mx-auto 
+              flex md:flex-row flex-col  md:justify-between
+             py-12 px-8 md:py-16 md:px-12
             "
           >
-            {/* Left image */}
-            <div className="basis-1/2 min-w-0 flex items-center justify-center">
-              <img
-                src={inside2.src}
-                alt="Hand reaching upward"
-                className="h-auto object-contain
-                           w-56 sm:w-72 md:w-80 lg:w-96"
-              />
-            </div>
 
-            {/* Right text */}
-            <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
-                             text-4xl  md:text-7xl  text-left">
+            {/* Left text */}
+            <div className=" max-w-full md:pr-10 order-2 md:order-1 py-4 md:py-0">
+              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold md:leading-16 md:text-left text-center
+                             text-4xl md:text-7xl ">
                 <span className="block">The Architecture</span>
                 <span className="block">of Belief</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
-                             text-xl md:text-4xl text-left">
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+                             text-xl md:text-4xl md:max-w-[683px] md:text-left text-center">
                 Great ventures are built on conviction. We invest in founders whose ideas rest
                 on foundations as strong as their purpose.
               </p>
             </div>
+
+            {/* Right image */}
+            <div className=" min-w-0 w-[200px] h-[200px] md:w-[360px] md:h-[318px] mx-auto order-1 md:order-2">
+              <img
+                src={inside2.src}
+                alt="Hand reaching upward"
+                className="h-auto object-contain
+                           "
+              />
+            </div>
           </div>
         </div>
 
-        {/* Row 3 — text left, image right (side-by-side on ALL breakpoints) */}
-        <div className="w-full bg-[#E5E5E7] text-black">
+        {/* Row 3 — image left, text right (side-by-side on ALL breakpoints) */}
+        <div className="w-full bg-[#E5E5E7] text-black md:min-h-[460px] ">
           <div
             className="
-              mx-auto max-w-7xl
-              flex flex-row items-center justify-between
-              gap-4 sm:gap-6 md:gap-12
-              px-4 sm:px-6 lg:px-12
-              py-8 sm:py-10 lg:py-16
+              mx-auto 
+              flex md:flex-row flex-col  md:justify-between
+             py-12 px-8 md:py-16 md:px-12
             "
           >
-            {/* Left text */}
-            <div className="basis-1/2 min-w-0 max-w-full">
-              <h2 className="font-['Goudy_Old_Style'] font-bold leading-tight tracking-[-0.02em]
-                             text-4xl  md:text-7xl  ">
-                <span className="block">The Light</span>
-                <span className="block">Within</span>
-              </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] leading-relaxed
-                             text-xl md:text-4xl ">
-                Progress begins with an inner spark — curiosity, courage, and the will to
-                shape something greater than oneself. We exist to nurture that light.
-              </p>
-            </div>
-
-            {/* Right image */}
-            <div className="basis-1/2 min-w-0 flex items-center justify-center">
+            {/* Left image */}
+            <div className=" min-w-0 w-[200px] h-[200px] md:w-[360px] md:h-[318px] md:bottom-0 mx-auto">
               <img
                 src={inside3.src}
                 alt="Figure with glowing heart"
                 className="h-auto object-contain
-                           w-56 sm:w-72 md:w-80 lg:w-96"
+                           "
               />
+            </div>
+
+            {/* Right text */}
+            <div className=" max-w-full md:pr-10 py-4 md:py-0">
+              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold md:leading-16 md:text-right text-center
+                             text-4xl md:text-7xl ">
+                <span className="block">The Light</span>
+                <span className="block">Within</span>
+              </h2>
+
+              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+                             text-xl md:text-4xl md:max-w-[695px] md:text-right text-center">
+                Progress begins with an inner spark — curiosity, courage, and the will to
+                shape something greater than oneself. We exist to nurture that light.
+              </p>
             </div>
           </div>
         </div>

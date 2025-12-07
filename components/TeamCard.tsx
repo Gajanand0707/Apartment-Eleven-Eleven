@@ -7,9 +7,9 @@ export interface TeamCardProps {
 
 export default function TeamCard({ image, name }: TeamCardProps) {
   return (
-    <div className="relative bg-[#E7DFD2] rounded-[24px]  overflow-hidden flex flex-col text-center w-[380px] h-[400px] md:w-[440px] md:h-[320px] shadow-md">
+    <div className="relative bg-[#EBEBEB] rounded-[56px] border-2 overflow-hidden flex flex-col text-center w-[380px] md:w-[540px] h-[400px]  md:h-[600px] shadow-md">
       {/* Image Section */}
-      <div className="relative w-full h-[80%] rounded-t-none overflow-hidden">
+      <div className="relative w-full h-[90%] rounded-t-none overflow-hidden">
         <Image
           src={image}
           alt={name}
@@ -20,8 +20,8 @@ export default function TeamCard({ image, name }: TeamCardProps) {
       </div>
 
       {/* Text Section */}
-      <div className="relative z-10 bg-[#E7DFD2] py-4">
-        <h3 className="font-['Goudy_Bookletter_1911'] font-semibold text-xl md:text-2xl leading-snug text-black">
+      <div className="relative z-10 bg-[#EBEBEB] border-t-2 py-4">
+        <h3 className="font-[Goudy_Old_Style] text-center font-semibold text-2xl md:text-4xl leading-snug text-black">
           {name}
         </h3>
       </div>

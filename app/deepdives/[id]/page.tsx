@@ -100,7 +100,7 @@ export default function ArticlePage() {
     async function fetchArticle() {
       try {
         const res = await fetch(
-          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[audio]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]=*&populate[conclusion]=true&populate[reference]=*
+          `https://proper-friendship-29e4bdb47f.strapiapp.com/api/deepdives/${params.id}?populate[thumbnail]=true&populate[audio]=true&populate[title_image]=true&populate[heading][populate][deepdive_subheading][populate]=*&populate[conclusion]=true&populate[reference]=*
 `
         );
 
@@ -208,8 +208,8 @@ export default function ArticlePage() {
   }
 
   return (
-    <div>
-      <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-4 md:py-0">
+    <div className="pt-20">
+      <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-6 md:py-6 gap-3 md:gap-4 relative z-10">
 
         <button
           onClick={async () => {
@@ -227,20 +227,20 @@ export default function ArticlePage() {
             setTimeout(() => setCopied(false), 2000)
           }}
           aria-label="Copy page URL"
-          className="flex items-center gap-2 justify-center md:justify-start w-full md:w-auto mb-2 md:mb-0 text-white"
+          className="flex items-center gap-2 justify-center flex-shrink-0 text-white"
         >
-          <BiShareAlt size={28} color="white" className="" />
-          <span className="text-white text-lg md:text-2xl font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : 'Share'}</span>
+          <BiShareAlt size={45} color="white" className="" />
+          <span className="text-white text-sm md:text-lg font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : ''}</span>
         </button>
 
-        <div className="w-full md:w-auto text-center my-2 md:my-0 px-2">
-          <h1 className="text-white text-xl md:text-4xl font-[Goudy_Old_Style] font-bold max-w-[630px] mx-auto wrap-break-word">
+        <div className="flex-1 text-center px-2 min-w-0">
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-[Goudy_Old_Style] font-bold line-clamp-2">
             {article.title ?? article.article_name}
           </h1>
         </div>
 
-        <div className="flex justify-center w-full md:w-auto mt-2 md:mt-0">
-          <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 text-white rounded-full">
+        <div className="flex-shrink-0">
+          <button className="text-2xl px-20  md:text-4xl bg-[#FFAE00] py-1.5  md:py-2 md:px-5 text-white text-center font-[Goudy_Old_Style] rounded-full whitespace-nowrap font-semibold">
             Subscribe
           </button>
         </div>
@@ -257,7 +257,7 @@ export default function ArticlePage() {
           </Link>
 
           {/* Article Header */}
-          <article className="bg-[#D5C7B3] border-gray-800 overflow-hidden">
+          <article className="bg-[#D5C7B3]   border-gray-800 overflow-hidden ">
             {/* Title Image */}
             {(() => {
               const srcCandidate = article.title_image ?? article.thumbnail;
@@ -269,7 +269,7 @@ export default function ArticlePage() {
               const finalUrl = url.startsWith('http') ? url : url;
               return (
                 <div className="w-full mb-6">
-                  <div className="w-full rounded-3xl overflow-hidden relative h-64 md:h-[650px]">
+                  <div className="w-full rounded-3xl overflow-hidden relative h-64 md:h-[796px]">
                     <Image src={finalUrl} alt={srcCandidate?.alternativeText ?? (article.title ?? article.article_name) ?? ''} fill className="object-cover" />
                   </div>
                 </div>
@@ -278,9 +278,15 @@ export default function ArticlePage() {
 
             <div className="p-2 text-justify md:text-left">
               {/* Article Title */}
-              <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-6">
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold text-left leading-tight tracking-tight mb-6 w-full">
                 {article.title ?? article.article_name}
               </h1>
+
+              <div className="mt-8  text-center mb-8 mx-auto">
+                <p className="text-xl md:text-2xl text-center mx-auto">
+                  {new Date(article.publishedAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
+                </p>
+              </div>
               {/* Introduction */}
               <div className="mb-8">
                 <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
@@ -326,7 +332,7 @@ export default function ArticlePage() {
                             <div className="space-y-8">
                               {subs.map((subheading: any) => (
                                 <div key={subheading.id} className="space-y-4">
-                                  <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-semibold">
+                                  <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] underline ">
                                     {subheading.title}
                                   </h3>
                                   <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">
@@ -351,8 +357,8 @@ export default function ArticlePage() {
                                     const vUrl = v?.url ?? v?.data?.attributes?.url ?? v?.data?.url;
                                     if (!vUrl) return null;
                                     return (
-                                      <div className="w-full my-6 rounded-2xl overflow-hidden">
-                                        <div className="relative w-full h-64 bg-black">
+                                      <div className="w-full my-6 rounded-2xl overflow-hidden flex justify-center">
+                                        <div className="relative w-full h-64 md:h-[720px] bg-black flex items-center justify-center">
                                           <video controls src={vUrl} className="w-full h-full object-contain" />
                                         </div>
                                       </div>
@@ -419,8 +425,8 @@ export default function ArticlePage() {
 
                     return (
                       <div className={`flex flex-col md:items-center md:gap-6 ${rowClass}`}>
-                          <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
-                          <p className="text-[20px] md:text-2xl leading-relaxed font-['Goudy_Bookletter_1911']">{article.summary}</p>
+                        <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
+                          <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] underline">{article.summary}</p>
                         </div>
                         <div className="mt-4 md:mt-0 md:w-1/3 md:shrink-0">
                           <div className="w-full rounded-3xl overflow-hidden">
@@ -435,12 +441,12 @@ export default function ArticlePage() {
 
               {/* Conclusion */}
               {article.conclusion && article.conclusion.length > 0 && (
-                <div className="mt-12 pt-8 space-y-8">
-                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">Conclusion</h1>
+                <div className="mt-12 pt-8  space-y-8">
+                  <h1 className="text-4xl md:text-7xl text-center font-['OPTIGoudy_Agency'] font-bold">Conclusion</h1>
                   {article.conclusion.map((c) => (
                     <div key={c.id}>
                       {c.conclusion_heading && (
-                        <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] font-bold text-gray-900 mb-2">
+                        <h2 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] underline font-bold text-gray-900 mb-2">
                           {c.conclusion_heading}
                         </h2>
                       )}
@@ -487,11 +493,6 @@ export default function ArticlePage() {
               )}
 
               {/* Article Metadata */}
-              <div className="mt-12 pt-8 text-center mx-auto">
-                <p className="text-[16px] md:text-[18px] text-center mx-auto">
-                  {new Date(article.publishedAt).toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
-                </p>
-              </div>
             </div>
           </article>
         </main>

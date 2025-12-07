@@ -496,7 +496,7 @@ export default function ArticlePage() {
               {/* References */}
               {article.reference && article.reference.length > 0 && (
                 <div className="mt-12 pt-8">
-                  <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">References</h1>
+                  {/* <h1 className="text-2xl md:text-4xl text-center font-['OPTIGoudy_Agency'] font-bold">References</h1> */}
                   <ul className="mt-4 space-y-3 list-disc list-inside text-lg">
                     {article.reference.map((r) => {
                       const urlRaw = (r.url ?? "").trim();

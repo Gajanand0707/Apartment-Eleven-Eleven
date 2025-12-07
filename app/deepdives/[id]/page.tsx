@@ -366,7 +366,7 @@ export default function ArticlePage() {
                                   })()}
 
                                   {/* Subheading PDF */}
-                                  {(() => {
+                                  {/* {(() => {
                                     const p: any = subheading.pdf;
                                     const pdfUrl = p?.url ?? p?.data?.attributes?.url;
                                     if (!pdfUrl) return null;
@@ -382,7 +382,7 @@ export default function ArticlePage() {
                                         </a>
                                       </div>
                                     );
-                                  })()}
+                                  })()} */}
                                 </div>
                               ))}
                             </div>

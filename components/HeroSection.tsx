@@ -424,13 +424,13 @@ export default function HeroSection() {
         }
 
       .hero .scene-1 .pillar-1 {
-          transform: translateX(-100%);
+          transform: translateX(-90%);
           height: 100vh;
           width: 16rem;
         }
 
         .hero .scene-1 .pillar-2 {
-          transform: translateX(100%);
+          transform: translateX(90%);
           height: 100vh;
           width: 16rem;
         }

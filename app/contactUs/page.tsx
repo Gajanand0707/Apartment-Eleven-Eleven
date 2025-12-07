@@ -57,7 +57,7 @@ export default function ContactPage() {
         value={formData.idea}
         onChange={handleChange}
         placeholder="Write a Brief about your Idea..."
-        className="w-full h-full min-h-[300px] p-5 text-lg text-gray-700 outline-none resize-none bg-white placeholder-[#494949] block"
+        className="w-full h-full min-h-[300px] p-5 text-lg text-gray-700 outline-none resize-none bg-white placeholder-[#494949] font-['Goudy_Bookletter_1911'] block"
         style={{
           marginBottom: "-1px", // removes the visual gap
           display: "block",

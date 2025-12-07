@@ -424,7 +424,7 @@ export default function ArticlePage() {
                     const rowClass = isLeft ? 'md:flex-row-reverse' : 'md:flex-row';
 
                     return (
-                      <div className={`flex flex-col md:items-center md:gap-6 ${rowClass}`}>
+                      <div className={`flex flex-col-reverse md:items-center md:gap-6 ${rowClass}`}>
                         <div className="flex-1 col-span-2 flex items-center justify-center text-center py-6">
                           <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] underline">{article.summary}</p>
                         </div>

@@ -62,8 +62,8 @@ export default function PlaybookPage() {
   if (!playbook) return <div className="text-center py-20">No playbook found</div>;
 
   return (
-    <div>
-      <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-4 md:py-0">
+    <div className="pt-20">
+      <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-6 md:py-6 gap-3 md:gap-4 relative z-10">
 
         <button
           onClick={async () => {
@@ -81,91 +81,76 @@ export default function PlaybookPage() {
             setTimeout(() => setCopied(false), 2000)
           }}
           aria-label="Copy page URL"
-          className="flex items-center gap-2 justify-center md:justify-start w-full md:w-auto mb-2 md:mb-0 text-white"
+          className="flex items-center gap-2 justify-center flex-shrink-0 text-white"
         >
-          <BiShareAlt size={28} color="white" className="" />
-          <span className="text-white text-lg md:text-2xl font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : 'Share'}</span>
+          <BiShareAlt size={45} color="white" className="" />
+          <span className="text-white text-sm md:text-lg font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : ''}</span>
         </button>
 
-        <div className="w-full md:w-auto text-center my-2 md:my-0">
-          <h1 className="text-white text-xl md:text-4xl font-[Goudy_Old_Style] font-bold max-w-[630px] mx-auto">{playbook?.title}</h1>
+        <div className="flex-1 text-center px-2 min-w-0">
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-[Goudy_Old_Style] font-bold line-clamp-2">{playbook?.title}</h1>
         </div>
-        <div className="flex justify-center w-full md:w-auto mt-2 md:mt-0">
-          <button className="text-lg md:text-2xl bg-[#FFAE00] py-2 px-5 text-white rounded-full">
+
+        <div className="flex-shrink-0">
+          <button className="text-2xl px-20  md:text-4xl bg-[#FFAE00] py-1.5  md:py-2 md:px-5 text-white text-center font-[Goudy_Old_Style] rounded-full whitespace-nowrap font-semibold">
             Subscribe
           </button>
         </div>
+
       </div>
 
       <div className="min-h-screen bg-[#D5C7B3]">
         <main className="max-w-7xl mx-auto px-8 py-12 text-lg md:text-xl">
-           <Link
+          {/* Back Button */}
+          <Link
             href="/playbooks"
-            className="inline-block mb-8 hover:text-black font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
+            className="inline-block mb-8  hover:text-gray-600 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
           >
             ← Back to Playbooks
           </Link>
 
-          <div className="max-w-4xl mx-auto p-6 space-y-6 text-justify md:text-left">
-      {/* Thumbnail */}
-      {(() => {
-        const thumb: any = playbook.thumbnail;
-        const fmt = thumb?.formats?.large ?? thumb?.formats?.medium ?? thumb?.formats?.small ?? thumb?.formats?.thumbnail ?? thumb;
-        const url = fmt?.url;
-        if (!url) return null;
-        return (
-          <div className="w-full rounded-2xl overflow-hidden">
-            <div className="relative w-full h-64 md:h-[400px]">
-              <Image src={url} alt={thumb?.alternativeText || "Thumbnail"} fill className="object-cover rounded-2xl" />
+          <article className="bg-[#D5C7B3]   border-gray-800 overflow-hidden ">
+            {/* Title Image */}
+            {(() => {
+              const timg: any = playbook.title_image ?? playbook.thumbnail;
+              const fmt = timg?.formats?.large ?? timg?.formats?.medium ?? timg?.formats?.small ?? timg?.formats?.thumbnail ?? timg;
+              const url = fmt?.url;
+              if (!url) return null;
+              return (
+                <div className="w-full mb-6">
+                  <div className="w-full rounded-4xl overflow-hidden relative h-64 md:h-[796px]">
+                    <Image src={url} alt={timg?.alternativeText || "Title image"} fill className="object-cover" />
+                  </div>
+                </div>
+              );
+            })()}
+
+            <div className="p-2 text-justify md:text-left">
+              {/* Title & Introduction */}
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
+            <div className="mb-8">
+              <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">{playbook.introduction}</p>
             </div>
-          </div>
-        );
-      })()}
 
-      {/* Title Image */}
-      {(() => {
-        const timg: any = playbook.title_image;
-        const fmt = timg?.formats?.large ?? timg?.formats?.medium ?? timg?.formats?.small ?? timg?.formats?.thumbnail ?? timg;
-        const url = fmt?.url;
-        if (!url) return null;
-        return (
-          <div className="w-full rounded-2xl overflow-hidden">
-            <div className="relative w-full h-52 md:h-[300px]">
-              <Image src={url} alt={timg?.alternativeText || "Title image"} fill className="object-cover rounded-2xl" />
+            {/* Type Badge */}
+
+
+            {/* PDF Viewer */}
+            {(() => {
+              const p: any = playbook.pdf;
+              const pdfUrl = p?.url ?? p?.data?.attributes?.url ?? p?.data?.url;
+              if (!pdfUrl) return null;
+              return (
+                <div className="mt-12 pt-8">
+                  <div className="w-full h-[800px] border rounded overflow-hidden mt-6">
+                    <iframe src={pdfUrl} className="w-full h-full" title="Playbook PDF" />
+                  </div>
+                </div>
+              );
+            })()}
+
             </div>
-          </div>
-        );
-      })()}
-
-      {/* Title & Introduction */}
-      <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center mb-6">{playbook.title}</h1>
-      <div className="mb-8">
-        <p className="text-xl md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">{playbook.introduction}</p>
-      </div>
-
-      {/* Type Badge */}
-     
-
-      {/* PDF Viewer */}
-      {(() => {
-        const p: any = playbook.pdf;
-        const pdfUrl = p?.url ?? p?.data?.attributes?.url ?? p?.data?.url;
-        if (!pdfUrl) return null;
-        return (
-          <div className="mt-12 pt-8">
-            {/* <h1 className="text-4xl md:text-5xl text-center font-bold">Download / View PDF</h1>
-            <div className="text-center mt-4">
-              <a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="inline-block mb-4 text-[#0E4943] hover:underline text-lg">
-                Open PDF in new tab
-              </a>
-            </div> */}
-            <div className="w-full h-[800px] border rounded overflow-hidden mt-6">
-              <iframe src={pdfUrl} className="w-full h-full" title="Playbook PDF" />
-            </div>
-          </div>
-        );
-      })()}
-          </div>
+          </article>
         </main>
       </div>
     </div>

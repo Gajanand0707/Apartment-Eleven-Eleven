@@ -309,7 +309,7 @@ export default function ArticlePage() {
 
             <div className="p-2 text-justify md:text-left">
               {/* Article Title */}
-              <h1 className="text-3xl md:text-6xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold text-left leading-tight tracking-tight mb-6 w-full">
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold md:text-left text-center leading-tight tracking-tight mb-6 w-full">
                 {article.title ?? article.article_name}
               </h1>
 

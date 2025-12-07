@@ -97,11 +97,11 @@ export default function Technology({ data }: { data?: any[] }) {
       <div ref={sectionRef} className="bg-[#D5C7B3]  px-4">
         {/* Section Title */}
         <div className="text-center ">
-          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 mt-8 underline decoration-3 underline-offset-8 sm:mb-4">
+          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 mt-12 underline decoration-3 underline-offset-8 sm:mb-4">
             Growth
           </h2>
           {/* <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" /> */}
-          <div className="w-2/5 sm:w-[360px] h-1 bg-[#111] mx-auto -mt-2 " />
+          <div className="w-2/5 sm:w-[360px] h-1 bg-[#111] mx-auto md:-mt-2 -mt-1 " />
         </div>
 
         {/* Carousel */}
@@ -114,7 +114,7 @@ export default function Technology({ data }: { data?: any[] }) {
             ←
           </button>
 
-          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12">
+          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 py-4">
             {/* Composition container */}
             <div className="flex items-center justify-center relative py-2 sm:py-4 md:py-0 md:h-[700px]">
               {visibleCards.length >= 3 ? (

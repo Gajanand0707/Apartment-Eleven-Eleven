@@ -259,8 +259,8 @@ export default function HallwaysSection() {
 
         {/* ✅ Progress bar */}
         <div className=" flex flex-col items-center top-0 z-10">
-          <div className="h-1 w-[720px] bg-white rounded-full" />
-          <div className="h-1 w-[240px] bg-black rounded-full -mt-1" />
+          <div className="h-1  w-[300px] md:w-[720px] bg-white rounded-full" />
+          <div className="h-1  w-[200px] md:w-[240px] bg-black rounded-full -mt-1" />
         </div>
       </section>
     </>
@@ -294,7 +294,7 @@ function CarouselCard({
     ] w-full rounded-[78px] 
   bg-gray-100 border border-white/30  backdrop-blur-md
 
-  flex flex-col justify-center items-center text-center p-10 ${animateClass}`}
+  flex flex-col justify-center items-center text-center ${size === 'large' ? 'p-6' : 'p-10'} ${animateClass}`}
 >
   <p className={`font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black ${size === 'small' ? 'max-h-20 overflow-auto md:max-h-none' : ''}`}>
     "{item.quote}"

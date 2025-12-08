@@ -27,7 +27,7 @@ export function BlogCardGrid({ blog }: BlogCardGridProps) {
           <h3 className="text-xl md:text-2xl font-['OPTIGoudy_Agency'] font-bold text-gray-900 text-center mb-2">{blog.title}</h3>
           {/* <p className=" text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed line-clamp-2 mb-3">{blog.description}</p> */}
         </div>
-        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl text-center hover:underline">
+        <Link href={blog.readMoreUrl || "#"} className="text-blue-500 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl underline text-center hover:underline">
           Read more...
         </Link>
       </div>

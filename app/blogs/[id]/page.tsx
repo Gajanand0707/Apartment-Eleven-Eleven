@@ -194,14 +194,14 @@ export default function BlogDetail() {
           <span className="text-white text-sm md:text-lg font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : ''}</span>
         </button>
 
-        <div className="flex-1 text-center px-2 min-w-0">
-          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-[Goudy_Old_Style] font-bold line-clamp-2">
+        <div className="flex-1 flex items-center justify-center text-center min-w-0">
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-[OPTIGoudy_Agency] font-bold ">
             {article.article_name}
           </h1>
         </div>
 
-        <div className="flex-shrink-0">
-          <button className="text-2xl px-20  md:text-4xl bg-[#FFAE00] py-1.5  md:py-2 md:px-5 text-white text-center font-[Goudy_Old_Style] rounded-full whitespace-nowrap font-semibold">
+        <div className="">
+          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-[Goudy_Old_Style] rounded-full whitespace-nowrap font-semibold">
             Subscribe
           </button>
         </div>

@@ -223,6 +223,16 @@ export default function InsideHero() {
           right: 0rem;
           transform:translateX(70%);
       }}
+
+        .fade-blur {
+          position: absolute;
+          width: 100%;
+          height: 5rem;
+          background: linear-gradient(0deg, rgba(218, 207, 190, 1) 0%, rgba(218, 207, 190, 0) 100%);
+          bottom: -0.2rem;
+          pointer-events: none;
+          z-index: 50;
+        }
       `}</style>
 
       <section className="indoor-hero" ref={heroRef}>
@@ -253,7 +263,9 @@ export default function InsideHero() {
         <div className="door rdoor" ref={rdoorRef}>
           <Image src="/rdoor.jpeg" alt="right door" fill />
         </div>
+            <div className='fade-blur'></div>
       </section>
+    
     </>
   )
 }

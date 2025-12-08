@@ -104,7 +104,7 @@ export default function Technology({ data }: { data?: any[] }) {
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"
-            className={`absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
+            className={`absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-focus text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
           >
             <FaChevronLeft size={24} />
           </button>
@@ -150,7 +150,7 @@ export default function Technology({ data }: { data?: any[] }) {
           <button
             onClick={() => scroll("right")}
             aria-label="Scroll right"
-            className={`absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
+            className={`absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-focus text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
           >
             <FaChevronRight size={24} />
           </button>

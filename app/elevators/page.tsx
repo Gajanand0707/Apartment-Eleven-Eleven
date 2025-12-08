@@ -121,7 +121,7 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative z-20 w-full md:basis-3/12 h-full flex flex-col justify-center items-center text-center md:items-end  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 mr-10 ">
+        <div className="relative z-20 w-full md:basis-3/12 h-full flex flex-col justify-center items-center text-center md:items-end md:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
           <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>

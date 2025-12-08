@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useState, useEffect, useRef } from "react"
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 import blogcard from "../public/blogcard.png"
@@ -100,15 +101,15 @@ export default function Technology({ data }: { data?: any[] }) {
       <div ref={sectionRef} className="bg-[#D5C7B3]  px-4 py-4">
         {/* Section Title */}
         <div className="text-center ">
-          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mb-3 mt-12 underline decoration-3 underline-offset-8 sm:mb-4">
+          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] mt-16 ">
             Technology
           </h2>
           {/* <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" /> */}
-          <div className="w-2/5 sm:w-[360px] h-1 bg-[#111] mx-auto md:-mt-2 -mt-1 " />
+         
         </div>
 
         {/* Carousel */}
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full flex items-center justify-center md:-mt-6 py-8">
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"
@@ -117,7 +118,7 @@ export default function Technology({ data }: { data?: any[] }) {
             <FaChevronLeft size={24} />
           </button>
 
-          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 py-4">
+          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 ">
             {/* Composition container */}
             <div className="flex items-center justify-center relative py-2 sm:py-4 md:py-0 md:h-[700px]">
               {visibleCards.length >= 3 ? (
@@ -190,20 +191,19 @@ function Card({
   return (
     <div className={`shrink-0 ${sizeClass} ${marginClass} ${scaleClass} transition-all duration-300`}>
       {/* The key is crucial so React re-mounts on change and the animation runs */}
-      <div key={item.id} className={`w-full border-2 border-[#111] rounded-4xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
-        <div className={`relative w-full ${imageHeight} overflow-hidden`}>
-          <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+      <Link href={item.link} className="block focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111] focus:ring-offset-white rounded-4xl">
+        <div key={item.id} className={`w-full border-2 border-[#111] rounded-4xl overflow-hidden bg-white shadow-xl ${animateClass || ""}`}>
+          <div className={`relative w-full ${imageHeight} overflow-hidden`}>
+            <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+          </div>
+          <div className={`p-4 sm:p-5 flex flex-col ${contentHeight}`}>
+            <h3 className="text-xl md:text-2xl font-['OPTIGoudy_Agency'] font-bold  mb-2 text-center line-clamp-2 min-h-[3.5rem]">{item.title}</h3>
+            <p className="font-['Goudy_Bookletter_1911'] text-[14px] md:text-xl text-center leading-relaxed line-clamp-4 mb-3 min-h-[5.6rem] md:min-h-[6.4rem]">
+              {item.description}
+            </p>
+          </div>
         </div>
-        <div className={`p-4 sm:p-5 flex flex-col ${contentHeight}`}>
-          <h3 className="text-xl md:text-2xl font-['OPTIGoudy_Agency'] font-bold  mb-2 text-center line-clamp-2 min-h-[3.5rem]">{item.title}</h3>
-          <p className="font-['Goudy_Bookletter_1911'] text-[14px] md:text-xl text-center leading-relaxed line-clamp-4 mb-3 min-h-[5.6rem] md:min-h-[6.4rem]">
-            {item.description}
-          </p>
-          <a href={item.link} className="inline-block text-[#111] font-semibold font-['Goudy_Bookletter_1911'] hover:underline text-sm sm:text-base md:text-lg">
-            Learn More →
-          </a>
-        </div>
-      </div>
+      </Link>
     </div>
   )
 }

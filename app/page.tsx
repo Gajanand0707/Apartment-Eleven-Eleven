@@ -207,12 +207,12 @@ export default function Home() {
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto text-center">
           {/* heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-[OPTIGoudy_Agency] text-black">
+          <h1 className="text-4xl md:text-4xl font-bold font-[OPTIGoudy_Agency] text-black">
             Meet our Residency Panel
           </h1>
 
           {/* paragraph */}
-          <p className="mt-8 text-xl sm:text-2xl leading-relaxed text-black text-center text-justify sm:text-center max-w-[1245px] font-[Goudy_Bookletter_1911] mx-auto">
+          <p className="mt-8 text-xl md:text-2xl text-shadow-2xs text-black text-center text-justify sm:text-center max-w-[1245px] font-[Goudy_Bookletter_1911] mx-auto">
             We bring authenticity and clarity to premium living with collaboration with
             the industry's best professionals and experts. Learn more about our process
             and how we redefine modern residency with care, transparency, and excellence.
@@ -230,7 +230,7 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-4">
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
-          <h1 className="text-center font-bold text-4xl  md:text-7xl underline decoration-2 underline-offset-8 font-[OPTIGoudy_Agency]">
+          <h1 className="text-center font-bold text-4xl  md:text-7xl font-[OPTIGoudy_Agency]">
             Our Residents
           </h1>
 

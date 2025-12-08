@@ -72,9 +72,9 @@ export default function AutoScrollCarousel({
           <article
             key={`${it.id}-${i}`}
             className="bg-white rounded-[28px] border border-[#111] overflow-hidden shadow items-center"
-            style={{ width: `${cardWidth}px`, flex: "0 0 auto" }}
+            style={{ width: `calc(100vw - 32px)`, flex: "0 0 auto", maxWidth: `${cardWidth}px` }}
           >
-            <div className="relative w-full h-80">
+            <div className="relative w-full h-48 md:h-80">
               <Image src={it.image} alt={it.title} fill className="object-cover" />
             </div>
             <div className="p-4">

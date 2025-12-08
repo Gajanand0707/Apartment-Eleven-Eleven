@@ -54,7 +54,7 @@ export function Footer() {
           </div>
         </nav>
         {/* Social Icons */}
-        <hr className="border-gray-400 my-2 sm:my-3 mx-auto w-[323px] md:hidden" />
+        <hr className="border-white my-2 sm:my-3 mx-auto w-[323px] md:hidden" />
         <div className="flex flex-col justify-center items-center gap-2 my-2 sm:gap-3 sm:my-3 font-['Goudy_Bookletter_1911']">
           <h1 className="text-xl text-2xl font-['Goudy_Bookletter_1911'] md:hidden ">Our Socials:</h1>
           <div className="flex flex-row gap-2">

@@ -95,7 +95,7 @@ export default function Home() {
           {/* Top heading */}
           <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] max-w-[327px] md:max-w-[1200px] mx-auto font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
 
-          <p className="text-3xl md:text-4xl leading-[1.15] text-justify md:text-center max-w-[1095px] font-['Goudy_Bookletter_1911']  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
+          <p className="text-2xl md:text-4xl leading-[1.15] text-center max-w-[1095px] font-['Goudy_Bookletter_1911'] my-4  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
             We're helping build businesses with the ethos of the new India.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">

@@ -126,7 +126,7 @@ export default function MediaMentions({
           <button
             onClick={prev}
             aria-label="Previous"
-            className="absolute z-10 left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-focus text-white hover:bg-black active:bg-black/90 flex items-center justify-center shadow-lg"
+            className="absolute z-20 left-2 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-focus text-white hover:bg-black active:bg-black/90 flex items-center justify-center shadow-lg"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -135,7 +135,7 @@ export default function MediaMentions({
           <button
             onClick={next}
             aria-label="Next"
-            className="absolute z-10 right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full  text-white hover:bg-black active:bg-black/90 flex items-center justify-center shadow-lg"
+            className="absolute z-20 right-2 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-focus text-white hover:bg-black active:bg-black/90 flex items-center justify-center shadow-lg"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

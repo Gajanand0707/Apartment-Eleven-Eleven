@@ -23,7 +23,7 @@ export function BlogsList({ blogs }: BlogsListProps) {
         } else if (index === 2) {
           // Third: 2x2 grid
           return (
-            <div key={`grid-${index}`} className="grid grid-cols-2 gap-x-12 gap-y-16">
+            <div key={`grid-${index}`} className="grid md:grid-cols-2 gap-x-12 gap-y-16">
               {blogs.slice(2, 4).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}
@@ -35,7 +35,7 @@ export function BlogsList({ blogs }: BlogsListProps) {
         } else if (index === 5) {
           // Sixth: 2x2 grid again
           return (
-            <div key={`grid-${index}`} className="grid grid-cols-2 gap-x-12 gap-y-16">
+            <div key={`grid-${index}`} className="grid md:grid-cols-2 gap-x-12 gap-y-16">
               {blogs.slice(5, 7).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}

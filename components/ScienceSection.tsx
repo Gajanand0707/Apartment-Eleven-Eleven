@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import texture from "../public/texture.png";
 
 interface ScienceCard {
@@ -120,10 +121,10 @@ export default function ScienceSection() {
           <div className="relative w-full flex items-center justify-center z-10">
               <button
                 onClick={() => scroll("left")}
-                className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
+                className="absolute left-1 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
                 aria-label="Scroll left"
               >
-                ←
+                <FaChevronLeft size={20} />
               </button>
 
             <div className="w-full max-w-7xl px-2 sm:px-4 md:px-12">
@@ -173,10 +174,10 @@ export default function ScienceSection() {
 
               <button
                 onClick={() => scroll("right")}
-                className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95 text-lg sm:text-xl"
+                className="absolute right-1 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-[30] bg-black/80 text-white p-2 sm:p-3 md:p-4 rounded-full hover:bg-black transition-colors active:scale-95"
                 aria-label="Scroll right"
               >
-                →
+                <FaChevronRight size={20} />
               </button>
           </div>
 

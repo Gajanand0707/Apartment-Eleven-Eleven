@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6"
 import blogcard from "../public/blogcard.png"
 
 type CardItem = {
@@ -105,7 +106,7 @@ export default function Technology({ data }: { data?: any[] }) {
             aria-label="Scroll left"
             className={`absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
           >
-            ←
+            <FaChevronLeft size={24} />
           </button>
 
           <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 py-4">
@@ -151,7 +152,7 @@ export default function Technology({ data }: { data?: any[] }) {
             aria-label="Scroll right"
             className={`absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-20 bg-[#111] text-white p-3 sm:p-4 rounded-full hover:bg-[#333] transition-colors active:scale-95`}
           >
-            →
+            <FaChevronRight size={24} />
           </button>
         </div>
       </div>

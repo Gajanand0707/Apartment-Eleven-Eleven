@@ -1,33 +1,52 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
+    // Initial set
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
+
+    let timeoutId: any;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setDimensions({ width: window.innerWidth, height: window.innerHeight });
+      }, 200);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (dimensions.height === 0) return;
+
     gsap.registerPlugin(ScrollTrigger);
 
-    const sceneHeights = window.innerHeight;
+    const ctx = gsap.context(() => {
+    const sceneHeights = dimensions.height;
     const hold = sceneHeights * 0.5;
 
     gsap.set(".scene-2, .scene-3, .scene-4", { opacity: 0 });
 
-    gsap.set(".hero .pillar-1",{
-
-    });
-
     const totalScroll = sceneHeights * 4 + hold * 2;
 
     ScrollTrigger.create({
-      trigger: ".hero",
+      trigger: heroRef.current,
       start: "top top",
       end: "+=" + totalScroll,
       pin: true,
-      scrub: true
+      scrub: 0.2
     });
 
     function start(i: number) {
@@ -37,10 +56,10 @@ export default function HeroSection() {
     // Scene 1 animation
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(0),
         end: () => start(0) + sceneHeights,
-        scrub: true
+        scrub: 0.2
       }
     })
     .to(".scene-1 .hero-text", { opacity: 0, y: -50 })
@@ -50,33 +69,33 @@ export default function HeroSection() {
     // Scene 2 animation
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(1),
         end: () => start(1) + sceneHeights * 0.5,
-        scrub: true
+        scrub: 0.2
       }
     })
     .set(".scene-2", { opacity: 1 })
     .from(".scene-2 .pillar-1", { y: "-100%", opacity: 0 })
     .from(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<")
     .from(".scene-2 .still-image", { opacity: 0 }, "<")
-    .to(".hero .hero-bg", { scale: 2, x: "50%", y: "-50%" }, "<")
+    .to(".hero-bg", { scale: 2, x: "50%", y: "-50%" }, "<")
     .from(".scene-2 .hero-text", { opacity: 0, y: 50 }, "<");
 
     ScrollTrigger.create({
-      trigger: ".hero",
+      trigger: heroRef.current,
       start: () => start(1) + sceneHeights * 0.5,
       end: () => start(1) + sceneHeights * 0.5 + hold,
-      scrub: true
+      scrub: 0.2
     });
 
     // Scene 2 exit
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(1) + sceneHeights * 0.5 + hold,
         end: () => start(2),
-        scrub: true
+        scrub: 0.2
       }
     })
     .to(".scene-2 .hero-text", { opacity: 0, y: -50 })
@@ -87,32 +106,32 @@ export default function HeroSection() {
     // Scene 3 animation
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(2),
         end: () => start(2) + sceneHeights * 0.5,
-        scrub: true
+        scrub: 0.2
       }
     })
     .set(".scene-3", { opacity: 1 })
     .from(".scene-3 .pillar-1", { y: "-100%", opacity: 0 })
     .from(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<")
-    .to(".hero .hero-bg", { scale: 2, x: "-50%", y: "50%" }, "<")
+    .to(".hero-bg", { scale: 2, x: "-50%", y: "50%" }, "<")
     .from(".scene-3 .hero-text", { opacity: 0, y: 50 }, "<");
 
     ScrollTrigger.create({
-      trigger: ".hero",
+      trigger: heroRef.current,
       start: () => start(2) + sceneHeights * 0.5,
       end: () => start(2) + sceneHeights * 0.5 + hold,
-      scrub: true
+      scrub: 0.2
     });
 
     // Scene 3 exit
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(2) + sceneHeights * 0.5 + hold,
         end: () => start(3),
-        scrub: true
+        scrub: 0.2
       }
     })
     .to(".scene-3 .hero-text", { opacity: 0, y: -50 })
@@ -122,28 +141,28 @@ export default function HeroSection() {
     // Scene 4 animation (no fade: show instantly)
     gsap.timeline({
       scrollTrigger: {
-        trigger: ".hero",
+        trigger: heroRef.current,
         start: () => start(3),
         end: () => start(3) + sceneHeights * 0.7,
-        scrub: true
+        scrub: 0.2
       }
     })
     .set(".scene-4", { opacity: 1 })
-    .to(".hero .hero-bg", { scale: 1, x: "0%", y: "0%" }, "<")
+    .to(".hero-bg", { scale: 1, x: "0%", y: "0%" }, "<")
     .from(".scene-4 .hero-text", { opacity: 0, y: 60 });
 
     // show fade-blur only during scene-4 (no animation on the blur itself)
     ScrollTrigger.create({
-      trigger: ".hero",
+      trigger: heroRef.current,
       start: () => start(3),
       end: () => start(3) + sceneHeights * 2,
-      toggleClass: { targets: ".hero .fade-blur", className: "visible" }
+      toggleClass: { targets: ".fade-blur", className: "visible" }
     });
 
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, [dimensions]);
 
   return (
     <section className="hero" ref={heroRef}>
@@ -233,6 +252,7 @@ export default function HeroSection() {
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
           transform: translate3d(0,0,0);
+          will-change: transform;
         }
 
         .hero .scene-1 {
@@ -254,6 +274,7 @@ export default function HeroSection() {
           font-size: 5rem;
           color: #fff; 
           z-index: 99;
+          will-change: opacity, transform;
         }
           .hero .scene-1 .hero-text span:nth-child(2) {
           font-size: 5.5rem;
@@ -290,10 +311,12 @@ export default function HeroSection() {
 
         .hero .scene-1 .pillar-1 {
           transform: translateX(-100%);
+          will-change: transform, opacity;
         }
 
         .hero .scene-1 .pillar-2 {
           transform: translateX(100%);
+          will-change: transform, opacity;
         }
 
         .hero .scene-2 {
@@ -307,14 +330,21 @@ export default function HeroSection() {
         }
 
         .hero .scene-2 .hero-text {
+          position: absolute;
+          left: 10rem;
+          width: 20rem;
+          height: 100%;
+          top: 0;
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          margin-left: 4rem;
-          font-size: 4rem;
+          align-items: center;
+          text-align: center;
+          font-size: 3.2rem;
           justify-content: center;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
+          will-change: opacity, transform;
+          z-index: 10;
         }
 
         .hero .scene-2 .pill {
@@ -325,10 +355,12 @@ export default function HeroSection() {
 
         .hero .scene-2 .pillar-1 {
           transform: translate(10rem,-45rem);
+          will-change: transform, opacity;
         }
 
         .hero .scene-2 .pillar-2 {
           transform: translate(10rem,45rem);
+          will-change: transform, opacity;
         }
 
         .hero .scene-2 .still-image {
@@ -336,6 +368,7 @@ export default function HeroSection() {
           top: 0%;
           left: auto;
           right: 10%;
+          will-change: opacity;
         }
 
         .hero .scene-3 {
@@ -349,14 +382,21 @@ export default function HeroSection() {
         }
 
         .hero .scene-3 .hero-text {
+          position: absolute;
+          right: 10rem;
+          width: 20rem;
+          height: 100%;
+          top: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
-          margin-right: 4rem;
+          text-align: center;
           font-size: 4rem;
           justify-content: center;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
+          will-change: opacity, transform;
+          z-index: 10;
         }
 
         .hero .scene-3 .pill {
@@ -368,10 +408,12 @@ export default function HeroSection() {
 
         .hero .scene-3 .pillar-1 {
           transform: translate(-10rem,-45rem);
+          will-change: transform, opacity;
         }
 
         .hero .scene-3 .pillar-2 {
           transform: translate(-10rem,45rem);
+          will-change: transform, opacity;
         }
 
         .hero .scene-4 {
@@ -393,6 +435,7 @@ export default function HeroSection() {
           justify-content: center;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);
+          will-change: opacity, transform;
         }
         .hero .fade-blur{
           display: none;
@@ -418,6 +461,9 @@ export default function HeroSection() {
 				width: 50%;
 				text-align: center;
 			}
+        .still-image{
+        display: none;
+        }
         .hero .scene-1 .hero-text span:nth-child(2) {
         margin-top: 0.5rem;   
         font-size: 3rem;
@@ -435,11 +481,16 @@ export default function HeroSection() {
           width: 16rem;
         }
 		.hero .scene-2 .hero-text{
+            position: absolute;
+            left: 5rem;
+            top: 0;
+            height: 100%;
+            width: 10rem;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
 			font-size: 2rem;
-			width: 90%;
-			text-align: left;
-			margin-left: 1rem;
-			margin-top: 10rem;
 		}
 		.hero .scene-2 .pill{
 			height: 100vh;
@@ -460,11 +511,16 @@ export default function HeroSection() {
 
 
 		.hero .scene-3 .hero-text{
+            position: absolute;
+            right: 5rem;
+            top: 0;
+            height: 100%;
+            width: 10rem;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
 			font-size: 2rem;
-			width: 90%;
-			align-items: flex-end;
-			margin-right: 3rem;
-			text-align: right;
 		}
 		.hero .scene-3 .pill{
 			height: 100vh;

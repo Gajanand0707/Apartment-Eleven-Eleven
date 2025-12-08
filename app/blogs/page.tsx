@@ -110,12 +110,12 @@ export default function OurBlogs() {
       <main className="min-h-screen bg-[#D5C7B3]">
 
 
-  <div className="relative w-full h-[500px] md:h-[500px]">
+  <div className="relative w-full h-[850px] md:h-[650px]">
           <img
            src={ourblogs.src} alt="Our Blogs" className="w-full h-full object-cover "
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+            <h1 className="text-white text-5xl md:text-8xl font-['OPTIGoudy_Agency'] font-bold">
               Our Blogs           </h1>
             <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-28
                         bg-linear-to-b from-transparent to-[#D5C7B3]" />

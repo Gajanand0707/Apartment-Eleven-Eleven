@@ -50,14 +50,14 @@ export default function Playbooks() {
     
     return (
         <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">
-            <div className="relative w-full h-[500px] md:h-[500px]">
+            <div className="relative w-full h-[850px] md:h-[650px]">
                 <img
                     src={playbook.src}
                     alt="Playbooks"
                     className="w-full h-full object-cover "
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+                    <h1 className="text-white text-5xl md:text-8xl font-['OPTIGoudy_Agency'] font-bold">
                         Playbooks
                     </h1>
                 </div>

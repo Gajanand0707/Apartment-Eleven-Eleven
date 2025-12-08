@@ -14,8 +14,8 @@ export function Footer() {
           className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4 max-w-5xl mx-auto text-center place-items-center"
         >
           {/* Column 1 */}
-         <div className=" md:block space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
-            <Link href="/" className="block text-xl md:text-2xl hover:text-white">
+         <div className=" md:block md:mt-0.5 space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
+            <Link href="/" className="block text-xl md:text-2xl hover:text-white ">
               Home
             </Link>
             <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
@@ -85,13 +85,13 @@ export function Footer() {
               width={85}
               height={85}
               priority
-              className="rounded-full"
+              className="rounded-full w-[68px] h-[68px] md:w-[85px] md:h-[85px]"
             />
             <div className="flex flex-col leading-tight">
-              <h1 className="text-white font-bold text-4xl text-center ">
+              <h1 className="text-white font-bold text-3xl md:text-4xl text-center ">
                 APARTMENT
               </h1>
-              <h2 className="text-white text-3xl text-nowrap text-center ">
+              <h2 className="text-white text-2xl md:text-3xl text-nowrap text-center ">
                 ELEVEN ELEVEN
               </h2>
             </div>

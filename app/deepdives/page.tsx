@@ -56,7 +56,7 @@ export default function DeepDives() {
     }
     return (
         <div className="bg-[#D5C7B3]">
-            <div className="relative w-full h-[500px] md:h-[500px] overflow-hidden">
+            <div className="relative w-full h-[850px] md:h-[650px] overflow-hidden">
                 <img
                     src={deepdive.src}
                     alt="Deepdives"
@@ -65,7 +65,7 @@ export default function DeepDives() {
 
                 {/* Title */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <h1 className="text-white text-5xl md:text-8xl font-['Playfair_Display'] font-bold">
+                    <h1 className="text-white text-5xl md:text-8xl font-['OPTIGoudy_Agency'] font-bold">
                         Deepdives
                     </h1>
                 </div>

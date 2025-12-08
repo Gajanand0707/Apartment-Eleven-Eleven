@@ -25,7 +25,7 @@ export function ArticleCard({ article, imagePosition }: ArticleCardProps) {
 
       {/* Content Container */}
       <div className={`flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center ${isImageLeft ? "md:order-2" : "md:order-1"}`}>
-        <h2 className="text-2xl md:text-4xl  font-[Goudy_Old_Style] underline font-bold  text-black mb-2">{article.title}</h2>
+        <h2 className="text-2xl md:text-4xl  font-[Goudy_Old_Style]  font-bold  text-black mb-2">{article.title}</h2>
 
         <h3 className="text-xl md:text-2xl font-semibold font-[Goudy_Old_Style] text-black mb-3 md:mb-4">
           {article.subtitle && article.subtitle.length > 100 
@@ -37,7 +37,7 @@ export function ArticleCard({ article, imagePosition }: ArticleCardProps) {
 
         <Link
           href={article.readMoreUrl || "#"}
-          className="text-blue-500 hover:text-blue-700 font-['Goudy_Bookletter_1911'] underline text-xl md:text-2xl transition-colors"
+          className="text-blue-500 hover:text-blue-700 font-['Goudy_Bookletter_1911']  text-xl md:text-2xl transition-colors"
         >
           Read more...
         </Link>

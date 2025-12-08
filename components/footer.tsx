@@ -21,7 +21,7 @@ export function Footer() {
             <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
              Our Residents
             </Link>
-             <Link href="/inside" className=" md:hidden text-xl md:text-2xl hover:text-white">
+             <Link href="/library" className=" md:hidden text-xl md:text-2xl hover:text-white">
               Library
             </Link>
           </div>
@@ -30,10 +30,10 @@ export function Footer() {
             <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white md:hidden">
               Elevator's Waiting
             </Link>
-            <Link href="/grants" className="block text-xl md:text-2xl hover:text-white">
+            <Link href="/library" className="block text-xl md:text-2xl hover:text-white">
               Library
             </Link>
-            <Link href="/contact" className="block text-xl md:text-2xl  hover:text-white">
+            <Link href="/inside" className="block text-xl md:text-2xl  hover:text-white">
               Inside Our Doors
             </Link>
             {/* <Link href="/inside" className=" md:hidden text-xl md:text-2xl hover:text-white">
@@ -42,10 +42,10 @@ export function Footer() {
           </div>
           {/* Column 3 - Only visible on desktop */}
           <div className="hidden md:block space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
-            <Link href="/grants" className="block text-xl md:text-2xl hover:text-white">
+            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
               FAQ's
             </Link>
-            <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
+            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
               Elevators's Waiting
             </Link>
              {/* <Link href="/inside" className=" md:hidden text-xl md:text-2xl hover:text-white">

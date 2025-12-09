@@ -29,6 +29,7 @@ export default function Library() {
         const mappedBlogs: Blog[] = blogsData.data.map((article: any) => ({
           id: article.id,
           title: article.article_name || "Untitled Article",
+          subtitle: article.article_heading?.article_subheading?.article_subheading || article.summary || "",
           description: article.title_introduction || article.summary || "No description available",
           imageUrl: article.thumbnail?.url || blogCard.src,
           readMoreUrl: `/blogs/${article.documentId}`,
@@ -40,6 +41,7 @@ export default function Library() {
         const mappedPlaybooks: Blog[] = playbooksData.data.map((playbook: any) => ({
           id: playbook.id,
           title: playbook.title || "Untitled Playbook",
+          subtitle: playbook.subtitle || playbook.summary || "",
           description: playbook.introduction || playbook.summary || "No description available",
           imageUrl: blogCard.src,
           readMoreUrl: `/playbooks/${playbook.documentId}`,
@@ -51,6 +53,7 @@ export default function Library() {
         const mappedDeepDives: Blog[] = deepDivesData.data.map((deepdive: any) => ({
           id: deepdive.id,
           title: deepdive.title || "Untitled Deep Dive",
+          subtitle: deepdive.subtitle || deepdive.summary || "",
           description: deepdive.introduction || deepdive.summary || "No description available",
           imageUrl: blogCard.src,
           readMoreUrl: `/deepdives/${deepdive.documentId}`,

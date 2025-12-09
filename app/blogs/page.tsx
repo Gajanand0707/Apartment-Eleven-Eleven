@@ -92,6 +92,7 @@ export default function OurBlogs() {
         const mappedBlogs: Blog[] = data.data.map((article: any) => ({
           id: article.id,
           title: article.article_name || "Untitled Article",
+          subtitle: article.article_heading?.article_subheading?.article_subheading || article.summary || "",
           description: article.title_introduction || article.summary || "No description available",
           imageUrl: article.thumbnail?.url || blogcard.src,
           readMoreUrl: `/blogs/${article.documentId}`,

@@ -225,7 +225,7 @@ export function SpiralAnimation({
             {/* Background grid pattern - scaled to match container */}
             <g opacity="0.55">
               <polyline 
-                points="3400,0 3400,3400 0,3400"
+                points="3400,0 3400,3400 "
                 fill="none"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}

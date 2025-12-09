@@ -58,15 +58,21 @@ body {
 
 /* Ensure the app root uses a solid background and full-height to avoid
    brief white gaps during smooth scrolling/transform animations. */
-html, body, #__next {
-  height: 100%;
+html {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
   background: #303236; /* neutral dark canvas matching site edges */
 }
 
-/* Prevent rubber-band/overscroll bounce showing underlying background on mobile */
-html, body {
-  overscroll-behavior-y: none;
-  -webkit-overflow-scrolling: touch;
+body {
+  background: #303236;
+  min-height: 100%;
+}
+
+#__next {
+  height: 100%;
 }
 
 /*

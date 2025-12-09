@@ -133,7 +133,7 @@ export function Footer() {
               Privacy Policy |
             </Link>
             <Link href="/cookies" className="hover:text-white underline">
-              Cookies Policy |
+              Cookies Policy 
             </Link>
           </div>
           <p className="text-[#BFBFBF] text-sm md:text-2xl mt-0.5 sm:mt-1 font-['Goudy_Bookletter_1911']">

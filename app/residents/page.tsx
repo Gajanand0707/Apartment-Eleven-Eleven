@@ -37,11 +37,7 @@ export default function ResidentPage() {
 
                     {/* Cards */}
                     <div className=" flex justify-center items-center ">
-
-
                         <GlassSpotlight />
-
-
                     </div>
                 </div>
             </section>

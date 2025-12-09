@@ -163,7 +163,7 @@ export default function HallwaysSection() {
 
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black md:py-4 md:pb-10 px-6 md:px-8">
   {/* ✅ Background image */}
-  <div className="absolute inset-0 -z-10">
+  <div className="absolute inset-0 z-0">
     <Image
       src={hallwaysbg}
       alt="Hallway background"

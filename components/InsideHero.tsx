@@ -34,8 +34,15 @@ export default function InsideHero() {
     .to(h1Ref.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
     .to(pRef.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.3)
 
+    const handleResize = () => {
+      ScrollTrigger.refresh()
+    }
+
+    window.addEventListener("resize", handleResize)
+
     return () => {
       timeline.kill()
+      window.removeEventListener("resize", handleResize)
     }
   }, [])
 

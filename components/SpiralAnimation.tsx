@@ -24,7 +24,7 @@ export function SpiralAnimation({
   images,
   duration = 20,
   showPath = true,
-  speed = 1,
+  speed = 0.8,
   direction = "innerToOuter",
   orientation = "cw",
   showSquares = true,
@@ -62,7 +62,11 @@ export function SpiralAnimation({
     update()
     const ro = new ResizeObserver(update)
     ro.observe(el)
-    return () => ro.disconnect()
+    window.addEventListener("resize", update)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener("resize", update)
+    }
   }, [])
 
   const totalImages = Math.min(images.length, 10)
@@ -191,6 +195,18 @@ export function SpiralAnimation({
           transform: translate3d(0,0,0);
         }
 
+        .pseudo-box{
+        position: absolute;
+        top: 100%;
+        left: 0%;
+        width: 150px;
+        height:250px;
+        transform: translate(-50%, 0%);
+        background: #D8CCBA;
+        pointer-events: none;
+        z-index: 9999;
+        }
+
         @media(max-width: 768px) {
         .spiral-image {
           width: 45px;
@@ -201,6 +217,7 @@ export function SpiralAnimation({
 
       <div ref={outerRef} className="w-full max-w-[600px]">
         <div className="spiral-container">
+          <div className="pseudo-box"></div>
           <svg
             className="absolute top-0 left-0 w-full h-full"
             viewBox={`0 0 ${originalW} ${originalH}`}

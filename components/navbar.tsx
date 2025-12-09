@@ -3,7 +3,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import logo from "../public/logo.png";
 import headerLogo from "../public/headerLogo.png";
 import navLogo from "../public/navLogo.png";
@@ -92,7 +91,7 @@ export function Navbar() {
 
           {/* Logo - Centered on mobile, left on desktop */}
           <div className="flex-1 flex justify-center md:justify-start bg-white">
-            <Link href="/" className="flex items-center bg-white">
+            <a href="/" className="flex items-center bg-white">
               <Image
                 src={headerLogo}
                 alt="Logo"
@@ -101,7 +100,7 @@ export function Navbar() {
                 className="object-contain w-[180px] md:w-[250px] bg-white"
                 priority
               />
-            </Link>
+            </a>
           </div>
 
           {/* Desktop Nav - Right side */}
@@ -109,12 +108,12 @@ export function Navbar() {
             <ul className="flex items-center gap-6">
               {navItems.map((item) => (
                 <li key={item.href}>
-                  <Link
+                  <a
                     href={item.href}
                     className="text-black hover:text-gray-700 text-xl md:text-2xl font-['Goudy_Bookletter_1911'] transition-colors"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -155,13 +154,13 @@ export function Navbar() {
             <ul className="flex flex-col items-center gap-6 w-full h-[100vh] bg-[#D6CBBB]">
               {navItems.map((item) => (
                 <li key={item.href} className="w-full text-center bg-[#D6CBBB]">
-                  <Link
+                  <a
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block text-2xl md:text-4xl bg-[#D6CBBB] font-['Goudy_Bookletter_1911'] text-black hover:text-gray-600 py-2 font-['Goudy_Bookletter_1911']"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

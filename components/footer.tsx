@@ -49,6 +49,8 @@ export function Footer() {
     <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
       Inside Our Doors
     </Link>
+     <div className="md:hidden h-0"></div>
+    
   </div>
 
   {/* Column 3 */}

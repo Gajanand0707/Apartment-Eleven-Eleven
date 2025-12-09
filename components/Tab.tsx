@@ -16,7 +16,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
   return (
     <nav
-      className="relative mx-auto w-[90%] sm:w-[95%] md:w-full max-w-6xl h-12 sm:h-14 md:h-18 rounded-xl sm:rounded-2xl overflow-hidden border border-black/40 bg-white shadow-[0_6px_14px_rgba(0,0,0,0.25)]"
+      className="relative mx-auto w-[90%] sm:w-[95%] md:w-full max-w-6xl h-12 sm:h-14 md:h-18 rounded-xl sm:rounded-2xl overflow-visible border border-black/40 bg-white shadow-[0_6px_14px_rgba(0,0,0,0.25)]"
     >
       {/* Tabs */}
       <div
@@ -37,8 +37,8 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
                 // Active tab (persistent highlighted style)
                 isActive
-                  ? "bg-[#1F857A] text-white scale-[1.06] -translate-y-1 border-2 border-black shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
-                  : "text-black hover:bg-white/80 hover:-translate-y-1 hover:scale-[1.05] hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
+                  ? "bg-[#1F857A] text-white scale-[1.06] -translate-y-1 border-2 border-black outline outline-2 outline-black outline-offset-[-1px] shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
+                  : "text-black hover:bg-white/80 hover:-translate-y-1  hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners
                 i === 0 ? "rounded-l-xl sm:rounded-l-2xl" : "",

@@ -339,7 +339,7 @@ export default function HeroSection() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          font-size: 3.2rem;
+          font-size: 3rem;
           justify-content: center;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1), 0px 0px 50px rgba(0,0,0,1);

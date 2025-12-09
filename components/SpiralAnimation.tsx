@@ -156,8 +156,7 @@ export function SpiralAnimation({
         @keyframes imageAppear {
           0% { opacity: 0; }
           2% { opacity: 1; }
-          95% { opacity: 1; }
-          100% { opacity: 0; }
+          100% { opacity: 1; }
         }
 
         .spiral-container {
@@ -290,8 +289,8 @@ export function SpiralAnimation({
                 className="spiral-image"
                 style={{
                   // Keep opacity behavior via CSS keyframes
-                  animation: `imageAppear ${duration}s linear infinite`,
-                  animationDelay: `${delay}s`,
+                  animation: `imageAppear ${duration / speed}s linear infinite`,
+                  animationDelay: `${delay / speed}s`,
                   animationFillMode: "both",
                   willChange: "transform, opacity",
                 }}

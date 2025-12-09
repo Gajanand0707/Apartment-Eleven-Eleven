@@ -9,50 +9,68 @@ export function Footer() {
     <footer className="bg-[#24211F] text-gray-300">
       <div className="mx-auto max-w-[850px] px-6 sm:px-8 lg:px-12 py-4 sm:py-6">
         {/* Top Links */}
-        <nav
-          aria-label="Footer"
-          className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4 max-w-5xl mx-auto text-center place-items-center"
-        >
-          {/* Column 1 */}
-         <div className=" md:block md:mt-0.5 space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
-            <Link href="/" className="block text-xl md:text-2xl hover:text-white ">
-              Home
-            </Link>
-            <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
-             Our Residents
-            </Link>
-             <Link href="/library" className=" md:hidden text-xl md:text-2xl hover:text-white">
-              Library
-            </Link>
-          </div>
-          {/* Column 2 */}
-          <div className="space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
-            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white md:hidden">
-              Elevator's Waiting
-            </Link>
-            <Link href="/library" className="block text-xl md:text-2xl hover:text-white">
-              Library
-            </Link>
-            <Link href="/inside" className="block text-xl md:text-2xl  hover:text-white">
-              Inside Our Doors
-            </Link>
-            {/* <Link href="/inside" className=" md:hidden text-xl md:text-2xl hover:text-white">
-              Inside Our Doors
-            </Link> */}
-          </div>
-          {/* Column 3 - Only visible on desktop */}
-          <div className="hidden md:block space-y-0.5 sm:space-y-1 md:space-y-2 font-['Goudy_Bookletter_1911']">
-            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
-              FAQ's
-            </Link>
-            <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white">
-              Elevators's Waiting
-            </Link>
-             {/* <Link href="/inside" className=" md:hidden text-xl md:text-2xl hover:text-white">
-              Inside Our Doors
-            </Link> */}
-          </div>
-        </nav>
+       <nav
+  aria-label="Footer"
+  className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4 max-w-5xl mx-auto text-center place-items-center"
+>
+
+  {/* Column 1 */}
+  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+    <Link href="/" className="block text-xl md:text-2xl hover:text-white">
+      Home
+    </Link>
+
+    <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
+      Our Residents
+    </Link>
+
+    {/* Mobile only */}
+    <Link href="/library" className="block text-xl md:text-2xl hover:text-white md:hidden">
+      Library
+    </Link>
+
+    {/* Desktop only (empty for mobile, prevents layout shift) */}
+    <div className="hidden md:block h-0"></div>
+  </div>
+
+  {/* Column 2 */}
+  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+
+    {/* Mobile only */}
+    <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white md:hidden">
+      Elevator's Waiting
+    </Link>
+
+    {/* Desktop + Mobile */}
+    <Link href="/library" className="block text-xl md:text-2xl hover:text-white">
+      Library
+    </Link>
+
+    <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
+      Inside Our Doors
+    </Link>
+  </div>
+
+  {/* Column 3 */}
+  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+
+    {/* Desktop only */}
+    <Link href="/faq" className="hidden md:block text-xl md:text-2xl hover:text-white">
+      FAQ's
+    </Link>
+
+    {/* Desktop only */}
+    <Link href="/elevators" className="hidden md:block text-xl md:text-2xl hover:text-white">
+      Elevator's Waiting
+    </Link>
+
+    {/* Mobile empty placeholders to keep grid height equal */}
+    <div className="md:hidden h-0"></div>
+    <div className="md:hidden h-0"></div>
+  </div>
+
+</nav>
+
         {/* Social Icons */}
         <hr className="border-white my-2 sm:my-3 mx-auto w-[323px] md:hidden" />
         <div className="flex flex-col justify-center items-center gap-2 my-2 sm:gap-3 sm:my-3 font-['Goudy_Bookletter_1911']">

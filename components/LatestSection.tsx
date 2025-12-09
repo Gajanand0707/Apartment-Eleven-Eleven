@@ -18,7 +18,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
   const renderBlogsLayout = () => (
     <div className="space-y-6 mt-16">
       {items[0] && <BlogCardHorizontal blog={items[0]} />}
-      <div className="grid md:grid-cols-3 grid-col-2 gap-14">
+      <div className="grid md:grid-cols-3 grid-col-2 gap-14 md:py-12">
         {items.slice(1, 4).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}

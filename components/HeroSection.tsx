@@ -271,7 +271,7 @@ export default function HeroSection() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          font-size: 5rem;
+          font-size: 4rem;
           color: #fff; 
           z-index: 99;
           will-change: opacity, transform;
@@ -490,7 +490,7 @@ export default function HeroSection() {
             align-items: center;
             justify-content: center;
             margin: 0;
-			font-size: 2rem;
+			font-size: 1.6rem;
 		}
 		.hero .scene-2 .pill{
 			height: 100vh;
@@ -520,7 +520,7 @@ export default function HeroSection() {
             align-items: center;
             justify-content: center;
             margin: 0;
-			font-size: 2rem;
+			font-size: 1.5rem;
 		}
 		.hero .scene-3 .pill{
 			height: 100vh;

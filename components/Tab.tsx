@@ -31,13 +31,13 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               href={tab.href}
               className={[
                 "relative flex items-center justify-center h-full text-center leading-none select-none overflow-hidden",
-                "font-[Goudy_Old_Style] font-bold transition-all duration-300 ease-out",
-                "text-xl  md:text-4xl ",
+                "font-['OPTIGoudy_Agency'] font-bold transition-all duration-300 ease-out",
+                "text-[14px]  md:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 
                 // Active tab (persistent highlighted style)
                 isActive
-                  ? "bg-[#1F857A] text-white scale-[1.06] -translate-y-1 border-2 border-black outline outline-2 outline-black outline-offset-[-1px] shadow-[0_22px_80px_rgba(0,0,0,0.78),0_12px_30px_rgba(0,0,0,0.5),0_8px_20px_rgba(180,72,0,0.45)] z-50 will-change-transform "
+                  ? "bg-[#1F857A] text-white scale-[1.09] -translate-y-1 border-2 border-black outline outline-2 outline-black outline-offset-[-1px] shadow-lg z-50 will-change-transform "
                   : "text-black hover:bg-white/80 hover:-translate-y-1  hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners

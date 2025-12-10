@@ -50,24 +50,29 @@ export default function Playbooks() {
     
     return (
         <div className="bg-[#D5C7B3] max-w-screen overflow-x-hidden">
-            <div className="relative w-full h-[850px] md:h-[650px]">
+            <div className="relative w-full h-screen overflow-hidden">
                 <img
                     src={playbook.src}
                     alt="Playbooks"
                     className="w-full h-full object-cover "
                 />
-                <div className="absolute inset-0 flex items-center justify-center">
-                    <h1 className="text-white text-5xl md:text-8xl font-['OPTIGoudy_Agency'] font-bold">
+                <div className="absolute inset-0 flex items-center justify-center px-4 pb-20">
+                    <h1 className="text-white text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center">
                         Playbooks
                     </h1>
                 </div>
 
-                <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-28
-                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
-
+                
+                {/* Tab Navigation positioned at bottom */}
+                <div className="absolute bottom-4 left-0 right-0 ">
+                    <TabNavigation tabs={TABS} />
+                </div>
+                
             </div>
 
-            <TabNavigation tabs={TABS} />
+            <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-24 md:h-32
+                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
+
 
             <div className="space-y-0">
                 <TechnologyCard data={technologyData} />

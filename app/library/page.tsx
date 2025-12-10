@@ -74,7 +74,7 @@ export default function Library() {
 
   return (
     <div className="bg-[#D5C7B3]">
-      <div className="relative w-full h-[850px] md:h-[650px] overflow-hidden">
+      <div className="relative w-full h-screen overflow-hidden">
         <img
           src={library.src}
           alt="Deepdives"
@@ -82,19 +82,22 @@ export default function Library() {
         />
 
         {/* Title */}
-        <div className="absolute inset-0 flex items-center justify-center px-4">
+        <div className="absolute inset-0 flex items-center justify-center px-4 pb-20">
           <h1 className="text-white text-4xl  md:text-7xl  font-['OPTIGoudy_Agency'] font-bold text-center">
             Library
           </h1>
         </div>
 
         {/* The feathered overlay ON TOP of the image */}
-
-        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-12 md:h-16
+        <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-24 md:h-32
                         bg-gradient-to-b from-transparent to-[#D5C7B3]" />
 
+        {/* Tab Navigation positioned at bottom */}
+        <div className="absolute bottom-4 left-0 right-0 ">
+          <TabNavigation tabs={TABS} />
+        </div>
       </div>
-      <TabNavigation tabs={TABS} />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20">
         {loading ? (
           <div className="text-center py-8 md:py-12 text-base md:text-lg">Loading...</div>

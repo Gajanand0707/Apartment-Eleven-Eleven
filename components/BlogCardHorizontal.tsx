@@ -21,7 +21,7 @@ export function BlogCardHorizontal({ blog, imagePosition = "left" }: BlogCardHor
   return (
     <Link href={blog.readMoreUrl || "#"}>
       <div
-        className={`flex flex-col rounded-[56px] border-2 md:my-16 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow min-h-[450px] md:flex-row md:gap-0 cursor-pointer ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
+        className={`flex flex-col rounded-[56px] border-2 my-16 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow min-h-[450px] md:flex-row md:gap-0 cursor-pointer ${isImageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
       >
         {/* Image */}
         <div className="w-full h-[200px] md:w-2/5 md:h-auto relative shrink-0 rounded-none">

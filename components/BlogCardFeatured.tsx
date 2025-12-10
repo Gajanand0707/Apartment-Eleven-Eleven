@@ -19,7 +19,7 @@ export function BlogCardFeatured({ blog }: BlogCardFeaturedProps) {
     <Link href={blog.readMoreUrl || "#"}>
       <div className="rounded-[56px] border-2 border-gray-800 overflow-hidden bg-white hover:shadow-lg transition-shadow cursor-pointer">
         {/* Large Image */}
-        <div className="relative w-full md:h-screen">
+        <div className="relative w-full h-[300px] md:h-screen">
           <Image src={blog.imageUrl || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
         </div>
 

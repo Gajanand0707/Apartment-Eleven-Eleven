@@ -90,8 +90,7 @@ body {
   font-family: 'OPTIGoudy Agency', 'Goudy Bookletter 1911', Georgia, serif;
 }
 
-/* Generic OPTIGoudy class without an explicit bold weight -> use regular fallback */
-[class*="OPTIGoudy"],
+/* Generic Goudy_Bookletter class without an explicit bold weight -> use regular fallback */
 [class*="Goudy_Bookletter_1911"],
 [class*="Goudy_Bookletter"] {
   font-family: 'Goudy Bookletter 1911', Georgia, serif;
@@ -100,6 +99,11 @@ body {
 /* Goudy_Old_Style uses the GOUDOS.woff2 file */
 [class*="Goudy_Old_Style"] {
   font-family: 'GoudyOldStyle', 'Goudy_Old_Style', 'Goudy Old Style', Georgia, serif;
+}
+
+/* Explicit rule for arbitrary font syntax - font-['OPTIGoudy_Agency'] */
+.font-\[OPTIGoudy_Agency\] {
+  font-family: 'OPTIGoudy Agency' !important;
 }
 
 /* Explicit rule for arbitrary font syntax */
@@ -129,7 +133,7 @@ body {
 @font-face {
   font-family: 'OPTIGoudy Agency';
   src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -138,7 +142,7 @@ body {
 @font-face {
   font-family: 'OPTIGoudy_Agency';
   src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
-  font-weight: 700;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }

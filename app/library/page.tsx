@@ -93,7 +93,7 @@ export default function Library() {
                         bg-gradient-to-b from-transparent to-[#D5C7B3]" />
 
         {/* Tab Navigation positioned at bottom */}
-        <div className="absolute bottom-4 left-0 right-0 ">
+        <div className="absolute bottom-12 left-0 right-0 ">
           <TabNavigation tabs={TABS} />
         </div>
       </div>

@@ -161,7 +161,7 @@ export default function HallwaysSection() {
         }
       `}</style>
 
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black md:py-4 md:pb-10 px-6 md:px-8">
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col items-center justify-center text-black pt-16 md:pt-4 md:py-4 md:pb-10 pb-20 px-6 md:px-8">
   {/* ✅ Background image */}
   <div className="absolute inset-0 z-0">
     <Image
@@ -183,7 +183,7 @@ export default function HallwaysSection() {
           <h1 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold md:mt-16 text-black">
             Conversations in the Hallways
           </h1>
-          <p className="mt-4 text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold  text-black  mx-auto">
+          <p className="mt-4 text-2xl md:text-4xl md:px-20 font-['Goudy_Old_Style'] font-semibold  text-black  mx-auto">
             Where serendipitous encounters spark innovation and change. The most
             important innovations often happen in the spaces between meetings.
           </p>

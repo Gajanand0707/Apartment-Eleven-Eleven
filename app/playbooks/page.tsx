@@ -64,7 +64,7 @@ export default function Playbooks() {
 
                 
                 {/* Tab Navigation positioned at bottom */}
-                <div className="absolute bottom-4 left-0 right-0 ">
+                <div className="absolute bottom-12 left-0 right-0 ">
                     <TabNavigation tabs={TABS} />
                 </div>
                 

@@ -37,7 +37,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
                 // Active tab (persistent highlighted style)
                 isActive
-                  ? "bg-[#1F857A] text-white scale-[1.09] -translate-y-1 border-2 border-black outline outline-2 outline-black outline-offset-[-1px] shadow-lg z-50 will-change-transform "
+                  ? "bg-[#1F857A] text-white md:scale-[1.09] scale-[1.06]  border-2 border-black outline outline-2 outline-black outline-offset-[-1px] shadow-lg z-50 will-change-transform "
                   : "text-black hover:bg-white/80 hover:-translate-y-1  hover:shadow-[0_6px_12px_rgba(0,0,0,0.25)] z-10",
 
                 // Rounded corners

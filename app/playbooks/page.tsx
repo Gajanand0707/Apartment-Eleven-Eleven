@@ -63,15 +63,15 @@ export default function Playbooks() {
                 </div>
 
                 
+            <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-24 md:h-32
+                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
+
                 {/* Tab Navigation positioned at bottom */}
                 <div className="absolute bottom-12 left-0 right-0 ">
                     <TabNavigation tabs={TABS} />
                 </div>
                 
             </div>
-
-            <div className="pointer-events-none absolute left-0 right-0 bottom-0 h-24 md:h-32
-                        bg-gradient-to-b from-transparent to-[#D5C7B3]" />
 
 
             <div className="space-y-0">

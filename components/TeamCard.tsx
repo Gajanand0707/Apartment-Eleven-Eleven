@@ -7,7 +7,7 @@ export interface TeamCardProps {
 
 export default function TeamCard({ image, name }: TeamCardProps) {
   return (
-    <div className="relative bg-[#EBEBEB] rounded-[56px] border-2 overflow-hidden flex flex-col text-center w-[380px] md:w-[540px] h-[400px]  md:h-[600px] shadow-md">
+    <div className="relative bg-[#EBEBEB] rounded-[56px] border-2 overflow-hidden flex flex-col text-center w-full md:w-[540px] h-[400px]  md:h-[600px] shadow-md">
       {/* Image Section */}
       <div className="relative w-full h-[90%] rounded-t-none overflow-hidden">
         <Image

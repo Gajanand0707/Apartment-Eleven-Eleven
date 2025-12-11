@@ -25,6 +25,29 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 } */
 
+/* Safari-specific fixes for better cross-browser consistency */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Fix Safari flexbox alignment issues */
+html, body {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent Safari from adding extra spacing around flex items */
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  max-width: 100%;
+}
+
+/* Fix line-height rendering differences in Safari */
+button, input, optgroup, select, textarea {
+  line-height: inherit;
+}
+
 /* Goudy font utility
    - If you have the Goudy Old Style font files, place them in `public/fonts/` and add an @font-face here.
    - For now this provides a named fallback that uses system serif fonts when Goudy isn't available.

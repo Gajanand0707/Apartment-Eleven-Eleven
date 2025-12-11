@@ -130,7 +130,7 @@ export default function OurBlogs() {
             <TabNavigation tabs={TABS} />
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-8 py-12 mt-12 sm:mt-16">
+        <div className="max-w-7xl mx-auto px-8 md:py-4 mt-8">
           <BlogsList blogs={blogs} />
         </div>
       </main>

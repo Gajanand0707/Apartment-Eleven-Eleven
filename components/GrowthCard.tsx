@@ -96,7 +96,7 @@ export default function Technology({ data }: { data?: any[] }) {
         }
       `}</style>
 
-      <div ref={sectionRef} className="bg-[#D5C7B3]  px-4">
+      <div ref={sectionRef} className="bg-[#D5C7B3]  px-4 md:-mt-16">
         {/* Section Title */}
         <div className="text-center ">
           <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] -mt-4 ">
@@ -107,7 +107,7 @@ export default function Technology({ data }: { data?: any[] }) {
         </div>
 
         {/* Carousel */}
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full flex items-center md:-mt-8 justify-center">
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"

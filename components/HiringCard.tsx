@@ -90,10 +90,10 @@ export default function Technology({ data }: { data?: any[] }) {
         }
       `}</style>
 
-      <div ref={sectionRef} className="bg-[#D5C7B3]  px-4">
+      <div ref={sectionRef} className="bg-[#D5C7B3]  px-4 md:-mt-16">
         {/* Section Title */}
-        <div className="text-center ">
-          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency'] text-[#111] -mt-4 ">
+        <div className="text-center  ">
+          <h2 className="text-4xl md:text-7xl font-bold font-['OPTIGoudy_Agency']  text-[#111]  ">
             Hiring
           </h2>
           {/* <div className="w-1/2 sm:w-[420px] h-0.5 bg-[#111] mx-auto" /> */}
@@ -101,7 +101,7 @@ export default function Technology({ data }: { data?: any[] }) {
         </div>
 
         {/* Carousel */}
-        <div className="relative w-full flex items-center justify-center">
+        <div className="relative w-full flex items-center md:-mt-4 py-4 justify-center">
           <button
             onClick={() => scroll("left")}
             aria-label="Scroll left"
@@ -110,9 +110,9 @@ export default function Technology({ data }: { data?: any[] }) {
             <FaChevronLeft size={24} />
           </button>
 
-          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 md:-mt-4 py-8 ">
+          <div className="w-full max-w-7xl px-2 sm:px-6 md:px-12 md:-mt-4  ">
             {/* Composition container */}
-            <div className="flex items-center justify-center relative py-2 sm:py-4 md:py-0 md:h-[700px]">
+            <div className="flex items-center justify-center relative py-4 md:py-0 md:h-[700px]">
               {visibleCards.length >= 3 ? (
                 <>
                   {/* Left Card */}

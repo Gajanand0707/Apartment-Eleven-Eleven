@@ -57,7 +57,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
   }
 
   return (
-    <section className="mb-8 md:mb-12">
+    <section className="pb-8">
       <h2 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold mb-8 mt-8">{title}</h2>
         {/* <div className="border border-b-2 w-[319px] mb-10 -mt-6"/> */}
       {renderLayout()}

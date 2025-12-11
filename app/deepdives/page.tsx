@@ -82,7 +82,7 @@ export default function DeepDives() {
 
 
             
-            <div className="mt-28">
+            <div className="mt-18">
             <DeepDiveScroll
                 direction="right"
                 items={blogs.map(blog => ({

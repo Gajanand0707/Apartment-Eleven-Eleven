@@ -98,7 +98,7 @@ export default function Library() {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {loading ? (
           <div className="text-center py-8 md:py-12 text-base md:text-lg">Loading...</div>
         ) : (

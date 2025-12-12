@@ -18,6 +18,7 @@ interface SpiralAnimationProps {
   orientation?: "cw" | "ccw" // clockwise vs counterclockwise spiral shape
   showSquares?: boolean // draw golden rectangle squares
   squaresStroke?: string // stroke color for squares
+  opacity:number;
 }
 
 export function SpiralAnimation({
@@ -97,7 +98,8 @@ export function SpiralAnimation({
 
       // Place at the starting point on the path (inner center) and scale small
       gsap.set(el, {
-        scale: 0.1,
+        scale: 0,
+        
         xPercent: -50,
         yPercent: -50,
         transformOrigin: "50% 50%",
@@ -126,6 +128,7 @@ export function SpiralAnimation({
           autoRotate: false,
         },
         scale: 1,
+         opacity:1,
       })
 
       tweensRef.current.push(tween)
@@ -153,11 +156,11 @@ export function SpiralAnimation({
   return (
     <div className="relative w-full flex justify-center items-center bg-[#D8CCBA] py-10 z-10">
       <style>{`
-        @keyframes imageAppear {
-          0% { opacity: 0; }
-          2% { opacity: 1; }
-          100% { opacity: 1; }
-        }
+        // @keyframes imageAppear {
+        //   0% { opacity: 0; }
+        //   1% { opacity: 1; }
+        //   100% { opacity: 1; }
+        // }
 
         .spiral-container {
           position: relative;
@@ -210,7 +213,10 @@ export function SpiralAnimation({
         .spiral-image {
           width: 45px;
           height: 45px;}
+.spiral-container {
 
+          margin-left: 0rem;
+        }
           }
       `}</style>
 

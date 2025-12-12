@@ -29,10 +29,10 @@ export default function InsideHero() {
         pin: true,
       }
     })
-    .to(ldoorRef.current, { x: "-100%", ease: "none" }, 0)
-    .to(rdoorRef.current, { x: "100%", ease: "none" }, 0)
-    .to(h1Ref.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
-    .to(pRef.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.3)
+      .to(ldoorRef.current, { x: "-100%", ease: "none" }, 0)
+      .to(rdoorRef.current, { x: "100%", ease: "none" }, 0)
+      .to(h1Ref.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
+      .to(pRef.current, { y: 0, opacity: 1, ease: "power2.out" }, 0.3)
 
     const handleResize = () => {
       ScrollTrigger.refresh()
@@ -150,11 +150,14 @@ export default function InsideHero() {
           width: 100%;
           object-fit: cover;
           -webkit-object-fit: cover;
-          object-position: center;
+          object-position: top right;
           -webkit-object-position: center;
           transform: translate3d(0,0,0);
           -webkit-transform: translate3d(0,0,0);
         }
+          .door.rdoor img{
+            object-position: top left;
+          }
           .pill img{
           height: 100%;
           width: 100%;
@@ -251,7 +254,7 @@ export default function InsideHero() {
         <div className="pill pillar-1">
           <Image src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" fill />
         </div>
-        
+
 
         <div className="hero-text">
           <div><h1 ref={h1Ref} className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl">Our Philosophy</h1> <span className="backdrop"></span></div>
@@ -270,9 +273,9 @@ export default function InsideHero() {
         <div className="door rdoor" ref={rdoorRef}>
           <Image src="/rdoor.jpeg" alt="right door" fill />
         </div>
-            <div className='fade-blur'></div>
+        <div className='fade-blur'></div>
       </section>
-    
+
     </>
   )
 }

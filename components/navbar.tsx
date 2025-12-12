@@ -6,6 +6,7 @@ import Image from "next/image";
 import logo from "../public/logo.png";
 import headerLogo from "../public/headerLogo.png";
 import navLogo from "../public/navLogo.png";
+import Link from "next/link";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -91,7 +92,7 @@ export function Navbar() {
 
           {/* Logo - Centered on mobile, left on desktop */}
           <div className="flex-1 flex justify-center md:justify-start bg-white">
-            <a href="/" className="flex items-center bg-white">
+            <Link href="/" className="flex items-center bg-white">
               <Image
                 src={headerLogo}
                 alt="Logo"
@@ -100,7 +101,7 @@ export function Navbar() {
                 className="object-contain w-[180px] md:w-[250px] bg-white"
                 priority
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Nav - Right side */}

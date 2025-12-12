@@ -10,7 +10,6 @@ export default function HeroSection() {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
-    // Initial set
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
 
     let timeoutId: any;
@@ -29,135 +28,145 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (dimensions.height === 0) return;
+    if (!dimensions.height) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
-    const sceneHeights = dimensions.height;
-    const hold = sceneHeights * 0.5;
+      const sceneHeight = dimensions.height;
+      const hold = sceneHeight * 0.5;
 
-    gsap.set(".scene-2, .scene-3, .scene-4", { opacity: 0 });
+      // Hide all scenes except Scene 1 initially
+      gsap.set(".scene-2, .scene-3, .scene-3-5, .scene-4", { opacity: 0 });
 
-    const totalScroll = sceneHeights * 4 + hold * 2;
+      // Total scroll duration for pinning hero
+      const totalScroll = sceneHeight * 6 + hold * 2 + sceneHeight * 0.5;
+      const start = (i: number) => sceneHeight * i + hold * i;
 
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: "top top",
-      end: "+=" + totalScroll,
-      pin: true,
-      scrub: 0.2
-    });
-
-    function start(i: number) {
-      return sceneHeights * i + hold * i;
-    }
-
-    // Scene 1 animation
-    gsap.timeline({
-      scrollTrigger: {
+      // Pin the hero section
+      ScrollTrigger.create({
         trigger: heroRef.current,
-        start: () => start(0),
-        end: () => start(0) + sceneHeights,
+        start: "top top",
+        end: "+=" + totalScroll,
+        pin: true,
         scrub: 0.2
-      }
-    })
-    .to(".scene-1 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-1 .pillar-1", { x: "-200%", opacity: 0 }, "<")
-    .to(".scene-1 .pillar-2", { x: "200%", opacity: 0 }, "<");
+      });
 
-    // Scene 2 animation
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: () => start(1),
-        end: () => start(1) + sceneHeights * 0.5,
-        scrub: 0.2
-      }
-    })
-    .set(".scene-2", { opacity: 1 })
-    .from(".scene-2 .pillar-1", { y: "-100%", opacity: 0 })
-    .from(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<")
-    .from(".scene-2 .still-image", { opacity: 0 }, "<")
-    .to(".hero-bg", { scale: 2, x: "50%", y: "-50%" }, "<")
-    .from(".scene-2 .hero-text", { opacity: 0, y: 50 }, "<");
+      /* -------------------------
+         SCENE 1
+      -------------------------- */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(0),
+          end: () => start(0) + sceneHeight,
+          scrub: 0.2
+        }
+      })
+        .to(".scene-1 .hero-text", { opacity: 0, y: -50 })
+        .to(".scene-1 .pillar-1", { x: "-200%", opacity: 0 }, "<")
+        .to(".scene-1 .pillar-2", { x: "200%", opacity: 0 }, "<");
 
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: () => start(1) + sceneHeights * 0.5,
-      end: () => start(1) + sceneHeights * 0.5 + hold,
-      scrub: 0.2
-    });
+      /* -------------------------
+         SCENE 2
+      -------------------------- */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(1),
+          end: () => start(1) + sceneHeight * 0.5,
+          scrub: 0.2
+        }
+      })
+        .set(".scene-2", { opacity: 1 })
+        .from(".scene-2 .pillar-1", { y: "-100%", opacity: 0 })
+        .from(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<")
+        .from(".scene-2 .still-image", { opacity: 0 }, "<")
+        .to(".hero-bg", { scale: 2, x: "50%", y: "-50%" }, "<")
+        .from(".scene-2 .hero-text", { opacity: 0, y: 50 }, "<");
 
-    // Scene 2 exit
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: () => start(1) + sceneHeights * 0.5 + hold,
-        end: () => start(2),
-        scrub: 0.2
-      }
-    })
-    .to(".scene-2 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-2 .pillar-1", { y: "-100%", opacity: 0 }, "<")
-    .to(".scene-2 .still-image", { opacity: 0 }, "<")
-    .to(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<");
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(1) + sceneHeight * 0.5 + hold,
+          end: () => start(2),
+          scrub: 0.2
+        }
+      })
+        .to(".scene-2 .hero-text", { opacity: 0, y: -50 })
+        .to(".scene-2 .pillar-1", { y: "-100%", opacity: 0 }, "<")
+        .to(".scene-2 .still-image", { opacity: 0 }, "<")
+        .to(".scene-2 .pillar-2", { y: "100%", opacity: 0 }, "<");
 
-    // Scene 3 animation
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: () => start(2),
-        end: () => start(2) + sceneHeights * 0.5,
-        scrub: 0.2
-      }
-    })
-    .set(".scene-3", { opacity: 1 })
-    .from(".scene-3 .pillar-1", { y: "-100%", opacity: 0 })
-    .from(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<")
-    .to(".hero-bg", { scale: 2, x: "-50%", y: "50%" }, "<")
-    .from(".scene-3 .hero-text", { opacity: 0, y: 50 }, "<");
+      /* -------------------------
+         SCENE 3
+      -------------------------- */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(2),
+          end: () => start(2) + sceneHeight * 0.5,
+          scrub: 0.2
+        }
+      })
+        .set(".scene-3", { opacity: 1 })
+        .from(".scene-3 .pillar-1", { y: "-100%", opacity: 0 })
+        .from(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<")
+        .to(".hero-bg", { scale: 2, x: "-50%", y: "50%" }, "<")
+        .from(".scene-3 .hero-text", { opacity: 0, y: 50 }, "<");
 
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: () => start(2) + sceneHeights * 0.5,
-      end: () => start(2) + sceneHeights * 0.5 + hold,
-      scrub: 0.2
-    });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(2) + sceneHeight * 0.5 + hold,
+          end: () => start(3),
+          scrub: 0.2
+        }
+      })
+        .to(".scene-3 .hero-text", { opacity: 0, y: -50 })
+        .to(".scene-3 .pillar-1", { y: "-100%", opacity: 0 }, "<")
+        .to(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<");
 
-    // Scene 3 exit
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: () => start(2) + sceneHeights * 0.5 + hold,
-        end: () => start(3),
-        scrub: 0.2
-      }
-    })
-    .to(".scene-3 .hero-text", { opacity: 0, y: -50 })
-    .to(".scene-3 .pillar-1", { y: "-100%", opacity: 0 }, "<")
-    .to(".scene-3 .pillar-2", { y: "100%", opacity: 0 }, "<");
+      /* -------------------------
+         SCENE 3.5
+      -------------------------- */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(3),
+          end: () => start(3) + sceneHeight * 0.6,
+          scrub: 0.2
+        }
+      })
+        .set(".scene-3-5", { opacity: 1 })
+        .to(".hero-bg", { scale: 1, x: "0", y: "0" }, "<")
+        .from(".scene-3-5 .hero-text", { opacity: 0, y: 80 });
 
-    // Scene 4 animation (no fade: show instantly)
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: () => start(3),
-        end: () => start(3) + sceneHeights * 0.7,
-        scrub: 0.2
-      }
-    })
-    .set(".scene-4", { opacity: 1 })
-    .to(".hero-bg", { scale: 1, x: "0%", y: "0%" }, "<")
-    .from(".scene-4 .hero-text", { opacity: 0, y: 60 });
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(3) + sceneHeight * 0.5 + hold,
+          end: () => start(4) + sceneHeight * 0.6,
+          scrub: 0.2
+        }
+      })
+        .to(".scene-3-5", { opacity: 0, y: -50 });
 
-    // show fade-blur only during scene-4 (no animation on the blur itself)
-    ScrollTrigger.create({
-      trigger: heroRef.current,
-      start: () => start(3),
-      end: () => start(3) + sceneHeights * 2,
-      toggleClass: { targets: ".fade-blur", className: "visible" }
-    });
+      /* -------------------------
+         SCENE 4 (Last Scene)
+      -------------------------- */
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: () => start(4) + sceneHeight * 0.6, // after scene 3.5
+          end: () => start(5), // make sure hero has enough scroll
+          scrub: 0.3,
+          pin: false
+        }
+      })
+        .set(".scene-4", { opacity: 1, zIndex: 10 })
+        .from(".scene-4 .hero-text", { opacity: 0, y: 60 })
+        .to(".scene-4 .hero-text", { opacity: 1, y: 0 });
 
     }, heroRef);
 
@@ -169,16 +178,18 @@ export default function HeroSection() {
       <div className="hero-bg">
         <img src="/e7e9dada1e085ecdf4a962f604b80da4e169ba72.png" alt="background" />
       </div>
-      
+
       <div className="scene-1">
         <div className="pill pillar-1">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
+
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
-          <span className=''>Apartment Eleven Eleven</span>
+          <span>Apartment Eleven Eleven</span>
           <span className="backdrop"></span>
         </div>
+
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
@@ -188,13 +199,16 @@ export default function HeroSection() {
         <div className="pill pillar-1">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
+
         <div className="still-image">
           <img src="/d7dc12bd8ab008d09cce1d49b3b0bcd00b90c596.png" alt="still" />
         </div>
+
         <div className="hero-text font-['OPTIGoudy_Agency']">
-          <span>Art Shaped by Structure and </span>
-          <span className=''>A vision built with exacting Precision</span>
+          <span>Art Shaped by Structure and</span>
+          <span>A vision built with exacting Precision</span>
         </div>
+
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
@@ -204,25 +218,36 @@ export default function HeroSection() {
         <div className="pill pillar-1">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
         </div>
-        <div className="hero-text font-['OPTIGoudy_Agency']">
+
+        <div className="hero-text  font-['OPTIGoudy_Agency']">
           <span>Deliberate,</span>
-          <span className=''>Purposeful Execution</span>
+          <span>Purposeful Execution</span>
         </div>
+
         <div className="pill pillar-2">
           <img src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" />
+        </div>
+      </div>
+
+      {/* ⭐ NEW SCENE 3.5 ⭐ */}
+      <div className="scene-3-5">
+        <div className="hero-text text-new font-['OPTIGoudy_Agency']">
+          <span>Deliberate,</span>
+          <span>Purposeful Execution</span>
         </div>
       </div>
 
       <div className="scene-4">
         <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
-          <span>Apartment Eleven Eleven</span> 
+          <span>Apartment Eleven Eleven</span>
         </div>
       </div>
 
-      <div className='fade-blur'></div>
+      <div className="fade-blur"></div>
 
       <style jsx>{`
+        
         .hero :global(img) {
           height: 100%;
           width: 100%;
@@ -461,6 +486,12 @@ export default function HeroSection() {
 				width: 50%;
 				text-align: center;
 			}
+        .text-new span{
+        font-size:35px;
+                line-height: 130%;
+        width: 100%;
+        display: block;
+        }
         .still-image{
         display: none;
         }
@@ -532,10 +563,33 @@ export default function HeroSection() {
         .hero .scene-3 .pillar-2 {
           transform: translate(0rem,33rem);
         }
+          .hero.jsx-6471a9fc64a17056 .scene-1.jsx-6471a9fc64a17056 .hero-text.jsx-6471a9fc64a17056, .hero.jsx-6471a9fc64a17056 .scene-2.jsx-6471a9fc64a17056 .hero-text.jsx-6471a9fc64a17056, .hero.jsx-6471a9fc64a17056 .scene-3.jsx-6471a9fc64a17056 .hero-text.jsx-6471a9fc64a17056, .hero.jsx-6471a9fc64a17056 .scene-4.jsx-6471a9fc64a17056 .hero-text.jsx-6471a9fc64a17056{
+          width:100%;
+          }
 		}
 
+        .hero .scene-3-5 {
+          position: absolute;
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          padding-bottom: 4rem;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .hero .scene-3-5 .hero-text {
+          font-size: 4rem;
+          color: #fff;
+          text-align: center;
+          line-height: 1;
+          text-shadow: 0px 0px 10px rgba(0,0,0,1), 0px 0px 30px rgba(0,0,0,1);
+          will-change: opacity, transform;
+        }
+
       `}</style>
-      
     </section>
   );
 }

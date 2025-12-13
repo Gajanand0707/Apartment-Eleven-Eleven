@@ -6,72 +6,81 @@ import logo from "../public/logo.png";
 
 export function Footer() {
   return (
+
+
     <footer className="bg-[#24211F] text-gray-300">
-      <div className="mx-auto max-w-[850px] px-6 sm:px-8 lg:px-12 py-4 sm:py-6">
+
+      {/* mobile footer */}
+
+
+      <div className="mx-auto max-w-[850px] px-6 sm:px-8 lg:px-12 py-4 sm:py-6 items-center">
         {/* Top Links */}
-       <nav
-  aria-label="Footer"
-  className="grid grid-cols-2 md:grid-cols-3 gap-1 sm:gap-2 md:gap-4 max-w-5xl mx-auto text-center place-items-center"
->
+        <div className="md:hidden block flex flex-row items-center justify-center w-full gap-6 px-6 mx-auto">
+          <div className="flex flex-col space-y-2 font-['Goudy_Bookletter_1911'] text-center text-nowrap">
+            <Link href="/" className="block text-xl md:text-2xl text-white">
+              Home
+            </Link>
+            <Link href="/library" className="block text-xl md:text-2xl text-white">
+              Library
+            </Link>
+            <Link href="/residents" className="block text-xl md:text-2xl text-white">
+              Our Residents
+            </Link>
+          </div>
+          <div className="flex flex-col space-y-2 font-['Goudy_Bookletter_1911'] text-center text-nowrap">
+            <Link href="/elevators" className="block text-xl md:text-2xl text-white">
+              FAQ's
+            </Link>
+            <Link href="/inside" className="block text-xl md:text-2xl text-white">
+              inside Our Doors
+            </Link>
+            <Link href="/elevators" className="block text-xl md:text-2xl text-white">
+              Elevators Waiting
+            </Link>
+          </div>
+        </div>
 
-  {/* Column 1 */}
-  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
-    <Link href="/" className="block text-xl md:text-2xl hover:text-white">
-      Home
-    </Link>
+        <nav
+          aria-label="Footer"
+          className="hidden md:grid md:grid-cols-3 gap-4 max-w-5xl mx-auto text-center place-items-center"
+        >
 
-    <Link href="/residents" className="block text-xl md:text-2xl hover:text-white">
-      Our Residents
-    </Link>
+          {/* Column 1 */}
+          <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+            <Link href="/" className="block text-xl md:text-2xl text-white">
+              Home
+            </Link>
 
-    {/* Mobile only */}
-    <Link href="/library" className="block text-xl md:text-2xl hover:text-white md:hidden">
-      Library
-    </Link>
+            <Link href="/residents" className="block text-xl md:text-2xl text-white">
+              Our Residents
+            </Link>
+          </div>
 
-    {/* Desktop only (empty for mobile, prevents layout shift) */}
-    <div className="hidden md:block h-0"></div>
-  </div>
+          {/* Column 2 */}
+          <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+           <Link href="/library" className="block text-xl md:text-2xl  text-white">
+              Library
+            </Link>
 
-  {/* Column 2 */}
-  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
+            <Link href="/inside" className="block text-xl md:text-2xl  text-white">
+              Inside Our Doors
+            </Link>
+          </div>
+          {/* Column 3 */}
+          <div className="space-y-2 font-['Goudy_Bookletter_1911']">
 
-    {/* Mobile only */}
-    <Link href="/elevators" className="block text-xl md:text-2xl hover:text-white md:hidden">
-      Elevator's Waiting
-    </Link>
+            {/* Desktop only */}
+            <Link href="/elevators" className="hidden md:block text-xl md:text-2xl  text-white">
+              FAQ's
+            </Link>
 
-    {/* Desktop + Mobile */}
-    <Link href="/library" className="block text-xl md:text-2xl hover:text-white">
-      Library
-    </Link>
+            {/* Desktop only */}
+            <Link href="/elevators" className="hidden md:block text-xl md:text-2xl  text-white">
+              Elevator's Waiting
+            </Link>
+          </div>
 
-    <Link href="/inside" className="block text-xl md:text-2xl hover:text-white">
-      Inside Our Doors
-    </Link>
-     <div className="md:hidden h-0"></div>
-    
-  </div>
-
-  {/* Column 3 */}
-  <div className="space-y-2 font-['Goudy_Bookletter_1911']">
-
-    {/* Desktop only */}
-    <Link href="/faq" className="hidden md:block text-xl md:text-2xl hover:text-white">
-      FAQ's
-    </Link>
-
-    {/* Desktop only */}
-    <Link href="/elevators" className="hidden md:block text-xl md:text-2xl hover:text-white">
-      Elevator's Waiting
-    </Link>
-
-    {/* Mobile empty placeholders to keep grid height equal */}
-    <div className="md:hidden h-0"></div>
-    <div className="md:hidden h-0"></div>
-  </div>
-
-</nav>
+        </nav>
 
         {/* Social Icons */}
         <hr className="border-white my-2 sm:my-3 mx-auto w-[323px] md:hidden" />
@@ -123,7 +132,7 @@ export function Footer() {
             </a>
           </p>
           <p className="text-[#BFBFBF] text-sm md:text-2xl mt-0.5 sm:mt-1 font-['Goudy_Bookletter_1911']">Made with intention and purpose</p>
-          
+
           {/* Policies */}
           <div className="flex flex-wrap justify-center text-[#BFBFBF] gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-sm md:text-2xl mt-0.5 font-['Goudy_Bookletter_1911']">
             <Link href="/terms" className="hover:text-white underline">
@@ -133,7 +142,7 @@ export function Footer() {
               Privacy Policy |
             </Link>
             <Link href="/cookies" className="hover:text-white underline">
-              Cookies Policy 
+              Cookies Policy
             </Link>
           </div>
           <p className="text-[#BFBFBF] text-sm md:text-2xl mt-0.5 sm:mt-1 font-['Goudy_Bookletter_1911']">

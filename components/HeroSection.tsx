@@ -6,6 +6,19 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function HeroSection() {
+  useEffect(() => {
+    const setVH = () => {
+      document.documentElement.style.setProperty(
+        '--vh',
+        `${window.innerHeight * 0.01}px`
+      );
+    };
+
+    setVH();
+    window.addEventListener('resize', setVH);
+    return () => window.removeEventListener('resize', setVH);
+  }, []);
+
   const heroRef = useRef<HTMLElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -29,7 +42,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     if (!dimensions.height) return;
-
+  
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -44,13 +57,13 @@ export default function HeroSection() {
       const start = (i: number) => sceneHeight * i + hold * i;
 
       // Pin the hero section
-      ScrollTrigger.create({
-        trigger: heroRef.current,
-        start: "top top",
-        end: "+=" + totalScroll,
-        pin: true,
-        scrub: 0.2
-      });
+     ScrollTrigger.create({
+  trigger: heroRef.current,
+  start: "top top",
+  end: "+=" + totalScroll,
+  pin: true,
+  scrub: 0.2,
+});
 
       /* -------------------------
          SCENE 1
@@ -173,6 +186,7 @@ export default function HeroSection() {
     return () => ctx.revert();
   }, [dimensions]);
 
+
   return (
     <section className="hero" ref={heroRef}>
       <div className="hero-bg">
@@ -263,7 +277,7 @@ export default function HeroSection() {
         .hero {
           position: relative;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
         }
           .hero-text{
           line-height: 1;
@@ -272,7 +286,7 @@ export default function HeroSection() {
         .hero .hero-bg {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           z-index: -1;
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
@@ -283,7 +297,7 @@ export default function HeroSection() {
         .hero .scene-1 {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -347,7 +361,7 @@ export default function HeroSection() {
         .hero .scene-2 {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           display: flex;
           align-items: center;
           justify-content: flex-start;
@@ -399,7 +413,7 @@ export default function HeroSection() {
         .hero .scene-3 {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -444,7 +458,7 @@ export default function HeroSection() {
         .hero .scene-4 {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -482,8 +496,8 @@ export default function HeroSection() {
 			.hero .scene-2 .hero-text,
 			.hero .scene-3 .hero-text,
 			.hero .scene-4 .hero-text{
-				font-size: 2.5rem;
-				width: 50%;
+				font-size: 2rem;
+				width: 70%;
 				text-align: center;
 			}
         .text-new span{
@@ -497,26 +511,26 @@ export default function HeroSection() {
         }
         .hero .scene-1 .hero-text span:nth-child(2) {
         margin-top: 0.5rem;   
-        font-size: 3rem;
+        font-size: 2.2rem;
         }
 
       .hero .scene-1 .pillar-1 {
           transform: translateX(-90%);
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           width: 16rem;
         }
 
         .hero .scene-1 .pillar-2 {
           transform: translateX(90%);
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           width: 16rem;
         }
 		.hero .scene-2 .hero-text{
             position: absolute;
-            left: 5rem;
+            left: 3rem;
             top: 0;
             height: 100%;
-            width: 10rem;
+            width: 13rem;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -524,7 +538,7 @@ export default function HeroSection() {
 			font-size: 1.6rem;
 		}
 		.hero .scene-2 .pill{
-			height: 100vh;
+			height: calc(var(--vh) * 100);;
 		}
 		.hero .scene-2 .pillar-1 {
           transform: translate(0rem,-37rem);
@@ -554,7 +568,7 @@ export default function HeroSection() {
 			font-size: 1.5rem;
 		}
 		.hero .scene-3 .pill{
-			height: 100vh;
+			height: calc(var(--vh) * 100);;
 		}
       .hero .scene-3 .pillar-1 {
           transform: translate(0rem,-33rem);
@@ -571,7 +585,7 @@ export default function HeroSection() {
         .hero .scene-3-5 {
           position: absolute;
           width: 100%;
-          height: 100vh;
+          height: calc(var(--vh) * 100);;
           display: flex;
           align-items: flex-end;
           justify-content: center;

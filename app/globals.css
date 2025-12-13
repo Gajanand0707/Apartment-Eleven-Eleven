@@ -31,7 +31,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
-
+body {
+  -webkit-overflow-scrolling: touch;
+}
 /* Fix Safari flexbox alignment issues */
 html, body {
   -webkit-text-size-adjust: 100%;

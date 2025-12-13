@@ -238,7 +238,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
             <div className="flex flex-col text-center md:text-left max-w-[700px] order-2 lg:order-1">
-              <h2 className="font-bold text-4xl  lg:text-7xl  font-['OPTIGoudy_Agency']  text-nowrap text-black">
+              <h2 className="font-bold text-4xl  lg:text-7xl  font-['OPTIGoudy_Agency']  md:text-nowrap text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally

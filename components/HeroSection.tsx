@@ -42,7 +42,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     if (!dimensions.height) return;
-  
+
     gsap.registerPlugin(ScrollTrigger);
 
     const ctx = gsap.context(() => {
@@ -57,13 +57,13 @@ export default function HeroSection() {
       const start = (i: number) => sceneHeight * i + hold * i;
 
       // Pin the hero section
-     ScrollTrigger.create({
-  trigger: heroRef.current,
-  start: "top top",
-  end: "+=" + totalScroll,
-  pin: true,
-  scrub: 0.2,
-});
+      ScrollTrigger.create({
+        trigger: heroRef.current,
+        start: "top top",
+        end: "+=" + totalScroll,
+        pin: true,
+        scrub: 0.2,
+      });
 
       /* -------------------------
          SCENE 1

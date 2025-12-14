@@ -308,7 +308,10 @@ export default function HeroSection() {
           justify-content: center;
           overflow: hidden;
         }
-
+          .hero .scene-1{
+          z-index: 67;
+          }
+  
         .hero .scene-1 .hero-text {
           position: relative;
           display: flex;
@@ -356,6 +359,7 @@ export default function HeroSection() {
         .hero .scene-1 .pillar-1 {
           transform: translateX(-100%);
           will-change: transform, opacity;
+        
         }
 
         .hero .scene-1 .pillar-2 {
@@ -467,7 +471,6 @@ export default function HeroSection() {
         }
 
         .hero .fade-blur {
-          display: none;
           position: absolute;
           width: 100%;
           height: 5rem;

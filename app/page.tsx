@@ -25,6 +25,7 @@ import MediaMentions from "@/components/MediaMentions";
 import IdeasSection from "@/components/IdeasSection";
 import ScienceSection from "@/components/ScienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import LoadingScreen from "@/components/DotLoader";
 
 const ebg = EB_Garamond({
   subsets: ["latin"],

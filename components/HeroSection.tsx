@@ -274,7 +274,9 @@ export default function HeroSection() {
           -webkit-transform: translate3d(0, 0, 0);
           transform: translate3d(0, 0, 0);
         }
-
+.scene-3-5 {
+    padding-bottom: 100px !important;
+}
         .hero {
           position: relative;
           width: 100%;

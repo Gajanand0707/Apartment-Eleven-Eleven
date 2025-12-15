@@ -18,7 +18,7 @@ interface SpiralAnimationProps {
   orientation?: "cw" | "ccw" // clockwise vs counterclockwise spiral shape
   showSquares?: boolean // draw golden rectangle squares
   squaresStroke?: string // stroke color for squares
-  opacity:number;
+  opacity: number;
 }
 
 export function SpiralAnimation({
@@ -72,17 +72,13 @@ export function SpiralAnimation({
 
   const totalImages = Math.min(images.length, 10)
 
-  // Create/refresh GSAP tweens when size, images, or duration changes
   useLayoutEffect(() => {
     if (!mounted || !pathRef.current) return
 
-    // Kill previous tweens
     tweensRef.current.forEach((t) => t.kill())
     tweensRef.current = []
 
     const path = pathRef.current
-
-    // Set initial transform percent to center the element relative to its own size
     imageRefs.current.forEach((el) => {
       if (!el) return
       gsap.set(el, { xPercent: -50, yPercent: -50, transformOrigin: "50% 50%" })
@@ -96,10 +92,9 @@ export function SpiralAnimation({
       if (!el) continue
       const delay = (duration / totalImages) * index
 
-      // Place at the starting point on the path (inner center) and scale small
       gsap.set(el, {
         scale: 0,
-        
+
         xPercent: -50,
         yPercent: -50,
         transformOrigin: "50% 50%",
@@ -113,7 +108,6 @@ export function SpiralAnimation({
         },
       })
 
-      // Animate from inner (1) to outer (0) while scaling up
       const tween = gsap.to(el, {
         duration,
         ease: "none",
@@ -128,7 +122,7 @@ export function SpiralAnimation({
           autoRotate: false,
         },
         scale: 1,
-         opacity:1,
+        opacity: 1,
       })
 
       tweensRef.current.push(tween)
@@ -147,7 +141,7 @@ export function SpiralAnimation({
 
   // Use the original SVG viewBox (user coordinate system) and keep
   // rendering responsive via CSS aspect-ratio (padding-top).
-  const originalW = 6800
+  const originalW = 6000
   const originalH = 3400
 
   // Unscaled golden spiral path (original coordinates)
@@ -165,7 +159,7 @@ export function SpiralAnimation({
         .spiral-container {
           position: relative;
           width: 100%;
-          margin-left: 2rem;
+          margin-left: 5rem;
           height: 0;
           padding-top: ${(originalH / originalW) * 100}%;
         }
@@ -214,9 +208,15 @@ export function SpiralAnimation({
           width: 45px;
           height: 45px;}
 .spiral-container {
-
-          margin-left: 0rem;
+          margin-left: 2rem;
+           margin-right: 2rem;
+           left:-30px;
         }
+           .spiral-imagex{
+           width:110%;
+           margin:0 auto;
+           left:-44px !important;
+           }
           }
       `}</style>
 
@@ -224,57 +224,54 @@ export function SpiralAnimation({
         <div className="spiral-container">
           <div className="pseudo-box"></div>
           <svg
-            className="absolute top-0 left-0 w-full h-full"
+            className="absolute top-0 opacity-0 left-0 w-full h-full"
             viewBox={`0 0 ${originalW} ${originalH}`}
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Background grid pattern - scaled to match container */}
             <g opacity="0.55">
-              <polyline 
+              <polyline
                 points="3400,0 3400,3400 "
                 fill="none"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="3400" y1="2100" x2="5500" y2="2100"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="4200" y1="2100" x2="4200" y2="3400"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <polyline 
+              <polyline
                 points="4200,2600 3900,2600 3400,2600"
                 fill="none"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="3900" y1="2600" x2="3900" y2="2100"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="3900" y1="2400" x2="4200" y2="2400"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="4000" y1="2400" x2="4000" y2="2600"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
-              <line 
+              <line
                 x1="4000" y1="2500" x2="3900" y2="2500"
                 stroke={squaresStroke}
                 strokeWidth={"3px"}
               />
             </g>
-            
-            {/* Spiral path */}
             <path
               ref={pathRef}
               d={pathD}
@@ -285,7 +282,11 @@ export function SpiralAnimation({
               strokeLinejoin="round"
             />
           </svg>
-
+          <img src="/SpiralAnimation.svg" className="spiral-imagex" alt="" style={{
+            top: "-13px",
+            position: "absolute",
+            left: "-70px",
+            maxWidth: "109%"}} />
           {images.slice(0, totalImages).map((image, index) => {
             const delay = (index / totalImages) * duration
             return (

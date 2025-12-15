@@ -123,7 +123,8 @@ export default function HeroSection() {
     });
     tl35In
       .set('.scene-3-5', { opacity: 1 })
-      .to('.hero-bg', { scale: 1, x: '0', y: '0' }, '<')
+      .to('.hero-bg', { scale: 1, x: '0%', y: '0%', }, '<')
+      .to('.hero-bg img', { objectPosition: "50% 100%" }, '<')
       .from('.scene-3-5 .hero-text', { opacity: 0, y: 80 });
 
     const tl35Out = gsap.timeline({
@@ -141,7 +142,7 @@ export default function HeroSection() {
       scrollTrigger: {
         trigger: hero,
         start: () => start(4) + sceneHeight * 0.6,
-        end: () => start(5),
+        end: () => start(4),
         scrub: 0.3,
         pin: false,
       },
@@ -149,7 +150,8 @@ export default function HeroSection() {
     tl4
       .set('.scene-4', { opacity: 1, zIndex: 10 })
       .from('.scene-4 .hero-text', { opacity: 0, y: 60 })
-      .to('.scene-4 .hero-text', { opacity: 1, y: 0 });
+      .to('.scene-4 .hero-text', { opacity: 1, y: 0 })
+      .to('.hero-bg img', { objectPosition: "0 0" }, '<');
 
     ScrollTrigger.refresh();
 
@@ -296,7 +298,9 @@ export default function HeroSection() {
           transform: translate3d(0, 0, 0);
           will-change: transform;
         }
-
+          .hero .hero-bg img{
+          transition: 0.3s all;
+          }
         .hero .scene-1,
         .hero .scene-2,
         .hero .scene-3,
@@ -375,8 +379,8 @@ export default function HeroSection() {
 
         .hero .scene-2 .hero-text {
           position: absolute;
-          left: 10rem;
-          width: 20rem;
+          left: 5rem;
+          width: 30rem;
           height: 100%;
           top: 0;
           display: flex;
@@ -431,7 +435,7 @@ export default function HeroSection() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          font-size: 4rem;
+          font-size: 3rem;
           justify-content: center;
           color: #fff;
           text-shadow: 0px 0px 10px rgba(0, 0, 0, 1),

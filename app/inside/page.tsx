@@ -48,7 +48,7 @@ export default function InsidePage() {
 
       <section className="w-full">
         {/* Row 1 — text left, image right (side-by-side on ALL breakpoints) */}
-        <div className="w-full bg-[#E5E5E7] text-black md:h-[460px] h-full ">
+        <div className="w-full  bg-[#D5C7B3] text-black md:h-[460px] h-full ">
           <div
             className="
               mx-auto 

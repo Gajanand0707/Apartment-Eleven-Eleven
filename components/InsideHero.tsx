@@ -15,9 +15,9 @@ export default function InsideHero() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    gsap.set([ldoorRef.current, rdoorRef.current], { 
+    gsap.set([ldoorRef.current, rdoorRef.current], {
       x: 0,
-      width: "50vw", 
+      width: "50vw",
       force3D: true,
       willChange: "transform"
     })
@@ -30,9 +30,9 @@ export default function InsideHero() {
         end: "+=100%",
         scrub: 1,
         pin: true,
-        anticipatePin: 1, 
+        anticipatePin: 1,
         invalidateOnRefresh: true,
-        refreshPriority: -1 
+        refreshPriority: -1
       }
     })
       .to(ldoorRef.current, { x: "-100%", ease: "none" }, 0)
@@ -221,15 +221,16 @@ export default function InsideHero() {
         .fade-blur {
           position: absolute;
           width: 100%;
-          height: 5rem;
-          background: linear-gradient(0deg, rgba(218, 207, 190, 1) 0%, rgba(218, 207, 190, 0) 100%);
-          bottom: -0.2rem;
+          height: 3rem;
+          background: linear-gradient(0deg, rgba(180, 151, 104, 1) 0%, rgba(218, 207, 190, 0) 100%);
+          bottom: 0rem;
           pointer-events: none;
-          z-index: 50;
+          z-index: 1000;
         }
+        
       `}</style>
 
-      <section className="indoor-hero" ref={heroRef}>
+      <section className="indoor-hero h-screen" ref={heroRef}>
         <div className="indoor-bg">
           <Image src="/indoor-bg.jpeg" alt="background" fill priority sizes="100vw" />
         </div>
@@ -238,9 +239,9 @@ export default function InsideHero() {
           <Image src="/20aa144fd8a939a36caf482d74380a424105dbb2.png" alt="pillar" fill sizes="200px" />
         </div>
 
-        <div className="hero-text">
+        <div className="hero-text ">
           <div>
-            <h1 ref={h1Ref} className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl">Our Philosophy</h1> 
+            <h1 ref={h1Ref} className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl">Our Philosophy</h1>
             <span className="backdrop"></span>
           </div>
           <p ref={pRef} className="font-['Goudy_Old_Style'] text-2xl md:text-4xl">
@@ -253,10 +254,10 @@ export default function InsideHero() {
         </div>
 
         <div className="door ldoor" ref={ldoorRef}>
-          <Image src="/ldoor.jpeg" alt="left door" fill sizes="50vw" />
+          <Image src="/InsideOurDoorsLeftDoor.webp" priority alt="left door" fill sizes="50vw" />
         </div>
         <div className="door rdoor" ref={rdoorRef}>
-          <Image src="/rdoor.jpeg" alt="right door" fill sizes="50vw" />
+          <Image src="/InsideOurDoorsRightDoor.webp" priority alt="right door" fill sizes="50vw" />
         </div>
         <div className='fade-blur'></div>
       </section>

@@ -56,7 +56,7 @@ export default function DeepDives() {
     }
     return (
         <div className="bg-[#D5C7B3]">
-            <div className="relative w-full h-screen overflow-hidden">
+            <div className="relative w-full md:h-screen overflow-hidden h-[95vh]">
                 <img
                     src={deepdive.src}
                     alt="Deepdives"

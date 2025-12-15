@@ -39,7 +39,7 @@ export default function AutoScrollCarousel({
 
   return (
     <div
-      className={`relative w-full overflow-hidden bg-[#D5C7B3] py-8 select-none ${className ?? ""}`}
+      className={`relative w-full overflow-hidden bg-[#D5C7B3] py-8 flex select-none ${className ?? ""}`}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={() => setPaused(true)}
@@ -47,9 +47,9 @@ export default function AutoScrollCarousel({
     >
       <div
         ref={trackRef}
-        className="flex items-stretch"
+        className="flex items-stretch flex-none"
         style={{
-          gap: `${gap}px`,
+          // gap: `${gap}px`,
           // LONGHAND ONLY - no shorthand conflicts
           animationName: direction === "left" ? "marquee-left" : "marquee-right",
           animationDuration: `${duration}s`,
@@ -62,7 +62,7 @@ export default function AutoScrollCarousel({
         {loopItems.map((it, i) => (
           <article
             key={`${it.id}-${i}`}
-            className="bg-white rounded-[28px] border border-[#111] overflow-hidden shadow items-center"
+            className="bg-white rounded-[28px] mx-4 border border-[#111] overflow-hidden shadow items-center"
             style={{ width: `calc(100vw - 32px)`, flex: "0 0 auto", maxWidth: `${cardWidth}px` }}
           >
             <div className="relative w-full h-48 md:h-80">
@@ -77,10 +77,10 @@ export default function AutoScrollCarousel({
             </div>
           </article>
         ))}
-         {loopItems.map((it, i) => (
+        {loopItems.map((it, i) => (
           <article
             key={`${it.id}-${i}`}
-            className="bg-white rounded-[28px] border border-[#111] overflow-hidden shadow items-center"
+            className="bg-white rounded-[28px] border mx-4 border-[#111] overflow-hidden shadow items-center"
             style={{ width: `calc(100vw - 32px)`, flex: "0 0 auto", maxWidth: `${cardWidth}px` }}
           >
             <div className="relative w-full h-48 md:h-80">

@@ -111,7 +111,7 @@ export default function OurBlogs() {
       <main className="min-h-screen bg-[#D5C7B3]">
 
 
-  <div className="relative w-full h-screen overflow-hidden">
+  <div className="relative w-full md:h-screen overflow-hidden h-[95vh]">
           <img
            src={ourblogs.src} alt="Our Blogs" className="w-full h-full object-cover"
           />

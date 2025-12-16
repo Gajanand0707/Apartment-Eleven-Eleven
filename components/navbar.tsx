@@ -111,7 +111,7 @@ export function Navbar() {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className="text-black hover:text-gray-700 text-xl md:text-2xl font-['Goudy_Bookletter_1911'] transition-colors"
+                    className="text-black hover:text-gray-700 text-xl md:text-2xl font-['Goudy Bookletter 1911'] transition-colors"
                   >
                     {item.label}
                   </a>
@@ -158,7 +158,7 @@ export function Navbar() {
                   <a
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block text-2xl md:text-4xl bg-[#D6CBBB] font-['Goudy_Bookletter_1911'] text-black hover:text-gray-600 py-2 font-['Goudy_Bookletter_1911']"
+                    className="block text-2xl md:text-4xl bg-[#D6CBBB] font-['Goudy Bookletter 1911'] text-black hover:text-gray-600 py-2 font-['Goudy Bookletter 1911']"
                   >
                     {item.label}
                   </a>

@@ -30,7 +30,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#d0c0a5] text-[#0E4C45] mt-20">
       {/* Header */}
       <div className="bg-[#0E4C45] text-[#F5EDE0] py-4 text-center">
-        <h1 className="text-2xl md:text-4xl font-['Goudy_Old_Style'] leading-snug tracking-wide font-bold text-white">
+        <h1 className="text-2xl md:text-4xl font-['Goudy Old Style'] leading-snug tracking-wide font-bold text-white">
           We Are Looking For The Sun, Not Stars, <br /> Stars Fade Away When The Sun Is Out !
         </h1>
       </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
       >
         {/* Describe your Idea */}
       <div className="w-full flex flex-col items-center">
-  <label className="text-2xl md:text-4xl font-bold font-['Goudy_Old_Style'] block text-black mb-4 border-b-2 border-[#0E4C45] w-fit self-start sm:self-center md:self-start">
+  <label className="text-2xl md:text-4xl font-bold font-['Goudy Old Style'] block text-black mb-4 border-b-2 border-[#0E4C45] w-fit self-start sm:self-center md:self-start">
     Describe your Idea*
   </label>
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
         value={formData.idea}
         onChange={handleChange}
         placeholder="Write a Brief about your Idea..."
-        className="w-full h-full min-h-[300px] p-5 text-lg text-gray-700 outline-none resize-none bg-white placeholder-[#494949] font-['Goudy_Bookletter_1911'] block"
+        className="w-full h-full min-h-[300px] p-5 text-lg text-gray-700 outline-none resize-none bg-white placeholder-[#494949] font-['Goudy Bookletter 1911'] block"
         style={{
           marginBottom: "-1px", // removes the visual gap
           display: "block",
@@ -87,12 +87,12 @@ export default function ContactPage() {
         <button
           type="button"
           onClick={() => document.getElementById("fileInput")?.click()}
-          className="text-white bg-[#0E4C45] px-5 py-2 text-xl md:text-2xl font-['Goudy_Bookletter_1911'] font-semibold border border-white rounded hover:opacity-90 w-full sm:w-auto"
+          className="text-white bg-[#0E4C45] px-5 py-2 text-xl md:text-2xl font-['Goudy Bookletter 1911'] font-semibold border border-white rounded hover:opacity-90 w-full sm:w-auto"
         >
           Drag & Drop a File
         </button>
 
-        <p className="text-xl md:text-2xl mt-2 text-white font-['Goudy_Bookletter_1911'] text-center sm:text-left leading-tight">
+        <p className="text-xl md:text-2xl mt-2 text-white font-['Goudy Bookletter 1911'] text-center sm:text-left leading-tight">
           (Upload Relevant Material)
           <br />
           (PDF, JPG, JPEG, PPTX, PNG only)
@@ -101,7 +101,7 @@ export default function ContactPage() {
 
       {/* Right Side - Dropdown */}
       <div className="text-base w-full sm:w-auto">
-        <label htmlFor="sector" className="block text-xl md:text-2xl font-['Goudy_Bookletter_1911'] text-white mb-1">
+        <label htmlFor="sector" className="block text-xl md:text-2xl font-['Goudy Bookletter 1911'] text-white mb-1">
           Sector of Interest
         </label>
         <select
@@ -109,7 +109,7 @@ export default function ContactPage() {
           name="sector"
           value={formData.sector}
           onChange={handleChange}
-          className="bg-white text-gray-600 rounded-2xl px-4 py-2 text-xl md:text-2xl font-['Goudy_Bookletter_1911'] outline-none w-full sm:w-auto"
+          className="bg-white text-gray-600 rounded-2xl px-4 py-2 text-xl md:text-2xl font-['Goudy Bookletter 1911'] outline-none w-full sm:w-auto"
         >
           <option value="">Select your Sector</option>
           <option value="technology">Technology</option>
@@ -141,7 +141,7 @@ export default function ContactPage() {
               placeholder={input.placeholder}
               value={formData[input.name as keyof typeof formData]}
               onChange={handleChange}
-              className="w-full border-2 font-['Goudy_Bookletter_1911'] border-[#0E4C45] rounded-4xl p-5 text-xl md:text-2xl outline-none bg-white placeholder-[#494949]"
+              className="w-full border-2 font-['Goudy Bookletter 1911'] border-[#0E4C45] rounded-4xl p-5 text-xl md:text-2xl outline-none bg-white placeholder-[#494949]"
             />
           ))}
         </div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
           ].map((item) => (
             <div key={item.name} className="flex flex-col items-center">
               {/* Label Box */}
-              <div className="w-full border-2 border-[#0E4C45] rounded-4xl px-5 py-5 bg-white text-[#494949]  font-['Goudy_Bookletter_1911'] text-xl md:text-2xl">
+              <div className="w-full border-2 border-[#0E4C45] rounded-4xl px-5 py-5 bg-white text-[#494949]  font-['Goudy Bookletter 1911'] text-xl md:text-2xl">
                 {item.label}
               </div>
               {/* Gray Answer Box */}
@@ -164,7 +164,7 @@ export default function ContactPage() {
                 value={formData[item.name as keyof typeof formData]}
                 onChange={handleChange}
                 placeholder="Your Answer"
-                className="w-[90%] md:w-[90%] h-32 md:h-44 border-2 border-t-0 border-[#0E4C45] rounded-b-4xl font-['Goudy_Bookletter_1911'] bg-[#D9D9D9] p-5 text-xl md:text-2xl outline-none resize-none placeholder-[#494949]"
+                className="w-[90%] md:w-[90%] h-32 md:h-44 border-2 border-t-0 border-[#0E4C45] rounded-b-4xl font-['Goudy Bookletter 1911'] bg-[#D9D9D9] p-5 text-xl md:text-2xl outline-none resize-none placeholder-[#494949]"
               />
             </div>
           ))}
@@ -186,7 +186,7 @@ export default function ContactPage() {
         <div className="flex justify-center pt-4">
           <button
             type="submit"
-            className="bg-[#0E4C45] text-white text-2xl md:text-4xl font-['Goudy_Old_Style'] px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
+            className="bg-[#0E4C45] text-white text-2xl md:text-4xl font-['Goudy Old Style'] px-10 py-4 mb-14 rounded-full font-semibold hover:bg-[#093B34] transition"
             onClick={() => window.location.href = "/afterSubmit"}
           >
             Apply for Residency

@@ -69,11 +69,11 @@ export default function AutoScrollCarousel({
               <Image src={it.image} alt={it.title} fill className="object-cover" />
             </div>
             <div className="p-4">
-              <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-[Goudy_Old_Style] px-10 line-clamp-1">{it.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-['Goudy Old Style'] px-10 line-clamp-1">{it.title}</h3>
               {it.subtitle && (
-                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-[Goudy_Old_Style] line-clamp-2 mb-1">{it.subtitle}</p>
+                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-['Goudy Old Style'] line-clamp-2 mb-1">{it.subtitle}</p>
               )}
-              <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-[Goudy_Bookletter_1911] line-clamp-4">{it.description}</p>
+              <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-['Goudy Bookletter 1911'] line-clamp-4">{it.description}</p>
             </div>
           </article>
         ))}
@@ -87,11 +87,11 @@ export default function AutoScrollCarousel({
               <Image src={it.image} alt={it.title} fill className="object-cover" />
             </div>
             <div className="p-4">
-              <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-[Goudy_Old_Style] px-10 line-clamp-1">{it.title}</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-['Goudy Old Style'] px-10 line-clamp-1">{it.title}</h3>
               {it.subtitle && (
-                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-[Goudy_Old_Style] line-clamp-2 mb-1">{it.subtitle}</p>
+                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-['Goudy Old Style'] line-clamp-2 mb-1">{it.subtitle}</p>
               )}
-              <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-[Goudy_Bookletter_1911] line-clamp-4">{it.description}</p>
+              <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-['Goudy Bookletter 1911'] line-clamp-4">{it.description}</p>
             </div>
           </article>
         ))}

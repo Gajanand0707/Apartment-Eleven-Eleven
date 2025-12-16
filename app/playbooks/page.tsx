@@ -57,7 +57,7 @@ export default function Playbooks() {
                     className="w-full h-full object-cover "
                 />
                 <div className="absolute inset-0 flex items-center justify-center px-4 pb-20">
-                    <h1 className="text-white text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center">
+                    <h1 className="text-white text-4xl md:text-7xl font-['OPTIGoudy Agency'] font-bold text-center">
                         Playbooks
                     </h1>
                 </div>

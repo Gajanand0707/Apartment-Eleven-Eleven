@@ -69,13 +69,13 @@ export default function InsidePage() {
 
             {/* Right text */}
             <div className=" max-w-full md:pr-10 md:text-right">
-              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold  md:text-right text-center
+              <h2 className="font-['OPTIGoudy Agency'] font-extrabold  md:text-right text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">A Legacy</span>
                 <span className="block">of Creation</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+              <p className="mt-4 sm:mt-6 font-['Goudy Bookletter 1911'] 
                              text-xl md:text-3xl lg:text-4xl md:max-w-[785px] md:text-right text-center ">
                 We partner with founders who don’t just build companies, but create legacies.
                 For us, every investment is a chapter in a story that will be remembered.
@@ -98,13 +98,13 @@ export default function InsidePage() {
 
             {/* Left text */}
             <div className=" max-w-full md:pr-10 order-2 md:order-1 py-4 md:py-0">
-              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold  md:text-left text-center
+              <h2 className="font-['OPTIGoudy Agency'] font-extrabold  md:text-left text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">The Architecture</span>
                 <span className="block">of Belief</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+              <p className="mt-4 sm:mt-6 font-['Goudy Bookletter 1911'] 
                              text-xl md:text-3xl lg:text-4xl md:max-w-[683px] md:text-left text-center">
                 Great ventures are built on conviction. We invest in founders whose ideas rest
                 on foundations as strong as their purpose.
@@ -145,13 +145,13 @@ export default function InsidePage() {
 
             {/* Right text */}
             <div className=" max-w-full md:pr-10 py-4 md:py-0">
-              <h2 className="font-['OPTIGoudy_Agency'] font-extrabold md:leading-20 md:text-right text-center
+              <h2 className="font-['OPTIGoudy Agency'] font-extrabold md:leading-20 md:text-right text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">The Light</span>
                 <span className="block">Within</span>
               </h2>
 
-              <p className="mt-4 sm:mt-6 font-['Goudy_Bookletter_1911'] 
+              <p className="mt-4 sm:mt-6 font-['Goudy Bookletter 1911'] 
                              text-xl md:text-3xl lg:text-4xl md:max-w-[695px] md:text-right text-center">
                 Progress begins with an inner spark — curiosity, courage, and the will to
                 shape something greater than oneself. We exist to nurture that light.

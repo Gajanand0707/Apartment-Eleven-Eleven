@@ -33,7 +33,7 @@ export default function HallwayCard({
         ].join(" ")
       }
     >
-      <p className="text-xl md:text-2xl font-normal leading-snug font-['Goudy_Bookletter_1911'] mb-8">
+      <p className="text-xl md:text-2xl font-normal leading-snug font-['Goudy Bookletter 1911'] mb-8">
         &quot;{quote}&quot;
       </p>
 

@@ -31,14 +31,14 @@ export default function CaseStudyCard({
           {/* Content below image */}
           <div className="p-6 flex flex-col items-center justify-between">
             <div>
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center max-w-[321px] text-black font-[Goudy_Old_Style] ">
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-center max-w-[321px] text-black font-['Goudy Old Style'] ">
                 {title}
               </h3>
             </div>
 
             <div className="mt-14 flex items-center justify-center gap-4">
               <span
-                className="text-white text-2xl md:text-3xl lg:text-4xl font-['Goudy_Bookletter_1911'] text-nowrap font-semibold px-6 py-3 rounded-4xl transition-all pointer-events-none block"
+                className="text-white text-2xl md:text-3xl lg:text-4xl font-['Goudy Bookletter 1911'] text-nowrap font-semibold px-6 py-3 rounded-4xl transition-all pointer-events-none block"
                 style={{
                   backgroundImage: "url('/texture.png')",
                   backgroundRepeat: 'no-repeat',

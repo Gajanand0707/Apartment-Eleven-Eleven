@@ -49,7 +49,7 @@ export function ParchmentButton({
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
       {/* Button Text */}
-      <span className="relative z-10 text-xl sm:text-2xl lg:text-3xl font-['OPTIGoudy_Agency'] text-nowrap font-extrabold text-black ">
+      <span className="relative z-10 text-xl sm:text-2xl lg:text-3xl font-['GoudyOldStyle'] text-nowrap font-extrabold text-black ">
         {children}
       </span>
     </button>

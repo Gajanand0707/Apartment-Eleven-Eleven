@@ -9,10 +9,6 @@ import toggle1 from "../../public/toggle1.png"
 import path1 from "../../public/path1.png"
 import path2 from "../../public/path2.png"
 import path3 from "../../public/path3.png"
-import buttonbg from "../../public/buttonbg.png"
-import { BiArrowFromBottom, BiArrowToBottom, BiArrowToTop, BiUpArrow } from 'react-icons/bi';
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
-
 
 
 export function ParchmentButton({
@@ -140,7 +136,7 @@ export default function Elevators() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-10 px-6">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black pt-[58px] pb-[70px] px-6">
         {/* parchment background texture */}
         <Image
           src={pathbg}

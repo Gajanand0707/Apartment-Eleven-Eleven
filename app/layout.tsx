@@ -38,7 +38,7 @@ export default function RootLayout({
         <LoadingScreen />
         {children}
         <Scroll />
-        <RefreshOnResize />
+        {/* <RefreshOnResize /> */}
         <Footer />
       </body>
     </html>

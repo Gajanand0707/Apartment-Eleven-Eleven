@@ -155,7 +155,7 @@ export default function GlassSpotlight({
                     // Card sizing tuned for all screens
                     "w-[200px]  md:w-[446px] ",
                     "h-[240px]  md:h-[480px] ",
-                    "transition-all duration-500 ease-out will-change-transform",
+                    "transition-all duration-500 ease-in will-change-transform",
                     slotClass(slot),
                   ].join(" ")}
                 >

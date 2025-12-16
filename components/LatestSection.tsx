@@ -18,7 +18,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
   const renderBlogsLayout = () => (
     <div className="space-y-8 md:space-y-6 mt-8 md:mt-16">
       {items[0] && <BlogCardHorizontal blog={items[0]} />}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-14 md:py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-14 md:py-12">
         {items.slice(1, 4).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}
@@ -35,7 +35,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   const renderDeepDivesLayout = () => (
     <div className="mt-8 md:mt-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-14">
         {items.slice(0, 3).map((item) => (
           <BlogCardGrid key={item.id} blog={item} />
         ))}
@@ -58,7 +58,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   return (
     <section className="pb-8">
-      <h2 className="text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold mb-8 mt-8">{title}</h2>
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold mb-8 mt-8">{title}</h2>
         {/* <div className="border border-b-2 w-[319px] mb-10 -mt-6"/> */}
       {renderLayout()}
       <div className="flex justify-center mt-8 md:mt-10">

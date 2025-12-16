@@ -29,7 +29,7 @@ export function ParchmentButton({
       onClick={onClick}
       className={[
         "relative inline-flex items-center justify-center",
-        "px-8 py-3 min-w-[220px] rounded-md overflow-hidden",
+        "px-5 sm:px-6 md:px-6 py-3 min-w-[150px] sm:min-w-[180px] md:min-w-[200px] rounded-md overflow-hidden",
         "transition-all duration-200",
         "hover:scale-[1.02] active:scale-[0.98]",
         "focus:outline-none focus:ring-2 bg-white focus:ring-black/20",
@@ -49,7 +49,7 @@ export function ParchmentButton({
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
       {/* Button Text */}
-      <span className="relative z-10 text-2xl md:text-4xl font-['OPTIGoudy_Agency'] text-nowrap font-extrabold text-black ">
+      <span className="relative z-10 text-xl sm:text-2xl lg:text-3xl font-['OPTIGoudy_Agency'] text-nowrap font-extrabold text-black ">
         {children}
       </span>
     </button>
@@ -98,9 +98,9 @@ export default function Elevators() {
 
   return (
     <div>
-      <section className="relative flex w-full justify-between items-stretch bg-[#1C1C1C] overflow-hidden h-[456px] sm:min-h-[460px] md:min-h-[1000px] ">
-        {/* Mobile: full-bleed background image */}
-        <div className="absolute inset-0 block md:hidden z-0">
+      <section className="relative flex w-full justify-between items-stretch bg-[#1C1C1C] overflow-hidden h-[60vh]  md:h-screen ">
+        {/* Mobile + tablet + md: full-bleed background image */}
+        <div className="absolute inset-0 block lg:hidden z-0">
           <img
             src={wall.src}
             alt="colosseum"
@@ -110,7 +110,7 @@ export default function Elevators() {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
         </div>
         {/* LEFT – image */}
-        <div className="relative basis-7/12 shrink-0 hidden md:block">
+        <div className="relative basis-7/12 shrink-0 hidden lg:block">
           <div className="absolute inset-0 bg-[#1C1C1C]" />
           <img
             src={wall.src}
@@ -121,7 +121,7 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative z-20 w-full md:basis-3/12 h-full flex flex-col justify-center items-center text-center md:items-end md:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
+        <div className="relative z-20 w-full lg:basis-3/12 h-full flex flex-col justify-center items-center text-center lg:items-end lg:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
           <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
@@ -152,18 +152,18 @@ export default function Elevators() {
 
         {/* content wrapper */}
         <div className="relative z-10  mx-auto flex flex-col items-center text-center">
-          <h2 className="font-[OPTIGoudy_Agency] font-bold text-black leading-tight text-4xl md:text-7xl">
+          <h2 className="font-[OPTIGoudy_Agency] font-bold text-black leading-tight text-4xl md:text-5xl lg:text-7xl">
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-['OPTIGoudy_Agency'] font-extrabold text-black  text-2xl md:text-4xl max-w-[850px] my-2">
+          <p className="font-['GoudyOldStyle'] font-extrabold text-black  text-2xl md:text-3xl lg:text-4xl max-w-[850px] my-2">
             Choose the Passage that aligns with your vision, and let our shared Journey Commence.
           </p>
 
           {/* Cards row */}
-          <div className="mt-8 flex flex-col md:flex-row gap-10 md:gap-6">
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-5 w-full">
             {/* Card 1 */}
-            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
+            <div className="relative w-full bg-[#D8CCBA] rounded-[28px] text-white px-8 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -182,25 +182,25 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug tracking-wide">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
                   Align with Our Cadre
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl mt-2 flex-1">
+                <p className="font-['Goudy_Bookletter_1911'] text-xl lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-5">
+                <div className="mt-5 w-full flex justify-center px-2 sm:px-3">
                   <Link href="/contactUs" className="inline-block">
-                    <ParchmentButton>Convene with Us</ParchmentButton>
+                    <ParchmentButton className="px-6 md:px-7  lg:min-w-[200px]">Convene with Us</ParchmentButton>
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
+            <div className="relative w-full bg-[#D8CCBA] rounded-[28px] text-white px-8 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -219,25 +219,25 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug tracking-wide ">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide ">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl  mt-2 flex-1">
+                <p className="font-['Goudy_Bookletter_1911'] text-xl  lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-5">
+                <div className="mt-5 w-full flex justify-center px-2 sm:px-3">
                   <Link href="/contactUs" className="inline-block">
-                    <ParchmentButton>Convene with Us</ParchmentButton>
+                    <ParchmentButton className="px-6 md:px-7  lg:min-w-[200px]">Convene with Us</ParchmentButton>
                   </Link>
                 </div>
               </div>
             </div>
 
             {/* Card 3 */}
-            <div className="relative w-full md:w-[420px] bg-[#D8CCBA] rounded-[28px] text-white px-10 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
+            <div className="relative w-full bg-[#D8CCBA] rounded-[28px] text-white px-8 pt-10 pb-10 flex flex-col items-center text-center overflow-hidden h-full">
               <Image
                 src={texture}
                 alt="Terracotta background"
@@ -256,18 +256,18 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl  leading-snug tracking-wide">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
                   Offer Your Proposal
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl  mt-2 flex-1">
+                <p className="font-['Goudy_Bookletter_1911'] text-xl lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
                 {/* NEW button */}
-                <div className="mt-5">
+                <div className="mt-5 w-full flex justify-center px-2 sm:px-3">
                   <Link href="/contactUs" className="inline-block">
-                    <ParchmentButton>Convene with Us</ParchmentButton>
+                    <ParchmentButton className="px-6 md:px-7  lg:min-w-[200px]">Convene with Us</ParchmentButton>
                   </Link>
                 </div>
               </div>
@@ -278,31 +278,35 @@ export default function Elevators() {
 
       <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
         <div className="w-full max-w-[960px] flex flex-col items-center text-center">
-          <h2 className="font-[OPTIGoudy_Agency] font-bold text-4xl md:text-7xl leading-[1.1] text-black">
+          <h2 className="font-[OPTIGoudy_Agency] font-bold text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black">
             Common Inquiries
           </h2>
 
-          <p className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-4xl leading-snug text-black max-w-[900px] mt-6">
+          <p className="font-[GoudyOldStyle] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug text-black max-w-[900px] mt-6">
             All you need discern regarding alliance with us.
           </p>
 
-          <div className="w-full mt-12 flex flex-col gap-6 items-center">
+          <div className="w-full mt-12 flex flex-col gap-6 items-center px-2 sm:px-4">
             {faqs.map((item, idx) => {
               const isOpen = openIndex === idx;
               return (
-                <div key={idx} className="w-full md:min-w-[1080px]">
+                <div key={idx} className="w-full max-w-[1080px]">
                   <button
                     onClick={() => toggleFAQ(idx)}
-                    className="w-full flex justify-between items-start bg-[#F1E0C9] text-black font-[Goudy_Old_Style] font-extrabold text-left text-2xl md:text-4xl leading-snug rounded-[20px] px-6 py-2 border border-black/20"
+                    className="w-full flex flex-nowrap justify-between items-start gap-3 sm:gap-4 bg-[#F1E0C9] text-black font-[Goudy_Old_Style] font-extrabold text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug rounded-[20px] px-4 sm:px-6 py-3 border border-black/20"
                   >
-                    <span className="pr-4 ">{item.q}</span>
-                    <span className="text-[32px] leading-none select-none font-semibold text-black">
-                      {isOpen ? <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[45px] md:h-[60px] rotate-180" /> : <img src={toggle1.src} alt='toggle1' className="w-[40px] h-[45px] md:h-[60px] " />}
+                    <span className="pr-4 flex-1 min-w-0 whitespace-nowrap overflow-x-auto no-underline">{item.q}</span>
+                    <span className="text-[28px] sm:text-[32px] leading-none select-none font-semibold text-black flex-shrink-0">
+                      {isOpen ? (
+                        <img src={toggle1.src} alt='toggle1' className="w-[32px] h-[36px] sm:w-[40px] sm:h-[45px] md:h-[60px] rotate-180" />
+                      ) : (
+                        <img src={toggle1.src} alt='toggle1' className="w-[32px] h-[36px] sm:w-[40px] sm:h-[45px] md:h-[60px] " />
+                      )}
                     </span>
                   </button>
 
                   {isOpen && (
-                    <div className="bg-[#F2F2F2] text-black text-[20px] sm:text-[24px] px-6 py-4 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
+                    <div className="bg-[#F2F2F2] text-black text-[18px] sm:text-[20px] md:text-[24px] px-4 sm:px-6 py-4 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] max-w-[1040px] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
                       <p className="text-black text-left whitespace-pre-line">{item.a}</p>
                     </div>
                   )}

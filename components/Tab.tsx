@@ -16,7 +16,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
 
   return (
     <nav
-      className="relative mx-auto w-[90%] sm:w-[95%] md:w-full max-w-6xl h-12 sm:h-14 md:h-18 rounded-xl sm:rounded-2xl overflow-visible border border-black/40 bg-white shadow-[0_6px_14px_rgba(0,0,0,0.25)]"
+      className="relative mx-auto w-[90%] sm:w-[95%] lg:w-full max-w-6xl h-12 sm:h-14 md:h-18 rounded-xl sm:rounded-2xl overflow-visible border border-black/40 bg-white shadow-[0_6px_14px_rgba(0,0,0,0.25)]"
     >
       {/* Tabs */}
       <div
@@ -32,7 +32,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               className={[
                 "relative flex items-center justify-center h-full text-center leading-none select-none overflow-hidden",
                 "font-['OPTIGoudy_Agency'] font-bold transition-all duration-300 ease-out",
-                "text-[14px]  md:text-4xl ",
+                "text-[14px] md:text-2xl   lg:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 
                 // Active tab (persistent highlighted style)

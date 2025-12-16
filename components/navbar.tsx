@@ -67,7 +67,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="h-20 flex items-center">
           {/* Container with absolute positioning for mobile hamburger */}
-          <div className="absolute left-4 top-1/2 -translate-y-1/2 md:hidden">
+          <div className="absolute left-4 top-1/2 -translate-y-1/2 lg:hidden">
             <button
               type="button"
               aria-label="Toggle menu"
@@ -91,21 +91,21 @@ export function Navbar() {
           </div>
 
           {/* Logo - Centered on mobile, left on desktop */}
-          <div className="flex-1 flex justify-center md:justify-start bg-white">
+          <div className="flex-1 flex justify-center lg:justify-start bg-white">
             <Link href="/" className="flex items-center bg-white">
               <Image
                 src={headerLogo}
                 alt="Logo"
                 width={250}
                 height={60}
-                className="object-contain w-[180px] md:w-[250px] bg-white"
+                className="object-contain w-[180px] lg:w-[250px] bg-white"
                 priority
               />
             </Link>
           </div>
 
           {/* Desktop Nav - Right side */}
-          <nav className="hidden md:flex items-center order-3">
+          <nav className="hidden lg:flex items-center order-3">
             <ul className="flex items-center gap-6">
               {navItems.map((item) => (
                 <li key={item.href}>
@@ -124,7 +124,7 @@ export function Navbar() {
 
       {/* Mobile Menu (full-page slide from left) */}
       <div
-        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : '-translate-x-full'
+        className={`fixed top-0 left-0 w-full h-full bg-[#D6CBBB] transform transition-transform duration-300 ease-in-out lg:hidden ${open ? 'translate-x-0' : '-translate-x-full'
           } z-50`}
       >
         {/* Header with close button and centered logo */}

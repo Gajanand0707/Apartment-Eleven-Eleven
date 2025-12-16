@@ -94,16 +94,16 @@ export default function Home() {
         <div className="relative z-1 max-w-[1200px] mx-auto px-6 py-10 lg:py-10 text-center">
 
           {/* Top heading */}
-          <h2 className="font-bold text-4xl md:text-7xl leading-[1.15] max-w-[327px] md:max-w-[1200px] mx-auto font-['OPTIGoudy_Agency'] md:whitespace-nowrap"> Praxis For The New Renaissance </h2>
+          <h2 className="font-bold text-4xl text-center md:text-5xl lg:text-7xl leading-[1.15] max-w-[327px] md:max-w-[900px] lg:max-w-[1200px] mx-auto font-['OPTIGoudy_Agency'] md:whitespace-normal"> Praxis For The New Renaissance </h2>
 
-          <p className="text-2xl md:text-4xl leading-[1.15] text-center max-w-[1095px] font-['Goudy_Bookletter_1911'] my-4  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
+          <p className="text-2xl md:text-3xl lg:text-4xl leading-[1.15] text-center max-w-[1095px] font-['Goudy_Bookletter_1911'] my-4  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
             We're helping build businesses with the ethos of the new India.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
             <div className="h-0.5 w-full max-w-[1080px] bg-black" />
           </div>
           {/* Second heading */}
-          <h3 className="mt-[14px] font-bold text-4xl sm:text-5xl md:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
+          <h3 className="mt-[14px] font-bold text-4xl sm:text-5xl lg:text-7xl  font-['OPTIGoudy_Agency'] leading-[1.15] text-black"> Ideas distilled to brilliance </h3>
           {/* Icon row */}
           <div className=" grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8 mt-6  mx-auto">
             {/* Card 1 */}
@@ -118,8 +118,8 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[250px] md:max-w-[285px] text-black">Where Foresight Meets Fortitude</h4>
-              <p className="mt-2.5 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[250px] md:max-w-[285px] text-black">Where Foresight Meets Fortitude</h4>
+              <p className="mt-2.5 text-xl lg:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
             </div>
             {/* Card 2 */}
             <div className="flex flex-col  items-center text-center w-full mx-auto">
@@ -131,8 +131,8 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 justify-center  md:max-w-[250px] font-['OPTIGoudy_Agency'] text-black">The Patrons of Progress</h4>
-              <p className="mt-2.5 text-xl md:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 justify-center  md:max-w-[250px] font-['OPTIGoudy_Agency'] text-black">The Patrons of Progress</h4>
+              <p className="mt-2.5 text-xl lg:text-2xl leading-tight font-['Goudy_Bookletter_1911'] text-black max-w-[299px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
             </div>
             {/* Card 3 */}
             <div className="flex flex-col items-center text-center  w-full ml-auto">
@@ -144,8 +144,8 @@ export default function Home() {
                   className="object-cover ml-5 "
                 />
               </div>
-              <h4 className="font-bold text-[28px] md:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[270px] md:max-w-[250px] text-black">The Sculptor’s Gaze</h4>
-              <p className="mt-2.5 text-xl md:text-2xl leading-tight text-black max-w-[299px] font-['Goudy_Bookletter_1911']">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-['OPTIGoudy_Agency'] max-w-[270px] md:max-w-[250px] text-black">The Sculptor’s Gaze</h4>
+              <p className="mt-2.5 text-xl lg:text-2xl leading-tight text-black max-w-[299px] font-['Goudy_Bookletter_1911']">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
             </div>
           </div>
         </div>
@@ -168,13 +168,13 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-1 max-w-[1200px] mx-auto flex flex-col items-center gap-8">
           {/* Main heading */}
-          <h1 className="text-4xl md:text-7xl max-w-[667px] mt-7 font-bold font-[OPTIGoudy_Agency]">
+          <h1 className="text-4xl md:text-5xl lgd:text-7xl max-w-[667px] mt-7 font-bold font-[OPTIGoudy_Agency]">
             The Residency
           </h1>
 
           {/* Quote */}
           <div className="max-w-[900px] mx-auto">
-            <h2 className="text-2xl sm:text-4xl font-[Goudy_Bookletter_1911] leading-snug">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[Goudy_Bookletter_1911] leading-snug">
               Everything should be made as simple as possible, but no simpler
             </h2>
             <p className="text-right text-xl mt-2 font-[Goudy_Bookletter_1911]">
@@ -183,7 +183,7 @@ export default function Home() {
           </div>
 
           {/* Button */}
-          <TextureButton className="text-2xl md:text-4xl px-8 py-3  font-[Goudy_Bookletter_1911]">
+          <TextureButton className="text-2xl md:text-3xl lg:text-4xl px-8 py-3  font-[Goudy_Bookletter_1911]">
             Elevator’s Waiting
           </TextureButton>
 
@@ -238,21 +238,21 @@ export default function Home() {
           {/* 2-column block */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
-            <div className="flex flex-col text-center md:text-left max-w-[700px] order-2 lg:order-1">
-              <h2 className="font-bold text-4xl  lg:text-7xl  font-['OPTIGoudy_Agency']  md:text-nowrap text-black">
+            <div className="flex flex-col text-center lg:text-left max-w-[700px] order-2 lg:order-1">
+              <h2 className="font-bold text-4xl  lg:text-7xl  font-['OPTIGoudy_Agency']  lg:text-nowrap text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally
               </h2>
 
-              <p className="mt-6 text-2xl md:text-4xl font-[Goudy_Bookletter_1911] text-black max-w-[680px]">
+              <p className="mt-6 text-2xl lg:text-4xl font-[Goudy_Bookletter_1911] text-black max-w-[680px]">
                 Apartment Eleven Eleven residents are thoughtfully selected
                 using diverse professional backgrounds sourced from various
                 industries and expertise areas.
               </p>
 
               <div className="mt-10">
-                <TextureButton className="text-2xl md:text-4xl px-8 py-3 font-[Goudy_Old_Style]">
+                <TextureButton className="text-2xl lg:text-4xl px-8 py-3 font-[Goudy_Old_Style]">
                   View all Residents
                 </TextureButton>
               </div>

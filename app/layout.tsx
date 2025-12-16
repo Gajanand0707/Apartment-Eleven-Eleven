@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import Scroll from "@/components/scroll";
 import LoadingScreen from "@/components/DotLoader";
+import RefreshOnResize from "@/components/RefreshOnResize";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
         <LoadingScreen />
         {children}
         <Scroll />
+        <RefreshOnResize />
         <Footer />
       </body>
     </html>

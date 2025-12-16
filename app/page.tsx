@@ -183,9 +183,11 @@ export default function Home() {
           </div>
 
           {/* Button */}
+          <a href="/elevators">
           <TextureButton className="text-2xl md:text-3xl lg:text-4xl px-8 py-3  font-[Goudy_Bookletter_1911]">
             Elevator’s Waiting
           </TextureButton>
+          </a>
 
           {/* Tagline */}
           <p className=" text-xl md:text-2xl  font-[Goudy_Bookletter_1911] text-center">
@@ -252,9 +254,11 @@ export default function Home() {
               </p>
 
               <div className="mt-10">
+                <a href="/inside">
                 <TextureButton className="text-2xl lg:text-4xl px-8 py-3 font-[Goudy_Old_Style]">
                   View all Residents
                 </TextureButton>
+                </a>
               </div>
             </div>
 

@@ -212,11 +212,12 @@ export function SpiralAnimation({
            margin-right: 2rem;
            left:-30px;
         }
-           .spiral-imagex{
-           width:110%;
-           margin:0 auto;
-           left:-44px !important;
-           }
+          .spiral-imagex {
+    width: 110%;
+    margin: 0 auto;
+    left: -23px !important;
+    top: -9px !important;
+}
           }
       `}</style>
 
@@ -283,10 +284,10 @@ export function SpiralAnimation({
             />
           </svg>
           <img src="/SpiralAnimation.svg" className="spiral-imagex" alt="" style={{
-            top: "-13px",
+            top: "-15px",
             position: "absolute",
-            left: "-70px",
-            maxWidth: "109%"}} />
+            left: "-35px",
+            width: "109%"}} />
           {images.slice(0, totalImages).map((image, index) => {
             const delay = (index / totalImages) * duration
             return (

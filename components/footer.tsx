@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import footerLogo from "../public/footerLogo.png";
 import { FaLinkedinIn, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import logo from "../public/logo.png";
 
@@ -8,7 +9,7 @@ export function Footer() {
   return (
 
 
-    <footer className="bg-[#24211F] text-gray-300">
+    <footer className="bg-[#282624] text-gray-300">
 
       {/* mobile footer */}
 
@@ -107,24 +108,16 @@ export function Footer() {
         <hr className="border-white my-2 sm:my-3 mx-auto w-[323px] md:w-auto" />
         {/* Logo + Info */}
         <div className="flex flex-col items-center text-center space-y-0.5 sm:space-y-1">
-          <div className="w-[293px] h-[75px] flex items-center gap-2">
+          <Link href="/" className="flex items-center">
             <Image
-              src={logo}
-              alt="Apartment Eleven Eleven logo"
-              width={85}
-              height={85}
+              src={footerLogo}
+              alt="Logo"
+              width={250}
+              height={60}
+              className="object-contain w-[180px] lg:w-[250px]"
               priority
-              className="rounded-full w-[68px] h-[68px] md:w-[85px] md:h-[85px]"
             />
-            <div className="flex flex-col leading-tight">
-              <h1 className="text-white font-bold text-3xl md:text-4xl text-center ">
-                APARTMENT
-              </h1>
-              <h2 className="text-white text-2xl md:text-3xl text-nowrap text-center ">
-                ELEVEN ELEVEN
-              </h2>
-            </div>
-          </div>
+          </Link>
           <p className="mt-0.5 sm:mt-1 text-[#BFBFBF] text-sm md:text-2xl font-goudy">
             <span className="font-semibold ">Reach us at:</span>{" "}
             <a href="mailto:hello@apartmenteleveneleven.com" className="underline decoration-white/40 underline-offset-2 hover:text-white">

@@ -108,7 +108,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-goudy-agency max-w-[250px] md:max-w-[285px] text-black">Where Foresight Meets Fortitude</h4>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-goudy-old max-w-[250px] md:max-w-[285px] text-black">Where Foresight Meets Fortitude</h4>
               <p className="mt-2.5 text-xl lg:text-2xl leading-tight font-goudy text-black max-w-[299px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
             </div>
             {/* Card 2 */}
@@ -121,7 +121,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 justify-center  md:max-w-[250px] font-goudy-agency text-black">The Patrons of Progress</h4>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 justify-center  md:max-w-[250px] font-goudy-old text-black">The Patrons of Progress</h4>
               <p className="mt-2.5 text-xl lg:text-2xl leading-tight font-goudy text-black max-w-[299px]">More than backers, we are enablers of the ‘new India,’ providing the strategic architecture for its creation.</p>
             </div>
             {/* Card 3 */}
@@ -134,7 +134,7 @@ export default function Home() {
                   className="object-cover ml-5 "
                 />
               </div>
-              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-goudy-agency max-w-[270px] md:max-w-[250px] text-black">The Sculptor’s Gaze</h4>
+              <h4 className="font-bold text-[28px] lg:text-4xl md:mt-5 font-goudy-old max-w-[270px] md:max-w-[250px] text-black">The Sculptor’s Gaze</h4>
               <p className="mt-2.5 text-xl lg:text-2xl leading-tight text-black max-w-[299px] font-goudy">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Home() {
 
           {/* Button */}
           <a href="/elevators">
-          <TextureButton className="text-2xl md:text-3xl lg:text-4xl px-8 py-3  font-goudy">
+          <TextureButton className="text-2xl md:text-3xl lg:text-4xl px-8 py-3  font-goudy-old">
             Elevator’s Waiting
           </TextureButton>
           </a>
@@ -200,7 +200,7 @@ export default function Home() {
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto text-center">
           {/* heading */}
-          <h1 className="text-4xl md:text-4xl font-bold font-goudy-agency text-black">
+          <h1 className="text-4xl md:text-4xl font-bold font-goudy-old text-black">
             Meet our Residency Panel
           </h1>
 
@@ -231,7 +231,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
             <div className="flex flex-col text-center lg:text-left max-w-[700px] order-2 lg:order-1">
-              <h2 className="font-bold text-4xl  lg:text-7xl  font-goudy-agency  lg:text-nowrap text-black">
+              <h2 className="font-bold text-4xl  lg:text-7xl  font-goudy-old  lg:text-nowrap text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally

@@ -35,6 +35,14 @@
   --font-goudy: 'Goudy Bookletter 1911', serif;
   --font-goudy-agency: 'OPTIGoudy Agency', serif;
   --font-goudy-old: 'Goudy Old Style', serif;
+
+  --font-size-20px: 20px;
+  --font-size-22px: 22px;
+  --font-size-24px: 24px;
+  --font-size-30px: 30px;
+  --font-size-36px: 36px;
+  --font-size-54px: 54px;
+  --font-size-72px: 72px;
 }
 
 /* Safari-specific fixes for better cross-browser consistency */

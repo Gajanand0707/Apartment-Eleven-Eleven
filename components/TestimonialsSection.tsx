@@ -40,7 +40,7 @@ export default function TestimonialsSection() {
     <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6 py-16">
       {/* Heading */}
       <h1 className="text-4xl md:text-5xl lg:text-7xl font-goudy-agency font-bold mb-12">
-        Residents’ Testimonials
+        Residents Testimonies
       </h1>
 
       {/* ✅ Mobile Carousel (same as Science Section style) */}

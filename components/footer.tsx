@@ -112,35 +112,36 @@ export function Footer() {
             <Image
               src={footerLogo}
               alt="Logo"
-              width={250}
-              height={60}
-              className="object-contain w-[180px] lg:w-[250px]"
+              width={300}
+              height={70}
               priority
             />
           </Link>
-          <p className="mt-0.5 sm:mt-1 text-[#BFBFBF] text-sm md:text-2xl font-goudy">
+          <p className="mt-0.5 sm:mt-1 text-[#BFBFBF] text-[24px] md:text-[26px] lg:text-[28px] font-goudy">
             <span className="font-semibold ">Reach us at:</span>{" "}
             <a href="mailto:hello@apartmenteleveneleven.com" className="underline decoration-white/40 underline-offset-2 hover:text-white">
               pitch@apartmenteleveneleven.com
             </a>
           </p>
-          <p className="text-[#BFBFBF] text-sm md:text-2xl mt-0.5 sm:mt-1 font-goudy">Made with intention and purpose</p>
+          <p className="text-[#BFBFBF] text-[20px] md:text-[22px] lg:text-[24px] mt-0.5 sm:mt-1 font-goudy">Made with intention and purpose</p>
 
           {/* Policies */}
-          <div className="flex flex-wrap justify-center text-[#BFBFBF] gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-sm md:text-2xl mt-0.5 font-goudy">
-            <Link href="/terms" className="hover:text-white underline">
-              Terms &amp; Conditions |
-            </Link>
-            <Link href="/privacy" className="hover:text-white underline">
-              Privacy Policy |
-            </Link>
-            <Link href="/cookies" className="hover:text-white underline">
-              Cookies Policy
-            </Link>
-          </div>
-          <p className="text-[#BFBFBF] text-sm md:text-2xl mt-0.5 sm:mt-1 font-goudy">
-            © 2025 Apartment Eleven Eleven. All rights reserved.
-          </p>
+          <>
+            <div className="flex flex-wrap justify-center text-[#BFBFBF] gap-x-1.5 sm:gap-x-2 gap-y-0.5 text-[16px] md:text-[18px] lg:text-[20px] mt-0.5 font-goudy">
+              <Link href="/terms" className="hover:text-white underline">
+                Terms &amp; Conditions |
+              </Link>
+              <Link href="/privacy" className="hover:text-white underline">
+                Privacy Policy |
+              </Link>
+              <Link href="/cookies" className="hover:text-white underline">
+                Cookies Policy
+              </Link>
+            </div>
+            <p className="text-[#BFBFBF] text-[16px] md:text-[18px] lg:text-[20px] font-goudy">
+              © 2025 Apartment Eleven Eleven. All rights reserved.
+            </p>
+          </>
         </div>
       </div>
     </footer>

@@ -56,7 +56,7 @@ export default function LoadingScreen() {
   // Use portal to render outside the normal DOM hierarchy
   return createPortal(
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#dacfbe] font-['Goudy Bookletter 1911'] transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#dacfbe] font-goudy transition-opacity duration-700 ${
         progress === 100 ? 'opacity-0' : 'opacity-100'
       }`}
     >

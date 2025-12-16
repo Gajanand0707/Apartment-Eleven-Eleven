@@ -83,7 +83,7 @@ export default function Library() {
 
         {/* Title */}
         <div className="absolute inset-0 flex items-center justify-center px-4 pb-20">
-          <h1 className="text-white text-4xl  md:text-7xl  font-['OPTIGoudy Agency'] font-bold text-center">
+          <h1 className="text-white text-4xl  md:text-7xl  font-goudy-agency font-bold text-center">
             Library
           </h1>
         </div>
@@ -100,7 +100,7 @@ export default function Library() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {loading ? (
-          <div className="text-center py-8 md:py-12 text-base md:text-lg font-['Goudy Bookletter 1911'] h-screen">Loading...</div>
+          <div className="text-center py-8 md:py-12 text-base md:text-lg font-goudy h-screen">Loading...</div>
         ) : (
           <>
             <LatestSection 

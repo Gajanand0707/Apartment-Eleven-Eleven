@@ -82,7 +82,7 @@ export default function ScienceSection() {
     <section className="relative bg-[#D8CCBA]  overflow-hidden pb-[78px]">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="font-['OPTIGoudy Agency'] font-bold text-4xl sm:text-5xl lg:text-7xl mt-[61px] leading-[1.15] text-black mb-8">
+        <h2 className="font-goudy-agency font-bold text-4xl sm:text-5xl lg:text-7xl mt-[61px] leading-[1.15] text-black mb-8">
           In Science we Trust
         </h2>
 
@@ -208,11 +208,11 @@ export default function ScienceSection() {
                 className="object-cover object-center"
               />
               <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold font-['Goudy Old Style'] md:text-2xl lg:text-4xl mb-4 -my-4 max-w-[275px]">
+                <h3 className="font-semibold font-goudy-old md:text-2xl lg:text-4xl mb-4 -my-4 max-w-[275px]">
                   {card.title}
                 </h3>
                 <div className="border-b-white border w-screen -mx-8 sm:-mx-10 my-2"></div>
-                <p className=" md:text-xl lg:text-2xl leading-relaxed font-['Goudy Bookletter 1911'] max-w-[360px] text-center">
+                <p className=" md:text-xl lg:text-2xl leading-relaxed font-goudy max-w-[360px] text-center">
                   {card.description}
                 </p>
               </div>

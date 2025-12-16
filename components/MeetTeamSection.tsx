@@ -58,7 +58,7 @@ export default function MeetTeamSection() {
     <section className="relative w-full bg-[linear-gradient(0deg,_#D5C7B3_97%,_#B49768_100%)]
  text-black flex flex-col items-center py-16 px-6 md:px-8 border-x border-black overflow-hidden">
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl lg:text-7xl font-['OPTIGoudy Agency'] font-bold text-center mb-12">
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-goudy-agency font-bold text-center mb-12">
         Meet Our Team
       </h2>
 

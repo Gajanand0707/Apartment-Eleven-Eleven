@@ -1,4 +1,41 @@
+/* Custom Font Declarations - MUST come before Tailwind import */
+
+/* Goudy Bookletter 1911 - Regular weight */
+@font-face {
+  font-family: 'Goudy Bookletter 1911';
+  src: url('/fonts/goudy-bookletter-1911-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OPTIGoudy Agency - Bold weight */
+@font-face {
+  font-family: 'OPTIGoudy Agency';
+  src: url('/fonts/opti-goudy-agency-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Goudy Old Style - Extra Bold weight */
+@font-face {
+  font-family: 'Goudy Old Style';
+  src: url('/fonts/goudy-old-style-extra-bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Import Tailwind CSS - comes AFTER font declarations */
 @import "tailwindcss";
+
+/* Register custom fonts with Tailwind v4 theme system */
+@theme {
+  --font-goudy: 'Goudy Bookletter 1911', serif;
+  --font-goudy-agency: 'OPTIGoudy Agency', serif;
+  --font-goudy-old: 'Goudy Old Style', serif;
+}
 
 /* Safari-specific fixes for better cross-browser consistency */
 * {
@@ -27,11 +64,6 @@ button, input, optgroup, select, textarea {
   line-height: inherit;
 }
 
-/* Ensure default text renders at normal weight unless utilities request otherwise */
-body {
-  font-weight: 400;
-}
-
 /* Ensure the app root uses a solid background and full-height to avoid
    brief white gaps during smooth scrolling/transform animations. */
 html {
@@ -45,37 +77,10 @@ html {
 body {
   background: #303236;
   min-height: 100%;
+  font-weight: 400;
+  font-family: 'Goudy Bookletter 1911', serif;
 }
 
 #__next {
   height: 100%;
-}
-
-/* Custom Font Declarations */
-
-/* Goudy Bookletter 1911 - Regular weight */
-@font-face {
-  font-family: 'Goudy Bookletter 1911';
-  src: url('/fonts/goudy-bookletter-1911-regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* OPTIGoudy Agency - Bold weight */
-@font-face {
-  font-family: 'OPTIGoudy Agency';
-  src: url('/fonts/opti-goudy-agency-bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Goudy Old Style - Extra Bold weight */
-@font-face {
-  font-family: 'Goudy Old Style';
-  src: url('/fonts/goudy-old-style-extra-bold.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
 }

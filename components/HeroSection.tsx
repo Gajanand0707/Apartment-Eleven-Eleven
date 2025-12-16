@@ -123,7 +123,7 @@ export default function HeroSection() {
     });
     tl35In
       .set('.scene-3-5', { opacity: 1 })
-      .to('.hero-bg', { scale: 1.5, x: '-20%', y: '10%', }, '<')
+      .to('.hero-bg', { scale: 2, x: '-12%', y: '20%', }, '<')
       .to('.hero-bg img', { objectPosition: "50% 100%" }, '<')
       .from('.scene-3-5 .hero-text', { opacity: 0, y: 80 });
 
@@ -151,7 +151,7 @@ export default function HeroSection() {
       .set('.scene-4', { opacity: 1, zIndex: 10 })
       .from('.scene-4 .hero-text', { opacity: 0, y: 60 })
       .to('.scene-4 .hero-text', { opacity: 1, y: 0 })
-       .to('.hero-bg', { scale: 1, x: '0%', y: '0%', }, '<')
+       .to('.hero-bg', { scale: 1, x: '-0%', y: '0%', }, '<')
       .to('.hero-bg img', { objectPosition: "0 0" }, '<');
 
     ScrollTrigger.refresh();

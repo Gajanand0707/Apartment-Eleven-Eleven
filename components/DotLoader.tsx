@@ -1,12 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 export default function LoadingScreen() {
+  const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
   const [progress, setProgress] = useState(0);
 
+  // First useEffect: ensure component is mounted on client
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
     // Run only once per session
     const hasVisited = sessionStorage.getItem('siteLoaded');
 
@@ -39,11 +48,13 @@ export default function LoadingScreen() {
       clearInterval(interval);
       document.body.style.overflow = '';
     };
-  }, []);
+  }, [mounted]);
 
-  if (!show) return null;
+  // Don't render anything until mounted on client
+  if (!mounted || !show) return null;
 
-  return (
+  // Use portal to render outside the normal DOM hierarchy
+  return createPortal(
     <div
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#dacfbe] font-['Goudy Bookletter 1911'] transition-opacity duration-700 ${
         progress === 100 ? 'opacity-0' : 'opacity-100'
@@ -61,6 +72,7 @@ export default function LoadingScreen() {
 
         <span className="text-black text-sm">{Math.floor(progress)}%</span>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

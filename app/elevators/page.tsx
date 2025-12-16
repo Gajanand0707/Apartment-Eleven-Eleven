@@ -29,7 +29,7 @@ export function ParchmentButton({
       onClick={onClick}
       className={[
         "relative inline-flex items-center justify-center",
-        "px-5 sm:px-6 md:px-6 py-3 min-w-[150px] sm:min-w-[180px] md:min-w-[200px] rounded-md overflow-hidden",
+        "px-5 sm:px-6 md:px-6 py-3 min-w-[150px] md:min-w-[200px] lg:min-w-[200px] rounded-md overflow-hidden",
         "transition-all duration-200",
         "hover:scale-[1.02] active:scale-[0.98]",
         "focus:outline-none focus:ring-2 bg-white focus:ring-black/20",
@@ -219,7 +219,7 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide ">
+                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl md:px-2 lg:text-4xl leading-snug tracking-wide ">
                   Unveil Your Vision
                 </h3>
 

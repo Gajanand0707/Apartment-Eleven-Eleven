@@ -25,7 +25,7 @@ export function BlogCardFeatured({ blog }: BlogCardFeaturedProps) {
 
         {/* Content */}
         <div className="p-8 flex flex-col items-end justify-between">
-          <h3 className="text-2xl md:text-4xl font-['OPTIGoudy_Agency'] text-center w-full font-bold text-black mb-4">{blog.title}</h3>
+          <h3 className="text-2xl md:text-3xl lg:text-4xl font-['OPTIGoudy_Agency'] text-center w-full font-bold text-black mb-4">{blog.title}</h3>
           {blog.subtitle && (
             <p className="text-xl md:text-2xl font-['Goudy_Old_Style'] text-center w-full font-bold text-black mb-4 line-clamp-2">
               {blog.subtitle}

@@ -68,11 +68,11 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
 
       {/* Heading + subheading */}
       <div className="relative z-10 text-center ">
-        <h1 className="text-4xl md:text-7xl font-[OPTIGoudy_Agency] font-bold mb-4 leading-[1.1] ">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-[OPTIGoudy_Agency] font-bold mb-4 leading-[1.1] ">
           Case Studies
         </h1>
 
-        <p className="text-2xl md:text-4xl font-extrabold md:max-w-[950px] font-['OPTIGoudy_Agency']">
+        <p className="text-2xl md:text-3xl lg:text-4xl font-extrabold md:max-w-[950px] font-['GoudyOldStyle']">
          Deep dives into Transformative Projects that showcase innovation, impact, and Measurable results
         </p>
       </div>
@@ -95,7 +95,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
       {/* Bottom CTA button (only show when limited) */}
       {typeof limit === "number" && (
         <Link href="/caseStudy" className="relative z-10 mt-16 mb-8 inline-block">
-          <span className="bg-[#014A43] text-white text-2xl md:text-4xl font-['Goudy_Old_Style'] font-semibold px-8 py-4 rounded-[28px] hover:bg-[#016A60] transition-colors pointer-events-none">
+          <span className="bg-[#014A43] text-white text-2xl md:text-3xl lg:text-4xl font-['Goudy_Old_Style'] font-semibold px-8 py-4 rounded-[28px] hover:bg-[#016A60] transition-colors pointer-events-none">
             Access All Case Studies
           </span>
         </Link>

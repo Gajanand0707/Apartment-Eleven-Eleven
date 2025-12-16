@@ -47,13 +47,13 @@ export default function MediaMentions({
   const slotClass = (slot: string) => {
     switch (slot) {
       case "center":
-        return "z-30 -translate-x-[140px] sm:-translate-x-[200px] rotate-0 scale-100 opacity-100"
+        return "z-30 -translate-x-[140px] md:-translate-x-[185px] lg:-translate-x-[200px] rotate-0 scale-100 opacity-100"
       case "left1":
-        return "z-20 -translate-x-[240px] sm:-translate-x-[340px] md:-translate-x-[380px] lg:-translate-x-[420px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
+        return "z-20 -translate-x-[240px] lg:-translate-x-[340px] md:-translate-x-[380px] lg:-translate-x-[420px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
       case "right1":
-        return "z-20 -translate-x-[40px] sm:-translate-x-[60px] md:-translate-x-[20px] lg:translate-x-[20px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
+        return "z-20 -translate-x-[40px] lg:-translate-x-[60px] md:-translate-x-[20px] lg:translate-x-[20px] scale-[0.85] sm:scale-[0.9] md:scale-[0.8]  opacity-90"
       case "left2":
-        return "hidden sm:block z-10 -translate-x-[340px] mx-10 md:-translate-x-[560px] lg:-translate-x-[640px] scale-[0.7] sm:scale-[0.8] md:scale-[0.6]  opacity-75"
+        return "hidden sm:block z-10 -translate-x-[340px] mx-10 lg:-translate-x-[560px] lg:-translate-x-[640px] scale-[0.7] sm:scale-[0.8] md:scale-[0.6]  opacity-75"
       case "right2":
         return "hidden sm:block z-10  -mx-10 lg:translate-x-[240px] scale-[0.7] sm:scale-[0.8] md:scale-[0.6]  opacity-75"
       default:
@@ -91,7 +91,7 @@ export default function MediaMentions({
     <section className="relative bg-[#D5C7B3] py-4 sm:py-6 overflow-hidden">
       {/* Heading */}
       <div className="max-w-7xl mx-auto text-center mb-6 sm:mb-8 px-4">
-        <h2 className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl  leading-tight font-bold text-black ">
+        <h2 className="font-['OPTIGoudy_Agency'] text-4xl md:text-5xl lg:text-7xl  leading-tight font-bold text-black ">
           {title}
         </h2>
       </div>

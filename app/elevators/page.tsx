@@ -137,6 +137,7 @@ export default function Elevators() {
       </section>
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black pt-[58px] pb-[70px] px-6">
+        
         {/* parchment background texture */}
         <Image
           src={pathbg}
@@ -148,6 +149,7 @@ export default function Elevators() {
 
         {/* content wrapper */}
         <div className="relative z-10  mx-auto flex flex-col items-center text-center">
+         
           <h2 className="font-goudy-agency font-bold text-black leading-tight text-4xl md:text-5xl lg:text-7xl">
             Three Paths to Our Engagement
           </h2>
@@ -273,7 +275,10 @@ export default function Elevators() {
       </section>
 
       <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
-        <div className="w-full max-w-[960px] flex flex-col items-center text-center">
+         
+        <div className="w-full  flex flex-col items-center text-center">
+          <div className='h-[4px] bg-black w-screen inset-0 absolute'></div>
+          <div className='h-[4px] bg-black w-screen hidden xl:block inset-0 mt-2 absolute'></div>
           <h2 className="font-goudy-agency font-bold text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black">
             Common Inquiries
           </h2>

@@ -150,7 +150,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <ScienceSection />
+      <div className="font-sans">
+        <ScienceSection />
+      </div>
 
 
 
@@ -231,27 +233,27 @@ export default function Home() {
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-4">
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto flex flex-col gap-12">
-          <h1 className="text-center font-bold text-4xl  md:text-7xl font-[OPTIGoudy_Agency]">
+          <h1 className="text-center font-bold text-4xl sm:text-5xl lg:text-7xl font-[OPTIGoudy_Agency]">
             Our Residents
           </h1>
 
           {/* 2-column block */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mx-4 lg:mx-20">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center lg:items-start mx-4 lg:mx-20">
             {/* LEFT TEXT COLUMN */}
-            <div className="flex flex-col text-center lg:text-left max-w-[700px] order-2 lg:order-1">
-              <h2 className="font-bold text-4xl  lg:text-7xl  font-['OPTIGoudy_Agency']  lg:text-nowrap text-black">
+            <div className="flex flex-col text-center lg:text-left w-full max-w-[700px] order-2 lg:order-1">
+              <h2 className="font-bold text-4xl sm:text-5xl lg:text-7xl  font-['GoudyOldStyle']  lg:text-nowrap text-black">
                 Resident Expertise
                 <br />
                 Derived Naturally
               </h2>
 
-              <p className="mt-6 text-2xl lg:text-4xl font-[Goudy_Bookletter_1911] text-black max-w-[680px]">
+              <p className="mt-6 text-2xl lg:text-4xl font-[Goudy_Bookletter_1911] text-black">
                 Apartment Eleven Eleven residents are thoughtfully selected
                 using diverse professional backgrounds sourced from various
                 industries and expertise areas.
               </p>
 
-              <div className="mt-10">
+              <div className="mt-10 flex justify-center lg:justify-start">
                 <TextureButton className="text-2xl lg:text-4xl px-8 py-3 font-[Goudy_Old_Style]">
                   View all Residents
                 </TextureButton>
@@ -259,7 +261,7 @@ export default function Home() {
             </div>
 
             {/* RIGHT IMAGE COLUMN */}
-            <div className="flex justify-center lg:justify-end order-1 lg:order-2">
+            <div className="flex justify-center lg:justify-end w-full order-1 lg:order-2">
               <div className="relative w-full max-w-[650px] -mt-4 sm:mt-0 mb-8 lg:mb-0 bg-[#DCCCAF] overflow-visible transform origin-center scale-[1.3] sm:scale-100 z-[-1] h-auto">
                 <SpiralAnimation {...({
                   images: demoImages,

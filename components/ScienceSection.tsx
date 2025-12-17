@@ -208,7 +208,7 @@ export default function ScienceSection() {
                 className="object-cover object-center"
               />
               <div className="relative z-[1] p-8 sm:p-10 flex flex-col items-center text-center">
-                <h3 className="font-semibold font-['Goudy Old Style'] md:text-2xl lg:text-4xl mb-4 -my-4 max-w-[275px]">
+                <h3 className="font-semibold font-['GoudyOldStyle'] md:text-2xl lg:text-4xl mb-4 -my-4 max-w-[275px]">
                   {card.title}
                 </h3>
                 <div className="border-b-white border w-screen -mx-8 sm:-mx-10 my-2"></div>

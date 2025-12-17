@@ -96,7 +96,7 @@ export default function Elevators() {
     <div>
       <section className="relative flex w-full justify-between items-stretch bg-[#1C1C1C] overflow-hidden h-[60vh]  md:h-screen ">
         {/* Mobile + tablet + md: full-bleed background image */}
-        <div className="absolute inset-0 block lg:hidden z-0">
+        <div className="absolute inset-0 block xl:hidden z-0">
           <img
             src={wall.src}
             alt="colosseum"
@@ -106,7 +106,7 @@ export default function Elevators() {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
         </div>
         {/* LEFT – image */}
-        <div className="relative basis-7/12 shrink-0 hidden lg:block">
+        <div className="relative basis-7/12 shrink-0 hidden xl:block">
           <div className="absolute inset-0 bg-[#1C1C1C]" />
           <img
             src={wall.src}
@@ -117,7 +117,7 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative z-20 w-full lg:basis-3/12 h-full flex flex-col justify-center items-center text-center lg:items-end lg:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
+        <div className="relative z-20 w-full xl:basis-3/12 h-full flex flex-col justify-center items-center text-center xl:items-end xl:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 xl:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
           <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>

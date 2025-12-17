@@ -31,7 +31,7 @@ export function TabNavigation({ tabs }: TabNavigationProps) {
               href={tab.href}
               className={[
                 "relative flex items-center justify-center h-full text-center leading-none select-none overflow-hidden",
-                "font-['OPTIGoudy_Agency'] font-bold transition-all duration-300 ease-out",
+                "font-goudy-agency font-bold transition-all duration-300 ease-out",
                 "text-[14px] md:text-2xl   lg:text-4xl ",
                 "px-1 sm:px-2 md:px-4",
 

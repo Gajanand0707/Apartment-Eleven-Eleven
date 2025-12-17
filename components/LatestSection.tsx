@@ -58,13 +58,13 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
 
   return (
     <section className="pb-8">
-      <h2 className="text-4xl md:text-5xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold mb-8 mt-8">{title}</h2>
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-goudy-agency font-bold mb-8 mt-8">{title}</h2>
         {/* <div className="border border-b-2 w-[319px] mb-10 -mt-6"/> */}
       {renderLayout()}
       <div className="flex justify-center mt-8 md:mt-10">
         <Link
           href={viewAllLink}
-          className="px-8 py-4  border-2  text-2xl md:text-4xl border-gray-900 rounded-3xl font-['Goudy_Bookletter_1911'] font-bold md:w-[355px] text-center md:h-[70px] hover:bg-gray-900 bg-white hover:text-white transition-colors flex items-center justify-center"
+          className="px-8 py-4  border-2  text-2xl md:text-4xl border-gray-900 rounded-3xl font-goudy font-bold md:w-[355px] text-center md:h-[70px] hover:bg-gray-900 bg-white hover:text-white transition-colors flex items-center justify-center"
         >
           Load More
         </Link>

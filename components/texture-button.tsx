@@ -11,8 +11,8 @@ export function TextureButton({ children, className = "" }: TextureButtonProps) 
     <div
       className={`
         relative inline-flex items-center justify-center
-        px-6 py-3
-        rounded-full
+        px-6 py-4
+        rounded-4xl
         text-white
         font-['Playfair_Display']
         font-semibold
@@ -28,7 +28,7 @@ export function TextureButton({ children, className = "" }: TextureButtonProps) 
         alt=""
         fill
         priority
-        className="object-cover object-center rounded-full"
+        className="object-cover object-center rounded-4xl"
       />
 
       {/* overlay to ensure readable contrast if texture is noisy */}

@@ -26,18 +26,18 @@ export function ArticleCard({ article, imagePosition }: ArticleCardProps) {
 
         {/* Content Container */}
         <div className={`flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center ${isImageLeft ? "md:order-2" : "md:order-1"}`}>
-          <h2 className="text-2xl md:text-4xl  font-[Goudy_Old_Style]  font-bold  text-black mb-2">{article.title}</h2>
+          <h2 className="text-2xl md:text-4xl  font-goudy-old  font-bold  text-black mb-2">{article.title}</h2>
 
-          <h3 className="text-xl md:text-2xl font-semibold font-[Goudy_Old_Style] text-black mb-3 md:mb-4">
+          <h3 className="text-xl md:text-2xl font-semibold font-goudy-old text-black mb-3 md:mb-4">
             {article.subtitle && article.subtitle.length > 100 
               ? article.subtitle.slice(0, 100) + '...' 
               : article.subtitle}
           </h3>
 
-          <p className="text-xl md:text-2xl text-black font-[Goudy_Bookletter_1911] mb-4 line-clamp-3 md:line-clamp-4">{article.description}</p>
+          <p className="text-xl md:text-2xl text-black font-goudy mb-4 line-clamp-3 md:line-clamp-4">{article.description}</p>
 
           <span
-            className="text-blue-500 hover:text-blue-700 font-['Goudy_Bookletter_1911']  text-xl md:text-2xl transition-colors pointer-events-none"
+            className="text-blue-500 hover:text-blue-700 font-goudy  text-xl md:text-2xl transition-colors pointer-events-none"
           >
             Read more...
           </span>

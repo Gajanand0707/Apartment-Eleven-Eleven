@@ -186,7 +186,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-['OPTIGoudy_Agency']">
+        <div className="hero-text font-goudy-agency">
           <span>Welcome to</span>
           <span>Apartment Eleven Eleven</span>
           <span className="backdrop"></span>
@@ -215,7 +215,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-['OPTIGoudy_Agency']">
+        <div className="hero-text font-goudy-agency">
           <span>Art Shaped by Structure and</span>
           <span>A vision built with exacting Precision</span>
         </div>
@@ -236,7 +236,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-['OPTIGoudy_Agency']">
+        <div className="hero-text font-goudy-agency">
           <span>Deliberate,</span>
           <span>Purposeful Execution</span>
         </div>
@@ -250,14 +250,14 @@ export default function HeroSection() {
       </div>
 
       <div className="scene-3-5">
-        <div className="hero-text text-new font-['OPTIGoudy_Agency']">
+        <div className="hero-text text-new font-goudy-agency">
           <span>Deliberate,</span>
           <span>Purposeful Execution</span>
         </div>
       </div>
 
       <div className="scene-4">
-        <div className="hero-text font-['OPTIGoudy_Agency']">
+        <div className="hero-text font-goudy-agency">
           <span>Welcome to</span>
           <span>Apartment Eleven Eleven</span>
         </div>

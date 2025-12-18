@@ -53,7 +53,7 @@ export function ArticlesList({ articles, onLoadMore }: ArticlesListProps) {
         <div className="mt-16 flex justify-center">
           <button
             onClick={handleLoadMore}
-            className="px-8 py-3 border-2 w-44 bg-white border-gray-900 text-gray-900 text-xl md:text-2xl font-goudy rounded-lg hover:bg-gray-900 hover:text-white transition-colors"
+            className="px-8 py-3 border-2 w-44 bg-white border-gray-900 text-gray-900 text-xl md:text-2xl font-goudy-old rounded-lg hover:bg-gray-900 hover:text-white transition-colors"
           >
             Load More
           </button>

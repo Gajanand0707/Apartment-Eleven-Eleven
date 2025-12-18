@@ -92,7 +92,7 @@ export default function PlaybookPage() {
         </div>
 
         <div className="flex-shrink-0">
-          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-goudy-old rounded-full whitespace-nowrap font-semibold">
+          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-goudy rounded-full whitespace-nowrap">
             Subscribe
           </button>
         </div>
@@ -127,7 +127,7 @@ export default function PlaybookPage() {
 
             <div className="p-2 text-justify md:text-left">
               {/* Title & Introduction */}
-              <h1 className="text-3xl md:text-6xl lg:text-7xl font-goudy-agency font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-goudy-old font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
             <div className="mb-8">
               <p className="text-[20px] md:text-2xl font-goudy leading-relaxed">{playbook.introduction}</p>
             </div>

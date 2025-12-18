@@ -104,7 +104,7 @@ export default function DeepDives() {
                 }))}
             />
             </div>
-            <main className="min-h-screen bg-[#D5C7B3]">
+            <main className="bg-[#D5C7B3]">
                 <div className="max-w-7xl mx-auto">
                     <ArticlesList articles={blogs} onLoadMore={handleLoadMore} />
                 </div>

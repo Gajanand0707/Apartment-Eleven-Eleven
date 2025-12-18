@@ -299,7 +299,7 @@ export default function ArticleDetailLayout({
                             <div className="text-4xl md:text-5xl font-bold font-goudy-old text-[#111] w-10 md:w-12 shrink-0 text-right">
                               {idx + 1}.
                             </div>
-                            <h2 className="text-2xl md:text-4xl font-goudy-old font-bold mb-2">
+                            <h2 className="text-2xl md:text-4xl font-goudy-old text-left font-bold mb-2">
                               {heading.heading_title}
                             </h2>
                           </div>
@@ -309,7 +309,7 @@ export default function ArticleDetailLayout({
                             <div className="space-y-8">
                               {subs.map((subheading: any) => (
                                 <div key={subheading.id} className="space-y-4">
-                                  <h3 className="text-2xl md:text-4xl font-goudy ">
+                                  <h3 className="text-2xl md:text-4xl font-goudy text-left">
                                     {subheading.title}
                                   </h3>
                                   <p className="text-[20px] md:text-2xl font-goudy leading-relaxed">
@@ -446,7 +446,7 @@ export default function ArticleDetailLayout({
                   {article.conclusion.map((c) => (
                     <div key={c.id}>
                       {c.conclusion_heading && (
-                        <h2 className="text-2xl md:text-4xl font-goudy-old font-bold text-gray-900 mb-2">
+                        <h2 className="text-2xl md:text-4xl font-goudy-old font-bold text-left text-gray-900 mb-2">
                           {c.conclusion_heading}
                         </h2>
                       )}

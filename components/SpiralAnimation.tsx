@@ -215,13 +215,13 @@ export function SpiralAnimation({
           .spiral-imagex {
     width: 110%;
     margin: 0 auto;
-    left: -23px !important;
+    left: -15px !important;
     top: -9px !important;
 }
           }
       `}</style>
 
-      <div ref={outerRef} className="sm:w-full w-[80%] max-w-[600px]">
+      <div ref={outerRef} className="sm:w-full w-[70%] sm:me-0 me-[-30px] max-w-[600px]">
         <div className="spiral-container">
           <div className="pseudo-box"></div>
           <svg

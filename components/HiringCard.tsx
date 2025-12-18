@@ -189,7 +189,7 @@ function Card({
             <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
           </div>
           <div className={`p-4 sm:p-5 flex flex-col ${contentHeight}`}>
-            <h3 className="text-xl md:text-2xl font-goudy-agency font-bold  mb-2 text-center line-clamp-2 min-h-[3.5rem]">{item.title}</h3>
+            <h3 className="text-xl md:text-2xl font-goudy-old font-bold  mb-2 text-center line-clamp-2 min-h-[3.5rem]">{item.title}</h3>
             <p className="font-goudy text-[14px] md:text-xl text-center leading-relaxed line-clamp-4 mb-3 min-h-[5.6rem] md:min-h-[6.4rem]">
               {item.description}
             </p>

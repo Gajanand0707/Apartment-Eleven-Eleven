@@ -38,7 +38,7 @@ export default function CaseStudyCard({
 
             <div className="mt-14 flex items-center justify-center gap-4">
               <span
-                className="text-white text-2xl md:text-3xl lg:text-4xl font-goudy text-nowrap font-semibold px-6 py-3 rounded-4xl transition-all pointer-events-none block"
+                className="text-white text-2xl md:text-3xl lg:text-4xl font-goudy-old text-nowrap font-semibold px-6 py-3 rounded-4xl transition-all pointer-events-none block"
                 style={{
                   backgroundImage: "url('/texture.png')",
                   backgroundRepeat: 'no-repeat',

@@ -71,7 +71,7 @@ export default function AutoScrollCarousel({
             <div className="p-4">
               <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-goudy-old px-10 line-clamp-1">{it.title}</h3>
               {it.subtitle && (
-                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-goudy-old line-clamp-2 mb-1">{it.subtitle}</p>
+                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-goudy-agency line-clamp-2 mb-1">{it.subtitle}</p>
               )}
               <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-goudy line-clamp-4">{it.description}</p>
             </div>
@@ -89,7 +89,7 @@ export default function AutoScrollCarousel({
             <div className="p-4">
               <h3 className="text-xl md:text-2xl font-bold text-[#111] mb-1 text-center font-goudy-old px-10 line-clamp-1">{it.title}</h3>
               {it.subtitle && (
-                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-goudy-old line-clamp-2 mb-1">{it.subtitle}</p>
+                <p className="text-lg md:text-xl text-[#222] font-bold text-center px-10 font-goudy-agency line-clamp-2 mb-1">{it.subtitle}</p>
               )}
               <p className="text-xl md:text-2xl text-[#333] text-center mx-auto max-w-[423px] font-goudy line-clamp-4">{it.description}</p>
             </div>

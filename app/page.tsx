@@ -245,9 +245,9 @@ export default function Home() {
 
               <div className="mt-10">
                 <a href="/inside">
-                <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-goudy-old">
-                  View all Residents
-                </TextureButton>
+                  <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-goudy-old">
+                    View all Residents
+                  </TextureButton>
                 </a>
               </div>
             </div>

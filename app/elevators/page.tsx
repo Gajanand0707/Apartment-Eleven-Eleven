@@ -297,7 +297,7 @@ export default function Elevators() {
                     className="w-full flex flex-nowrap justify-between items-start gap-3 sm:gap-4 bg-[#F1E0C9] text-black font-goudy-old font-extrabold text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug rounded-[20px] px-4 sm:px-6 py-3 border border-black/20"
                   >
                     <span className="pr-4 flex-1 min-w-0 whitespace-nowrap overflow-x-auto no-underline">{item.q}</span>
-                    <span className="text-[28px] sm:text-[32px] leading-none select-none font-semibold text-black flex-shrink-0">
+                    <span className="text-[24px] sm:text-[32px] leading-none select-none font-semibold text-black flex-shrink-0">
                       {isOpen ? (
                         <img src={toggle1.src} alt='toggle1' className="w-[32px] h-[36px] sm:w-[40px] sm:h-[45px] md:h-[60px] rotate-180" />
                       ) : (
@@ -307,7 +307,7 @@ export default function Elevators() {
                   </button>
 
                   {isOpen && (
-                    <div className="bg-[#F2F2F2] text-black text-[18px] sm:text-[20px] md:text-[24px] px-4 sm:px-6 py-4 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] max-w-[1040px] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
+                    <div className="bg-[#F2F2F2] text-black text-xl md:text-2xl px-4 sm:px-6 py-4 rounded-b-[20px] border border-black/20 border-t-0 w-[90%] max-w-[1040px] mx-auto" style={{ fontFamily: "'Goudy Bookletter 1911', serif" }}>
                       <p className="text-black text-left whitespace-pre-line">{item.a}</p>
                     </div>
                   )}

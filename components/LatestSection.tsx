@@ -64,7 +64,7 @@ export function LatestSection({ title, items, sectionType, layout, viewAllLink }
       <div className="flex justify-center mt-8 md:mt-10">
         <Link
           href={viewAllLink}
-          className="px-8 py-4  border-2  text-2xl md:text-4xl border-gray-900 rounded-3xl font-goudy font-bold md:w-[355px] text-center md:h-[70px] hover:bg-gray-900 bg-white hover:text-white transition-colors flex items-center justify-center"
+          className="px-8 py-4  border-2  text-2xl md:text-4xl border-gray-900 rounded-3xl font-goudy-old font-bold md:w-[355px] text-center md:h-[70px] hover:bg-gray-900 bg-white hover:text-white transition-colors flex items-center justify-center"
         >
           Load More
         </Link>

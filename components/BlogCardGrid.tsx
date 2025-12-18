@@ -25,7 +25,7 @@ export function BlogCardGrid({ blog }: BlogCardGridProps) {
         {/* Content */}
         <div className="p-6 md:p-10 flex flex-col justify-between grow">
           <div>
-            <h3 className="text-xl md:text-2xl font-goudy-agency font-bold text-gray-900 text-center mb-2">{blog.title}</h3>
+            <h3 className="text-xl md:text-2xl font-goudy-old font-bold text-gray-900 text-center mb-2">{blog.title}</h3>
             {/* <p className=" text-[20px] md:text-2xl font-goudy leading-relaxed line-clamp-2 mb-3">{blog.description}</p> */}
           </div>
           <span className="text-blue-500 font-goudy text-xl md:text-2xl  text-center hover:underline pointer-events-none">

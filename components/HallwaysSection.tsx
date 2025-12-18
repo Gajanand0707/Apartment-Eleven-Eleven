@@ -299,7 +299,7 @@ function CarouselCard({
   <p className={`font-goudy text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black ${size === 'small' ? 'max-h-20 overflow-auto md:max-h-none' : ''}`}>
     "{item.quote}"
   </p>
-  <h3 className="mt-8 text-2xl md:text-3xl lg:text-4xl font-semibold font-goudy-agency text-black">
+  <h3 className="mt-8 text-2xl md:text-3xl lg:text-4xl font-semibold font-goudy-old text-black">
     {item.name}
   </h3>
   <p className="text-2xl md:text-3xl lg:text-4xl font-goudy-old mt-2 text-gray-900">

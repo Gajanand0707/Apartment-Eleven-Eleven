@@ -207,7 +207,7 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
         >
           {item.name}
         </h3>
-        <p className="mt-1 sm:mt-2 text-center font-goudy-old text-xl   md:text-2xl text-black/70">
+        <p className="mt-1 sm:mt-2 text-center font-goudy text-xl   md:text-2xl text-black/70">
           {item.sub}
         </p>
        </div>

@@ -245,10 +245,13 @@ export default function Home() {
                 industries and expertise areas.
               </p>
 
-              <div className="mt-10 flex justify-center lg:justify-start">
-                <TextureButton className="text-2xl lg:text-4xl px-8 py-3 font-[Goudy_Old_Style]">
-                  View all Residents
-                </TextureButton>
+              <div className="mt-10">
+                <a href="/residents">
+                  <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-goudy-old">
+                    View all Residents
+                  </TextureButton>
+
+              
                 </a>
               </div>
             </div>

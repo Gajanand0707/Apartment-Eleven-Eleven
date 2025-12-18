@@ -58,8 +58,8 @@ export default function PlaybookPage() {
     if (params.id) fetchPlaybook();
   }, [params.id]);
 
-  if (loading) return <div className="text-center py-20">Loading...</div>;
-  if (!playbook) return <div className="text-center py-20">No playbook found</div>;
+  if (loading) return <div className="text-center py-20 font-goudy">Loading...</div>;
+  if (!playbook) return <div className="text-center py-20 font-goudy">No playbook found</div>;
 
   return (
     <div className="pt-20">
@@ -129,7 +129,17 @@ export default function PlaybookPage() {
 
             <div className="p-2 text-justify md:text-left">
               {/* Title & Introduction */}
-              <h1 className="text-3xl md:text-6xl lg:text-7xl font-goudy-old font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-goudy-old font-bold text-center  leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
+
+              <div className="mt-8 text-center mb-8 mx-auto">
+                <p className="text-xl md:text-2xl text-center font-goudy mx-auto">
+                  {new Date(playbook.publishedAt || playbook.createdAt).toLocaleDateString(undefined, {
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+              </div>
+
             <div className="mb-8">
               <p className="text-[20px] md:text-2xl font-goudy leading-relaxed">{playbook.introduction}</p>
             </div>

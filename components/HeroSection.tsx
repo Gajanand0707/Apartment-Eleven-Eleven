@@ -50,6 +50,7 @@ export default function HeroSection() {
     tl1
       .to('.scene-1 .hero-text', { opacity: 0, y: -50 })
       .to('.scene-1 .pillar-1', { x: '-200%', opacity: 0 }, '<')
+      // .to('.hero-bg', { scale: 1, x: '50%', y: '50%' }, '<')
       .to('.scene-1 .pillar-2', { x: '200%', opacity: 0 }, '<');
 
     // SCENE 2
@@ -66,7 +67,7 @@ export default function HeroSection() {
       .from('.scene-2 .pillar-1', { y: '-100%', opacity: 0 })
       .from('.scene-2 .pillar-2', { y: '100%', opacity: 0 }, '<')
       .from('.scene-2 .still-image', { opacity: 0 }, '<')
-      .to('.hero-bg', { scale: 2, x: '50%', y: '-50%' }, '<')
+      .to('.hero-bg', { scale: 2, x: '20%', y: '-50%', objectPosition: "50% 56%"  }, '<')
       .from('.scene-2 .hero-text', { opacity: 0, y: 50 }, '<');
 
     const tl2Out = gsap.timeline({
@@ -96,7 +97,8 @@ export default function HeroSection() {
       .set('.scene-3', { opacity: 1 })
       .from('.scene-3 .pillar-1', { y: '-100%', opacity: 0 })
       .from('.scene-3 .pillar-2', { y: '100%', opacity: 0 }, '<')
-      .to('.hero-bg', { scale: 2, x: '-50%', y: '50%' }, '<')
+      .to('.hero-bg', { scale: 2, x: '-43%', y: '50%' ,objectPosition: "-37% 8%"}, '<')
+      //  .to('.hero-bg img', { objectPosition: "50% 0%" }, '<')
       .from('.scene-3 .hero-text', { opacity: 0, y: 50 }, '<');
 
     const tl3Out = gsap.timeline({
@@ -123,9 +125,9 @@ export default function HeroSection() {
     });
     tl35In
       .set('.scene-3-5', { opacity: 1 })
-      .to('.hero-bg', { scale: 2, x: '-12%', y: '20%', }, '<')
-      .to('.hero-bg img', { objectPosition: "50% 100%" }, '<')
-      .from('.scene-3-5 .hero-text', { opacity: 0, y: 80 });
+      .to('.hero-bg', { scale: 2, x: '-12%', y: '20%', objectPosition: "50% 100%"  }, '<')
+      // .to('.hero-bg img', { objectPosition: "50% 100%" }, '<')
+      .from('.scene-3-5 .hero-text', { opacity: 0, y: -80 });
 
     const tl35Out = gsap.timeline({
       scrollTrigger: {
@@ -135,7 +137,7 @@ export default function HeroSection() {
         scrub: 0.2,
       },
     });
-    tl35Out.to('.scene-3-5', { opacity: 0, y: -50 });
+    tl35Out.to('.scene-3-5 .hero-text', { opacity: 0, y: 50 });
 
     // SCENE 4
     const tl4 = gsap.timeline({
@@ -151,8 +153,8 @@ export default function HeroSection() {
       .set('.scene-4', { opacity: 1, zIndex: 10 })
       .from('.scene-4 .hero-text', { opacity: 0, y: 60 })
       .to('.scene-4 .hero-text', { opacity: 1, y: 0 })
-       .to('.hero-bg', { scale: 1, x: '-0%', y: '0%', }, '<')
-      .to('.hero-bg img', { objectPosition: "0 0" }, '<');
+       .to('.hero-bg', { scale: 1, x: '-0%', y: '0%',objectPosition: "0 0" }, '<')
+      // .to('.hero-bg img', { objectPosition: "0 0" }, '<');
 
     ScrollTrigger.refresh();
 
@@ -171,10 +173,10 @@ export default function HeroSection() {
   }, []);
   return (
     <section className="hero" ref={heroRef}>
-      <div className="hero-bg">
+      <div className="">
         <img
           src="/e7e9dada1e085ecdf4a962f604b80da4e169ba72.png"
-          alt="background"
+          alt="background" className='hero-bg'
         />
       </div>
 
@@ -186,7 +188,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-goudy-agency">
+        <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
           <span>Apartment Eleven Eleven</span>
           <span className="backdrop"></span>
@@ -215,7 +217,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-goudy-agency">
+        <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Art Shaped by Structure and</span>
           <span>A vision built with exacting Precision</span>
         </div>
@@ -236,7 +238,7 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="hero-text font-goudy-agency">
+        <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Deliberate,</span>
           <span>Purposeful Execution</span>
         </div>
@@ -250,14 +252,14 @@ export default function HeroSection() {
       </div>
 
       <div className="scene-3-5">
-        <div className="hero-text text-new font-goudy-agency">
+        <div className="hero-text text-new font-['OPTIGoudy_Agency']">
           <span>Deliberate,</span>
           <span>Purposeful Execution</span>
         </div>
       </div>
 
       <div className="scene-4">
-        <div className="hero-text font-goudy-agency">
+        <div className="hero-text font-['OPTIGoudy_Agency']">
           <span>Welcome to</span>
           <span>Apartment Eleven Eleven</span>
         </div>
@@ -299,8 +301,10 @@ export default function HeroSection() {
           transform: translate3d(0, 0, 0);
           will-change: transform;
         }
-          .hero .hero-bg img{
+          .hero .hero-bg {
           transition: 0.3s all;
+          object-position: 50% 2%;
+
           }
         .hero .scene-1,
         .hero .scene-2,

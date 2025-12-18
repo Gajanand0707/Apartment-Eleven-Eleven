@@ -65,36 +65,38 @@ export default function PlaybookPage() {
     <div className="pt-20">
       <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-6 md:py-6 gap-3 md:gap-4 relative z-10">
 
-        <button
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(window.location.href)
-            } catch (e) {
-              const ta = document.createElement('textarea')
-              ta.value = window.location.href
-              document.body.appendChild(ta)
-              ta.select()
-              document.execCommand('copy')
-              document.body.removeChild(ta)
-            }
-            setCopied(true)
-            setTimeout(() => setCopied(false), 2000)
-          }}
-          aria-label="Copy page URL"
-          className="flex items-center gap-2 justify-center flex-shrink-0 text-white"
-        >
-          <BiShareAlt size={45} color="white" className="" />
-          <span className="text-white text-sm md:text-lg font-goudy-old font-semibold">{copied ? 'Copied!' : ''}</span>
-        </button>
-
-        <div className="flex-1 flex items-center justify-center text-center px-2 min-w-0">
-          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-goudy-old font-bold line-clamp-2">{playbook?.title}</h1>
+        <div className="flex-1 flex items-center justify-center text-center px-2 min-w-0 order-1 md:order-2 w-full md:w-auto">
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-goudy-old font-bold md:line-clamp-2">{playbook?.title}</h1>
         </div>
 
-        <div className="flex-shrink-0">
-          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-goudy rounded-full whitespace-nowrap">
-            Subscribe
+        <div className="w-full md:w-auto flex flex-row items-center justify-center gap-3 md:gap-0 order-2 md:contents">
+          <button
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(window.location.href)
+              } catch (e) {
+                const ta = document.createElement('textarea')
+                ta.value = window.location.href
+                document.body.appendChild(ta)
+                ta.select()
+                document.execCommand('copy')
+                document.body.removeChild(ta)
+              }
+              setCopied(true)
+              setTimeout(() => setCopied(false), 2000)
+            }}
+            aria-label="Copy page URL"
+            className="flex items-center gap-2 justify-center text-white flex-shrink-0 md:w-[200px] md:order-1"
+          >
+            <BiShareAlt size={45} color="white" className="" />
+            <span className="text-white text-sm md:text-lg font-goudy-old font-semibold">{copied ? 'Copied!' : ''}</span>
           </button>
+
+          <div className="flex-shrink-0 md:w-[200px] flex justify-end md:order-3">
+            <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-1 md:px-8 md:mx-2 text-white text-center font-goudy rounded-full whitespace-nowrap">
+              Subscribe
+            </button>
+          </div>
         </div>
 
       </div>

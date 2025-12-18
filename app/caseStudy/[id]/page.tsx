@@ -26,6 +26,7 @@ interface DeepDive {
     label?: string;
     url?: string;
   }>;
+  audio_title?: string;
   audio?: any;
   createdAt: string;
   updatedAt: string;
@@ -78,6 +79,7 @@ interface DeepDive {
         width?: number;
         height?: number;
       };
+      video_title?: string;
       video?: any | null;
       pdf?: any | null;
     }>;

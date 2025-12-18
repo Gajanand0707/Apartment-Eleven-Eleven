@@ -25,6 +25,7 @@ interface Article {
     url?: string
     label?: string
   }>
+  audio_title?: string
   audio?: any
   createdAt: string
   updatedAt: string
@@ -58,6 +59,7 @@ interface Article {
         width?: number
         height?: number
       }
+      video_title?: string
       video: any | null
       pdf: any | null
     }>

@@ -95,7 +95,7 @@ export default function CaseStudiesSection({ limit }: { limit?: number }) {
       {/* Bottom CTA button (only show when limited) */}
       {typeof limit === "number" && (
         <Link href="/caseStudy" className="relative z-10 mt-16 mb-8 inline-block">
-          <span className="bg-[#014A43] text-white text-2xl md:text-3xl lg:text-4xl font-goudy-old font-semibold px-8 py-4 rounded-[28px] hover:bg-[#016A60] transition-colors pointer-events-none">
+          <span className="bg-[#014A43] text-white text-2xl md:text-3xl lg:text-4xl font-goudy-old font-extrabold px-8 py-4 rounded-[28px] hover:bg-[#016A60] transition-colors pointer-events-none">
             Access All Case Studies
           </span>
         </Link>

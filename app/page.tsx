@@ -86,7 +86,7 @@ export default function Home() {
           {/* Top heading */}
           <h2 className="font-bold text-[36px] md:text-[54px] lg:text-[72px] text-center leading-[1.15] max-w-[327px] md:max-w-[900px] lg:max-w-[1200px] mx-auto font-goudy-old lg:font-goudy-agency md:whitespace-normal"> Praxis For The New Renaissance </h2>
 
-          <p className="text-[24px] md:text-[30px] lg:text-[36px] leading-[1.15] text-center max-w-[1095px] font-goudy my-4  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
+          <p className="text-[20px] md:text-[30px] lg:text-[36px] leading-[1.15] text-center max-w-[1095px] font-goudy my-4  md:my-4"> Sometimes it's founders that can bring everything together, other times you need experts at resource building to help.
             We're helping build businesses with the ethos of the new India.</p>
           {/* Divider line */}
           <div className="mt-8 w-full flex justify-center">
@@ -108,7 +108,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[24px] md:text-[30px] lg:text-[36px] md:mt-5 font-goudy lg:font-goudy-old max-w-[250px] md:max-w-[285px] text-black leading-9.5">Where Foresight Meets Fortitude</h4>
+              <h4 className="font-bold text-[28px] md:text-[30px] lg:text-[36px] md:mt-5 font-goudy lg:font-goudy-old max-w-[250px] md:max-w-[285px] text-black leading-9.5">Where Foresight Meets Fortitude</h4>
               <p className="mt-2.5 text-[20px] md:text-[22px] lg:text-[24px] leading-tight font-goudy text-black max-w-[299px]">With foresight, we identify defining opportunities early; with fortitude and conviction, we build them alongside you.</p>
             </div>
             {/* Card 2 */}
@@ -121,7 +121,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <h4 className="font-bold text-[24px] md:text-[30px] lg:text-[36px] md:mt-5 justify-center  md:max-w-[250px] font-goudy lg:font-goudy-old text-black leading-9.5">The Patrons of Progress</h4>
+              <h4 className="font-bold text-[28px] md:text-[30px] lg:text-[36px] md:mt-5 justify-center  md:max-w-[250px] font-goudy lg:font-goudy-old text-black leading-9.5">The Patrons of Progress</h4>
               <p className="mt-2.5 text-[20px] md:text-[22px] lg:text-[24px] leading-tight font-goudy text-black max-w-[299px]">More than backers, we are enablers of the 'new India,' providing the strategic architecture for its creation.</p>
             </div>
             {/* Card 3 */}
@@ -134,7 +134,7 @@ export default function Home() {
                   className="object-cover ml-5 "
                 />
               </div>
-              <h4 className="font-bold text-[24px] md:text-[30px] lg:text-[36px] md:mt-5 font-goudy lg:font-goudy-old max-w-[270px] sm:max-w-[200px] lg:max-w-[250px] text-black leading-9.5">The Sculptor's Gaze</h4>
+              <h4 className="font-bold text-[28px] md:text-[30px] lg:text-[36px] md:mt-5 font-goudy lg:font-goudy-old max-w-[270px] sm:max-w-[200px] lg:max-w-[250px] text-black leading-9.5">The Sculptor's Gaze</h4>
               <p className="mt-2.5 text-[20px] md:text-[22px] lg:text-[24px] leading-tight text-black max-w-[299px] font-goudy">We see the potential others miss, guiding you to remove noise and reveal your lasting value.</p>
             </div>
           </div>
@@ -174,7 +174,7 @@ export default function Home() {
 
           {/* Button */}
           <a href="/elevators">
-          <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-goudy-old">
+          <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-bold lg:font-goudy-old">
             Elevator's Waiting
           </TextureButton>
           </a>
@@ -187,20 +187,12 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-[51px]">
-        {/* background texture */}
-        {/* <Image
-          src={meet}
-          alt="Section background texture"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          className="opacity-70"
-        /> */}
+        
 
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto text-center">
           {/* heading */}
-          <h1 className="text-[24px] md:text-[30px] lg:text-[36px] font-bold font-goudy lg:font-goudy-old text-black">
+          <h1 className="text-[28px] md:text-[30px] lg:text-[36px] font-bold font-goudy-agency lg:font-goudy-old text-black">
             Meet our Residency Panel
           </h1>
 
@@ -237,7 +229,7 @@ export default function Home() {
                 Derived Naturally
               </h2>
 
-              <p className="mt-6 text-[24px] text-center xl:text-start md:text-[30px] xl:text-[36px] font-goudy text-black max-w-[680px] leading-tight">
+              <p className="mt-6 text-[24px] text-center xl:text-start md:text-[30px] lg:text-[36px] font-goudy text-black max-w-[680px] leading-tight">
                 Apartment Eleven Eleven residents are thoughtfully selected
                 using diverse professional backgrounds sourced from various
                 industries and expertise areas.
@@ -245,7 +237,7 @@ export default function Home() {
 
               <div className="mt-10">
                 <a href="/inside">
-                  <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-goudy-old">
+                  <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3  font-goudy-old">
                     View all Residents
                   </TextureButton>
                 </a>

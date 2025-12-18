@@ -180,10 +180,10 @@ export default function HallwaysSection() {
 
         {/* ✅ Heading */}
         <div className="relative z-10 text-center  mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold md:mt-16 text-black">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-goudy-agency font-bold md:mt-16 text-black">
             Conversations in the Hallways
           </h1>
-          <p className="mt-4 text-2xl md:text-3xl lg:text-4xl md:px-20 font-['Goudy_Old_Style'] font-semibold  text-black  mx-auto">
+          <p className="mt-4 text-2xl md:text-3xl lg:text-4xl md:px-20 font-goudy-old font-semibold  text-black  mx-auto">
             Where serendipitous encounters spark innovation and change. The most
             important innovations often happen in the spaces between meetings.
           </p>
@@ -296,13 +296,13 @@ function CarouselCard({
 
   flex flex-col justify-center items-center text-center ${size === 'large' ? 'p-6' : 'p-10'} ${animateClass}`}
 >
-  <p className={`font-['Goudy_Bookletter_1911'] text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black ${size === 'small' ? 'max-h-20 overflow-auto md:max-h-none' : ''}`}>
+  <p className={`font-goudy text-[20px] md:text-2xl italic leading-snug max-w-[85%] mx-auto text-black ${size === 'small' ? 'max-h-20 overflow-auto md:max-h-none' : ''}`}>
     "{item.quote}"
   </p>
-  <h3 className="mt-8 text-2xl md:text-3xl lg:text-4xl font-semibold font-['OPTIGoudy_Agency'] text-black">
+  <h3 className="mt-8 text-2xl md:text-3xl lg:text-4xl font-semibold font-goudy-old text-black">
     {item.name}
   </h3>
-  <p className="text-2xl md:text-3xl lg:text-4xl font-['Goudy_Old_Style'] mt-2 text-gray-900">
+  <p className="text-2xl md:text-3xl lg:text-4xl font-goudy-old mt-2 text-gray-900">
     ({item.title}) <br /> {item.company}
   </p>
 </div>

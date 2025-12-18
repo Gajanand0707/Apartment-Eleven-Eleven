@@ -155,7 +155,7 @@ export default function GlassSpotlight({
                     // Card sizing tuned for all screens
                     "w-[200px]  md:w-[446px] ",
                     "h-[240px]  md:h-[480px] ",
-                    "transition-all duration-500 ease-out will-change-transform",
+                    "transition-all duration-500 ease-in will-change-transform",
                     slotClass(slot),
                   ].join(" ")}
                 >
@@ -199,7 +199,7 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
         <div>
         <h3
           className={[
-            "font-['GoudyOldStyle'] text-center font-bold leading-none",
+            "font-goudy-old text-center font-bold leading-none",
             emphasis
               ? "text-2xl md:text-4xl"
               : "text-2xl md:text-4xl",
@@ -207,7 +207,7 @@ function GlassCard({ item, emphasis }: { item: Item; emphasis: boolean }) {
         >
           {item.name}
         </h3>
-        <p className="mt-1 sm:mt-2 text-center font-['GoudyOldStyle'] text-xl   md:text-2xl text-black/70">
+        <p className="mt-1 sm:mt-2 text-center font-goudy text-xl   md:text-2xl text-black/70">
           {item.sub}
         </p>
        </div>

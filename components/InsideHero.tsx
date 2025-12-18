@@ -109,15 +109,15 @@ export default function InsideHero() {
           justify-content: center;
         }
         .hero-text h1 {
-          font-size: clamp(2rem, 8vw, 4rem);
+          font-size: clamp(2rem, 8vw, 4.5rem);
           line-height: 1.2;
           text-shadow: 0px 0px 10px rgba(0,0,0,0.9), 0px 0px 30px rgba(0,0,0,0.9);
           margin-bottom: 0.5rem;
           font-weight: 700;
         }
         .hero-text p {
-          font-size: clamp(0.875rem, 3.5vw, 1.5rem);
-          max-width: 900px;
+          font-size: clamp(0.875rem, 3.5vw, 2rem);
+          max-width: 977px;
           line-height: 1.6;
           text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
           padding: 0 0.5rem;
@@ -241,10 +241,10 @@ export default function InsideHero() {
 
         <div className="hero-text ">
           <div>
-            <h1 ref={h1Ref} className="font-['OPTIGoudy_Agency'] text-4xl md:text-7xl">Our Philosophy</h1>
+            <h1 ref={h1Ref} className="font-goudy-agency text-4xl md:text-7xl">Our Philosophy</h1>
             <span className="backdrop"></span>
           </div>
-          <p ref={pRef} className="font-['Goudy_Old_Style'] text-2xl md:text-4xl">
+          <p ref={pRef} className="font-goudy text-2xl md:text-4xl">
             At Eleven Eleven, we believe that exceptional living begins with understanding that a home is more than a space — it's a sanctuary where life unfolds, dreams take shape, and connections flourish in an atmosphere of refined elegance.
           </p>
         </div>

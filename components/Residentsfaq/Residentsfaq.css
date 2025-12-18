@@ -1,0 +1,12 @@
+.residentscard:hover .left_door {
+    left: -60px;
+    transform: scale(0.6);
+}
+.residentscard:hover .right_door {
+    right: -60px;
+    transform: scale(0.6);
+}
+.residentscard,
+.left_door , .right_door{
+    transition: 0.5s all;
+}

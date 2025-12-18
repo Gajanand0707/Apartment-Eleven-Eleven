@@ -1,0 +1,18 @@
+<svg width="603" height="374" viewBox="0 0 603 374" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_10_2)">
+<line x1="372.75" y1="374" x2="372.75" stroke="black" stroke-width="0.5"/>
+<line x1="373" y1="230.75" x2="603" y2="230.75" stroke="black" stroke-width="0.5"/>
+<line x1="373" y1="285.75" x2="463" y2="285.75" stroke="black" stroke-width="0.5"/>
+<line x1="463" y1="264.25" x2="427" y2="264.25" stroke="black" stroke-width="0.5"/>
+<line x1="427" y1="272.75" x2="441" y2="272.75" stroke="black" stroke-width="0.5"/>
+<line x1="440.25" y1="264" x2="440.25" y2="286" stroke="black" stroke-width="0.5"/>
+<line x1="462.25" y1="231" x2="462.25" y2="373" stroke="black" stroke-width="0.5"/>
+<line x1="427.25" y1="231" x2="427.25" y2="285" stroke="black" stroke-width="0.5"/>
+<path d="M20.5 377.001C20.5 165.5 177.706 10.9989 372.383 17.9997C499.173 14.9995 602.502 102.999 602.502 231.999C602.502 311.999 531.619 374.499 461.236 372.499C405.329 371.499 373.881 328.999 372.383 285.499C372.383 247.999 404.33 231.499 426.793 231.499C444.264 231.499 460.238 244.499 460.238 264.499C460.238 275.499 449.572 286.482 439.272 285.499C432.783 284.88 426.793 278.999 427.791 272.499" stroke="#3B82F6" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_10_2">
+<rect width="603" height="374" fill="white"/>
+</clipPath>
+</defs>
+</svg>

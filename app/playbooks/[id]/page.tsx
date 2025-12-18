@@ -84,15 +84,15 @@ export default function PlaybookPage() {
           className="flex items-center gap-2 justify-center flex-shrink-0 text-white"
         >
           <BiShareAlt size={45} color="white" className="" />
-          <span className="text-white text-sm md:text-lg font-[Goudy_Old_Style] font-semibold">{copied ? 'Copied!' : ''}</span>
+          <span className="text-white text-sm md:text-lg font-goudy-old font-semibold">{copied ? 'Copied!' : ''}</span>
         </button>
 
         <div className="flex-1 flex items-center justify-center text-center px-2 min-w-0">
-          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-[Goudy_Old_Style] font-bold line-clamp-2">{playbook?.title}</h1>
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-goudy-old font-bold line-clamp-2">{playbook?.title}</h1>
         </div>
 
         <div className="flex-shrink-0">
-          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-[Goudy_Old_Style] rounded-full whitespace-nowrap font-semibold">
+          <button className="text-2xl px-16  md:text-4xl bg-[#FFAE00AB] py-1.5  md:py-2 md:px-8 text-white text-center font-goudy rounded-full whitespace-nowrap">
             Subscribe
           </button>
         </div>
@@ -104,7 +104,7 @@ export default function PlaybookPage() {
           {/* Back Button */}
           <Link
             href="/playbooks"
-            className="inline-block mb-8  hover:text-gray-600 font-['Goudy_Bookletter_1911'] text-xl md:text-2xl transition-colors"
+            className="inline-block mb-8  hover:text-gray-600 font-goudy text-xl md:text-2xl transition-colors"
           >
             ← Back to Playbooks
           </Link>
@@ -127,9 +127,9 @@ export default function PlaybookPage() {
 
             <div className="p-2 text-justify md:text-left">
               {/* Title & Introduction */}
-              <h1 className="text-3xl md:text-6xl lg:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
+              <h1 className="text-3xl md:text-6xl lg:text-7xl font-goudy-old font-bold text-center md:text-left leading-tight tracking-tight mb-6 w-full">{playbook.title}</h1>
             <div className="mb-8">
-              <p className="text-[20px] md:text-2xl font-['Goudy_Bookletter_1911'] leading-relaxed">{playbook.introduction}</p>
+              <p className="text-[20px] md:text-2xl font-goudy leading-relaxed">{playbook.introduction}</p>
             </div>
 
             {/* Type Badge */}

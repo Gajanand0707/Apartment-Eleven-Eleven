@@ -33,19 +33,19 @@ export default function HallwayCard({
         ].join(" ")
       }
     >
-      <p className="text-xl md:text-2xl font-normal leading-snug font-['Goudy_Bookletter_1911'] mb-8">
+      <p className="text-xl md:text-2xl font-normal leading-snug font-goudy mb-8">
         &quot;{quote}&quot;
       </p>
 
-      <div className="text-2xl md:text-3xl font-['Goudy Old Style'] font-medium leading-tight mb-4">
+      <div className="text-2xl md:text-3xl font-goudy-old font-medium leading-tight mb-4">
         {name}
       </div>
 
-      <div className="text-lg md:text-xl font-['Goudy Old Style'] leading-tight italic">
+      <div className="text-lg md:text-xl font-goudy-old leading-tight italic">
         ({title})
       </div>
 
-      <div className="text-lg md:text-xl font-['Goudy Old Style'] leading-tight mt-2">
+      <div className="text-lg md:text-xl font-goudy-old leading-tight mt-2">
         {company}
       </div>
     </div>

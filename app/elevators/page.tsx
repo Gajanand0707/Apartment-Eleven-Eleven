@@ -9,10 +9,6 @@ import toggle1 from "../../public/toggle1.png"
 import path1 from "../../public/path1.png"
 import path2 from "../../public/path2.png"
 import path3 from "../../public/path3.png"
-import buttonbg from "../../public/buttonbg.png"
-import { BiArrowFromBottom, BiArrowToBottom, BiArrowToTop, BiUpArrow } from 'react-icons/bi';
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
-
 
 
 export function ParchmentButton({
@@ -49,7 +45,7 @@ export function ParchmentButton({
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
       {/* Button Text */}
-      <span className="relative z-10 text-xl sm:text-2xl lg:text-3xl font-['GoudyOldStyle'] text-nowrap font-extrabold text-black ">
+      <span className="relative z-10 text-xl sm:text-2xl lg:text-3xl font-goudy-old text-nowrap font-extrabold text-black ">
         {children}
       </span>
     </button>
@@ -100,7 +96,7 @@ export default function Elevators() {
     <div>
       <section className="relative flex w-full justify-between items-stretch bg-[#1C1C1C] overflow-hidden h-[60vh]  md:h-screen ">
         {/* Mobile + tablet + md: full-bleed background image */}
-        <div className="absolute inset-0 block lg:hidden z-0">
+        <div className="absolute inset-0 block xl:hidden z-0">
           <img
             src={wall.src}
             alt="colosseum"
@@ -110,7 +106,7 @@ export default function Elevators() {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-[#1C1C1C] to-transparent" />
         </div>
         {/* LEFT – image */}
-        <div className="relative basis-7/12 shrink-0 hidden lg:block">
+        <div className="relative basis-7/12 shrink-0 hidden xl:block">
           <div className="absolute inset-0 bg-[#1C1C1C]" />
           <img
             src={wall.src}
@@ -121,26 +117,27 @@ export default function Elevators() {
         </div>
 
         {/* RIGHT – text */}
-        <div className="relative z-20 w-full lg:basis-3/12 h-full flex flex-col justify-center items-center text-center lg:items-end lg:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 lg:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
+        <div className="relative z-20 w-full xl:basis-3/12 h-full flex flex-col justify-center items-center text-center xl:items-end xl:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 xl:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
+          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
-          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none text-white mx-auto  pr-1 text-2xl sm:text-3xl text-nowrap md:text-7xl">
+          <h2 className="font-goudy-agency font-semibold leading-tight md:leading-none text-white mx-auto  pr-1 text-2xl sm:text-3xl text-nowrap md:text-7xl">
             Ideas Deserve
           </h2>
 
-          <h1 className="font-[OPTIGoudy_Agency] font-bold leading-tight md:leading-none text-white mx-auto  mt-0 text-4xl sm:text-6xl md:text-[124px]">
+          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto  mt-0 text-4xl sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
-          <h2 className="font-[OPTIGoudy_Agency] font-semibold leading-tight md:leading-none mx-auto text-white  pr-1 text-2xl sm:text-3xl md:text-7xl">
+          <h2 className="font-goudy-agency font-semibold leading-tight md:leading-none mx-auto text-white  pr-1 text-2xl sm:text-3xl md:text-7xl">
             Partnerships
           </h2>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#D8CCBA] text-black py-10 px-6">
+      <section className="relative overflow-hidden bg-[#D8CCBA] text-black pt-[58px] pb-[70px] px-6">
+        
         {/* parchment background texture */}
         <Image
           src={pathbg}
@@ -152,11 +149,12 @@ export default function Elevators() {
 
         {/* content wrapper */}
         <div className="relative z-10  mx-auto flex flex-col items-center text-center">
-          <h2 className="font-[OPTIGoudy_Agency] font-bold text-black leading-tight text-4xl md:text-5xl lg:text-7xl">
+         
+          <h2 className="font-goudy-agency font-bold text-black leading-tight text-4xl md:text-5xl lg:text-7xl">
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-['GoudyOldStyle'] font-extrabold text-black  text-2xl md:text-3xl lg:text-4xl max-w-[850px] my-2">
+          <p className="font-goudy-old font-extrabold text-black  text-2xl md:text-3xl lg:text-4xl max-w-[850px] my-2">
             Choose the Passage that aligns with your vision, and let our shared Journey Commence.
           </p>
 
@@ -182,11 +180,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
+                <h3 className="font-goudy-old font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
                   Align with Our Cadre
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-xl lg:text-2xl mt-2 flex-1">
+                <p className="font-goudy text-xl lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
@@ -219,11 +217,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl md:px-2 lg:text-4xl leading-snug tracking-wide ">
+                <h3 className="font-goudy-old font-semibold text-2xl md:text-3xl md:px-2 lg:text-4xl leading-snug tracking-wide ">
                   Unveil Your Vision
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-xl  lg:text-2xl mt-2 flex-1">
+                <p className="font-goudy text-xl  lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
@@ -256,11 +254,11 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-[Goudy_Old_Style] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
+                <h3 className="font-goudy-old font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
                   Offer Your Proposal
                 </h3>
 
-                <p className="font-['Goudy_Bookletter_1911'] text-xl lg:text-2xl mt-2 flex-1">
+                <p className="font-goudy text-xl lg:text-2xl mt-2 flex-1">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan, risus nec commodo dictum, nulla turpis cursus turpis, non tincidunt est nisl a eros.
                 </p>
 
@@ -277,12 +275,15 @@ export default function Elevators() {
       </section>
 
       <section className="relative border border-black bg-[#D2CDBD] text-black py-16 px-6 flex justify-center">
-        <div className="w-full max-w-[960px] flex flex-col items-center text-center">
-          <h2 className="font-[OPTIGoudy_Agency] font-bold text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black">
+         
+        <div className="w-full  flex flex-col items-center text-center">
+          <div className='h-[4px] bg-black w-screen inset-0 absolute'></div>
+          <div className='h-[4px] bg-black w-screen hidden xl:block inset-0 mt-2 absolute'></div>
+          <h2 className="font-goudy-agency font-bold text-4xl md:text-5xl lg:text-7xl leading-[1.1] text-black">
             Common Inquiries
           </h2>
 
-          <p className="font-[GoudyOldStyle] font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug text-black max-w-[900px] mt-6">
+          <p className="font-goudy-old font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug text-black max-w-[900px] mt-6">
             All you need discern regarding alliance with us.
           </p>
 
@@ -293,7 +294,7 @@ export default function Elevators() {
                 <div key={idx} className="w-full max-w-[1080px]">
                   <button
                     onClick={() => toggleFAQ(idx)}
-                    className="w-full flex flex-nowrap justify-between items-start gap-3 sm:gap-4 bg-[#F1E0C9] text-black font-[Goudy_Old_Style] font-extrabold text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug rounded-[20px] px-4 sm:px-6 py-3 border border-black/20"
+                    className="w-full flex flex-nowrap justify-between items-start gap-3 sm:gap-4 bg-[#F1E0C9] text-black font-goudy-old font-extrabold text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-snug rounded-[20px] px-4 sm:px-6 py-3 border border-black/20"
                   >
                     <span className="pr-4 flex-1 min-w-0 whitespace-nowrap overflow-x-auto no-underline">{item.q}</span>
                     <span className="text-[28px] sm:text-[32px] leading-none select-none font-semibold text-black flex-shrink-0">

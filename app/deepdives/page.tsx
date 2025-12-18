@@ -65,7 +65,7 @@ export default function DeepDives() {
 
                 {/* Title */}
                 <div className="absolute inset-0 flex items-center justify-center px-4 pb-20">
-                    <h1 className="text-white text-4xl md:text-7xl font-['OPTIGoudy_Agency'] font-bold text-center">
+                    <h1 className="text-white text-4xl md:text-7xl font-goudy-agency font-bold text-center">
                         Deepdives
                     </h1>
                 </div>
@@ -104,7 +104,7 @@ export default function DeepDives() {
                 }))}
             />
             </div>
-            <main className="min-h-screen bg-[#D5C7B3]">
+            <main className="bg-[#D5C7B3]">
                 <div className="max-w-7xl mx-auto">
                     <ArticlesList articles={blogs} onLoadMore={handleLoadMore} />
                 </div>

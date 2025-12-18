@@ -1,29 +1,49 @@
+/* Custom Font Declarations - MUST come before Tailwind import */
+
+/* Goudy Bookletter 1911 - Regular weight */
+@font-face {
+  font-family: 'Goudy Bookletter 1911';
+  src: url('/fonts/goudy-bookletter-1911-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OPTIGoudy Agency - Bold weight */
+@font-face {
+  font-family: 'OPTIGoudy Agency';
+  src: url('/fonts/opti-goudy-agency-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Goudy Old Style - Extra Bold weight */
+@font-face {
+  font-family: 'Goudy Old Style';
+  src: url('/fonts/goudy-old-style-extra-bold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Import Tailwind CSS - comes AFTER font declarations */
 @import "tailwindcss";
-/* 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Register custom fonts with Tailwind v4 theme system */
+@theme {
+  --font-goudy: 'Goudy Bookletter 1911', serif;
+  --font-goudy-agency: 'OPTIGoudy Agency', serif;
+  --font-goudy-old: 'Goudy Old Style', serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-size-20px: 20px;
+  --font-size-22px: 22px;
+  --font-size-24px: 24px;
+  --font-size-30px: 30px;
+  --font-size-36px: 36px;
+  --font-size-54px: 54px;
+  --font-size-72px: 72px;
 }
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
 
 /* Safari-specific fixes for better cross-browser consistency */
 * {
@@ -31,9 +51,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
 body {
   -webkit-overflow-scrolling: touch;
 }
+
 /* Fix Safari flexbox alignment issues */
 html, body {
   -webkit-text-size-adjust: 100%;
@@ -50,37 +72,6 @@ button, input, optgroup, select, textarea {
   line-height: inherit;
 }
 
-/* Goudy font utility
-   - If you have the Goudy Old Style font files, place them in `public/fonts/` and add an @font-face here.
-   - For now this provides a named fallback that uses system serif fonts when Goudy isn't available.
-   Example @font-face (if you add files):
-   @font-face {
-     font-family: 'Goudy Old Style';
-     src: url('/fonts/GoudyOldStyle.woff2') format('woff2');
-     font-weight: 400;
-     font-style: normal;
-     font-display: swap;
-   }
-*/
-
-.font-goudy {
-  /* Prefer the regular Goudy Bookletter (or Georgia) for normal text */
-  font-family: 'Goudy Bookletter 1911', Georgia, serif;
-}
-
-/* When `.font-goudy` is explicitly made bold via Tailwind utilities, use the
-   OPTIGoudy bold family (only bold file is currently available). */
-.font-goudy.font-bold,
-.font-goudy.font-semibold,
-.font-goudy.font-extrabold {
-  font-family: 'OPTIGoudy Agency', 'Goudy Bookletter 1911', Georgia, serif;
-}
-
-/* Ensure default text renders at normal weight unless utilities request otherwise */
-body {
-  font-weight: 400;
-}
-
 /* Ensure the app root uses a solid background and full-height to avoid
    brief white gaps during smooth scrolling/transform animations. */
 html {
@@ -94,143 +85,10 @@ html {
 body {
   background: #303236;
   min-height: 100%;
+  font-weight: 400;
+  font-family: 'Goudy Bookletter 1911', serif;
 }
 
 #__next {
   height: 100%;
 }
-
-/*
-  Prefer the regular Goudy Bookletter (or Georgia) for normal text, and only
-  apply the OPTIGoudy (bold) family when the element explicitly requests a
-  bold/semibold weight via Tailwind utilities (e.g. `font-bold`, `font-semibold`).
-  This prevents the browser from using the only-available OPTIGoudy 700 file
-  for elements that should be regular weight.
-*/
-
-/* Elements that explicitly use OPTIGoudy and also request a bold-ish weight */
-[class*="OPTIGoudy"][class*="font-bold"],
-[class*="OPTIGoudy"][class*="font-semibold"],
-[class*="OPTIGoudy"][class*="font-extrabold"] {
-  font-family: 'OPTIGoudy Agency', 'Goudy Bookletter 1911', Georgia, serif;
-}
-
-/* Generic Goudy_Bookletter class without an explicit bold weight -> use regular fallback */
-[class*="Goudy_Bookletter_1911"],
-[class*="Goudy_Bookletter"] {
-  font-family: 'Goudy Bookletter 1911', Georgia, serif;
-}
-
-/* Goudy_Old_Style uses the GOUDOS.woff2 file */
-[class*="Goudy_Old_Style"] {
-  font-family: 'GoudyOldStyle', 'Goudy_Old_Style', 'Goudy Old Style', Georgia, serif;
-}
-
-/* Explicit rule for arbitrary font syntax - font-['OPTIGoudy_Agency'] */
-.font-\[OPTIGoudy_Agency\] {
-  font-family: 'OPTIGoudy Agency' !important;
-}
-
-/* Explicit rule for arbitrary font syntax */
-.font-\[Goudy_Old_Style\] {
-  font-family: 'GoudyOldStyle', 'Goudy_Old_Style', 'Goudy Old Style', Georgia, serif;
-}
-
-/* High specificity rule to ensure Goudy Old Style font loads correctly */
-.font-\[Goudy_Old_Style\] {
-  font-family: 'GoudyOldStyle' !important;
-}
-
-[class*="Goudy_Old_Style"] {
-  font-family: 'GoudyOldStyle' !important;
-}
-
-/* Local @font-face rules for available fonts in public/fonts/ */
-
-@font-face {
-  font-family: 'Goudy Bookletter 1911';
-  src: url('/fonts/GoudyBookletter1911-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'OPTIGoudy Agency';
-  src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Alias family name used by several components (underscore variant) */
-@font-face {
-  font-family: 'OPTIGoudy_Agency';
-  src: url('/fonts/OPTIGoudy-BoldAgency.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'GoudyOldStyle';
-  src: url('/fonts/GOUDOS.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Goudy_Old_Style';
-  src: url('/fonts/GOUDOS.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: block;
-}
-
-@font-face {
-  font-family: 'Goudy Old Style';
-  src: url('/fonts/GOUDOS.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: block;
-}
-
-/* Note: If you add OPTIGoudy regular (400) file, add a matching @font-face with weight:400 to complete the family. */
-
-/*
-  To use the exact OPTIGoudy_Agency font (recommended):
-
-  1) Place your font files in `public/fonts/`. Recommended names:
-       - public/fonts/OPTIGoudy_Agency-Regular.woff2
-       - public/fonts/OPTIGoudy_Agency-Bold.woff2
-
-  2) Uncomment the @font-face blocks below (or add them) to register the local fonts.
-
-  3) Update `.font-goudy` to prefer 'OPTIGoudy Agency' (example shown below).
-
-  Example (uncomment to enable):
-
-  @font-face {
-    font-family: 'OPTIGoudy Agency';
-    src: url('/fonts/OPTIGoudy_Agency-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'OPTIGoudy Agency';
-    src: url('/fonts/OPTIGoudy_Agency-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  then set (example):
-
-    .font-goudy { font-family: 'OPTIGoudy Agency', var(--font-goudy, 'Sorts Mill Goudy'), Georgia, serif; }
-
-  Note: after adding the files, you can alternatively use `next/font/local` in `app/layout.tsx` to expose the font as a CSS variable
-  and eliminate FOIT/CLS. If you want, I can add the `next/font/local` code once you upload the font files.
-*/

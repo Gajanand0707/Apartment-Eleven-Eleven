@@ -36,7 +36,7 @@ export default function AfterSubmitPage() {
 
             {/* Centered text over image */}
             <div className="relative z-20 flex items-center justify-center min-h-screen px-6">
-                <p className="text-center text-4xl md:text-7xl font-['Goudy_Old_Style'] backdrop-blur-sm text-white ">
+                <p className="text-center text-4xl md:text-7xl font-goudy-old backdrop-blur-sm text-white ">
                     Thank you for reaching out to us.
                     <br />
                     We’ll get back to you within 72 hours.
@@ -45,7 +45,7 @@ export default function AfterSubmitPage() {
 
             {/* Bottom countdown / redirect line */}
             <div className="fixed bottom-6 left-0 right-0 flex justify-center z-30">
-                <div className="bg-black/60 text-white text-xl md:text-2xl py-2 px-4 rounded-lg font-['Goudy_Bookletter_1911'] backdrop-blur-sm">
+                <div className="bg-black/60 text-white text-xl md:text-2xl py-2 px-4 rounded-lg font-goudy backdrop-blur-sm">
                     <span>Redirecting to </span>
                     <button
                         onClick={() => router.push("/")}

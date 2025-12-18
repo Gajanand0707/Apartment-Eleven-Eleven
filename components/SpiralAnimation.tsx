@@ -221,7 +221,7 @@ export function SpiralAnimation({
           }
       `}</style>
 
-      <div ref={outerRef} className="w-full max-w-[600px]">
+      <div ref={outerRef} className="sm:w-full w-[80%] max-w-[600px]">
         <div className="spiral-container">
           <div className="pseudo-box"></div>
           <svg

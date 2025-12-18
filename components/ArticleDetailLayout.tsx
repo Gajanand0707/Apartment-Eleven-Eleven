@@ -132,27 +132,31 @@ export default function ArticleDetailLayout({
     <div className="pt-20">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between bg-[#0E4943] w-full items-center px-4 py-6 md:py-6 gap-3 md:gap-4 relative z-10">
-        <button
-          onClick={handleCopyLink}
-          aria-label="Copy page URL"
-          className="flex items-center gap-2 justify-center flex-shrink-0 text-white"
-        >
-          <BiShareAlt size={45} color="white" className="" />
-          <span className="text-white text-sm md:text-lg font-goudy-old font-semibold">
-            {copied ? "Copied!" : ""}
-          </span>
-        </button>
-
-        <div className="flex-1 flex items-center justify-center text-center px-2 min-w-0">
-          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-goudy-old font-bold line-clamp-2">
+        <div className="flex-1 flex items-center justify-center text-center px-2 min-w-0 order-1 md:order-2 w-full md:w-auto">
+          <h1 className="text-white text-2xl max-w-[630px] mx-auto text-center md:text-4xl font-goudy-old font-bold md:line-clamp-2">
             {articleTitle}
           </h1>
         </div>
 
-        <div className="flex-shrink-0">
-          <button className="text-2xl px-16 md:text-4xl bg-[#FFAE00AB] py-1.5 md:py-2 md:px-8 text-white text-center font-goudy-old rounded-full whitespace-nowrap font-semibold">
-            Subscribe
-          </button>
+        <div className="w-full md:w-auto flex flex-row items-center justify-center gap-3 md:gap-0 order-2 md:contents">
+          <div className="flex-shrink-0 md:w-[200px] md:order-1">
+            <button
+              onClick={handleCopyLink}
+              aria-label="Copy page URL"
+              className="flex items-center gap-2 justify-center text-white"
+            >
+              <BiShareAlt size={45} color="white" className="" />
+              <span className="text-white text-sm md:text-lg font-goudy-old font-semibold">
+                {copied ? "Copied!" : ""}
+              </span>
+            </button>
+          </div>
+
+          <div className="flex-shrink-0 md:w-[200px] flex justify-end md:order-3">
+            <button className="text-2xl px-16 md:text-3xl lg:text-4xl bg-[#FFAE00AB] py-1.5 md:py-1 md:px-6 md:mx-2 text-white text-center font-goudy rounded-full whitespace-nowrap ">
+              Subscribe
+            </button>
+          </div>
         </div>
       </div>
 

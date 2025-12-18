@@ -500,6 +500,10 @@ export default function HeroSection() {
         }
 
         @media (max-width: 500px) {
+         .hero :global(img) {
+          object-fit: fill;
+          -webkit-object-fit: fill;
+        }
           .hero .scene-1 .hero-text,
           .hero .scene-2 .hero-text,
           .hero .scene-3 .hero-text,

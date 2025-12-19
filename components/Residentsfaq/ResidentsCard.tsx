@@ -31,8 +31,8 @@ const ResidentsCard:FC<Carddata> = ({text,image}) => {
                     />
                 </div>
                 <div className="p-4 text-[20px] font-goudy pb-12 shadow-[0_-2px_30px_#00000087] residents-text-box  rounded-sm absolute bottom-[80px] leading-6 max-w-[220px] left-[39px] mx-auto bg-cover text-center bg-center" style={{backgroundImage:"url('/Residentstextbg.png')"}}>
-                    <p>We bring authenticity and clarity to premium living with collaboration with the industry’s best lorem Script hjuaodsnacsoabu</p>
-                    <div className='size-[97px] mx-auto mt-6 flex items-center justify-center bg-white rounded-full'><img src="/Peping.png" alt="" /></div>
+                    <p>{text}</p>
+                    <div className='size-[97px] mx-auto mt-6 flex items-center justify-center bg-white rounded-full'><img src={image} alt="image" /></div>
                 </div>
 
             </div>

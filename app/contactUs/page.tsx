@@ -30,7 +30,7 @@ export default function ContactPage() {
     <div className="min-h-screen bg-[#d0c0a5] text-[#0E4C45] mt-20">
       {/* Header */}
       <div className="bg-[#0E4C45] text-[#F5EDE0] py-4 text-center">
-        <h1 className="text-2xl md:text-4xl font-goudy-old leading-snug tracking-wide font-bold text-white">
+        <h1 className="text-2xl md:text-4xl font-goudy-old leading-snug tracking-wide font-extrabold text-white">
           We Are Looking For The Sun, Not Stars, <br /> Stars Fade Away When The Sun Is Out !
         </h1>
       </div>
@@ -45,7 +45,7 @@ export default function ContactPage() {
       >
         {/* Describe your Idea */}
       <div className="w-full flex flex-col items-center">
-  <label className="text-2xl md:text-4xl font-bold font-goudy-old block text-black mb-4 border-b-2 border-[#0E4C45] w-fit self-start sm:self-center md:self-start">
+  <label className="text-2xl md:text-4xl font-extrabold font-goudy-old block text-black mb-4  w-fit self-start sm:self-center md:self-start">
     Describe your Idea*
   </label>
 

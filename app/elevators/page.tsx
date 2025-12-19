@@ -32,15 +32,7 @@ export function ParchmentButton({
         className,
       ].join(" ")}
     >
-      {/* Background image */}
-      {/* <Image
-        src={buttonbg}
-        alt="Button background"
-        fill
-        priority
-        className="object-cover object-center absolute inset-0 -z-10"
-      /> */}
-
+    
       {/* Optional dark overlay for text visibility */}
       <span className="absolute inset-0 bg-black/5 -z-0" />
 
@@ -72,9 +64,6 @@ export default function Elevators() {
         }));
         if (mounted) setFaqs(items);
       } catch (err) {
-        // keep behavior simple — console error and leave faqs empty
-        // optionally show UI feedback
-        // eslint-disable-next-line no-console
         console.error('Error fetching faqs:', err);
       } finally {
         if (mounted) setLoadingFaqs(false);
@@ -118,7 +107,7 @@ export default function Elevators() {
 
         {/* RIGHT – text */}
         <div className="relative z-20 w-full xl:basis-3/12 h-full flex flex-col justify-center items-center text-center xl:items-end xl:mr-10  text-[#F5F5F5] px-1 sm:px-2 md:px-3 xl:px-4 gap-0 sm:gap-0.5 md:gap-3 ">
-          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto text-4xl sm:text-6xl md:text-[124px]">
+          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto text-[32px] sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
@@ -126,7 +115,7 @@ export default function Elevators() {
             Ideas Deserve
           </h2>
 
-          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto  mt-0 text-4xl sm:text-6xl md:text-[124px]">
+          <h1 className="font-goudy-agency font-bold leading-tight md:leading-none text-white mx-auto  mt-0 text-[32px] sm:text-6xl md:text-[124px]">
             Great
           </h1>
 
@@ -150,11 +139,11 @@ export default function Elevators() {
         {/* content wrapper */}
         <div className="relative z-10  mx-auto flex flex-col items-center text-center">
          
-          <h2 className="font-goudy-agency font-bold text-black leading-tight text-4xl md:text-5xl lg:text-7xl">
+          <h2 className="font-goudy-agency font-bold text-black leading-tight text-[28px] md:text-5xl lg:text-7xl">
             Three Paths to Our Engagement
           </h2>
 
-          <p className="font-goudy-old font-extrabold text-black  text-2xl md:text-3xl lg:text-4xl max-w-[850px] my-2">
+          <p className="font-goudy-old font-extabold text-black  text-2xl md:text-3xl lg:text-4xl max-w-[850px] my-2">
             Choose the Passage that aligns with your vision, and let our shared Journey Commence.
           </p>
 
@@ -217,7 +206,7 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-goudy-old font-semibold text-2xl md:text-3xl md:px-2 lg:text-4xl leading-snug tracking-wide ">
+                <h3 className="font-goudy-old font-extrabold text-2xl md:text-3xl md:px-2 lg:text-4xl leading-snug tracking-wide ">
                   Unveil Your Vision
                 </h3>
 
@@ -254,7 +243,7 @@ export default function Elevators() {
                   />
                 </div>
 
-                <h3 className="font-goudy-old font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
+                <h3 className="font-goudy-old font-extrabold text-2xl md:text-3xl lg:text-4xl leading-snug tracking-wide">
                   Offer Your Proposal
                 </h3>
 
@@ -283,7 +272,7 @@ export default function Elevators() {
             Common Inquiries
           </h2>
 
-          <p className="font-goudy-old font-semibold text-2xl md:text-3xl lg:text-4xl leading-snug text-black max-w-[900px] mt-6">
+          <p className="font-goudy-old font-extrabold text-2xl md:text-3xl lg:text-4xl leading-snug text-black max-w-[900px] mt-6">
             All you need discern regarding alliance with us.
           </p>
 

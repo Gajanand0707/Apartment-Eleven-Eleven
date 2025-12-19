@@ -82,7 +82,7 @@ export default function ScienceSection() {
     <section className="relative bg-[#D8CCBA]  overflow-hidden pb-[78px]">
       <div className="max-w-[1400px] mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="font-goudy-agency font-bold text-4xl sm:text-5xl lg:text-7xl mt-[61px] leading-[1.15] text-black mb-8">
+        <h2 className="font-goudy-old lg:font-goudy-agency font-bold text-4xl sm:text-5xl lg:text-7xl mt-[61px] leading-[1.15] text-black mb-8">
           In Science we Trust
         </h2>
 
@@ -274,7 +274,7 @@ function CarouselCard({
           className="object-cover object-center rounded-[32px]"
         />
               <div className={`relative z-[1] ${contentPadding} flex flex-col items-center text-center w-full min-w-0 ${size === 'large' ? 'h-auto md:h-full' : 'h-full'}`}>
-            <h3 className={`font-semibold ${size === "small" ? "text-2xl mb-1 sm:mb-2 line-clamp-2 overflow-hidden" : "text-2xl md:text-4xl mb-2 sm:mb-3"} break-words`}>
+            <h3 className={`font-semibold ${size === "small" ? "text-[24px] mb-1 sm:mb-2 line-clamp-2 overflow-hidden" : "text-2xl md:text-4xl mb-2 sm:mb-3"} break-words`}>
               {card.title}
             </h3>
             <div className={`border-b-white border w-screen my-1 ${size === 'large' ? '-mx-5 sm:-mx-6 md:-mx-8' : '-mx-4 sm:-mx-6 md:-mx-8'}`} />

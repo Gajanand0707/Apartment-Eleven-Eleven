@@ -69,7 +69,7 @@ export default function InsidePage() {
 
             {/* Right text */}
             <div className=" max-w-full md:pr-10 md:text-right">
-              <h2 className="font-goudy-agency font-extrabold  md:text-right text-center
+              <h2 className="font-goudy-agency font-bold  md:text-right text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">A Legacy</span>
                 <span className="block">of Creation</span>
@@ -98,7 +98,7 @@ export default function InsidePage() {
 
             {/* Left text */}
             <div className=" max-w-full md:pr-10 order-2 md:order-1 py-4 md:py-0">
-              <h2 className="font-goudy-agency font-extrabold  md:text-left text-center
+              <h2 className="font-goudy-agency font-bold  md:text-left text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">The Architecture</span>
                 <span className="block">of Belief</span>
@@ -145,7 +145,7 @@ export default function InsidePage() {
 
             {/* Right text */}
             <div className=" max-w-full md:pr-10 py-4 md:py-0">
-              <h2 className="font-goudy-agency font-extrabold md:leading-20 md:text-right text-center
+              <h2 className="font-goudy-agency font-bold md:leading-20 md:text-right text-center
                              text-4xl md:text-5xl lg:text-7xl ">
                 <span className="block">The Light</span>
                 <span className="block">Within</span>

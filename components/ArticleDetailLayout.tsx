@@ -32,6 +32,7 @@ interface ArticleDetailLayoutProps {
       url?: string;
       label?: string;
     }>;
+    audio_title?: string;
     audio?: any;
     createdAt: string;
     updatedAt: string;
@@ -65,6 +66,7 @@ interface ArticleDetailLayoutProps {
           width?: number;
           height?: number;
         };
+        video_title?: string;
         video: any | null;
         pdf: any | null;
       }>;
@@ -84,6 +86,7 @@ interface ArticleDetailLayoutProps {
           width?: number;
           height?: number;
         };
+        video_title?: string;
         video?: any | null;
         pdf?: any | null;
       }>;
@@ -92,6 +95,7 @@ interface ArticleDetailLayoutProps {
         title: string;
         description: string;
         image?: any;
+        video_title?: string;
         video?: any | null;
         pdf?: any | null;
       }>;
@@ -275,9 +279,16 @@ export default function ArticleDetailLayout({
                 if (!audioUrl) return null;
                 return (
                   <div className="mb-6">
+                    {article.audio_title && (
+                      <h3 className="text-xl md:text-3xl font-goudy text-left mt-3">
+                        {article.audio_title}
+                      </h3>
+                    )}
                     <audio controls src={audioUrl} className="w-full">
+                      
                       Your browser does not support the audio element.
                     </audio>
+                    
                   </div>
                 );
               })()}
@@ -349,16 +360,20 @@ export default function ArticleDetailLayout({
                                       firstV?.url ??
                                       firstV?.data?.attributes?.url ??
                                       firstV?.data?.url;
+                                    const vTitle = subheading?.video_title;
                                     if (!vUrl) return null;
                                     return (
-                                      <div className="w-full my-6 rounded-2xl overflow-hidden flex justify-center">
-                                        <div className="relative w-full h-64 md:h-[720px] bg-black flex items-center justify-center">
+                                      <div className="w-full my-6">
+                                        <div className="relative w-full h-64 md:h-[720px] bg-black flex items-center justify-center rounded-2xl overflow-hidden">
                                           <video
                                             controls
                                             src={vUrl}
                                             className="w-full h-full object-contain"
                                           />
                                         </div>
+                                        {vTitle ? (
+                                          <div className="text-center mt-2 font-goudy-old text-2xl md:text-3xl lg:text-4xl"><span className="">~</span> {vTitle} <span className="">~</span></div>
+                                        ) : null}
                                       </div>
                                     );
                                   })()}

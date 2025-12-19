@@ -1,12 +1,23 @@
 .residentscard:hover .left_door {
-    left: -60px;
-    transform: scale(0.6);
+    left: -100px;
+    /* transform: scale(0.6); */
 }
 .residentscard:hover .right_door {
-    right: -60px;
-    transform: scale(0.6);
+    right: -100px;
+    /* transform: scale(0.6); */
+}
+.residentscard:hover{
+    transform: scale(1.1);
 }
 .residentscard,
 .left_door , .right_door{
-    transition: 0.5s all;
+    transition: 1s all;
+}
+.residents-text-box{
+    transform: scale(0.6);
+    transition: 1s all;
+}
+.residentscard:hover .residents-text-box{
+z-index: 10;
+ transform: scale(1);
 }

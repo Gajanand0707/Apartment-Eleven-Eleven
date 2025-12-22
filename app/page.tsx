@@ -24,6 +24,7 @@ import IdeasSection from "@/components/IdeasSection";
 import ScienceSection from "@/components/ScienceSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import LoadingScreen from "@/components/DotLoader";
+import ResidentsCard from "@/components/Residentsfaq/ResidentsCard";
 
 const demoImages = [
   sahiba.src,
@@ -176,9 +177,9 @@ export default function Home() {
 
           {/* Button */}
           <a href="/elevators">
-          <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-bold lg:font-goudy-old">
-            Elevator's Waiting
-          </TextureButton>
+            <TextureButton className="text-[24px] md:text-[30px] lg:text-[36px] px-8 py-3 font-goudy lg:font-bold lg:font-goudy-old">
+              Elevator's Waiting
+            </TextureButton>
           </a>
 
           {/* Tagline */}
@@ -189,7 +190,7 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-[#D8CCBA] text-black px-6 py-[51px]">
-        
+
 
         {/* content wrapper */}
         <div className="relative z-1 max-w-[1400px] mx-auto text-center">
@@ -243,7 +244,7 @@ export default function Home() {
                     View all Residents
                   </TextureButton>
 
-              
+
                 </a>
               </div>
             </div>
@@ -266,7 +267,26 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <TestimonialsSection />
+      <section className="relative flex flex-col justify-center items-center overflow-hidden bg-[#D8CCBA] text-black min-h-[680px] text-center px-6 py-16">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-goudy-agency font-bold mb-12">
+          Residents Testimonies
+        </h1>
+        <div className="grid xl:gap-30 lg:gap-20 gap-4 md:grid-cols-3">
+          <ResidentsCard 
+          text="We bring authenticity and clarity to premium living with collaboration with the industry’s best lorem Script hjuaodsnacsoabu" 
+          image="/Peping.png" />
+          <ResidentsCard 
+          text="We bring authenticity and clarity to premium living with collaboration with the industry’s best lorem Script hjuaodsnacsoabu" 
+          image="/Peping.png" />
+          <ResidentsCard 
+          text="We bring authenticity and clarity to premium living with collaboration with the industry’s best lorem Script hjuaodsnacsoabu" 
+          image="/Peping.png" />
+       
+        </div>
+
+      </section>
+
+      {/* <TestimonialsSection /> */}
 
 
       <MediaMentions />

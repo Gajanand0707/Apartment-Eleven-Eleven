@@ -13,36 +13,38 @@ export function BlogsList({ blogs }: BlogsListProps) {
   return (
     <div className="space-y-20">
       {blogs.map((blog, index) => {
-        // Pattern based on index to match design
-        if (index === 0) {
-          // First: Horizontal left
+        // Repeating pattern: 8 blogs per cycle
+        const patternIndex = index % 8
+        
+        if (patternIndex === 0) {
+          // Horizontal left
           return <BlogCardHorizontal key={blog.id} blog={blog} imagePosition="left" />
-        } else if (index === 1) {
-          // Second: Horizontal right
+        } else if (patternIndex === 1) {
+          // Horizontal right
           return <BlogCardHorizontal key={blog.id} blog={blog} imagePosition="right" />
-        } else if (index === 2) {
-          // Third: 2x2 grid
+        } else if (patternIndex === 2) {
+          // 2x2 grid
           return (
             <div key={`grid-${index}`} className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-              {blogs.slice(2, 4).map((gridBlog) => (
+              {blogs.slice(index, index + 2).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}
             </div>
           )
-        } else if (index === 4) {
-          // Fifth: Featured full width
+        } else if (patternIndex === 4) {
+          // Featured full width
           return <BlogCardFeatured key={blog.id} blog={blog} />
-        } else if (index === 5) {
-          // Sixth: 2x2 grid again
+        } else if (patternIndex === 5) {
+          // 2x2 grid again
           return (
             <div key={`grid-${index}`} className="grid md:grid-cols-2 gap-x-12 gap-y-16">
-              {blogs.slice(5, 7).map((gridBlog) => (
+              {blogs.slice(index, index + 2).map((gridBlog) => (
                 <BlogCardGrid key={gridBlog.id} blog={gridBlog} />
               ))}
             </div>
           )
-        } else if (index === 7) {
-          // Eighth: Horizontal left
+        } else if (patternIndex === 7) {
+          // Horizontal left
           return <BlogCardHorizontal key={blog.id} blog={blog} imagePosition="left" />
         }
         return null
